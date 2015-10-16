@@ -18,3 +18,12 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 autopublish             # Publish all data to the clients (for prototyping)
 insecure                # Allow all DB writes from clients (for prototyping)
+semantic:ui-css
+iron:router
+meteorhacks:fast-render
+useraccounts:semantic-ui
+accounts-password
+accounts-google
+accounts-facebook
+accounts-twitter
+useraccounts:iron-routing

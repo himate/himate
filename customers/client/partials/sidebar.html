@@ -1,0 +1,27 @@
+<template name="partials_sidebar">
+    <div id="partials-sidebar" class="ui fixed wide left sidebar">
+        <div class="ui base segment">
+            <a class="home" href="{{ pathFor 'pages_startpage' }}"> waslchiraa </a>
+
+            <div class="ui center aligned base segment">
+                {{# if currentUser }}
+                <br />
+                <br />
+                <img class="ui circular avatar image" src="/images/avatars/elyse.png" />
+                <br />
+                <strong>{{ currentUser.username }}</strong>
+                {{> atNavButton }}
+                {{ else }}
+                <p>Please login first...</p>
+                {{/ if }}
+            </div>
+            
+            <div class="ui center aligned menu">
+                
+            <a class="item" href="{{ pathFor 'pages_about_us' }}"><i class="help icon"></i>About Us</a>
+            <a class="item" href="{{ pathFor 'pages_imprint' }}"><i class="info icon"></i>Imprint</a>
+
+            </div>
+        </div>
+    </div>
+</template>
