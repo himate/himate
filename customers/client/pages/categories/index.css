@@ -1,0 +1,11 @@
+#pages-categories .header {
+    display: block;
+}
+
+#pages-categories .right.chevron.icon {
+    float: right;
+}
+
+#pages-categories .item {
+    cursor: pointer;
+}

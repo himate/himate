@@ -26,6 +26,16 @@ Router.route('/vouchers/:_id', {
 });
 
 /**
+ * categories
+ */
+Router.route('/categories', {
+    name: 'pages_categories',
+    waitOn: function() {
+        return [Meteor.subscribe('categories')];
+    }
+});
+
+/**
  * about us
  */
 Router.route('/about-us', {

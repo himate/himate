@@ -18,31 +18,31 @@ Meteor.startup(function() {
         Vouchers.insert({
             "title": "Fashion 1",
             "description": "Lorem Ipsum",
-            "categoryId": c._id
+            "categoryId": c
         });
 
         Vouchers.insert({
             "title": "Fashion 2",
             "description": "Lorem Ipsum",
-            "categoryId": c._id
+            "categoryId": c
         });
 
         Vouchers.insert({
             "title": "Fashion 3",
             "description": "Lorem Ipsum",
-            "categoryId": c._id
+            "categoryId": c
         });
 
         Vouchers.insert({
             "title": "Fashion 4",
             "description": "Lorem Ipsum",
-            "categoryId": c._id
+            "categoryId": c
         });
 
-        Categories.update(c._id, {
+        Categories.update(c, {
             $set: {
-                couponCount: Vouchers.find({
-                    categoryId: c._id
+                voucherCount: Vouchers.find({
+                    categoryId: c
                 }).count()
             }
         });
@@ -55,25 +55,25 @@ Meteor.startup(function() {
         Vouchers.insert({
             "title": "DIY 1",
             "description": "Lorem Ipsum",
-            "categoryId": c._id
+            "categoryId": c
         });
 
         Vouchers.insert({
             "title": "DIY 2",
             "description": "Lorem Ipsum",
-            "categoryId": c._id
+            "categoryId": c
         });
 
         Vouchers.insert({
             "title": "DIY 3",
             "description": "Lorem Ipsum",
-            "categoryId": c._id
+            "categoryId": c
         });
 
-        Categories.update(c._id, {
+        Categories.update(c, {
             $set: {
-                couponCount: Vouchers.find({
-                    categoryId: c._id
+                voucherCount: Vouchers.find({
+                    categoryId: c
                 }).count()
             }
         });
@@ -86,43 +86,43 @@ Meteor.startup(function() {
         Vouchers.insert({
             "title": "Food 1",
             "description": "Lorem Ipsum",
-            "categoryId": c._id
+            "categoryId": c
         });
 
         Vouchers.insert({
             "title": "Food 2",
             "description": "Lorem Ipsum",
-            "categoryId": c._id
+            "categoryId": c
         });
 
         Vouchers.insert({
             "title": "Food 3",
             "description": "Lorem Ipsum",
-            "categoryId": c._id
+            "categoryId": c
         });
 
         Vouchers.insert({
             "title": "Food 4",
             "description": "Lorem Ipsum",
-            "categoryId": c._id
+            "categoryId": c
         });
 
         Vouchers.insert({
             "title": "Food 5",
             "description": "Lorem Ipsum",
-            "categoryId": c._id
+            "categoryId": c
         });
 
         Vouchers.insert({
             "title": "Food 6",
             "description": "Lorem Ipsum",
-            "categoryId": c._id
+            "categoryId": c
         });
 
-        Categories.update(c._id, {
+        Categories.update(c, {
             $set: {
-                couponCount: Vouchers.find({
-                    categoryId: c._id
+                voucherCount: Vouchers.find({
+                    categoryId: c
                 }).count()
             }
         });
@@ -135,19 +135,19 @@ Meteor.startup(function() {
         Vouchers.insert({
             "title": "Furniture 1",
             "description": "Lorem Ipsum",
-            "categoryId": c._id
+            "categoryId": c
         });
 
         Vouchers.insert({
             "title": "Furniture 2",
             "description": "Lorem Ipsum",
-            "categoryId": c._id
+            "categoryId": c
         });
 
-        Categories.update(c._id, {
+        Categories.update(c, {
             $set: {
-                couponCount: Vouchers.find({
-                    categoryId: c._id
+                voucherCount: Vouchers.find({
+                    categoryId: c
                 }).count()
             }
         });
@@ -160,19 +160,19 @@ Meteor.startup(function() {
         Vouchers.insert({
             "title": "Household 1",
             "description": "Lorem Ipsum",
-            "categoryId": c._id
+            "categoryId": c
         });
 
         Vouchers.insert({
             "title": "Household 2",
             "description": "Lorem Ipsum",
-            "categoryId": c._id
+            "categoryId": c
         });
 
-        Categories.update(c._id, {
+        Categories.update(c, {
             $set: {
-                couponCount: Vouchers.find({
-                    categoryId: c._id
+                voucherCount: Vouchers.find({
+                    categoryId: c
                 }).count()
             }
         });

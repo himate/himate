@@ -1,0 +1,31 @@
+<template name="pages_categories">
+    <div id="pages-categories" class="ui container">
+        <h1>Categories</h1>
+
+        <div class="ui divider"></div>
+
+        <div class="ui items">
+            {{# each categories }}
+            <div class="item">
+                <div class="ui small image">
+                    <img src="/images/wireframe/image.png">
+                </div>
+                <div class="content">
+                    <div class="header">
+                        {{ title }}
+                        <i class="right chevron icon"></i>
+                    </div>
+                    <div class="description">
+                        <p class="ui image">
+                            {{!-- description --}}
+                            <img src="/images/wireframe/short-paragraph.png" />
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui divider"></div>
+            {{/ each }}
+        </div>
+    </div>
+</template>
