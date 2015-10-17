@@ -1,9 +1,9 @@
 #partials-languages .ui.primary.buttons .button, #partials-languages .ui.primary.button {
-    background: transparent;
+    background: transparent !important;
 }
 
 #partials-languages .ui.primary.buttons .button:hover, #partials-languages .ui.primary.button:hover {
-    background: transparent;
+    background: transparent !important;
 }
 
 body:not(.pages-startpage) #partials-languages {

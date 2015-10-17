@@ -1,8 +1,8 @@
 /**
- * publish all coupons
+ * publish all vouchers
  */
-Meteor.publish('coupons', function() {
-    return Coupons.find();
+Meteor.publish('vouchers', function() {
+    return Vouchers.find();
 });
 
 /**
@@ -10,4 +10,4 @@ Meteor.publish('coupons', function() {
  */
 Meteor.publish('categories', function() {
     return Categories.find();
-});
+}); 

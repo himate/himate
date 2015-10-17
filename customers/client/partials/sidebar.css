@@ -8,15 +8,16 @@
     padding-top: 2em;
 }
 
+#partials-sidebar .transparent.menu {
+    width: auto;
+}
+
 #partials-sidebar .circular.image {
     width: 64px;
     height: 64px;
 }
 
-#partials-sidebar .home {
-    color: #F35938;
-    font-weight: bold;
-    font-size: 2em;
-    text-align: center;
-    display: block;
+/* customize login form */
+#partials-sidebar .at-form form > .ui.segment {
+    padding: 0;
 }

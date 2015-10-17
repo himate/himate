@@ -1,17 +1,9 @@
 <template name="partials_main_menu">
     <div id="partials-main-menu" class="ui top fixed inverted menu">
-        <div class="sidebar toggle item">
+        <div class="sidebar toggle item icon">
             <i class="sidebar icon"></i>
         </div>
 
-        <div class="right menu">
-            <div class="item">
-                {{# if currentUser }}
-                <a class="ui primary logout button">Sign Out</a>
-                {{ else }}
-                <a href="{{ pathFor 'pages_sign_in' }}" class="ui primary button">Sign In</a>
-                {{/ if }}
-            </div>
-        </div>
+        <img src="/images/logo.png" class="logo" alt="Waslchiraa Logo" />
     </div>
 </template>

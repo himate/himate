@@ -1,0 +1,11 @@
+#pages-vouchers .header {
+    display: block;
+}
+
+#pages-vouchers .right.chevron.icon {
+    float: right;
+}
+
+#pages-vouchers .item {
+    cursor: pointer;
+}

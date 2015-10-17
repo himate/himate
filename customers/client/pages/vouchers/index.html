@@ -1,0 +1,35 @@
+<template name="pages_vouchers">
+    <div id="pages-vouchers" class="ui container">
+        <h1>Vouchers</h1>
+
+        <div class="ui divider"></div>
+
+        <div class="ui items">
+            {{# each vouchers }}
+            <div class="item">
+                <div class="ui small image">
+                    <img src="/images/wireframe/image.png">
+                </div>
+                <div class="content">
+                    <div class="header">
+                        {{ title }}
+                        <i class="right chevron icon"></i>
+                    </div>
+                    <div class="meta">
+                        <span class="valid">valid until 01/01/1970</span>
+                    </div>
+
+                    <div class="description">
+                        <p class="ui image">
+                            {{!-- description --}}
+                            <img src="/images/wireframe/short-paragraph.png" />
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ui divider"></div>
+            {{/ each }}
+        </div>
+    </div>
+</template>

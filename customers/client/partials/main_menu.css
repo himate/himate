@@ -2,6 +2,20 @@
     background: #F35938;
 }
 
+#partials-main-menu .sidebar {
+    font-size: 1.25em;
+    padding: 0 .5em;
+}
+
+#partials-main-menu .sidebar.item:before {
+    display: none;
+}
+
+#partials-main-menu .logo {
+    width: 223px !important;
+    margin: 1em 0;
+}
+
 body.pages-startpage #partials-main-menu {
     display: none;
 }
