@@ -1,0 +1,7 @@
+#partials-main-menu {
+    background: #F35938;
+}
+
+body.pages-startpage #partials-main-menu {
+    display: none;
+}

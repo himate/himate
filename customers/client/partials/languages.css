@@ -1,0 +1,11 @@
+#partials-languages .ui.primary.buttons .button, #partials-languages .ui.primary.button {
+    background: transparent;
+}
+
+#partials-languages .ui.primary.buttons .button:hover, #partials-languages .ui.primary.button:hover {
+    background: transparent;
+}
+
+body:not(.pages-startpage) #partials-languages {
+    display: none;
+}

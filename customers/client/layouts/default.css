@@ -1,3 +1,16 @@
-.pushable > .ui.container {
+.pusher > .ui.container {
     padding: 5em 0;
+}
+
+.ui.primary.buttons .button, .ui.primary.button {
+    background: #F35938;
+}
+
+.ui.primary.buttons .button:hover, .ui.primary.button:hover {
+    background: #e3563b;
+}
+
+/** app states */
+.pages-startpage.pushable > .pusher {
+    background: #f35938 !important;
 }

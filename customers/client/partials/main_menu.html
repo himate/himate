@@ -4,14 +4,10 @@
             <i class="sidebar icon"></i>
         </div>
 
-        <div class="ui item dropdown">
-            <strong>{{ title }}</strong>
-        </div>
-
         <div class="right menu">
             <div class="item">
                 {{# if currentUser }}
-                <a href="{{ pathFor 'pages_sign_in' }}" class="ui primary button logout">Sign Out</a>
+                <a class="ui primary logout button">Sign Out</a>
                 {{ else }}
                 <a href="{{ pathFor 'pages_sign_in' }}" class="ui primary button">Sign In</a>
                 {{/ if }}

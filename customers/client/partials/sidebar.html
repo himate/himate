@@ -5,22 +5,24 @@
 
             <div class="ui center aligned base segment">
                 {{# if currentUser }}
-                <br />
-                <br />
-                <img class="ui circular avatar image" src="/images/avatars/elyse.png" />
-                <br />
-                <strong>{{ currentUser.username }}</strong>
-                {{> atNavButton }}
+                <div>
+                    <img class="ui circular avatar image" src="/images/avatars/elyse.png" />
+                    <br />
+                    <strong>{{ currentUser.username }}</strong>
+                    <br />
+                </div>
                 {{ else }}
-                <p>Please login first...</p>
+                <p>
+                    Please login first...
+                </p>
                 {{/ if }}
+                {{> atNavButton }}
             </div>
-            
-            <div class="ui center aligned menu">
-                
-            <a class="item" href="{{ pathFor 'pages_about_us' }}"><i class="help icon"></i>About Us</a>
-            <a class="item" href="{{ pathFor 'pages_imprint' }}"><i class="info icon"></i>Imprint</a>
 
+            <div class="ui center aligned three item menu">
+                <a class="item" href="{{ pathFor 'pages_about_us' }}"><i class="info icon"></i>About Us</a>
+                <a class="item" href="{{ pathFor 'pages_privacy' }}"><i class="privacy icon"></i>Privacy</a>
+                <a class="item" href="{{ pathFor 'pages_imprint' }}"><i class="legal icon"></i>Imprint</a>
             </div>
         </div>
     </div>

@@ -1,17 +1,3 @@
-// ----- template helpers ------------------------------------------------------
-/**
- *
- */
-Template.partials_main_menu.helpers({
-
-    /**
-     *
-     */
-    title: function() {
-        return Session.get('pageTitle');
-    }
-});
-
 // ----- template events -------------------------------------------------------
 /**
  *
@@ -19,26 +5,20 @@ Template.partials_main_menu.helpers({
 Template.partials_main_menu.events({
 
     /**
-     *
+     * open/close the sidebar
+     * @param {Object} event
      */
-    'click .sidebar': function(event) {
-        $('#partials-sidebar').sidebar('setting', 'transition', 'overlay').sidebar('toggle');
+    'click .sidebar.toggle.item': function(event) {
+        $('#partials-sidebar').sidebar('setting', 'transition', 'push').sidebar('toggle');
         return App.Helpers.cancel(event);
     },
 
     /**
-     *
+     * logout current user
+     * @param {Object} event
      */
     'click .logout': function(event) {
         AccountsTemplates.logout();
         return App.Helpers.cancel(event);
     }
-});
-
-// ----- template hooks -------------------------------------------------------
-/**
- *
- */
-Template.partials_main_menu.onRendered(function() {
-    // :TODO....
 });

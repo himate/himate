@@ -1,24 +1,22 @@
 #partials-sidebar {
     background: #FFF;
-    overflow: hidden;
 }
 
 #partials-sidebar .ui.segment {
+    border: none;
     box-shadow: none;
     padding-top: 2em;
-}
-
-#partials-sidebar .transparent.menu {
-    margin: 0 auto;
-}
-
-#partials-sidebar .footer.menu {
-    font-size: .9rem;
-    background: inherit;
-    position: relative;
 }
 
 #partials-sidebar .circular.image {
     width: 64px;
     height: 64px;
+}
+
+#partials-sidebar .home {
+    color: #F35938;
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+    display: block;
 }
