@@ -1,0 +1,19 @@
+{
+    "welcome": "Welcome",
+
+    "administration": "Administration",
+
+    "vouchers": "Vouchers",
+    "voucher": "Voucher",
+    "vouchers_add": "Add Voucher",
+
+    "categories": "Categories",
+    "category": "Category",
+
+    "users": "Users",
+    "user": "User",
+    "users_add": "Create User",
+
+    "imprint": "Imprint",
+    "copyright": "2015 by waslchiraa. All rights reserved."
+}

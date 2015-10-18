@@ -1,0 +1,16 @@
+#partials-main-menu {
+    background: #ec0000;
+}
+
+#partials-main-menu .sidebar {
+    font-size: 1.25em;
+    padding: 0 .5em;
+}
+
+#partials-main-menu .sidebar.item:before {
+    display: none;
+}
+
+#partials-main-menu .logo {
+    width: 223px !important;
+}

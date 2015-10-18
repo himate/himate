@@ -1,0 +1,19 @@
+{
+    "welcome": "Willkommen",
+
+    "administration": "Administration",
+
+    "vouchers": "Gutscheine",
+    "voucher": "Gutschein",
+    "vouchers_add" : "Neuer Gutschein",
+
+    "categories": "Kategorien",
+    "category": "Kategorie",
+
+    "users": "Benutzer",
+    "user": "Benutzer",
+    "users_add": "Neuer Benutzer",
+
+    "imprint": "Impressum",
+    "copyright" : "2015 durch waslchiraa. Alle Rechte vorbehalten."
+}

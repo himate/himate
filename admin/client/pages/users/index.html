@@ -1,0 +1,54 @@
+<template name="pages_users">
+    {{> partials_sub_menu active='users' search='username' }}
+
+    <div id="pages-users" class="ui basic segment">
+        <div class="ui mobile reversed stackable grid">
+            <div class="twelve wide column">
+                <h2>{{_ 'users' }}</h2>
+                <table class="ui compact celled definition table">
+                    <thead class="full-width">
+                        <tr>
+                            <th width="10"></th>
+                            <th>{{_ 'username' }}</th>
+                            <th>{{_ 'email' }} </th>
+                            <th>{{_ 'roles' }}</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {{# each users }}
+                        <tr>
+                            <td class="collapsing">
+                            <div class="ui fitted checkbox">
+                                <input type="checkbox">
+                                <label></label>
+                            </div></td>
+                            <td>{{ username }}</td>
+                            <td>{{ firstEmail this }}</td>
+                            <td>{{ roles }}</td>
+                            <td width="10"><a class="remove write" href="#" title="{{_ 'Remove' }}"><i class="trash icon"></i></a></td>
+                        </tr>
+                        {{ else }}
+                        <tr>
+                            <td colspan="4">No items found.</td>
+                        </tr>
+                        {{/ each }}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="four wide column">
+                <h2>Info</h2>
+                <p>
+                    All user accounts of waslchiraa. Create new users here.
+                </p>
+            </div>
+        </div><!-- .grid -->
+    </div><!-- #pages-users -->
+
+    <div class="ui bottom fixed actions menu">
+        <a href="#" class="disabled item"> <i class="trash icon"></i> {{_ 'delete_selected' }} </a>
+        <a href="{{ pathFor 'pages_users_add' }}" title="{{_ 'users_add' }}" class="right item"><i class="add icon"></i>{{_ 'users_add' }}</a>
+    </div>
+</template>
