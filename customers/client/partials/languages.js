@@ -11,7 +11,15 @@ Template.partials_languages.events({
     'click .sidebar.toggle.item': function(event) {
         $('#partials-sidebar').sidebar('setting', 'transition', 'push').sidebar('toggle');
         return App.Helpers.cancel(event);
-    }
+    },
+
+    /**
+     *
+     */
+    'click .locale-change': function(event, template) {
+        TAPi18n.setLanguageAmplify(this.tag);
+        return App.Helpers.cancel(event);
+    },
 });
 
 // ----- template books --------------------------------------------------------
