@@ -1,0 +1,53 @@
+<template name="pages_vouchers">
+    <div id="pages-vouchers" class="ui basic segment">
+        <div class="ui mobile reversed stackable grid">
+            <div class="twelve wide column">
+                <h2>{{_ 'vouchers' }}</h2>
+                <table class="ui compact celled definition table">
+                    <thead class="full-width">
+                        <tr>
+                            <th width="10"></th>
+                            <th>{{_ 'title' }}</th>
+                            <th>{{_ 'description' }} </th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {{# each vouchers }}
+                        <tr>
+                            <td class="collapsing">
+                            <div class="ui fitted checkbox">
+                                <input type="checkbox">
+                                <label></label>
+                            </div></td>
+                            <td>{{ title }}</td>
+                            <td>{{ description }}</td>
+                            <td width="10"><a class="remove write" href="#" title="{{_ 'Remove' }}"><i class="trash icon"></i></a></td>
+                        </tr>
+                        {{ else }}
+                        <tr>
+                            <td colspan="4">No items found.</td>
+                        </tr>
+                        {{/ each }}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="four wide column">
+                <h2>Info</h2>
+                <p>
+                    Your vouchers on waslchiraa. Create new vouchers here.
+                </p>
+                <p>
+                    We'll approve your new vouchers within 24 hours.
+                </p>
+            </div>
+        </div><!-- .grid -->
+    </div><!-- #pages-vouchers -->
+
+    <div class="ui bottom fixed actions menu">
+        <a href="#" class="disabled item"> <i class="trash icon"></i> {{_ 'delete_selected' }} </a>
+        <a href="{{ pathFor 'pages_vouchers_add' }}" title="{{_ 'vouchers_add' }}" class="right item"><i class="add icon"></i>{{_ 'vouchers_add' }}</a>
+    </div>
+</template>

@@ -1,0 +1,23 @@
+#partials-sidebar {
+    background: #FFF;
+}
+
+#partials-sidebar .ui.segment {
+    border: none;
+    box-shadow: none;
+    padding-top: 2em;
+}
+
+#partials-sidebar .transparent.menu {
+    width: auto;
+}
+
+#partials-sidebar .circular.image {
+    width: 64px;
+    height: 64px;
+}
+
+/* customize login form */
+#partials-sidebar .at-form form > .ui.segment {
+    padding: 0;
+}

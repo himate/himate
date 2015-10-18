@@ -1,0 +1,23 @@
+.pusher > .ui.container {
+    padding: 5em 0;
+}
+
+.pusher > .ui.basic.segment, .pusher > .ui.container.error {
+    padding: 5em 2em 5em 2em;
+}
+
+.ui.primary.buttons .button, .ui.primary.button {
+    background: #005364;
+}
+
+.ui.primary.buttons .button:hover, .ui.primary.button:hover {
+    background: #005364 !important;
+}
+
+.ui.container a, .ui.basic.segment a {
+    color: #005364 !important;
+}
+
+.sub.menu a {
+    color: #666;
+}
