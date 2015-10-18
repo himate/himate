@@ -3,11 +3,15 @@
  */
 Meteor.startup(function() {
 
-    /**
-     *
-     */
+    // close sidebar after login
     Accounts.onLogin(function() {
-        // :TODO: discuss the desired behaviour, this could be the place to close the sidebar after login
-        $('#partials-sidebar').sidebar('toggle');
+        $('#partials-sidebar').sidebar('hide');
+    });
+
+    // :TODO: select language of user agent
+    TAPi18n.setLanguage("en").done(function() {
+        T9n.setLanguage("en");
+    }).fail(function(error) {
+        console.log(error);
     });
 });

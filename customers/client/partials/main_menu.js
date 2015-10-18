@@ -9,7 +9,7 @@ Template.partials_main_menu.events({
      * @param {Object} event
      */
     'click .sidebar.toggle.item': function(event) {
-        $('#partials-sidebar').sidebar('setting', 'transition', 'push').sidebar('toggle');
+        $('#partials-sidebar').sidebar('setting', 'transition', 'overlay').sidebar('toggle');
         return App.Helpers.cancel(event);
     },
 

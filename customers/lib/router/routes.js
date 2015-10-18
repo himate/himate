@@ -68,7 +68,6 @@ Router.route('/imprint', {
  */
 AccountsTemplates.configureRoute('signIn', {
     name: 'pages_sign_in',
-    path: '/login',
     template: 'pages_sign_in',
     layoutTemplate: 'layouts_default',
     redirect: '/vouchers',
