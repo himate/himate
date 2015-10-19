@@ -14,4 +14,7 @@ Meteor.startup(function() {
     }).fail(function(error) {
         console.log(error);
     });
+
+    // set semantic-ui for forms
+    AutoForm.setDefaultTemplate("semanticUI");
 });

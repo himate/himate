@@ -11,6 +11,26 @@ App.Helpers.cancel = function(event) {
     return false;
 };
 
+/**
+ *
+ */
+App.Helpers.infoMessage = function(message) {
+    Messages.insert({
+        "message": message,
+        "type": "info"
+    });
+};
+
+/**
+ *
+ */
+App.Helpers.errorMessage = function(message) {
+    Messages.insert({
+        "message": message,
+        "type": "error"
+    });
+};
+
 // ----- template helpers ------------------------------------------------------
 /**
  *

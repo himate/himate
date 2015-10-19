@@ -17,6 +17,17 @@ Router.route('/vouchers', {
 });
 
 /**
+ * vouchers add
+ */
+Router.route('/vouchers/add', {
+    name: 'pages_vouchers_add',
+    onBeforeAction: Router.merchantRequired,
+    waitOn: function() {
+        return [Meteor.subscribe('categories')];
+    }
+});
+
+/**
  * voucher details
  */
 Router.route('/vouchers/:_id', {
