@@ -2,11 +2,21 @@
  * publish all vouchers
  */
 Meteor.publish('vouchers', function() {
-    var today = moment().startOf('day').toDate();
+    var today = moment().endOf('day').toDate();
     var vouchers = Vouchers.find({
-        published: {
-            $gte: today
-        }
+        $and: [{
+            published: {
+                $lte: today
+            }
+        }, {
+            published: {
+                $exists: true
+            }
+        }, {
+            published: {
+                $ne: null
+            }
+        }]
     });
 
     var merchantIds = vouchers.map(function(v) {

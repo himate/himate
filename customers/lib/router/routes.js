@@ -9,30 +9,21 @@ Router.route('/', {
  * vouchers
  */
 Router.route('/vouchers', {
-    name: 'pages_vouchers',
-    waitOn: function() {
-        return [Meteor.subscribe('vouchers'), Meteor.subscribe('categories')];
-    }
+    name: 'pages_vouchers'
 });
 
 /**
  * vouchers
  */
 Router.route('/vouchers/:_id', {
-    name: 'pages_vouchers_details',
-    waitOn: function() {
-        return [Meteor.subscribe('vouchers'), Meteor.subscribe('categories')];
-    }
+    name: 'pages_vouchers_details'
 });
 
 /**
  * categories
  */
 Router.route('/categories', {
-    name: 'pages_categories',
-    waitOn: function() {
-        return [Meteor.subscribe('categories')];
-    }
+    name: 'pages_categories'
 });
 
 /**

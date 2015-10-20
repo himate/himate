@@ -25,12 +25,7 @@ Template.pages_vouchers.helpers({
         if (c) {
             return c;
         }
-
-        // if no category is set, we show all categories
-        return {
-            title: "All",
-            voucherCount: Vouchers.find().count()
-        };
+        return null;
     }
 });
 
