@@ -1,6 +1,6 @@
 // ----- vouchers --------------------------------------------------------------
 /**
- * publish all vouchers
+ * publish all vouchers owned by the current user/merchant
  */
 Meteor.publish('vouchers', function() {
 
@@ -13,31 +13,14 @@ Meteor.publish('vouchers', function() {
     return Vouchers.find({
         userId: this.userId
     }, {
-        sort: {
-            created: -1
-        },
         fields: {
             title: 1,
-            description: 1
+            description: 1,
+            categoryId: 1,
+            created: 1,
+            published: 1
         }
     });
-});
-
-/**
- * publish a single voucher and its details
- * @param {String} voucherId
- */
-Meteor.publish('voucher', function(voucherId) {
-
-    // check user input
-    check(voucherId, String);
-
-    // security checks
-    if (!Roles.userIsInRole(this.userId, 'merchant')) {
-        return this.ready();
-    }
-
-    return Vouchers.find(voucherId);
 });
 
 // ----- categories ------------------------------------------------------------

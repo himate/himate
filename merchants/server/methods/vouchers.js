@@ -17,6 +17,7 @@ Meteor.methods({
         // check user input
         check(doc, Object);
         check(doc.title, String);
+        check(doc.categoryId, String);
         check(doc.description, Match.Optional(String));
 
         // merchant should never be able to publish
@@ -27,6 +28,49 @@ Meteor.methods({
 
         // action
         return Vouchers.insert(doc);
+    },
+
+    /**
+     * update the given <doc>
+     * @param {Object} doc
+     * @param {String} id
+     */
+    "vouchers_edit": function(doc, id) {
+
+        // security checks
+        if (!Roles.userIsInRole(Meteor.userId(), ['merchant'])) {
+            throw new Meteor.Error("not-authorized");
+        }
+
+        // voucher should be owned by the current user
+        var voucher = Vouchers.findOne({
+            _id: id,
+            userId: Meteor.userId()
+        });
+        if (!voucher) {
+            throw new Meteor.Error("not-found");
+        }
+
+        // check user input
+        check(id, String);
+        check(doc, Object);
+        check(doc.$set, {
+            title: String,
+            categoryId: String,
+            description: Match.Optional(String)
+        });
+        check(doc.$unset, Match.Optional({
+            description: String
+        }));
+
+        // any edit will set the voucher offline
+        doc.$set.published = null;
+
+        // ensure the doc is linked to the current user (merchant)
+        doc.$set.userId = Meteor.userId();
+
+        // save update
+        return Vouchers.update(id, doc);
     },
 
     /**

@@ -11,6 +11,8 @@
                             <th width="10"></th>
                             <th>{{_ 'title' }}</th>
                             <th>{{_ 'description' }} </th>
+                            <th>{{_ 'category' }}</th>
+                            <th>{{_ 'from' }}</th>
                             <th>&nbsp;</th>
                         </tr>
                     </thead>
@@ -23,8 +25,15 @@
                                 <input type="checkbox">
                                 <label></label>
                             </div></td>
+
                             <td>{{ title }}</td>
+
                             <td>{{ description }}</td>
+
+                            <td>{{# with getCategory categoryId }}{{ title }}{{/ with }}</td>
+
+                            <td>{{# with getUser userId }}{{ username }}{{/ with }}</td>
+
                             <td width="10"><a class="remove write" href="#" title="{{_ 'Remove' }}"><i class="trash icon"></i></a></td>
                         </tr>
                         {{ else }}

@@ -45,3 +45,17 @@ Template.registerHelper("eq", function(a, b) {
 Template.registerHelper('pageTitle', function() {
     return Session.get('pageTitle');
 });
+
+/**
+ *
+ */
+Template.registerHelper('getUser', function(userId) {
+    return Meteor.users.findOne(userId);
+});
+
+/**
+ *
+ */
+Template.registerHelper('getCategory', function(categoryId) {
+    return Categories.findOne(categoryId);
+});

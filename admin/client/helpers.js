@@ -18,3 +18,17 @@ App.Helpers.cancel = function(event) {
 Template.registerHelper("eq", function(a, b) {
     return a == b;
 });
+
+/**
+ *
+ */
+Template.registerHelper('getUser', function(userId) {
+    return Meteor.users.findOne(userId);
+});
+
+/**
+ *
+ */
+Template.registerHelper('getCategory', function(categoryId) {
+    return Categories.findOne(categoryId);
+});

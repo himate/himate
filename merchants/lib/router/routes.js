@@ -11,9 +11,6 @@ Router.route('/', {
 Router.route('/vouchers', {
     name: 'pages_vouchers',
     onBeforeAction: Router.merchantRequired,
-    waitOn: function() {
-        return [Meteor.subscribe('vouchers'), Meteor.subscribe('categories')];
-    }
 });
 
 /**
@@ -21,10 +18,7 @@ Router.route('/vouchers', {
  */
 Router.route('/vouchers/add', {
     name: 'pages_vouchers_add',
-    onBeforeAction: Router.merchantRequired,
-    waitOn: function() {
-        return [Meteor.subscribe('categories')];
-    }
+    onBeforeAction: Router.merchantRequired
 });
 
 /**
@@ -32,10 +26,15 @@ Router.route('/vouchers/add', {
  */
 Router.route('/vouchers/:_id', {
     name: 'pages_vouchers_details',
-    onBeforeAction: Router.merchantRequired,
-    waitOn: function() {
-        return [Meteor.subscribe('vouchers'), Meteor.subscribe('categories')];
-    }
+    onBeforeAction: Router.merchantRequired
+});
+
+/**
+ * voucher details
+ */
+Router.route('/vouchers/:_id/edit', {
+    name: 'pages_vouchers_edit',
+    onBeforeAction: Router.merchantRequired
 });
 
 /**

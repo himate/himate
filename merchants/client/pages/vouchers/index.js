@@ -9,7 +9,11 @@ Template.pages_vouchers.helpers({
      * @reactive
      */
     vouchers: function() {
-        return Vouchers.find();
+        return Vouchers.find({}, {
+            sort: {
+                title: 1
+            }
+        });
     }
 });
 
@@ -22,7 +26,7 @@ Template.pages_vouchers.events({
     /**
      *
      */
-    'click table .remove' : function(event) {
+    'click table .remove': function(event) {
         // :TODO: use semantic ui dialog & translate
         if (confirm('Delete Voucher "' + this.title + '"?')) {
             Meteor.call('vouchers_remove', this._id);
@@ -30,7 +34,6 @@ Template.pages_vouchers.events({
         return App.Helpers.cancel(event);
     }
 });
-
 
 // ----- template hooks --------------------------------------------------------
 /**

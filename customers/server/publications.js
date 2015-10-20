@@ -2,7 +2,26 @@
  * publish all vouchers
  */
 Meteor.publish('vouchers', function() {
-    return Vouchers.find();
+    var vouchers = Vouchers.find();
+    var merchantIds = vouchers.map(function(v) {
+        return v.userId;
+    });
+    var categoryIds = vouchers.map(function(v){
+        return v.categoryId;
+    });
+    
+    // :TODO: select the right fields (merchant profile, name, company etc.)
+    var merchants = Meteor.users.find({
+        _id: {
+            $in: merchantIds
+        }
+    }, {
+        fields: {
+            username: 1
+        }
+    });
+
+    return [vouchers, merchants];
 });
 
 /**
@@ -10,4 +29,4 @@ Meteor.publish('vouchers', function() {
  */
 Meteor.publish('categories', function() {
     return Categories.find();
-}); 
+});
