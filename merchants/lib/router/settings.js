@@ -4,7 +4,6 @@ Router.configure({
     loadingTemplate: 'partials_loading',
     notFoundTemplate: 'errors_404',
     waitOn: function() {
-        // basic subscriptions, needed very often, so configure as defaults here
         return [Meteor.subscribe('vouchers'), Meteor.subscribe('categories')];
     }
 });

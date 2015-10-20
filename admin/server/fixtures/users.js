@@ -20,6 +20,7 @@ Meteor.startup(function() {
                 lastName: 'Doe'
             }
         });
+        Roles.addUsersToRoles(user, ['customer']);
 
         // sample merchant
         user = Accounts.createUser({

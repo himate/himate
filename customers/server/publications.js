@@ -2,6 +2,13 @@
  * publish all vouchers
  */
 Meteor.publish('vouchers', function() {
+
+    // security checks
+    if (!Roles.userIsInRole(this.userId, 'customer')) {
+        return this.ready();
+    }
+
+    // collect data
     var today = moment().endOf('day').toDate();
     var vouchers = Vouchers.find({
         $and: [{
@@ -38,6 +45,7 @@ Meteor.publish('vouchers', function() {
         }
     });
 
+    // send collections
     return [vouchers, merchants];
 });
 
@@ -45,5 +53,12 @@ Meteor.publish('vouchers', function() {
  * publish all categories
  */
 Meteor.publish('categories', function() {
+
+    // security checks
+    if (!Roles.userIsInRole(this.userId, 'customer')) {
+        return this.ready();
+    }
+
+    // send collection
     return Categories.find();
 });
