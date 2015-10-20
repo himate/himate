@@ -8,7 +8,6 @@ Router.onAfterAction(function() {
 });
 
 // ----- custom hooks ----------------------------------------------------------
-
 /**
  * user has to be an admin
  */

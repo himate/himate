@@ -3,11 +3,10 @@
  * hook to save app state using css classes
  */
 Router.onAfterAction(function() {
-    // use defer to avoid flickering...
-    Meteor.defer(function() {
+    if (Meteor.isClient) {
         var route = Router.current().route.getName().replace(/_/g, "-");
         $("body").removeAttr('class').addClass('pushable').addClass(route);
-    });
+    }
 });
 
 // ----- custom hooks ----------------------------------------------------------
