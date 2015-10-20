@@ -2,14 +2,21 @@
  * publish all vouchers
  */
 Meteor.publish('vouchers', function() {
-    var vouchers = Vouchers.find();
+    var today = moment().startOf('day').toDate();
+    var vouchers = Vouchers.find({
+        published: {
+            $gte: today
+        }
+    });
+
     var merchantIds = vouchers.map(function(v) {
         return v.userId;
     });
-    var categoryIds = vouchers.map(function(v){
+
+    var categoryIds = vouchers.map(function(v) {
         return v.categoryId;
     });
-    
+
     // :TODO: select the right fields (merchant profile, name, company etc.)
     var merchants = Meteor.users.find({
         _id: {
