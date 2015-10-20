@@ -1,0 +1,38 @@
+<template name="pages_vouchers_edit">
+    <div id="pages-vouchers-edit" class="ui basic segment">
+        <div class="ui mobile reversed stackable grid">
+            <div class="twelve wide column">
+                <h2>{{_ 'vouchers_edit' }}</h2>
+
+                {{# autoForm collection='Vouchers' doc=voucher id='pages_vouchers_edit' type='method-update' meteormethod='vouchers_edit' }}
+
+                <h3 class="ui dividing header">{{_ 'basics' }}</h3>
+                {{> afQuickField name='title' }}
+                {{> afQuickField name='description' type='textarea' }}
+
+                <h3 class="ui dividing header">{{_ 'relations' }}</h3>
+                {{> afQuickField name='userId' }}
+                {{> afQuickField name='categoryId' }}
+
+                <h3 class="ui dividing header">{{_ 'state' }}</h3>
+                {{> afQuickField name='published' }}
+
+                <div class="ui bottom fixed actions menu">
+                    <a href="{{ pathFor 'pages_vouchers' }}" class="disabled item"> <i class="left chevron icon"></i> {{_ 'back' }} </a>
+                    <button type="submit" class="right item">
+                        <i class="save icon"></i>
+                        {{_ 'submit' }}
+                    </button>
+                </div>
+                {{/autoForm}}
+            </div>
+
+            <div class="four wide column">
+                <h2>Info</h2>
+                <p>
+                    Update a voucher here.
+                </p>
+            </div>
+        </div><!-- .grid -->
+    </div><!-- #pages-vouchers -->
+</template>

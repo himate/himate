@@ -1,0 +1,34 @@
+<template name="pages_vouchers_details">
+    <div id="pages-vouchers-details" class="ui container">
+        <h1>Voucher: {{ item.title }}</h1>
+
+        <div class="ui divider"></div>
+
+        {{# with getUser item.userId }}
+        <p>
+            <strong>{{_ 'from' }}</strong>: {{ username }}
+        </p>
+        {{/ with }}
+
+        <div class="ui image">
+            <img src="/images/wireframe/image.png">
+        </div>
+        <div class="content">
+            <div class="meta">
+                <span class="valid">valid until 01/01/1970</span>
+            </div>
+            <div class="description">
+                <p class="ui image">
+                    {{!-- item.description --}}
+                    <img src="/images/wireframe/short-paragraph.png" />
+                </p>
+            </div>
+        </div>
+
+        <div class="ui bottom fixed menu">
+            <a class="item" href="{{ pathFor 'pages_vouchers' }}"><i class="left chevron icon"></i>Back</a>
+
+            <a class="right item ui primary button"><i class="flag icon"></i>Reserve Voucher</a>
+        </div>
+    </div>
+</template>

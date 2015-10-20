@@ -2,7 +2,10 @@
 Router.configure({
     layoutTemplate: 'layouts_default',
     loadingTemplate: 'partials_loading',
-    notFoundTemplate: 'errors_404'
+    notFoundTemplate: 'errors_404',
+    waitOn: function() {
+        return [Meteor.subscribe('users')];
+    }
 });
 
 // do not transform template names

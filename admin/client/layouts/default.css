@@ -21,3 +21,7 @@
 .sub.menu a {
     color: #666;
 }
+
+.ui.bottom.fixed.actions.menu button {
+    border: none;
+}

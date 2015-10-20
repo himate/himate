@@ -10,10 +10,7 @@ Router.route('/', {
  */
 Router.route('/users', {
     name: 'pages_users',
-    onBeforeAction: Router.adminRequired,
-    waitOn: function() {
-        return [Meteor.subscribe('users')];
-    }
+    onBeforeAction: Router.adminRequired
 });
 
 /**
@@ -21,10 +18,7 @@ Router.route('/users', {
  */
 Router.route('/users/:_id', {
     name: 'pages_users_details',
-    onBeforeAction: Router.adminRequired,
-    waitOn: function() {
-        return [Meteor.subscribe('users')];
-    }
+    onBeforeAction: Router.adminRequired
 });
 
 /**
@@ -39,10 +33,32 @@ Router.route('/vouchers', {
 });
 
 /**
+ * vouchers add
+ */
+Router.route('/vouchers/add', {
+    name: 'pages_vouchers_add',
+    onBeforeAction: Router.adminRequired,
+    waitOn: function() {
+        return [Meteor.subscribe('categories')];
+    }
+});
+
+/**
  * voucher details
  */
 Router.route('/vouchers/:_id', {
     name: 'pages_vouchers_details',
+    onBeforeAction: Router.adminRequired,
+    waitOn: function() {
+        return [Meteor.subscribe('vouchers'), Meteor.subscribe('categories')];
+    }
+});
+
+/**
+ * voucher details
+ */
+Router.route('/vouchers/:_id/edit', {
+    name: 'pages_vouchers_edit',
     onBeforeAction: Router.adminRequired,
     waitOn: function() {
         return [Meteor.subscribe('vouchers'), Meteor.subscribe('categories')];

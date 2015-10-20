@@ -13,7 +13,8 @@
                             <th>{{_ 'description' }} </th>
                             <th>{{_ 'category' }}</th>
                             <th>{{_ 'from' }}</th>
-                            <th>&nbsp;</th>
+                            <th>{{_ 'published' }}</th>
+                            <th colspan="2">&nbsp;</th>
                         </tr>
                     </thead>
 
@@ -26,7 +27,7 @@
                                 <label></label>
                             </div></td>
 
-                            <td>{{ title }}</td>
+                            <td><a href="{{ pathFor 'pages_vouchers_details' }}">{{ title }}</a></td>
 
                             <td>{{ description }}</td>
 
@@ -34,7 +35,11 @@
 
                             <td>{{# with getUser userId }}{{ username }}{{/ with }}</td>
 
-                            <td width="10"><a class="remove write" href="#" title="{{_ 'Remove' }}"><i class="trash icon"></i></a></td>
+                            <td>{{ published }}</td>
+
+                            <td width="10"><a class="edit write" href="{{ pathFor 'pages_vouchers_edit' }}" title="{{_ 'vouchers_edit' }}"><i class="pencil icon"></i></a></td>
+
+                            <td width="10"><a class="remove write" href="#" title="{{_ 'vouchers_remove' }}"><i class="trash icon"></i></a></td>
                         </tr>
                         {{ else }}
                         <tr>

@@ -12,7 +12,7 @@ Router.route('devtools', {
         html += '<title>waslchiraa | devtools</title>';
         html += '<style type="text/css">* { margin: 0; padding: 0; border: 0}</style>';
         html += '</head>';
-        html += '<frameset cols="25%,25%,*">';
+        html += '<frameset cols="320,320,*">';
         html += '<frame src="http://localhost:3000/" />';
         html += '<frame src="http://localhost:3001/" />';
         html += '<frame src="http://localhost:3002/" />';
