@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+
+export PACKAGE_DIRS=$PACKAGE_DIRS:`pwd ..`/packages
+
+echo $PACKAGE_DIRS
+
 # script runs from "/tools" folder
 if [ -d ../admin ]; then
     (cd ../admin && meteor --port 3002) &

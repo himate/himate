@@ -1,6 +1,16 @@
 /**
  * wait until meteor is ready
  */
+
+Meteor.startup = function (callback) {
+    if (__meteor_bootstrap__.startupHooks) {
+        __meteor_bootstrap__.startupHooks.push(callback);
+    } else {
+        // We already started up. Just call it now.
+        callback();
+    }
+};
+
 Meteor.startup(function() {
 
     // empty database?
@@ -38,4 +48,5 @@ Meteor.startup(function() {
         //
         console.log("> done.");
     }
+
 });

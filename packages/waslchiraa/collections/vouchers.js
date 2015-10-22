@@ -1,7 +1,5 @@
 // Schema definition for Vouchers
-VoucherSchema = new SimpleSchema({
-
-    // auto generated creation date
+var schemaConfiguration = {
     created: {
         type: Date,
         label: "Created",
@@ -19,15 +17,12 @@ VoucherSchema = new SimpleSchema({
             }
         }
     },
-
-    // the userId of the merchant
     userId: {
         type: String,
         regEx: SimpleSchema.RegEx.Id,
         optional: true,
         index: 1
     },
-
     // voucher category
     categoryId: {
         type: String,
@@ -54,7 +49,6 @@ VoucherSchema = new SimpleSchema({
             }
         }
     },
-
     title: {
         type: String
     },
@@ -66,8 +60,46 @@ VoucherSchema = new SimpleSchema({
         type: Date,
         optional: true
     }
-});
 
-// create collection and attach schema, so we can validate user input
+};
+
+if(Roles.userIsInRole(this.userId, 'admin')) {
+    // special configuration for admin
+    schemaConfiguration.userId.autoform = {
+                options: function() {
+                    var options = [];
+                    Meteor.users.find({
+                        roles: {
+                            $in: ['merchant']
+                        }
+                    }, {
+                        fields: {
+                            username: 1,
+                            _id: 1
+                        },
+                        sort: {
+                            username: 1
+                        }
+                    }).forEach(function(element) {
+                        options.push({
+                            label: element.username,
+                            value: element._id
+                        });
+                    });
+                    return options;
+                }
+    };
+}else if(Roles.userIsInRole(this.userId, 'merchant')) {
+    // currently as configured, add special rules here if needed
+
+}else{
+    // we dont need a schema for customers
+    schemaConfiguration = {};
+}
+
 Vouchers = new Mongo.Collection("vouchers");
-Vouchers.attachSchema(VoucherSchema);
+if(schemaConfiguration.length) {
+    VoucherSchema = new SimpleSchema(schemaConfiguration);
+    Vouchers.attachSchema(VoucherSchema);
+}
+
