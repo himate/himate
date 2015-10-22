@@ -1,15 +1,20 @@
 {
     "welcome": "Welcome",
-
-    "home": "Home",
+    "administration": "Administration",
     "vouchers": "Vouchers",
-    "how_it_works": "How It Works",
-    "about_us": "About Us",
-    "privacy": "Privacy",
-    "imprint": "Imprint",
-
     "voucher": "Voucher",
-
+    "vouchers_add": "Add Voucher",
+    "vouchers_manage": "Gutscheine verwalten",
     "categories": "Categories",
-    "category": "Category"
+    "category": "Category",
+    "users": "Users",
+    "user": "User",
+    "users_add": "Create User",
+    "imprint": "Imprint",
+    "copyright": "2015 by waslchiraa. All rights reserved.",
+    "privacy": "Privacy",
+    "about_us": "About Us",
+    "how_it_works": "How It Works",
+    "home": "Home",
+    "verify_refugee": "Verify Refugee"
 }

@@ -1,15 +1,20 @@
 {
     "welcome": "أهلا بك",
-
-    "home": "منزل",
+    "administration": "إدارة",
     "vouchers": "قسائم",
-    "how_it_works": "كيف يعمل",
-    "about_us": "عنا",
-    "privacy": "خصوصية",
-    "imprint": "دمغة الناشر",
-
     "voucher": "قسيمة",
-
+    "vouchers_add": "",
+    "vouchers_manage": "",
     "categories": "الفئات",
-    "category": "فئة"
+    "category": "فئة",
+    "users": "",
+    "user": "",
+    "users_add": "",
+    "imprint": "دمغة الناشر",
+    "copyright": "2015 by waslchiraa. All rights reserved.",
+    "privacy": "خصوصية",
+    "about_us": "عنا",
+    "how_it_works": "كيف يعمل",
+    "home": "منز",
+    "verify_refugee": ""
 }
