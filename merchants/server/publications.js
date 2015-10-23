@@ -18,7 +18,9 @@ Meteor.publish('vouchers', function () {
             description: 1,
             categoryId: 1,
             created: 1,
-            published: 1
+            published: 1,
+            end: 1,
+            quantity: 1
         }
     });
 });
