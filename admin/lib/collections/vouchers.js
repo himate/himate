@@ -69,7 +69,6 @@ VoucherSchema = new SimpleSchema({
                         value: element._id
                     });
                 });
-                console.log(options);
                 return options;
             }
         }
@@ -83,7 +82,21 @@ VoucherSchema = new SimpleSchema({
     },
     published: {
         type: Date,
+        min: new Date(),
+        autoform: {
+           value: new Date()
+        }
+    },
+    end: {
+        type: Date,
         optional: true
+    },
+    quantity: {
+        type: Number,
+        min: 1,
+        autoform: {
+           value: 1
+        }
     }
 
 });
