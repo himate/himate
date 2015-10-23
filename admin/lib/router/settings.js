@@ -15,3 +15,4 @@ Router.setTemplateNameConverter(_.identity);
 Router.plugin('dataNotFound', {
     notFoundTemplate: 'errors_404'
 });
+
