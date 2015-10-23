@@ -1,19 +1,35 @@
 key,en,de,ar
-welcome,Welcome,Willkommen,أهلا بك
+about_us,About Us,Über uns,عنا
 administration,Administration,Administration,إدارة
-vouchers,Vouchers,Gutscheine,قسائم
+categories,Categories,Kategorien,الفئات
+categories_info_text,All voucher categories of waslchiraa. Create new categories here.,"Alle Gutscheinkategorien von Waslchira. Erstelle hier neue Kategorien.
+",
+category,Category,Kategorie,فئة
+copyright,2015 by waslchiraa. All rights reserved.,2015 durch waslchiraa. Alle Rechte vorbehalten.,2015 by waslchiraa. All rights reserved.
+create_new_vouchers,Create new vouchers here.,Erstelle hier neue Gutscheine,
+description,Description,Beschreibung,
+home,Home,Startseite,منز
+how_it_works,How It Works,Wie funktioniert's,كيف يعمل
+imprint,Imprint,Impressum,دمغة الناشر
+imprint_text,Lorem Ipsum....,Lorem Ipsum....,
+information,Information,Information,
+merchant,Merchant,Händler,
+no_cadegories_found,No categories found,Es wurden keine Kategorien gefunden,
+no_users_found,No users found,Es wurden keine Benutzerkonten gefunden,
+privacy,Privacy,Datenschutz,خصوصية
+reserve_voucher,Reserve Voucher,Sichere Dir den Gutschen,
+title,Title,Titel,
+update_voucher,Update a voucher here.,"Bearbeite den Gutschein hier
+",
+user,User,Benutzer,
+users,Users,Benutzer,
+users_add,Create User,Neuer Benutzer,
+users_info_text,All user accounts of waslchiraa. Create new users here.,"Alle Benutzerkonten von Waslchira. Erstelle hier neue Benutzerkonten.
+",
+verify_refugee,Verify Refugee,Flüchtling verifizieren,
 voucher,Voucher,Gutschein,قسيمة
+vouchers,Vouchers,Gutscheine,قسائم
 vouchers_add,Add Voucher,Neuer Gutschein,
 vouchers_manage,Gutscheine verwalten,"Gutscheine, verwalten",
-categories,Categories,Kategorien,الفئات
-category,Category,Kategorie,فئة
-users,Users,Benutzer,
-user,User,Benutzer,
-users_add,Create User,Neuer Benutzer,
-imprint,Imprint,Impressum,دمغة الناشر
-copyright,2015 by waslchiraa. All rights reserved.,2015 durch waslchiraa. Alle Rechte vorbehalten.,2015 by waslchiraa. All rights reserved.
-privacy,Privacy,Datenschutz,خصوصية
-about_us,About Us,Über uns,عنا
-how_it_works,How It Works,Wie funktioniert's,كيف يعمل
-home,Home,Startseite,منز
-verify_refugee,Verify Refugee,Flüchtling verifizieren,
+waslchiraa,waslchiraa,waslchiraa,
+welcome,Welcome,Willkommen,أهلا بك
