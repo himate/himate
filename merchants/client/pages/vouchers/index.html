@@ -20,7 +20,7 @@
                        		{{> pages_vouchers_voucher}}
                         {{ else }}
                         <tr>
-                            <td colspan="4">No items found.</td>
+                            <td colspan="4">{{_ 'no_vouchers_found' }}.</td>
                         </tr>
                         {{/ each }}
                     </tbody>
@@ -30,10 +30,10 @@
             <div class="four wide column">
                 <h2>Info</h2>
                 <p>
-                    Your vouchers on waslchiraa. Create new vouchers here.
+                    {{_ 'vouchers_info_text' }}
                 </p>
                 <p>
-                    We'll approve your new vouchers within 24 hours.
+                    {{_ 'approve_new_vouchers' }}
                 </p>
             </div>
         </div><!-- .grid -->

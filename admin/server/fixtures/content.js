@@ -18,7 +18,7 @@ Meteor.startup(function() {
 
         // so add some demo content
         console.log("> empty database");
-        console.log("> add some demo categoriest...");
+        console.log("> add some demo categories...");
 
         // "Fashion" coupons
         var c = Categories.insert({
