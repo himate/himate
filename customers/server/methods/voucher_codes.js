@@ -32,11 +32,13 @@ Meteor.methods({
                 }
             }while(Vouchers.findOne({"code": code }));
 
-            return  VoucherCodes.insert({
+            VoucherCodes.insert({
                 "code": code,
                 "userId": this.userId,
                 "voucherId": voucher._id
             });
+
+            return code;
         }else{
             throw new Meteor.Error("voucher-does-not-exist");
         }
@@ -83,8 +85,7 @@ Meteor.methods({
 
         // save update
         return Vouchers.update(id, doc);
-    }
-    ,
+    },
 
     /**
      * @param {Object} doc

@@ -1,0 +1,13 @@
+<template name="partials_messages">
+    <div id="partials-messages">
+        {{# each messages }}
+        {{> partials_messages_item }}
+        {{/ each }}
+    </div>
+</template>
+
+<template name="partials_messages_item">
+    <div class="{{ type }}">
+        {{_ message }}
+    </div>
+</template>
