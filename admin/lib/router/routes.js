@@ -65,6 +65,18 @@ Router.route('/vouchers/:_id/edit', {
     }
 });
 
+
+/**
+ * voucher codes
+ */
+Router.route('/vouchers_codes/:_id', {
+    name: 'pages_voucher_codes',
+    onBeforeAction: Router.adminRequired,
+    waitOn: function() {
+        return [Meteor.subscribe('vouchers'), Meteor.subscribe('categories')];
+    }
+});
+
 /**
  * category details
  */
