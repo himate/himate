@@ -20,6 +20,11 @@ Template.pages_vouchers_details.events({
         if(voucher) {
             var vouchercode = Meteor.call('reserve_voucher',voucher._id.toString(), function(err, data){
                 console.log( err, data);
+                if(err) {
+                    App.Helpers.errorMessage(err.message);
+                }else{
+                    App.Helpers.infoMessage('voucher ' + data + ' has been reserved');
+                }
             });
         }
     },
