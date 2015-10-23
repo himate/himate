@@ -9,7 +9,8 @@ Template.pages_voucher_codes.helpers({
      * @reactive
      */
     codes: function() {
-        console.log("codes: ", VoucherCodes.find());
-        return VoucherCodes.find(Router.current().params._id);
+      console.log("Router.current().params._id", Router.current().params._id);
+      console.log("VoucherCodes.find()", VoucherCodes.find().fetch());
+        return VoucherCodes.find();
     }
 });

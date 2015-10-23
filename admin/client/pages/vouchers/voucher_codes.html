@@ -1,11 +1,10 @@
 <template name="pages_voucher_codes">
     <div id="pages-vouchers-codes" class="ui container">
-        <h1>FOO</h1>
+        <h1>Voucher Codes</h1>
         <div class="ui divider">
           <table class="ui compact celled definition table">
               <thead class="full-width">
                   <tr>
-                      <th width="10"></th>
                       <th>ID</th>
                       <th>USER ID</th>
                       <th>CODE</th>
@@ -30,14 +29,13 @@
                       </td>
 
                       <td>
-                        {{ redeemed }}
+                        {{ formatDate redeemed }}
                       </td>
 
                       <td>
-                        {{ reserved }}
+                        {{ formatDate reserved }}
                       </td>
 
-                      <td></td>
                   </tr>
                   {{ else }}
                   <tr>
