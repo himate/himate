@@ -59,3 +59,21 @@ Template.registerHelper('getUser', function(userId) {
 Template.registerHelper('getCategory', function(categoryId) {
     return Categories.findOne(categoryId);
 });
+
+
+/**
+ * TODO: refactor into package
+ */
+Template.registerHelper('formatDate', function(date) {
+  return moment(date).format('MM-DD-YYYY');
+});
+
+/**
+ * TODO: replace dummy, refactor into package
+ */
+Template.registerHelper('getVoucherCodes', function(voucherId) {
+    return {
+        'reserved': [{}, {}, {}],
+        'redeemed': [{}, {}]
+    };
+});
