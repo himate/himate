@@ -20,4 +20,3 @@ if [ -d admin ]; then
     (cd customers && MONGO_OPLOG_URL='mongodb://localhost:3003/local' MONGO_URL='mongodb://localhost:3003/meteor' meteor --port 3000) &
     echo "Devtools at: http://localhost:3002/devtools"
 fi
-
