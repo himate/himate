@@ -17,3 +17,4 @@ public/dummies/*
 packages/tests-proxy/*
 docs/*
 .tern-project
+tools/locales/node_modules/
