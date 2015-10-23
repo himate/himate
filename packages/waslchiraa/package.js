@@ -22,6 +22,7 @@ Package.onUse(function(api) {
     'collections/categories.js',
     'collections/messages.js',
     'collections/vouchers.js',
+    'collections/voucher_codes.js',
   ],['client','server']);
   api.export(['Categories','Vouchers','Messages']);
 

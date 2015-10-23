@@ -45,6 +45,7 @@ Meteor.startup(function() {
             "title": "Household"
         });
 
+
         //
         console.log("> done.");
     }
