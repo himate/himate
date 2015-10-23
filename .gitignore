@@ -16,3 +16,4 @@ logs/*.*
 public/dummies/*
 packages/tests-proxy/*
 docs/*
+.tern-project
