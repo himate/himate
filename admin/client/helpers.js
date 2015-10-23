@@ -52,3 +52,20 @@ Template.registerHelper('getUser', function(userId) {
 Template.registerHelper('getCategory', function(categoryId) {
     return Categories.findOne(categoryId);
 });
+
+/**
+ *
+ */
+Template.registerHelper('formatDate', function(date) {
+  return moment(date).format('MM-DD-YYYY');
+});
+
+/**
+ *
+ */
+Template.registerHelper('getVoucherCodes', function(voucherId) {
+    return {
+        'reserved': [{}, {}, {}],
+        'redeemed': [{}, {}]
+    };
+});
