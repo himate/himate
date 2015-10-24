@@ -11,7 +11,7 @@ Meteor.methods({
      * add the <doc> to the categories collection
      * @param {Object} doc
      */
-    "categories_add": function(doc) {
+    "categories_add": function (doc) {
         console.log(doc);
 
         // security checks
@@ -36,7 +36,7 @@ Meteor.methods({
      * @param {String} id
      */
 
-    "categories_edit": function(doc, id) {
+    "categories_edit": function (doc, id) {
 
         // security checks
         if (!Roles.userIsInRole(Meteor.userId(), ['merchant'])) {
@@ -77,7 +77,7 @@ Meteor.methods({
     /**
      * @param {Object} doc
      */
-    "categories_remove": function(id) {
+    "categories_remove": function (id) {
 
         // check user input
         check(id, String);
@@ -89,8 +89,12 @@ Meteor.methods({
 
         var category = Categories.findOne(id);
         if (category) {
-            Categories.remove(category._id);
-            return "ok";
+            //if it already has vouchers dont allow the remove
+            if (!Vouchers.find({categoryId: id}).count() > 0) {
+                Categories.remove(category._id);
+                return "ok";
+            }
+            throw new Meteor.Error("has vouchers connected to it");
         }
 
         throw new Meteor.Error("not-found");

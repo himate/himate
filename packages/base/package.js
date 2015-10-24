@@ -27,12 +27,14 @@ Package.onUse(function(api) {
     'collections/vouchers.js',
     'collections/voucher_codes.js',
   ],['client','server']);
+
   api.addFiles([
     'less/base.less',
   ],['client']);
 
   api.addFiles([
     'methods/vouchers.js',
+    'methods/voucher_codes.js',
     'methods/categories.js',
     'methods/voucher_translate.js'
   ],['server']);
@@ -40,5 +42,3 @@ Package.onUse(function(api) {
   api.export(['Categories','Vouchers','Messages','VoucherCodes']);
 
 });
-
-
