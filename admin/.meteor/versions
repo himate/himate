@@ -102,5 +102,6 @@ url@1.0.5
 useraccounts:core@1.12.4
 useraccounts:iron-routing@1.12.4
 useraccounts:semantic-ui@1.12.4
+waslchiraa:base@0.0.1
 webapp@1.2.2
 webapp-hashing@1.0.5

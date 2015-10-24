@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'waslchiraa',
+  name: 'waslchiraa:base',
   version: '0.0.1',
   // Brief, one-line summary of the package.
   summary: '',
@@ -14,7 +14,8 @@ Package.onUse(function(api) {
   api.versionsFrom('1.2.0.2');
   api.use('ecmascript');
   api.use('mongo');
-  api.use('alanning:roles');
+  api.use('aldeed:autoform@5.7.1');
+  api.use('aldeed:collection2');
   api.use('aldeed:simple-schema');
 
   // collections
@@ -24,9 +25,8 @@ Package.onUse(function(api) {
     'collections/vouchers.js',
     'collections/voucher_codes.js',
   ],['client','server']);
-  api.export(['Categories','Vouchers','Messages']);
+  api.export(['Categories','Vouchers','Messages','VoucherCodes']);
 
 });
-
 
 

@@ -27,7 +27,8 @@ tap:i18n
 tap:i18n-ui
 mrt:accounts-t9n
 aldeed:collection2
+aldeed:autoform
 fabienb4:autoform-semantic-ui
 check
-aldeed:autoform
 momentjs:moment
+waslchiraa:base
