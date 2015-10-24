@@ -23,3 +23,4 @@ AccountsTemplates.configure({
         Router.go('pages_startpage');
     }
 });
+

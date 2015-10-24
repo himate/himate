@@ -45,7 +45,7 @@ Template.pages_vouchers.events({
      * jump to categories page
      * @param {Object} event
      */
-    'click .items .category.item': function(event) {
+    'click .content .category.item': function(event) {
         Router.go('pages_categories');
         return App.Helpers.cancel(event);
     },
@@ -54,7 +54,7 @@ Template.pages_vouchers.events({
      * jump to details page, if user clicks on a list item
      * @param {Object} event
      */
-    'click .items .item:not(.category)': function(event) {
+    'click .content .item:not(.category)': function(event) {
         Router.go('pages_vouchers_details', {
             _id: this._id
         });

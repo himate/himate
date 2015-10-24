@@ -37,6 +37,15 @@ Router.route('/vouchers/:_id/edit', {
     onBeforeAction: Router.merchantRequired
 });
 
+
+/**
+ * about us
+ */
+Router.route('/profile', {
+    name: 'pages_profile'
+});
+
+
 /**
  * about us
  */
@@ -55,7 +64,8 @@ Router.route('/how-it-works', {
  * about us
  */
 Router.route('/verify-refugee', {
-    name: 'pages_verify_refugee'
+    name: 'pages_verify_refugee',
+    onBeforeAction: Router.merchantRequired
 });
 
 /**

@@ -1,27 +1,119 @@
-#pages-vouchers .header {
-    display: block;
+@import "../../layouts/default.import.less";
+
+#pages-vouchers {
+    .ui.divider {
+        margin-bottom: 0;
+    }
+
+    .headline {
+        text-transform: uppercase;
+    }
+
+    .padded-content {
+        padding: 0 25px;
+    }
+
+    .centered-y {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .category.item {
+        border: none;
+        height: 80px;
+        position: relative;
+        -webkit-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+        margin-bottom: 5px;
+    }
+    .item-title {
+        font-family: @font-family-text;
+        font-weight: 300;
+        font-size: 14px;
+        color: @inverted-text-color;
+        margin-bottom: 0;
+
+    }
+    .category-title {
+        font-family: @font-family-headlines;
+        font-weight: bold;
+        color: @main-color;
+        letter-spacing: 3px;
+        font-size: 21px;
+        margin: 0;
+    }
+    .chevron.icon {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        color: @inverted-text-color;
+    }
+
+    .left-content {
+        text-align: left;
+        width: 50%;
+        height: inherit;
+        float: left;
+    }
+    .right-content {
+        text-align: right;
+        width: 50%;
+        height: inherit;
+        float: left;
+        padding-right: 20px;
+    }
+    .voucher.item {
+        position: relative;
+        height: 112.5px;
+        border-bottom: 1px solid @border-color-base;
+        background-color: @inactive-bg-color;
+        &:hover {
+            background-color: @active-bg-color;
+        }
+    }
+    .voucher-title {
+        font-family: @font-family-headlines;
+        font-size: 16px;
+        max-height: 42px;
+        overflow-wrap: break-word;
+        overflow: hidden;
+        white-space: initial;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .voucher-address {
+        font-size: 11px;
+        color: @inverted-text-color;
+        line-height: 1.2;
+    }
+    .maps-link{
+        color: @inverted-text-color;
+        border-bottom: 1.5px solid;
+        display: table;
+    }
+
+    .voucher-description {
+        color: @inverted-text-color;
+        line-height: 1.2;
+        > .description-headline {
+            font-family: @font-family-headlines;
+            font-size: 10px;
+            font-weight: 600;
+            > .description-text {
+                font-family: @font-family-text;
+                font-size: 15px;
+                font-weight: 300;
+                margin-bottom: 0;
+                display: block;
+            }
+        }
+    }
 }
 
-#pages-vouchers .right.chevron.icon {
-    float: right;
-}
 
-#pages-vouchers .item {
-    cursor: pointer;
-    border: 1px solid #ccc;
-    box-shadow: 0px 1px 2px 0 #ccc;
-    padding: 1em;
-}
-
-#pages-vouchers .category.item {
-    border: 1px solid #F35938;
-    box-shadow: 0px 1px 2px 0 #F35938;
-}
-
-#pages-vouchers .category.item > div {
-    padding: 0.5em;
-}
-
-#pages-vouchers .category.item .header p, #pages-vouchers .category.item .meta {
-    color: #F35938;
-}
