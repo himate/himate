@@ -1,0 +1,43 @@
+<template name="pages_profile">
+	<div id="pages-profile" class="ui basic segment">
+		<div class="ui mobile reversed stackable grid">
+			<div class="twelve wide column">
+				<h2>{{_ 'profile_edit' }}</h2>
+
+				{{# autoForm collection='Meteor.users' doc=user id='pages_profile' type='method-update' meteormethod='users_edit' }}
+
+					{{> afQuickField name='profile.company' }}
+					{{> afQuickField name='profile.salutation' }}
+					{{> afQuickField name='profile.firstName' }}
+					{{> afQuickField name='profile.lastName' }}
+					<div class="fields">
+						<div class="twelve wide field">
+							{{> afQuickField name='profile.street' }}
+						</div>
+						<div class="four wide field">
+							{{> afQuickField name='profile.number' }}
+						</div>
+					</div>
+					<div class="fields">
+						<div class="five wide field">
+							{{> afQuickField name='profile.zipcode' }}
+						</div>
+						<div class="eleven wide field">
+							{{> afQuickField name='profile.city' }}
+						</div>
+					</div>
+					{{> afQuickField name='profile.country' }}
+					{{> afQuickField name='profile.tel' }}
+					<div class="ui bottom fixed actions menu">
+						<!--<a href="{{ pathFor 'pages_vouchers' }}" class="disabled item"> <i class="left chevron icon"></i> {{_ 'back' }} </a>-->
+						<button type="submit" class="right item">
+							<i class="save icon"></i>
+							{{_ 'submit' }}
+						</button>
+					</div>
+
+				{{/autoForm}}
+			</div>
+		</div>
+	</div>
+</template>
