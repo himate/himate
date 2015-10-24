@@ -8,7 +8,7 @@ Template.pages_voucher_codes.helpers({
      * return all voucher codes
      * @reactive
      */
-    voucher_codes: function() {
+    xxx: function() {
         Meteor.call('get_user_voucher_codes', function (error, data) {
             Session.set('user_voucher_codes', data);
         });

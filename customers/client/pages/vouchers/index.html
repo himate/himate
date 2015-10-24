@@ -44,11 +44,11 @@
 		</div>
 		<div class="content">
 			<div class="header">
-				{{ title }}
+				{{ title }} {{quantity}} / {{ voucherCodes.reserved}} / {{ voucherCodes.redeemed}}
 				<i class="right chevron icon"></i>
 			</div>
 			<div class="meta">
-				<span class="valid">published: {{ published }}</span>
+				<span class="valid">published: {{formatDate published }}</span>
 			</div>
 
 			<div class="description">

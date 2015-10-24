@@ -9,12 +9,13 @@ Template.pages_vouchers.helpers({
      * @reactive
      */
     vouchers: function() {
-        var filter = {};
         var c = Session.get('category');
-        if (c) {
-            filter.categoryId = c._id;
-        }
-        return Vouchers.find(filter);
+
+        Meteor.call('get_vouchers', c, function (error, data) {
+            Session.set('vouchers', data);
+        });
+
+        return Session.get('vouchers');
     },
 
     /**

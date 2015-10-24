@@ -118,5 +118,37 @@ Meteor.methods({
 
         return "ok";
 
+    },
+
+
+
+    'get_vouchers': function (category) {
+        var filter = {};
+
+        if (category) {
+            filter.categoryId = category._id;
+        }
+
+        var vouchers = Vouchers.find(filter);
+
+        vouchers = vouchers.map(function (vc) {
+
+            vc.voucherCodes = {
+                reserved: VoucherCodes.find({
+                    voucherId: vc._id,
+                    redeemd: null
+                }).count(),
+                redeemed: VoucherCodes.find({
+                    voucherId: vc._id,
+                    redeemd: {$ne: null}
+                }).count()
+            };
+
+            return vc;
+        });
+
+        return vouchers;
     }
+
+
 });

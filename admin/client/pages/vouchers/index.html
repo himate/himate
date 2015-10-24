@@ -41,7 +41,7 @@
                             <td>{{#if end }} {{formatDate end }} {{ else }} - {{/if}}</td>
 
                             <td>{{quantity }} {{#with getVoucherCodes voucherId}} / {{ reserved.length }} / {{ redeemed.length }} {{/ with}}</td>
-                            
+
                             <td width="10"><a class="edit write" href="{{ pathFor 'pages_vouchers_edit' }}" title="{{_ 'vouchers_edit' }}"><i class="pencil icon"></i></a></td>
 
                             <td width="10"><a class="remove write" href="#" title="{{_ 'vouchers_remove' }}"><i class="trash icon"></i></a></td>
