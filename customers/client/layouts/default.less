@@ -1,22 +1,39 @@
+@import "default.import.less";
+
 .pusher > .ui.container {
-    padding: 7em 0 5em 0;
+  padding: 6em 0 5em 0;
+  width: 100%;
 }
 
 .ui.primary.buttons .button, .ui.primary.button {
-    background: #F35938;
-    color: #FFF;
+  background-color: @button-primary-bg-color;
+  color: #FFF;
 }
 
 .ui.primary.buttons .button:hover, .ui.primary.button:hover {
-    background: #e3563b !important;
-    color: #FFF !important;
+  background-color: @button-primary-bg-color;
+  color: #FFF;
 }
 
 /** app states */
 .pages-startpage.pushable > .pusher {
-    background: #f35938 !important;
+  background: @button-primary-bg-color;
 }
 
 .pages-startpage.pushable > .pusher > .ui.container {
-    padding: 4.5em 0 5em;
+  padding: 4.5em 0 5em;
+}
+
+.ui.divider{
+  color: @border-color-base;
+}
+
+.page-title {
+  font-family: @font-family-headlines;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  color: @main-text-color;
 }
