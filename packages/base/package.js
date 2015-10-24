@@ -25,7 +25,7 @@ Package.onUse(function(api) {
     'collections/vouchers.js',
     'collections/voucher_codes.js',
   ],['client','server']);
-  
+
   // collections
   api.addFiles([
     'methods/vouchers.js',
