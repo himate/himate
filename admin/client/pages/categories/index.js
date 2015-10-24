@@ -20,7 +20,7 @@ Template.pages_categories.events({
     },
 
     "click .remove-category" :function (event){
-        //console.log("remove cat was clicked");
+        console.log("remove cat was clicked");
         Meteor.call("categories_remove",this._id);
     }
 });
