@@ -55,6 +55,15 @@ Template.registerHelper('countVouchers', function(category) {
 });
 
 /**
+ * @param {Object} date
+ * @return {String} formatted date
+ * @reactive
+ */
+Template.registerHelper('formatDate', function(date) {
+  return moment(date).format('MM-DD-YYYY');
+});
+
+/**
  *
  */
 App.Helpers.infoMessage = function(message) {

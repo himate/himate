@@ -1,0 +1,36 @@
+<template name="pages_voucher_codes">
+    <div id="pages-voucher-codes" class="ui container">
+        <h1>{{_ 'vouchers' }}</h1>
+
+        <div class="ui divider"></div>
+
+        <div class="ui items">
+            <table class="ui compact celled definition table">
+                <tbody>
+                    {{# each voucher_codes }}
+                        {{> pages_voucher_codes_voucher}}
+                    {{ else }}
+                        <tr>
+                            <td colspan="4">{{_ 'no_vouchers_found' }}.</td>
+                        </tr>
+                    {{/ each }}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</template>
+
+
+<template name="pages_voucher_codes_voucher">
+    <tr>
+        <td>
+            {{formatDate reserved }}
+        </td>
+        <td>
+            <a href="{{ pathFor 'pages_vouchers_details' }}">{{ voucher.title }}</a>
+        </td>
+        <td>
+            {{ voucher.description }}
+        </td>
+    </tr>
+</template>

@@ -49,6 +49,7 @@ Meteor.publish('vouchers', function() {
     return [vouchers, merchants];
 });
 
+
 /**
  * publish all categories
  */
