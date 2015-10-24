@@ -20,9 +20,6 @@ Meteor.methods({
         check(doc.categoryId, String);
         check(doc.description, Match.Optional(String));
 
-        // merchant should never be able to publish
-        doc.published = null;
-
         // link doc to current user
         doc.userId = Meteor.userId();
 
@@ -42,6 +39,8 @@ Meteor.methods({
             throw new Meteor.Error("not-authorized");
         }
 
+        console.log(id);
+
         // voucher should be owned by the current user
         var voucher = Vouchers.findOne({
             _id: id,
@@ -57,14 +56,10 @@ Meteor.methods({
         check(doc.$set, {
             title: String,
             categoryId: String,
+            quantity: Number,
+            published: Date,
             description: Match.Optional(String)
         });
-        check(doc.$unset, Match.Optional({
-            description: String
-        }));
-
-        // any edit will set the voucher offline
-        doc.$set.published = null;
 
         // ensure the doc is linked to the current user (merchant)
         doc.$set.userId = Meteor.userId();
