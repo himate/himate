@@ -19,6 +19,14 @@ Router.route('/vouchers/:_id', {
     name: 'pages_vouchers_details'
 });
 
+
+/**
+ * voucher codes
+ */
+Router.route('/voucher_codes', {
+    name: 'pages_voucher_codes'
+});
+
 /**
  * categories
  */

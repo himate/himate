@@ -41,6 +41,21 @@ Meteor.methods({
         });
 
         return code;
+    },
+
+    'get_user_voucher_codes': function () {
+        // collect data
+        var voucherCodes = VoucherCodes.find({
+            userId: Meteor.userId
+        });
+
+        var voucherCodes = voucherCodes.map(function (vc) {
+            vc.voucher = Vouchers.findOne(vc.voucherId);
+            return vc;
+        });
+
+        console.log(voucherCodes);
+
+        return voucherCodes;
     }
-})
-;
+});

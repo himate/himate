@@ -18,6 +18,7 @@ Package.onUse(function(api) {
   api.use('aldeed:collection2');
   api.use('aldeed:simple-schema');
   api.use('less@2.5.0_3');
+  api.use('http');
 
   // collections
   api.addFiles([
@@ -35,6 +36,7 @@ Package.onUse(function(api) {
     'methods/vouchers.js',
     'methods/voucher_codes.js',
     'methods/categories.js',
+    'methods/voucher_translate.js'
   ],['server']);
 
   api.export(['Categories','Vouchers','Messages','VoucherCodes']);
