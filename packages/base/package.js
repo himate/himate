@@ -17,6 +17,7 @@ Package.onUse(function(api) {
   api.use('aldeed:autoform@5.7.1');
   api.use('aldeed:collection2');
   api.use('aldeed:simple-schema');
+  api.use('less@2.5.0_3');
 
   // collections
   api.addFiles([
@@ -25,8 +26,10 @@ Package.onUse(function(api) {
     'collections/vouchers.js',
     'collections/voucher_codes.js',
   ],['client','server']);
-  
-  // collections
+  api.addFiles([
+    'less/base.less',
+  ],['client']);
+
   api.addFiles([
     'methods/vouchers.js',
     'methods/categories.js',
