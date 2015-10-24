@@ -9,13 +9,42 @@
 
                     {{> afQuickField name='categoryId' }}
 
+                    {{> afQuickField name='shortDescription' }}
                     {{> afQuickField name='description' type='textarea' }}
+
+                    {{> afQuickField name='conditions' type='textarea' }}
+
+                    <div class="fields">
+                        <div class="twelve wide field">
+                            {{> afQuickField name='street' }}
+                        </div>
+                        <div class="four wide field">
+                            {{> afQuickField name='number' }}
+                        </div>
+                    </div>
+
+                    <div class="fields">
+                        <div class="five wide field">
+                            {{> afQuickField name='zipcode' }}
+                        </div>
+                        <div class="eleven wide field">
+                            {{> afQuickField name='city' }}
+                        </div>
+                    </div>
+
+                    {{> afQuickField name='country' }}
 
                     {{> afQuickField name='quantity' }}
 
-                    {{> afQuickField name='published' }}
+                    <div class="fields">
+                        <div class="eight wide field">
+                            {{> afQuickField name='published' }}
+                        </div>
+                        <div class="eight wide field">
+                            {{> afQuickField name='end' }}
+                        </div>
+                    </div>
 
-                    {{> afQuickField name='end' }}
 
                     <div class="ui bottom fixed actions menu">
                         <a href="{{ pathFor 'pages_vouchers' }}" class="disabled item"> <i class="left chevron icon"></i> {{_ 'back' }} </a>

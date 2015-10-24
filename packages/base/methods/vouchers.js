@@ -27,6 +27,13 @@ Meteor.methods({
         check(doc.published, Match.Optional(Date));
         check(doc.end, Match.Optional(Date));
         check(doc.quantity, Match.Optional(Number));
+        check(doc.street, String);
+        check(doc.number, String);
+        check(doc.zipcode, String);
+        check(doc.city, String);
+        check(doc.country, String);
+        check(doc.conditions, String);
+        check(doc.shortDescription, String);
 
         // action
         return Vouchers.insert(doc);
@@ -62,17 +69,19 @@ Meteor.methods({
         check(doc, Object);
         check(doc.$set, {
             title: String,
+            shortDescription: String,
             description: Match.Optional(String),
-            userId: String,
+            conditions: Match.Optional(String),
             categoryId: String,
-            published: Match.Optional(Date),
+            published: Date,
             end: Match.Optional(Date),
-            quantity: Match.Optional(Number)
+            quantity: Number,
+            street: String,
+            number: String,
+            zipcode: String,
+            city: String,
+            country: String
         });
-        check(doc.$unset, Match.Optional({
-            description: Match.Optional(String),
-            published: Match.Optional(String)
-        }));
 
         // save update
         return Vouchers.update(id, doc);

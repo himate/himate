@@ -79,6 +79,13 @@ VoucherSchema = new SimpleSchema({
             type: String,
             optional: true
         },
+        conditions: {
+            type: String,
+            optional: true
+        },
+        shortDescription: {
+            type: String
+        },
         published: {
             type: Date,
             autoform: {
@@ -95,8 +102,22 @@ VoucherSchema = new SimpleSchema({
             autoform: {
                 value: 1
             }
+        },
+        street: {
+            type: String
+        },
+        number: {
+            type: String
+        },
+        zipcode: {
+            type: String
+        },
+        city: {
+            type: String
+        },
+        country: {
+            type: String
         }
-
     }
 );
 

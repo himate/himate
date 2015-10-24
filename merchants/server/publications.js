@@ -15,11 +15,18 @@ Meteor.publish('vouchers', function () {
     }, {
         fields: {
             title: 1,
+            shortDescription: 1,
             description: 1,
+            conditions: 1,
             categoryId: 1,
             created: 1,
             published: 1,
-            quantity: 1
+            quantity: 1,
+            street: 1,
+            number: 1,
+            zipcode: 1,
+            city: 1,
+            country: 1
         }
     });
 });
