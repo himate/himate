@@ -8,18 +8,50 @@
 
 					<h3 class="ui dividing header">{{_ 'basics' }}</h3>
 					{{> afQuickField name='title' }}
+
+					{{> afQuickField name='categoryId' }}
+
+					{{> afQuickField name='shortDescription' }}
 					{{> afQuickField name='description' type='textarea' }}
+
+					{{> afQuickField name='conditions' type='textarea' }}
+
+					<div class="fields">
+						<div class="twelve wide field">
+							{{> afQuickField name='street' }}
+						</div>
+						<div class="four wide field">
+							{{> afQuickField name='number' }}
+						</div>
+					</div>
+
+					<div class="fields">
+						<div class="five wide field">
+							{{> afQuickField name='zipcode' }}
+						</div>
+						<div class="eleven wide field">
+							{{> afQuickField name='city' }}
+						</div>
+					</div>
+
+					{{> afQuickField name='country' }}
+
 
 					<h3 class="ui dividing header">{{_ 'relations' }}</h3>
 					{{> afQuickField name='userId' }}
 					{{> afQuickField name='categoryId' }}
 
+
 					<h3 class="ui dividing header">{{_ 'state' }}</h3>
-					{{> afQuickField name='published' }}
-
-					{{> afQuickField name='end' }}
-
 					{{> afQuickField name='quantity' }}
+					<div class="fields">
+						<div class="eight wide field">
+							{{> afQuickField name='published' }}
+						</div>
+						<div class="eight wide field">
+							{{> afQuickField name='end' }}
+						</div>
+					</div>
 
 					<div class="ui bottom fixed actions menu">
 						<a href="{{ pathFor 'pages_vouchers' }}" class="disabled item">
