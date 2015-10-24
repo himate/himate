@@ -92,6 +92,14 @@ Router.route('/categories', {
 });
 
 /**
+ * category details
+ */
+Router.route('/categories/add', {
+    name: 'pages_categories_add',
+    onBeforeAction: Router.adminRequired
+});
+
+/**
  * imprint
  */
 Router.route('/imprint', {

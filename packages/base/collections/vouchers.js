@@ -81,7 +81,6 @@ VoucherSchema = new SimpleSchema({
         },
         published: {
             type: Date,
-            min: new Date(),
             autoform: {
                 value: new Date()
             }
