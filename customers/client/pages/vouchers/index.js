@@ -29,6 +29,11 @@ Template.pages_vouchers.helpers({
     }
 });
 
+Template.pages_vouchers_voucher.helpers({
+
+});
+
+
 // ----- template events -------------------------------------------------------
 /**
  *
@@ -65,4 +70,8 @@ Template.pages_vouchers.events({
         Session.set('single', $(event.currentTarget).hasClass('single'));
         return App.Helpers.cancel(event);
     }
+});
+
+Template.pages_vouchers_voucher.events({
+
 });

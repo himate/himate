@@ -15,8 +15,8 @@ Meteor.startup(function() {
             "userId": u._id,
             "created": new Date(),
             "published": new Date(),
-            "description": "just a short description"
-
+            "description": "just a short description",
+            "quantity": 1
         });
     }
 });

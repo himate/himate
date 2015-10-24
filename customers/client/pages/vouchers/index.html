@@ -30,30 +30,35 @@
             </div>
 
             {{# each vouchers }}
-            <div class="item">
-                <div class="ui small image">
-                    <img src="/images/wireframe/image.png">
-                </div>
-                <div class="content">
-                    <div class="header">
-                        {{ title }}
-                        <i class="right chevron icon"></i>
-                    </div>
-                    <div class="meta">
-                        <span class="valid">published: {{ published }}</span>
-                    </div>
-
-                    <div class="description">
-                        <p class="ui image">
-                            {{!-- description --}}
-                            <img src="/images/wireframe/short-paragraph.png" />
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ui divider"></div>
+           		{{> pages_vouchers_voucher}}
             {{/ each }}
         </div>
     </div>
+</template>
+
+
+<template name="pages_vouchers_voucher">
+	<div class="item">
+		<div class="ui small image">
+			<img src="/images/wireframe/image.png">
+		</div>
+		<div class="content">
+			<div class="header">
+				{{ title }}
+				<i class="right chevron icon"></i>
+			</div>
+			<div class="meta">
+				<span class="valid">published: {{ published }}</span>
+			</div>
+
+			<div class="description">
+				<p class="ui image">
+					{{!-- description --}}
+					<img src="/images/wireframe/short-paragraph.png" />
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="ui divider"></div>
 </template>

@@ -60,6 +60,7 @@ Template.registerHelper('getCategory', function(categoryId) {
     return Categories.findOne(categoryId);
 });
 
+
 /**
  * TODO: refactor into package
  */

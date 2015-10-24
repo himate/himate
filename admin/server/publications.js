@@ -14,6 +14,10 @@ Meteor.publish('vouchers', function() {
         return v.userId;
     });
 
+    var vourcherIds = vouchers.map(function(v) {
+        return v._id;
+    });
+
     // :TODO: select the right fields (merchant profile, name, company etc.)
     var merchants = Meteor.users.find({
         _id: {
@@ -25,7 +29,17 @@ Meteor.publish('vouchers', function() {
         }
     });
 
-    return [vouchers, merchants];
+    var voucher_codes = VoucherCodes.find({
+        _id: {
+            $in: vourcherIds
+        }
+    });
+
+    return [vouchers, merchants, voucher_codes];
+});
+
+Meteor.publish("voucher_codes", function(){
+  return VoucherCodes.find();
 });
 
 /**

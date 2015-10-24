@@ -20,15 +20,14 @@
             <div class="description">
                 <p class="ui image">
                     {{!-- item.description --}}
-                    <img src="/images/wireframe/short-paragraph.png" />
+                    <img src="/images/wireframe/short-paragraph.png"/>
                 </p>
             </div>
         </div>
 
         <div class="ui bottom fixed menu">
-            <a class="item" href="{{ pathFor 'pages_vouchers' }}"><i class="left chevron icon"></i>Back</a>
-
-            <a class="right item ui primary button"><i class="flag icon"></i>Reserve Voucher</a>
+            <a class="item" href="{{ pathFor 'pages_vouchers' }}"><i class="left chevron icon"></i>{{_ 'back' }}</a>
+            <a class="right item ui primary button reserve-voucher"><i class="flag icon"></i>{{_ 'reserve_voucher' }}</a>
         </div>
     </div>
 </template>

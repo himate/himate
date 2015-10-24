@@ -3,7 +3,7 @@
 
     <div id="pages-vouchers" class="ui basic segment">
         <div class="ui mobile reversed stackable grid">
-            <div class="sixteen wide column">
+            <div class="twelve wide column">
                 <h2>{{_ 'vouchers' }}</h2>
                 <table class="ui compact celled definition table">
                     <thead class="full-width">
@@ -12,11 +12,10 @@
                             <th>{{_ 'title' }}</th>
                             <th>{{_ 'description' }} </th>
                             <th>{{_ 'category' }}</th>
-                            <th>{{_ 'merchant' }}</th>
+                            <th>{{_ 'from' }}</th>
                             <th>{{_ 'published' }}</th>
                             <th>{{_ 'end' }}</th>
-                            <th>{{_ 'quantity' }}</th>
-                            <th colspan="2">&nbsp;</th>
+                            <th>{{_ 'quantity' }}</th>                            <th colspan="2">&nbsp;</th>
                         </tr>
                     </thead>
 
@@ -42,25 +41,24 @@
                             <td>{{#if end }} {{formatDate end }} {{ else }} - {{/if}}</td>
 
                             <td>{{quantity }} {{#with getVoucherCodes voucherId}} / {{ reserved.length }} / {{ redeemed.length }} {{/ with}}</td>
-
-
+                            
                             <td width="10"><a class="edit write" href="{{ pathFor 'pages_vouchers_edit' }}" title="{{_ 'vouchers_edit' }}"><i class="pencil icon"></i></a></td>
 
                             <td width="10"><a class="remove write" href="#" title="{{_ 'vouchers_remove' }}"><i class="trash icon"></i></a></td>
                         </tr>
                         {{ else }}
                         <tr>
-                            <td colspan="4">No items found.</td>
+                            <td colspan="4">{{_ 'no_vouchers_found' }}</td>
                         </tr>
                         {{/ each }}
                     </tbody>
                 </table>
             </div>
 
-            <div class="twelve wide column">
-                <h2>Info</h2>
+            <div class="four wide column">
+                <h2>{{_ 'information' }}</h2>
                 <p>
-                    All vouchers of waslchiraa. Create and/or publish new vouchers here.
+                    {{_ 'vouchers_info_text' }}
                 </p>
             </div>
         </div><!-- .grid -->
