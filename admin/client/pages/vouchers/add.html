@@ -1,38 +1,46 @@
 <template name="pages_vouchers_add">
-    <div id="pages-vouchers-add" class="ui basic segment">
-        <div class="ui mobile reversed stackable grid">
-            <div class="twelve wide column">
-                <h2>{{_ 'vouchers_add' }}</h2>
+	<div id="pages-vouchers-add" class="ui basic segment">
+		<div class="ui mobile reversed stackable grid">
+			<div class="twelve wide column">
+				<h2>{{_ 'vouchers_add' }}</h2>
 
-                {{# autoForm collection='Vouchers' id='pages_vouchers_add' type='method' meteormethod='vouchers_add' }}
+				{{# autoForm collection='Vouchers' id='pages_vouchers_add' type='method' meteormethod='vouchers_add' }}
 
-                <h3 class="ui dividing header">{{_ 'basics' }}</h3>
-                {{> afQuickField name='title' }}
-                {{> afQuickField name='description' type='textarea' }}
+					<h3 class="ui dividing header">{{_ 'basics' }}</h3>
+					{{> afQuickField name='title' }}
+					{{> afQuickField name='description' type='textarea' }}
 
-                <h3 class="ui dividing header">{{_ 'relations' }}</h3>
-                {{> afQuickField name='userId' }}
-                {{> afQuickField name='categoryId' }}
+					<h3 class="ui dividing header">{{_ 'relations' }}</h3>
+					{{> afQuickField name='userId' }}
+					{{> afQuickField name='categoryId' }}
 
-                <h3 class="ui dividing header">{{_ 'state' }}</h3>
-                {{> afQuickField name='published' }}
+					<h3 class="ui dividing header">{{_ 'state' }}</h3>
+					{{> afQuickField name='published' }}
 
-                <div class="ui bottom fixed actions menu">
-                    <a href="{{ pathFor 'pages_vouchers' }}" class="disabled item"> <i class="left chevron icon"></i> {{_ 'back' }} </a>
-                    <button type="submit" class="right item">
-                        <i class="save icon"></i>
-                        {{_ 'submit' }}
-                    </button>
-                </div>
-                {{/autoForm}}
-            </div>
+					{{> afQuickField name='end' }}
 
-            <div class="four wide column">
-                <h2>{{_ 'information' }}</h2>
-                <p>
-                    {{_ 'create_new_vouchers' }}
-                </p>
-            </div>
-        </div><!-- .grid -->
-    </div><!-- #pages-vouchers -->
+					{{> afQuickField name='quantity' }}
+
+					<div class="ui bottom fixed actions menu">
+						<a href="{{ pathFor 'pages_vouchers' }}" class="disabled item">
+							<i class="left chevron icon"></i> {{_ 'back' }} </a>
+						<button type="submit" class="right item">
+							<i class="save icon"></i>
+							{{_ 'submit' }}
+						</button>
+					</div>
+				{{/autoForm}}
+			</div>
+
+			<div class="four wide column">
+				<h2>{{_ 'information' }}</h2>
+
+				<p>
+					{{_ 'create_new_vouchers' }}
+				</p>
+			</div>
+		</div>
+		<!-- .grid -->
+	</div>
+	<!-- #pages-vouchers -->
 </template>
