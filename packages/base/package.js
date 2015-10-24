@@ -27,7 +27,8 @@ Package.onUse(function(api) {
     'collections/voucher_codes.js',
   ],['client','server']);
   api.addFiles([
-    'less/base.less',
+    'less/base.less'
+
   ],['client']);
 
   api.addFiles([
