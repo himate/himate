@@ -12,6 +12,7 @@ Meteor.methods({
      * @param {Object} doc
      */
     "categories_add": function(doc) {
+        console.log(doc);
 
         // security checks
         if (!Roles.userIsInRole(Meteor.userId(), ['admin'])) {
