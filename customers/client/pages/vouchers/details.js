@@ -15,7 +15,7 @@ Template.pages_vouchers_details.helpers({
 
 
 Template.pages_vouchers_details.events({
-    'click .reserve-voucher': function (event, template) {
+    'click .js-reserve-voucher': function (event, template) {
         var voucher = Vouchers.findOne(Router.current().params._id);
         if(voucher) {
             var vouchercode = Meteor.call('reserve_voucher',voucher._id.toString(), function(err, data){
