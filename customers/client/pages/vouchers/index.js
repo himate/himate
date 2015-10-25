@@ -45,7 +45,7 @@ Template.pages_vouchers.events({
      * jump to categories page
      * @param {Object} event
      */
-    'click .content .category.item': function(event) {
+    'click .js-categories .js-category-item': function(event) {
         Router.go('pages_categories');
         return App.Helpers.cancel(event);
     },
@@ -54,23 +54,24 @@ Template.pages_vouchers.events({
      * jump to details page, if user clicks on a list item
      * @param {Object} event
      */
-    'click .content .item:not(.category)': function(event) {
+    'click .js-categories .js-voucher': function(event) {
         Router.go('pages_vouchers_details', {
             _id: this._id
         });
         return App.Helpers.cancel(event);
-    },
+    }
 
     /**
+     * TODO:does it exist ?
      * user clicks on single/group filter
      * @param {Object} event
      */
-    'click .amount .item': function(event) {
-        $('#pages-vouchers .amount .item').removeClass('active');
-        $(event.currentTarget).addClass('active');
-        Session.set('single', $(event.currentTarget).hasClass('single'));
-        return App.Helpers.cancel(event);
-    }
+    //'click .amount .item': function(event) {
+    //    $('#pages-vouchers .amount .item').removeClass('active');
+    //    $(event.currentTarget).addClass('active');
+    //    Session.set('single', $(event.currentTarget).hasClass('single'));
+    //    return App.Helpers.cancel(event);
+    //}
 });
 
 Template.pages_vouchers_voucher.events({
