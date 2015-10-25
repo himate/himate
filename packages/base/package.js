@@ -19,6 +19,7 @@ Package.onUse(function(api) {
   api.use('aldeed:collection2');
   api.use('aldeed:simple-schema');
   api.use('less@2.5.0_3');
+  api.use('tap:i18n');
   api.use('http');
 
   // collections
@@ -28,6 +29,9 @@ Package.onUse(function(api) {
     'lib/collections/messages.js',
     'lib/collections/vouchers.js',
     'lib/collections/voucher_codes.js',
+    'lib/locale/ar.i18n.json',
+    'lib/locale/de.i18n.json',
+    'lib/locale/en.i18n.json'
   ],['client','server']);
 
   api.addFiles([

@@ -3,27 +3,25 @@ var parse = require('csv-parse');
 
 var inputFile = 'locale.csv';
 
-var targets = [
-    '../../admin/lib/locale/',
-    '../../merchants/lib/locale/',
-    '../../customers/lib/locale/',
-    './'
-]
+var targets = ['../../packages/base/lib/locale/'];
 
-var parser = parse({delimiter: ','}, function (err, data) {
+var parser = parse({
+    delimiter: ','
+}, function(err, data) {
     //console.log(data);
     var locales = {};
     var columns = [];
-    data.forEach(function (row, index) {
-        if (index == 0) { // handle header
-            row.forEach(function (value, index) {
+    data.forEach(function(row, index) {
+        if (index == 0) {// handle header
+            row.forEach(function(value, index) {
                 columns.push(value);
                 if (index > 0) {
                     locales[value] = {};
                 }
             });
-        } else {
-            row.forEach(function (value, index) {
+        }
+        else {
+            row.forEach(function(value, index) {
                 if (index > 0) {
                     locales[columns[index]][row[0]] = value;
                 }
@@ -31,14 +29,14 @@ var parser = parse({delimiter: ','}, function (err, data) {
         }
 
     });
-    columns.forEach(function (value, index) {
+    columns.forEach(function(value, index) {
         if (index > 0) {
-            targets.forEach(function (target) {
+            targets.forEach(function(target) {
                 var filename = value + '.i18n.json';
-                console.log('copying ' + filename +' to ' + target);
+                console.log('copying ' + filename + ' to ' + target);
                 fs.writeFile(target + filename, JSON.stringify(locales[value], null, 4));
             });
         }
     });
 });
-fs.createReadStream(inputFile).pipe(parser);
+fs.createReadStream(inputFile).pipe(parser); 
