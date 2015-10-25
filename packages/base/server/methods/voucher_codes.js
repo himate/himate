@@ -20,7 +20,6 @@ Meteor.methods({
             throw new Meteor.Error("not-found");
         }
 
-        //TODO: check voucher availability
 
         if (VoucherCodes.findOne({
             "userId": this.userId,
@@ -28,6 +27,12 @@ Meteor.methods({
         })) {
             throw new Meteor.Error("allready-reserved");
         }
+
+
+        if (VoucherCodes.find({ "voucherId": voucher._id }).count() >= voucher.quantity) {
+            throw new Meteor.Error("no_vouchers_available");
+        }
+
 
         var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         var code = "";
