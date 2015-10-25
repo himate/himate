@@ -17,7 +17,9 @@
             </div>
 
             {{# each vouchers }}
-                {{> pages_vouchers_voucher}}
+                {{#if hasAvailableCodes this._id }}
+                    {{> pages_vouchers_voucher}}
+                {{/if }}
             {{/ each }}
 
         </div>

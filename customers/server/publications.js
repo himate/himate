@@ -26,6 +26,12 @@ Meteor.publish('vouchers', function() {
         }]
     });
 
+    // vouchers.forEach(function (v) {
+    //     v.codes = VoucherCodes.find({
+    //         voucherId: v._id
+    //     }).count();
+    // });
+
     var merchantIds = vouchers.map(function(v) {
         return v.userId;
     });
@@ -66,9 +72,13 @@ Meteor.publish('categories', function() {
 
 
 Meteor.publish('voucher_codes', function(voucherIds) {
-    return VoucherCodes.find({
-        voucherId: {
+    var filter = {};
+
+    if (voucherIds) {
+        filter.voucherId = {
             $in: voucherIds
         }
-    });
+    }
+
+    return VoucherCodes.find(filter);
 });

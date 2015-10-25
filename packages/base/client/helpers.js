@@ -90,10 +90,9 @@ Template.registerHelper('formatDate', function (date) {
     }
 });
 
-/**
- * TODO: replace dummy, refactor into package
- */
-Template.registerHelper('getVoucherCodes', function (voucherId) {
+
+
+Waslchiraa.Helpers.getVoucherCodes = function (voucherId) {
     var result = {
         'available': 0,
         'total': 0,
@@ -105,12 +104,29 @@ Template.registerHelper('getVoucherCodes', function (voucherId) {
     if (voucher) {
         result = {
             'total': voucher.quantity,
-            'reserved': VoucherCodes.find({'voucherId': voucherId, 'reserved': {$lt: now}}).count(),
+            'reserved': VoucherCodes.find({'voucherId': voucherId, 'redeemed': null}).count(),
             'redeemed': VoucherCodes.find({'voucherId': voucherId, 'redeemed': {$lt: now}}).count(),
         };
-        result.available = result.total - result.redeemed - result.reserved;
+        result.available = result.total - (result.redeemed + result.reserved);
     }
     return result;
+};
+
+
+Template.registerHelper('getVoucherCodes', function (voucherId) {
+    Waslchiraa.Helpers.getVoucherCodes(voucherId);
+});
+
+
+Template.registerHelper('hasAvailableCodes', function (voucherId) {
+    return Waslchiraa.Helpers.getVoucherCodes(voucherId).available > 0;
+});
+
+Template.registerHelper('isReservedByUser', function (voucherId) {
+    return VoucherCodes.find({
+        voucherId: voucherId,
+        userId: Meteor.userId()
+    }).count() > 0;
 });
 
 Template.registerHelper('getMapUrl', function (item) {

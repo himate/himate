@@ -36,9 +36,13 @@
                 <i class="left chevron icon"></i>{{_ 'back' }}
             </a>
 
-            <a class="right item ui primary button reserve-voucher">
-                <i class="flag icon"></i>{{_ 'reserve_voucher' }}
-            </a>
+            {{#if hasAvailableCodes item._id }}
+                {{#unless isReserved item._id  }}
+                    <a class="right item ui primary button reserve-voucher">
+                        <i class="flag icon"></i>{{_ 'reserve_voucher' }}
+                    </a>
+                {{/unless }}
+            {{/if }}
         </div>
     </div>
 </template>
