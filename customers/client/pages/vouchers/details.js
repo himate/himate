@@ -21,9 +21,9 @@ Template.pages_vouchers_details.events({
             var vouchercode = Meteor.call('reserve_voucher',voucher._id.toString(), function(err, data){
                 console.log( err, data);
                 if(err) {
-                    App.Helpers.errorMessage(err.message);
+                    Waslchiraa.Helpers.errorMessage(err.message);
                 }else{
-                    App.Helpers.infoMessage('voucher ' + data + ' has been reserved');
+                    Waslchiraa.Helpers.infoMessage('voucher ' + data + ' has been reserved');
                 }
             });
         }

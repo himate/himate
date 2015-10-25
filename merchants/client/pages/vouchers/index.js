@@ -33,7 +33,7 @@ Template.pages_vouchers.events({
         if (confirm('Delete Voucher "' + this.title + '"?')) {
             Meteor.call('vouchers_remove', this._id);
         }
-        return App.Helpers.cancel(event);
+        return Waslchiraa.Helpers.cancel(event);
     }
 });
 

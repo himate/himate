@@ -37,6 +37,16 @@ Router.route('/vouchers/:_id/edit', {
     onBeforeAction: Router.merchantRequired
 });
 
+/**
+ * voucher codes
+ */
+Router.route('/vouchers_codes/:_id', {
+    name: 'pages_voucher_codes',
+    onBeforeAction: Router.merchantRequired,
+    waitOn: function() {
+        return [Meteor.subscribe('voucher_voucher_codes',this.params._id), Meteor.subscribe('voucher_users',this.params._id)];
+    }
+});
 
 /**
  * about us

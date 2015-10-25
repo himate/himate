@@ -1,7 +1,7 @@
 /**
  * publish all vouchers
  */
-Meteor.publish('vouchers', function() {
+Meteor.publish('vouchers', function () {
 
     // security checks
     if (!Roles.userIsInRole(this.userId, 'admin')) {
@@ -10,12 +10,8 @@ Meteor.publish('vouchers', function() {
 
     // collect data
     var vouchers = Vouchers.find();
-    var merchantIds = vouchers.map(function(v) {
+    var merchantIds = vouchers.map(function (v) {
         return v.userId;
-    });
-
-    var vourcherIds = vouchers.map(function(v) {
-        return v._id;
     });
 
     // :TODO: select the right fields (merchant profile, name, company etc.)
@@ -29,23 +25,17 @@ Meteor.publish('vouchers', function() {
         }
     });
 
-    var voucher_codes = VoucherCodes.find({
-        _id: {
-            $in: vourcherIds
-        }
-    });
-
-    return [vouchers, merchants, voucher_codes];
+    return [vouchers, merchants];
 });
 
-Meteor.publish("voucher_codes", function(){
-  return VoucherCodes.find();
+Meteor.publish("voucher_codes", function (voucherId) {
+    return VoucherCodes.find({'voucherId': voucherId});
 });
 
 /**
  * publish all categories
  */
-Meteor.publish('categories', function() {
+Meteor.publish('categories', function () {
     if (!Roles.userIsInRole(this.userId, 'admin')) {
         return this.ready();
     }
@@ -55,7 +45,7 @@ Meteor.publish('categories', function() {
 /**
  * publish all users
  */
-Meteor.publish('users', function() {
+Meteor.publish('users', function () {
     if (!Roles.userIsInRole(this.userId, 'admin')) {
         return this.ready();
     }
