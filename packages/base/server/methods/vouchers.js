@@ -120,40 +120,6 @@ Meteor.methods({
 
         return "ok";
 
-<<<<<<< HEAD:packages/base/methods/vouchers.js
     }
 
-=======
-    },
-
-    'vouchers_get': function(filter) {
-        filter = filter || {};
-
-        var vouchers = Vouchers.find(filter);
-
-        vouchers = vouchers.map(function(vc) {
-
-            vc.voucherCodes = {
-                reserved: VoucherCodes.find({
-                    voucherId: vc._id,
-                    redeemd: null
-                }).count(),
-                redeemed: VoucherCodes.find({
-                    voucherId: vc._id,
-                    redeemd: {
-                        $ne: null
-                    }
-                }).count()
-            };
-
-            return vc;
-        });
-
-        vouchers = _.filter(vouchers, function(voucher) {
-            return voucher.quantity > voucher.voucherCodes.reserved + voucher.voucherCodes.redeemed;
-        });
-
-        return vouchers;
-    }
->>>>>>> 4a631dd1fdd2d4d493c218b59cfb95e9725f3b51:packages/base/server/methods/vouchers.js
 });

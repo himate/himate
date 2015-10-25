@@ -1,33 +1,44 @@
 <template name="pages_vouchers_details">
     <div id="pages-vouchers-details" class="ui container">
-        <div class="header-navigation">
-            <h1>Voucher: {{ item.title }}</h1>
-        </div>
 
-        {{# with getUser item.userId }}
-        <p>
-            <strong>{{_ 'from' }}</strong>: {{ username }}
-        </p>
-        {{/ with }}
+        <div class="ui divider"></div>
 
-        <div class="ui image">
-            <img src="/images/wireframe/image.png">
-        </div>
         <div class="content">
             <div class="meta">
-                <span class="valid">valid until 01/01/1970</span>
+                {{# with getCategory item.categoryId}}
+                <div>{{ category }}</div>
+                {{/ with }}
+
+                <h1 class="page-title">{{ item.title }}</h1>
+
+                {{# with getUser item.userId }}
+                <p class="from">
+                    <strong>{{_ 'from' }}</strong>: {{ username }}
+                </p>
+                {{/ with }}
+
+                <span class="valid">valid until {{formatDate item.end }}</span>
             </div>
+
             <div class="description">
                 <p class="ui image">
-                    {{!-- item.description --}}
-                    <img src="/images/wireframe/short-paragraph.png"/>
+                    {{ item.description }}
                 </p>
+            </div>
+
+            <div class="adress">
+                <p class="ui">{{ item.street }} {{ item.number }}, {{ item.zipcode }} {{ item.city }} | <a href="">Check on map</a></p>
             </div>
         </div>
 
         <div class="ui bottom fixed menu">
-            <a class="item" href="{{ pathFor 'pages_vouchers' }}"><i class="left chevron icon"></i>{{_ 'back' }}</a>
-            <a class="right item ui primary button reserve-voucher"><i class="flag icon"></i>{{_ 'reserve_voucher' }}</a>
+            <a class="item" href="{{ pathFor 'pages_vouchers' }}">
+                <i class="left chevron icon"></i>{{_ 'back' }}
+            </a>
+
+            <a class="right item ui primary button reserve-voucher">
+                <i class="flag icon"></i>{{_ 'reserve_voucher' }}
+            </a>
         </div>
     </div>
 </template>
