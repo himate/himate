@@ -1,6 +1,5 @@
 <template name="pages_vouchers">
     {{> partials_sub_menu active='vouchers' search='title' }}
-
     <div id="pages-vouchers" class="ui basic segment">
         <div class="ui mobile reversed stackable grid">
             <div class="twelve wide column">
@@ -15,10 +14,10 @@
                             <th>{{_ 'from' }}</th>
                             <th>{{_ 'published' }}</th>
                             <th>{{_ 'end' }}</th>
-                            <th>{{_ 'quantity' }}</th>                            <th colspan="2">&nbsp;</th>
+                            <th>{{_ 'quantity' }}</th>
+							<th colspan="2">&nbsp;</th>
                         </tr>
                     </thead>
-
                     <tbody>
                         {{# each vouchers }}
                         	{{>pages_vouchers_voucher}}

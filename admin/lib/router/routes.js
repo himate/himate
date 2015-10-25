@@ -73,15 +73,12 @@ Router.route('/vouchers_codes/:_id', {
     name: 'pages_voucher_codes',
     onBeforeAction: Router.adminRequired,
     waitOn: function() {
-        return [Meteor.subscribe('vouchers'), Meteor.subscribe('categories'), Meteor.subscribe("voucher_codes")];
-    },
-    data: function () {
-       return VoucherCodes.find({voucherId: this.params._id});
-   },
+        return [Meteor.subscribe('voucher_codes',this.params._id)];
+    }
 });
 
 /**
- * category details
+     * category details
  */
 Router.route('/categories', {
     name: 'pages_categories',

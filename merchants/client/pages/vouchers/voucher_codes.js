@@ -15,6 +15,7 @@ Template.pages_voucher_codes.helpers({
 
 Template.pages_voucher_codes_code.helpers({
     user: function(){
-        return Meteor.users.findOne(this.userId).username;
+        console.log( Meteor.users.find().fetch());
+        return Meteor.users.findOne(this.userId);
     }
 });
