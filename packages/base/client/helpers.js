@@ -3,7 +3,7 @@
  * @param {Object} event
  * @return {Boolean} whether to bubble <event> or not
  */
-Waslchiraa.Helpers.cancel = function(event) {
+Waslchiraa.Helpers.cancel = function (event) {
     event.stopPropagation();
     event.preventDefault();
     return false;
@@ -12,7 +12,7 @@ Waslchiraa.Helpers.cancel = function(event) {
 /**
  *
  */
-Waslchiraa.Helpers.infoMessage = function(message) {
+Waslchiraa.Helpers.infoMessage = function (message) {
     Messages.insert({
         "message": message,
         "type": "info"
@@ -22,7 +22,7 @@ Waslchiraa.Helpers.infoMessage = function(message) {
 /**
  *
  */
-Waslchiraa.Helpers.errorMessage = function(message) {
+Waslchiraa.Helpers.errorMessage = function (message) {
     Messages.insert({
         "message": message,
         "type": "error"
@@ -33,14 +33,14 @@ Waslchiraa.Helpers.errorMessage = function(message) {
 /**
  *
  */
-Template.registerHelper("eq", function(a, b) {
+Template.registerHelper("eq", function (a, b) {
     return a == b;
 });
 
 /**
  *
  */
-Template.registerHelper('pageTitle', function() {
+Template.registerHelper('pageTitle', function () {
     return Session.get('pageTitle');
 });
 
@@ -49,7 +49,7 @@ Template.registerHelper('pageTitle', function() {
  * @return {Object} user or null
  * @reactive
  */
-Template.registerHelper('getUser', function(userId) {
+Template.registerHelper('getUser', function (userId) {
     return Meteor.users.findOne(userId);
 });
 
@@ -58,7 +58,7 @@ Template.registerHelper('getUser', function(userId) {
  * @return {Object} user or null
  * @reactive
  */
-Template.registerHelper('getCategory', function(categoryId) {
+Template.registerHelper('getCategory', function (categoryId) {
     return Categories.findOne(categoryId);
 });
 
@@ -67,7 +67,7 @@ Template.registerHelper('getCategory', function(categoryId) {
  * @return {Number} voucher count
  * @reactive
  */
-Template.registerHelper('countVouchers', function(category) {
+Template.registerHelper('countVouchers', function (category) {
     if (category) {
         return Vouchers.find({
             categoryId: category._id
@@ -82,16 +82,33 @@ Template.registerHelper('countVouchers', function(category) {
  * @return {String} formatted date
  * @reactive
  */
-Template.registerHelper('formatDate', function(date) {
-    return moment(date).format('MM-DD-YYYY');
+Template.registerHelper('formatDate', function (date) {
+    if (date) {
+        return moment(date).format('MM-DD-YYYY');
+    } else {
+        return '-';
+    }
 });
 
 /**
  * TODO: replace dummy, refactor into package
  */
-Template.registerHelper('getVoucherCodes', function(voucherId) {
-    return {
-        'reserved': [{}, {}, {}],
-        'redeemed': [{}, {}]
+Template.registerHelper('getVoucherCodes', function (voucherId) {
+    var result = {
+        'available': 0,
+        'total': 0,
+        'reserved': 0,
+        'redeemed': 0
     };
+    var voucher = Vouchers.findOne({_id: voucherId});
+    var now = new Date();
+    if (voucher) {
+        result = {
+            'total': voucher.quantity,
+            'reserved': VoucherCodes.find({'voucherId': voucherId, 'reserved': {$lt: now}}).count(),
+            'redeemed': VoucherCodes.find({'voucherId': voucherId, 'redeemed': {$lt: now}}).count(),
+        };
+        result.available = result.total - result.redeemed - result.reserved;
+    }
+    return result;
 });

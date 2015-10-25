@@ -35,45 +35,6 @@ Meteor.publish("voucher_voucher_codes", function (voucherId) {
     return VoucherCodes.find({'voucherId': voucherId});
 });
 
-Meteor.publish('voucher_codes', function () {
-
-    // security checks
-    if (!Roles.userIsInRole(this.userId, 'merchant')) {
-        return this.ready();
-    }
-
-    var vouchers = Vouchers.find({
-        userId: this.userId
-    });
-
-    var voucherIds = vouchers.map(function (v) {
-        return v._id;
-    });
-
-    return VoucherCodes.find({
-            userId: this.userId,
-            voucherId: {
-                $in: voucherIds
-            }
-        }
-    );
-});
-
-// ----- categories ------------------------------------------------------------
-/**
- * publish all categories
- */
-Meteor.publish('categories', function () {
-
-    // security checks
-    if (!Roles.userIsInRole(this.userId, 'merchant')) {
-        return this.ready();
-    }
-
-    // action
-    return Categories.find();
-});
-
 Meteor.publish('voucher_users', function (voucherId) {
     check(voucherId, String);
 
@@ -96,3 +57,42 @@ Meteor.publish('voucher_users', function (voucherId) {
     );
     return result;
 });
+
+Meteor.publish('voucher_codes', function () {
+
+    // security checks
+    if (!Roles.userIsInRole(this.userId, 'merchant')) {
+        return this.ready();
+    }
+
+    var vouchers = Vouchers.find({
+        userId: this.userId
+    });
+
+    var voucherIds = vouchers.map(function (v) {
+        return v._id;
+    });
+
+    return VoucherCodes.find({
+            voucherId: {
+                $in: voucherIds
+            }
+        }
+    );
+});
+
+// ----- categories ------------------------------------------------------------
+/**
+ * publish all categories
+ */
+Meteor.publish('categories', function () {
+
+    // security checks
+    if (!Roles.userIsInRole(this.userId, 'merchant')) {
+        return this.ready();
+    }
+
+    // action
+    return Categories.find();
+});
+

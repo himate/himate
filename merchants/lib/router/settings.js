@@ -4,7 +4,7 @@ Router.configure({
     loadingTemplate: 'partials_loading',
     notFoundTemplate: 'errors_404',
     waitOn: function() {
-        return [Meteor.subscribe('vouchers'), Meteor.subscribe('categories')];
+        return [Meteor.subscribe('vouchers'),Meteor.subscribe('voucher_codes'), Meteor.subscribe('categories')];
     }
 });
 
