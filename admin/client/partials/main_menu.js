@@ -10,7 +10,7 @@ Template.partials_main_menu.events({
     'click .locale-change': function(event, template) {
         TAPi18n.setLanguageAmplify(this.tag);
         T9n.setLanguage(this.tag);
-        return App.Helpers.cancel(event);
+        return Waslchiraa.Helpers.cancel(event);
     },
 
     /**
@@ -19,7 +19,7 @@ Template.partials_main_menu.events({
      */
     'click .logout': function(event) {
         AccountsTemplates.logout();
-        return App.Helpers.cancel(event);
+        return Waslchiraa.Helpers.cancel(event);
     }
 });
 

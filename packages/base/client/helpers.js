@@ -1,11 +1,9 @@
 // ----- generic helpers -------------------------------------------------------
-App = {};
-App.Helpers = {};
-
 /**
- *
+ * @param {Object} event
+ * @return {Boolean} whether to bubble <event> or not
  */
-App.Helpers.cancel = function(event) {
+Waslchiraa.Helpers.cancel = function(event) {
     event.stopPropagation();
     event.preventDefault();
     return false;
@@ -14,7 +12,7 @@ App.Helpers.cancel = function(event) {
 /**
  *
  */
-App.Helpers.infoMessage = function(message) {
+Waslchiraa.Helpers.infoMessage = function(message) {
     Messages.insert({
         "message": message,
         "type": "info"
@@ -24,7 +22,7 @@ App.Helpers.infoMessage = function(message) {
 /**
  *
  */
-App.Helpers.errorMessage = function(message) {
+Waslchiraa.Helpers.errorMessage = function(message) {
     Messages.insert({
         "message": message,
         "type": "error"
@@ -47,25 +45,45 @@ Template.registerHelper('pageTitle', function() {
 });
 
 /**
- *
+ * @param {String} userId
+ * @return {Object} user or null
+ * @reactive
  */
 Template.registerHelper('getUser', function(userId) {
     return Meteor.users.findOne(userId);
 });
 
 /**
- *
+ * @param {String} categoryId
+ * @return {Object} user or null
+ * @reactive
  */
 Template.registerHelper('getCategory', function(categoryId) {
     return Categories.findOne(categoryId);
 });
 
+/**
+ * @param {Object} category
+ * @return {Number} voucher count
+ * @reactive
+ */
+Template.registerHelper('countVouchers', function(category) {
+    if (category) {
+        return Vouchers.find({
+            categoryId: category._id
+        }).count();
+    }
+
+    return Vouchers.find().count();
+});
 
 /**
- * TODO: refactor into package
+ * @param {Object} date
+ * @return {String} formatted date
+ * @reactive
  */
 Template.registerHelper('formatDate', function(date) {
-  return moment(date).format('MM-DD-YYYY');
+    return moment(date).format('MM-DD-YYYY');
 });
 
 /**

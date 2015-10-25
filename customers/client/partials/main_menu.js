@@ -10,7 +10,7 @@ Template.partials_main_menu.events({
      */
     'click .sidebar.toggle.item': function(event) {
         $('#partials-sidebar').sidebar('setting', 'transition', 'overlay').sidebar('toggle');
-        return App.Helpers.cancel(event);
+        return Waslchiraa.Helpers.cancel(event);
     },
 
     /**
@@ -19,6 +19,6 @@ Template.partials_main_menu.events({
      */
     'click .logout': function(event) {
         AccountsTemplates.logout();
-        return App.Helpers.cancel(event);
+        return Waslchiraa.Helpers.cancel(event);
     }
 });

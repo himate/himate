@@ -1,18 +1,13 @@
 /**
- * Created by rmarji on 23/10/15.
- */
-/**
  * Category
  */
-
 Meteor.methods({
 
     /**
      * add the <doc> to the categories collection
      * @param {Object} doc
      */
-    "categories_add": function (doc) {
-        console.log(doc);
+    "categories_add": function(doc) {
 
         // security checks
         if (!Roles.userIsInRole(Meteor.userId(), ['admin'])) {
@@ -23,9 +18,6 @@ Meteor.methods({
         check(doc, Object);
         check(doc.title, String);
 
-        // link doc to current user
-        //doc.userId = Meteor.userId();
-
         // action
         return Categories.insert(doc);
     },
@@ -35,11 +27,10 @@ Meteor.methods({
      * @param {Object} doc
      * @param {String} id
      */
-
-    "categories_edit": function (doc, id) {
+    "categories_edit": function(doc, id) {
 
         // security checks
-        if (!Roles.userIsInRole(Meteor.userId(), ['merchant'])) {
+        if (!Roles.userIsInRole(Meteor.userId(), ['admin'])) {
             throw new Meteor.Error("not-authorized");
         }
 
@@ -64,20 +55,14 @@ Meteor.methods({
             description: String
         }));
 
-        // any edit will set the voucher offline
-        doc.$set.published = null;
-
-        // ensure the doc is linked to the current user (merchant)
-        doc.$set.userId = Meteor.userId();
-
         // save update
-        return Vouchers.update(id, doc);
+        return Categories.update(id, doc);
     },
 
     /**
      * @param {Object} doc
      */
-    "categories_remove": function (id) {
+    "categories_remove": function(id) {
 
         // check user input
         check(id, String);
@@ -90,7 +75,9 @@ Meteor.methods({
         var category = Categories.findOne(id);
         if (category) {
             //if it already has vouchers dont allow the remove
-            if (!Vouchers.find({categoryId: id}).count() > 0) {
+            if (!Vouchers.find({
+                categoryId: id
+            }).count() > 0) {
                 Categories.remove(category._id);
                 return "ok";
             }
