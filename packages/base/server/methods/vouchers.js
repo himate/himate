@@ -7,14 +7,16 @@ Meteor.methods({
      * add the <doc> to the vouchers collection
      * @param {Object} doc
      */
-    "vouchers_add": function (doc) {
+    "vouchers_add": function(doc) {
 
         // security checks
         if (Roles.userIsInRole(Meteor.userId(), ['admin'])) {
             //nothing to do
-        } else if (Roles.userIsInRole(Meteor.userId(), ['merchant'])) {
+        }
+        else if (Roles.userIsInRole(Meteor.userId(), ['merchant'])) {
             doc.userId = Meteor.userId();
-        } else {
+        }
+        else {
             throw new Meteor.Error("not-authorized");
         }
 
@@ -37,32 +39,32 @@ Meteor.methods({
 
         // action
         return Vouchers.insert(doc);
-    }
-    ,
+    },
 
     /**
      * update the given <doc>
      * @param {Object} doc
      * @param {String} id
      */
-    "vouchers_edit": function (doc, id) {
+    "vouchers_edit": function(doc, id) {
 
         // voucher should be owned by the current user
-        var voucher = Vouchers.findOne( id);
+        var voucher = Vouchers.findOne(id);
         if (!voucher) {
             throw new Meteor.Error("not-found");
         }
 
         if (Roles.userIsInRole(Meteor.userId(), ['admin'])) {
             //nothing to do
-        } else if (Roles.userIsInRole(Meteor.userId(), ['merchant'])) {
+        }
+        else if (Roles.userIsInRole(Meteor.userId(), ['merchant'])) {
             if (voucher.userId != Meteor.userId()) {
                 throw new Meteor.Error("not-authorized");
             }
-        } else {
+        }
+        else {
             throw new Meteor.Error("not-authorized");
         }
-
 
         // check user input
         check(id, String);
@@ -85,14 +87,12 @@ Meteor.methods({
 
         // save update
         return Vouchers.update(id, doc);
-    }
-
-    ,
+    },
 
     /**
      * @param {Object} doc
      */
-    "vouchers_remove": function (id) {
+    "vouchers_remove": function(id) {
 
         // check user input
         check(id, String);
@@ -104,11 +104,13 @@ Meteor.methods({
 
         if (Roles.userIsInRole(Meteor.userId(), ['admin'])) {
             //nothing to do
-        } else if (Roles.userIsInRole(Meteor.userId(), ['merchant'])) {
+        }
+        else if (Roles.userIsInRole(Meteor.userId(), ['merchant'])) {
             if (voucher.userId != Meteor.userId()) {
                 throw new Meteor.Error("not-authorized");
             }
-        } else {
+        }
+        else {
             throw new Meteor.Error("not-authorized");
         }
 

@@ -1,0 +1,13 @@
+<template name="waslchiraa_partials_messages">
+    <div id="waslchiraa-partials-messages">
+        {{# each messages }}
+        {{> waslchiraa_partials_messages_item }}
+        {{/ each }}
+    </div>
+</template>
+
+<template name="waslchiraa_partials_messages_item">
+    <div class="{{ type }}">
+        {{_ message }}
+    </div>
+</template>

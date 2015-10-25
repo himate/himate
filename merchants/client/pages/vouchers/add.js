@@ -18,7 +18,7 @@ AutoForm.addHooks(["pages_vouchers_add"], {
      * @param {Object} template
      */
     onSuccess: function(operation, result, template) {
-        App.Helpers.infoMessage('ok');
+        Waslchiraa.Helpers.infoMessage('ok');
         Router.go("pages_vouchers");
     },
 
@@ -29,10 +29,10 @@ AutoForm.addHooks(["pages_vouchers_add"], {
      */
     onError: function(formType, error) {
         if (error.reason) {
-            App.Helpers.errorMessage(error.reason);
+            Waslchiraa.Helpers.errorMessage(error.reason);
         }
         else if (error.error) {
-            App.Helpers.errorMessage(error.error);
+            Waslchiraa.Helpers.errorMessage(error.error);
         }
     }
 });

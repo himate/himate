@@ -8,9 +8,9 @@
     "back": "Zurück",
     "basics": "Basisinformationen",
     "categories": "Kategorien",
-    "categories_info_text": "Alle Gutscheinkategorien von Waslchira. Erstelle hier neue Kategorien.\r\n",
+    "categories_info_text": "Alle Gutscheinkategorien von Wasl Chira. Erstelle hier neue Kategorien. \r\n",
     "category": "Kategorie",
-    "copyright": "2015 durch waslchiraa. Alle Rechte vorbehalten.",
+    "copyright": "2015 durch Wasl Chiraa. Alle Rechte vorbehalten.",
     "create_new_vouchers": "Erstelle hier neue Gutscheine",
     "customers_how_it_works_text": "Lorem Ipsum....",
     "description": "Beschreibung",
@@ -42,7 +42,7 @@
     "user": "Benutzer",
     "users": "Benutzer",
     "users_add": "Neuer Benutzer",
-    "users_info_text": "Alle Benutzerkonten von Waslchira. Erstelle hier neue Benutzerkonten.\r\n",
+    "users_info_text": "Alle Benutzerkonten von Waslchira. Erstelle hier neue Benutzerkonten. \r\n",
     "verify_refugee": "Flüchtling verifizieren",
     "verify_refugee_text": "Lorem Ipsum....",
     "voucher": "Gutschein",
@@ -51,7 +51,9 @@
     "vouchers_add": "Neuer Gutschein",
     "vouchers_info_text": "Alle Gutscheine von Waslchira. Erstelle und/oder bearbeite Gutscheine hier.",
     "vouchers_manage": "Gutscheine, verwalten",
-    "waslchiraa": "waslchiraa",
+    "Wasl Chiraa": "Wasl Chiraa",
     "welcome": "Willkommen",
-    "from": "Von"
+    "from": "Von",
+    "profile_edit": "Profil bearbeiten",
+    "voucher_code_list": "Zeige Gutschein codes"
 }
