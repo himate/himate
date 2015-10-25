@@ -29,7 +29,8 @@ Package.onUse(function(api) {
   ],['client','server']);
 
   api.addFiles([
-    'less/base.less',
+    'less/base.less'
+
   ],['client']);
 
   api.addFiles([

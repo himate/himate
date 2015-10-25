@@ -11,10 +11,16 @@ Template.pages_vouchers.helpers({
     vouchers: function() {
         var filter = {};
         var c = Session.get('category');
+
         if (c) {
-            filter.categoryId = c._id;
+            categoryId: c._id
         }
-        return Vouchers.find(filter);
+
+        Meteor.call('vouchers_get', filter, function (error, data) {
+            Session.set('vouchers', data);
+        });
+
+        return Session.get('vouchers');
     },
 
     /**
@@ -44,7 +50,7 @@ Template.pages_vouchers.events({
      * jump to categories page
      * @param {Object} event
      */
-    'click .items .category.item': function(event) {
+    'click .content .category.item': function(event) {
         Router.go('pages_categories');
         return App.Helpers.cancel(event);
     },
@@ -53,7 +59,7 @@ Template.pages_vouchers.events({
      * jump to details page, if user clicks on a list item
      * @param {Object} event
      */
-    'click .items .item:not(.category)': function(event) {
+    'click .content .item:not(.category)': function(event) {
         Router.go('pages_vouchers_details', {
             _id: this._id
         });
