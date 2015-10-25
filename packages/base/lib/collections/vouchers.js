@@ -1,3 +1,31 @@
+TranslationSchemaOptional = new SimpleSchema({
+    de: {
+        type: String,
+        optional: true,
+    },
+    en: {
+        type: String,
+        optional: true,
+    },
+    ar: {
+        type: String,
+        optional: true,
+    },
+
+});
+TranslationSchema = new SimpleSchema({
+    de: {
+        type: String,
+    },
+    en: {
+        type: String,
+    },
+    ar: {
+        type: String,
+    },
+
+});
+
 VoucherSchema = new SimpleSchema({
         created: {
             type: Date,
@@ -73,18 +101,16 @@ VoucherSchema = new SimpleSchema({
             }
         },
         title: {
-            type: String
+            type: TranslationSchema,
         },
         description: {
-            type: String,
-            optional: true
+            type: TranslationSchema,
         },
         conditions: {
-            type: String,
-            optional: true
+            type: TranslationSchemaOptional,
         },
         shortDescription: {
-            type: String
+            type: TranslationSchema,
         },
         published: {
             type: Date,

@@ -34,12 +34,9 @@ Meteor.methods({
 
         // send translation request
         var response = getMsTranslation(text, from, to);
-
         console.log('Got response from API: ' + response.content);
-
-        // TODO: parse XML and return string value
-
-        return response.content;
+        //var xmlDoc = new XMLSerializer()
+        return response.content.replace(/(<([^>]+)>)/ig, '');
     }
 });
 

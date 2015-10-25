@@ -91,7 +91,6 @@ Template.registerHelper('formatDate', function (date) {
 });
 
 /**
- * TODO: replace dummy, refactor into package
  */
 Template.registerHelper('getVoucherCodes', function (voucherId) {
     var result = {
@@ -117,3 +116,14 @@ Template.registerHelper('getMapUrl', function (item) {
     console.log(item);
     return 'https://www.google.de/maps/place/' + item.street + '+' + item.number + '+' + item.zipcode + '+' + item.city + '+' + item.country ;
 });
+
+
+Template.registerHelper('translateField', function (object, field){
+    var lang =  TAPi18n.getLanguage();
+    if(object && object[field] && object[field][lang]){
+        return object[field][lang];
+    }else{
+        return '';
+    }
+});
+

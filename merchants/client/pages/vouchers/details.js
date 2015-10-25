@@ -14,4 +14,5 @@ Template.pages_vouchers_details.helpers({
 
 
 Template.pages_vouchers_details.events({
+
 });

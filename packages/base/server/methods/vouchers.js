@@ -22,8 +22,8 @@ Meteor.methods({
 
         // check user input
         check(doc, Object);
-        check(doc.title, String);
-        check(doc.description, Match.Optional(String));
+        check(doc.title, Object);
+        check(doc.description, Match.Optional(Object));
         check(doc.userId, String);
         check(doc.categoryId, String);
         check(doc.published, Match.Optional(Date));
@@ -34,8 +34,14 @@ Meteor.methods({
         check(doc.zipcode, String);
         check(doc.city, String);
         check(doc.country, String);
-        check(doc.conditions, String);
-        check(doc.shortDescription, String);
+        check(doc.conditions, Object);
+        check(doc.shortDescription, Object);
+
+        //var translateFields = ['title','description','shortDescription','conditions'];
+        //translateFields.forEach(function(field){
+        //    doc[field].foreach(value, key){}
+        //})
+
 
         // action
         return Vouchers.insert(doc);
