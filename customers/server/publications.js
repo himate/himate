@@ -63,3 +63,12 @@ Meteor.publish('categories', function() {
     // send collection
     return Categories.find();
 });
+
+
+Meteor.publish('voucher_codes', function(voucherIds) {
+    return VoucherCodes.find({
+        voucherId: {
+            $in: voucherIds
+        }
+    });
+});

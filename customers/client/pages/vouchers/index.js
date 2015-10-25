@@ -13,14 +13,10 @@ Template.pages_vouchers.helpers({
         var c = Session.get('category');
 
         if (c) {
-            categoryId: c._id
+            filter.categoryId = c._id;
         }
 
-        Meteor.call('vouchers_get', filter, function (error, data) {
-            Session.set('vouchers', data);
-        });
-
-        return Session.get('vouchers');
+        return Vouchers.find(filter);
     },
 
     /**
@@ -33,10 +29,6 @@ Template.pages_vouchers.helpers({
         }
         return null;
     }
-});
-
-Template.pages_vouchers_voucher.helpers({
-
 });
 
 
