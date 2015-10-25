@@ -1,48 +1,68 @@
 <template name="pages_vouchers_details">
     <div id="pages-vouchers-details" class="ui container">
-
-        <div class="ui divider"></div>
-
-        <div class="content">
-            <div class="meta">
-                {{# with getCategory item.categoryId}}
-                <div>{{ category }}</div>
-                {{/ with }}
-
-                <h1 class="page-title">{{ item.title }}</h1>
-
-                {{# with getUser item.userId }}
-                <p class="from">
-                    <strong>{{_ 'from' }}</strong>: {{ username }}
-                </p>
-                {{/ with }}
-
-                <span class="valid">valid until {{formatDate item.end }}</span>
-            </div>
-
-            <div class="description">
-                <p class="ui image">
-                    {{ item.description }}
-                </p>
-            </div>
-
-            <div class="adress">
-                <p class="ui">{{ item.street }} {{ item.number }}, {{ item.zipcode }} {{ item.city }} | <a href="{{getMapUrl item }}">Check on map</a></p>
-            </div>
+        <div class="header-navigation">
+            <h1>
+                <a class="back-chevron" href="{{ pathFor 'pages_vouchers' }}">
+                    <i class="left chevron icon"></i>
+                </a>
+                {{_ 'voucher' }}
+            </h1>
         </div>
 
-        <div class="ui bottom fixed menu">
-            <a class="item" href="{{ pathFor 'pages_vouchers' }}">
-                <i class="left chevron icon"></i>{{_ 'back' }}
-            </a>
+        <div class="ui voucher-details">
+            <div class="panel-details">
+                <div class="ui right aligned grid">
+                    <div class="left  aligned six wide column ">
+                        {{# with getCategory item.categoryId}}
+                        <h5>{{ category }}</h5>
+                        {{/ with }}
+                        <h2>
+                            {{ item.title }}
+                        </h2>
+                        {{# with getUser item.userId }}
+                        <h3 class="headline voucher-shop">
+                            {{ username }}
+                        </h3>
+                        {{/ with }}
+                    </div>
+                    <div class="right floated aligned six wide column">
+                        <div class="headline voucher-description">
+                            <p class="description-headline">Valid Until
+                                <span class="description-text">{{formatDate item.end }}</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="voucher-address">
+                    <p>
+                        {{ item.street }} {{ item.number }}, {{ item.zipcode }} {{ item.city }}
+                        <a  href="{{getMapUrl item }}">check on maps</a>
+                    </p>
+                </div>
+                <h2 class="short-description">
+                    {{ item.shortDescription }}
+                </h2>
 
-            {{#if hasAvailableCodes item._id }}
-                {{#unless isReserved item._id  }}
-                    <a class="right item ui primary button reserve-voucher">
-                        <i class="flag icon"></i>{{_ 'reserve_voucher' }}
-                    </a>
-                {{/unless }}
-            {{/if }}
+            </div>
+            <div class="panel-details">
+                <h5>{{_ 'description' }}</h5>
+
+                <p>
+                    {{ item.description }}
+                </p>
+
+            </div>
+            <div class="panel-details last">
+                <h5>{{_ 'special conditions' }}</h5>
+
+                <p>
+                    {{ item.conditions }}
+                </p>
+
+            </div>
+            <div class="fixed-bottom button-container centered-y">
+                <button class="ui button primary">{{_ 'reserve voucher' }}</button>
+            </div>
         </div>
     </div>
 </template>

@@ -1,19 +1,20 @@
 <template name="pages_vouchers_voucher">
     <div class="voucher item js-voucher  padded-content">
         <div class="left-content centered-y">
-            <h3 class="headline voucher-title">
-                {{ title }} {{ codes }}
+            <h3 class="voucher-title">
+                {{ title }}
             </h3>
             <span class="headline voucher-address">
-                {{ zipcode }}, {{ city }} <a class="maps-link" href="{{getMapUrl this }}">check on maps</a>
+                 {{ street }} {{ number }}, {{ zipcode }} {{ city }}
+                        <a class="maps-link" href="{{getMapUrl item }}">{{_ 'check on maps' }}</a>
             </span>
 
         </div>
         <div class="right-content centered-y">
             <div class="headline voucher-description">
-                <p class="description-headline">Valid Until
+                <p class="description-headline">{{_ 'valid until' }}
                 <span class="description-text">{{formatDate end }}</span></p>
-                <p class="description-headline">Available
+                <p class="description-headline">{{_ 'available' }}
                     <span class="description-text">{{ quantity }} / {{ voucherCodeCount _id }} </span>
                 </p>
             </div>
