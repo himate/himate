@@ -22,22 +22,21 @@ Package.onUse(function(api) {
 
   // collections
   api.addFiles([
-    'collections/categories.js',
-    'collections/messages.js',
-    'collections/vouchers.js',
-    'collections/voucher_codes.js',
+    'lib/collections/categories.js',
+    'lib/collections/messages.js',
+    'lib/collections/vouchers.js',
+    'lib/collections/voucher_codes.js',
   ],['client','server']);
 
   api.addFiles([
-    'less/base.less'
-
+    'client/less/base.less'
   ],['client']);
 
   api.addFiles([
-    'methods/vouchers.js',
-    'methods/voucher_codes.js',
-    'methods/categories.js',
-    'methods/voucher_translate.js'
+    'server/methods/vouchers.js',
+    'server/methods/voucher_codes.js',
+    'server/methods/categories.js',
+    'server/methods/voucher_translate.js'
   ],['server']);
 
   api.export(['Categories','Vouchers','Messages','VoucherCodes']);
