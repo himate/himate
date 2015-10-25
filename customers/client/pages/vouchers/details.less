@@ -1,0 +1,50 @@
+@import "../../layouts/default.import.less";
+
+.pages-vouchers-details{
+
+ .panel-details{
+   padding: 15px 25px ;
+   min-height: @panel-base-height;
+   border-bottom: 1px solid @border-color-base;
+   &.last{
+     border: none;
+   }
+
+   .voucher-shop {
+     color: @inverted-text-color;
+   }
+   
+   .voucher-address {
+     margin: 20px 0;
+     a {
+       font-size: 11px;
+     }
+   }
+
+   .short-description {
+     font-family: @font-family-text;
+     font-weight: 300;
+     color: @inverted-text-color;
+   }
+ }
+
+  .button-container {
+    -webkit-box-shadow: 0 -4px 4px 0 rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 -4px 4px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 -4px 4px 0 rgba(0, 0, 0, 0.2);
+    .ui.primary.button {
+      margin-left: auto;
+      margin-right: auto;
+
+    }
+  }
+
+  .back-chevron {
+    color: @main-color;
+    text-decoration: none;
+  }
+
+  .header-navigation h1 {
+    position: relative;
+  }
+}

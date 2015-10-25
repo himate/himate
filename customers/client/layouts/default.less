@@ -3,12 +3,13 @@
 .pusher > .ui.container {
   //padding: 6em 0 5em 0;
   width: 100%;
-  padding: @nav-base-height 0;
+  padding-top: @nav-base-height;
 }
 
 .ui.primary.buttons .button, .ui.primary.button {
   background-color: @button-primary-bg-color;
   color: #FFF;
+  text-transform: uppercase;
 }
 
 .ui.primary.buttons .button:hover, .ui.primary.button:hover {
@@ -29,6 +30,59 @@
   color: @border-color-base;
 }
 
+.headline {
+  text-transform: uppercase;
+}
+
+.padded-content {
+  padding: 0 25px;
+}
+
+.centered-y {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+h1,h2,h3,h4,h5 {
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: @headline-1-size;
+  margin: 0;
+}
+
+h2 {
+  font-size: @headline-2-size;
+  margin: 0;
+}
+
+h3 {
+  font-size: @headline-3-size;
+  margin: 0;
+}
+
+h4 {
+  font-size: @headline-4-size;
+  margin: 0;
+}
+
+h5 {
+  font-size: @headline-5-size;
+}
+
+p {
+  font-size: @text-base-size;
+  font-family: @font-family-text;
+  font-weight: 300;
+}
+
+a {
+  color: @inverted-text-color;
+  text-decoration: underline;
+}
+
 .ui.container .header-navigation{
   border-bottom: 1px solid @border-color-base;
   height: @nav-base-height;
@@ -40,7 +94,6 @@
     font-family: @font-family-headlines;
     font-weight: 700;
     font-size: 12px;
-    letter-spacing: 5px;
     text-align: center;
     text-transform: uppercase;
     color: @main-text-color;
@@ -52,16 +105,42 @@
   font-family: @font-family-headlines;
   font-weight: 700;
   font-size: 12px;
-  letter-spacing: 5px;
   text-align: center;
   text-transform: uppercase;
   color: @main-text-color;
 }
 
-.chevron.icon, .close.icon {
+.right.chevron.icon, .right.close.icon {
   position: absolute;
   top: 50%;
   right: 0;
   transform: translateY(-50%);
   color: @inverted-text-color;
+}
+.left.chevron.icon {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  color: inherit;
+}
+
+.fixed-bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.button-container {
+  height: @item-base-height;
+}
+
+.ui.primary.button {
+  background-color: @button-primary-bg-color;
+  color: #FFF;
+  text-transform: uppercase;
+  font-family: @font-family-headlines;
+  font-weight: 600;
+  font-size: @button-text-size;
+
 }

@@ -1,23 +1,9 @@
 @import "../../layouts/default.import.less";
 
-.pages-vouchers {
-    .headline {
-        text-transform: uppercase;
-    }
-
-    .padded-content {
-        padding: 0 25px;
-    }
-
-    .centered-y {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-    }
-
+.pages-vouchers , .pages-vouchers-details{
     .category.item {
         border: none;
-        height: 80px;
+        height: @item-base-height;
         position: relative;
         -webkit-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
         -moz-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
@@ -36,7 +22,6 @@
         font-family: @font-family-headlines;
         font-weight: bold;
         color: @main-color;
-        letter-spacing: 3px;
         font-size: 21px;
         margin: 0;
     }
@@ -65,7 +50,6 @@
     }
     .voucher-title {
         font-family: @font-family-headlines;
-        font-size: 16px;
         max-height: 42px;
         overflow-wrap: break-word;
         overflow: hidden;
@@ -103,9 +87,6 @@
             }
         }
     }
-}
-.pages-vouchers-details{
-
 }
 
 
