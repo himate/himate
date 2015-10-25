@@ -13,6 +13,7 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.2.0.2');
   api.use('ecmascript');
+  api.use('email');
   api.use('mongo');
   api.use('templating', 'client');
   api.use('aldeed:autoform@5.7.1');

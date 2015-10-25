@@ -130,5 +130,5 @@ Template.registerHelper('isReservedByUser', function (voucherId) {
 });
 
 Template.registerHelper('getMapUrl', function (item) {
-    return 'https://www.google.de/maps/place/' + item.street + '+' + item.number + '+' + item.zipcode + '+' + item.city + '+' + item.country ;
+    return item ? 'https://www.google.de/maps/place/' + item.street + '+' + item.number + '+' + item.zipcode + '+' + item.city + '+' + item.country : '' ;
 });

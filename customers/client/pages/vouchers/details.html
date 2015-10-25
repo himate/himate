@@ -61,7 +61,11 @@
 
             </div>
             <div class="fixed-bottom button-container centered-y">
-                <button class="ui button primary">{{_ 'reserve voucher' }}</button>
+                {{#if hasAvailableCodes item._id }}
+                    {{#unless isReservedByUser item._id  }}
+                        <button class="ui button primary reserve-voucher">{{_ 'reserve voucher' }}</button>
+                    {{/unless }}
+                {{/if }}
             </div>
         </div>
     </div>

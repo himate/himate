@@ -49,6 +49,19 @@ Meteor.methods({
             "voucherId": voucher._id
         });
 
+        var email = {
+            to: Meteor.user().emails[0].address,
+            from: TAPi18n.__('email_reserve_from'),
+            subject: TAPi18n.__('email_reserve_subject', {
+                title: voucher.title
+            }),
+            text: TAPi18n.__('email_reserve_content', {
+                code: code
+            }),
+        };
+
+        Email.send(email);
+
         return code;
     },
 
