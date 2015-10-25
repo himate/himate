@@ -1,0 +1,2 @@
+Waslchiraa = {};
+Waslchiraa.Helpers = {};

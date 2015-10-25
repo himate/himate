@@ -14,6 +14,7 @@ Package.onUse(function(api) {
   api.versionsFrom('1.2.0.2');
   api.use('ecmascript');
   api.use('mongo');
+  api.use('templating', 'client');
   api.use('aldeed:autoform@5.7.1');
   api.use('aldeed:collection2');
   api.use('aldeed:simple-schema');
@@ -22,6 +23,7 @@ Package.onUse(function(api) {
 
   // collections
   api.addFiles([
+    'lib/namespaces.js',
     'lib/collections/categories.js',
     'lib/collections/messages.js',
     'lib/collections/vouchers.js',
@@ -29,7 +31,11 @@ Package.onUse(function(api) {
   ],['client','server']);
 
   api.addFiles([
-    'client/less/base.less'
+    'client/less/base.less',
+    'client/partials/messages.html',
+    'client/partials/messages.js',
+    'client/partials/messages.less',
+    'client/helpers.js'
   ],['client']);
 
   api.addFiles([
@@ -39,6 +45,6 @@ Package.onUse(function(api) {
     'server/methods/voucher_translate.js'
   ],['server']);
 
-  api.export(['Categories','Vouchers','Messages','VoucherCodes']);
+  api.export(['Waslchiraa', 'Categories','Vouchers','Messages','VoucherCodes']);
 
 });

@@ -1,7 +1,7 @@
 /**
  *
  */
-Template.partials_messages.helpers({
+Template.waslchiraa_partials_messages.helpers({
 
     /**
      *
@@ -14,7 +14,7 @@ Template.partials_messages.helpers({
 /**
  *
  */
-Template.partials_messages_item.onRendered(function() {
+Template.waslchiraa_partials_messages_item.onRendered(function() {
     var msg = this.data;
     Meteor.setTimeout(function() {
         Messages.remove(msg._id);

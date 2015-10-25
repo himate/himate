@@ -32,7 +32,7 @@ Template.pages_voucher_codes.events({
         Router.go('pages_vouchers_details', {
             _id: this.voucherId
         });
-        return App.Helpers.cancel(event);
+        return Waslchiraa.Helpers.cancel(event);
     }
 });
 

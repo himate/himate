@@ -52,7 +52,7 @@ Template.pages_vouchers.events({
      */
     'click .js-categories .js-category-item': function(event) {
         Router.go('pages_categories');
-        return App.Helpers.cancel(event);
+        return Waslchiraa.Helpers.cancel(event);
     },
 
     /**
@@ -63,7 +63,7 @@ Template.pages_vouchers.events({
         Router.go('pages_vouchers_details', {
             _id: this._id
         });
-        return App.Helpers.cancel(event);
+        return Waslchiraa.Helpers.cancel(event);
     }
 
     /**
@@ -75,7 +75,7 @@ Template.pages_vouchers.events({
     //    $('#pages-vouchers .amount .item').removeClass('active');
     //    $(event.currentTarget).addClass('active');
     //    Session.set('single', $(event.currentTarget).hasClass('single'));
-    //    return App.Helpers.cancel(event);
+    //    return Waslchiraa.Helpers.cancel(event);
     //}
 });
 

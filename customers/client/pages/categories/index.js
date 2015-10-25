@@ -26,6 +26,6 @@ Template.pages_categories.events({
     'click .js-categories .js-category': function(event) {
         Session.set('category', $(event.currentTarget).hasClass('js-all') ? null : this);
         Router.go('pages_vouchers');
-        return App.Helpers.cancel(event);
+        return Waslchiraa.Helpers.cancel(event);
     }
 });
