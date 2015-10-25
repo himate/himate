@@ -9,9 +9,14 @@ Template.pages_vouchers.helpers({
      * @reactive
      */
     vouchers: function() {
+        var filter = {};
         var c = Session.get('category');
 
-        Meteor.call('get_vouchers', c, function (error, data) {
+        if (c) {
+            categoryId: c._id
+        }
+
+        Meteor.call('vouchers_get', filter, function (error, data) {
             Session.set('vouchers', data);
         });
 

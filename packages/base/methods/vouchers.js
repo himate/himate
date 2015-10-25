@@ -122,12 +122,8 @@ Meteor.methods({
 
 
 
-    'get_vouchers': function (category) {
-        var filter = {};
-
-        if (category) {
-            filter.categoryId = category._id;
-        }
+    'vouchers_get': function (filter) {
+        filter = filter || {};
 
         var vouchers = Vouchers.find(filter);
 
@@ -145,6 +141,10 @@ Meteor.methods({
             };
 
             return vc;
+        });
+
+        vouchers = _.filter(vouchers, function (voucher) {
+            return voucher.quantity > voucher.voucherCodes.reserved + voucher.voucherCodes.redeemed;
         });
 
         return vouchers;
