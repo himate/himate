@@ -95,3 +95,8 @@ Template.registerHelper('getVoucherCodes', function(voucherId) {
         'redeemed': [{}, {}]
     };
 });
+
+Template.registerHelper('getMapUrl', function (item) {
+    console.log(item);
+    return 'https://www.google.de/maps/place/' + item.street + '+' + item.number + '+' + item.zipcode + '+' + item.city + '+' + item.country ;
+});
