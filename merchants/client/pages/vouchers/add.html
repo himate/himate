@@ -4,85 +4,8 @@
 			<div class="twelve wide column">
 				<h2>{{_ 'vouchers_add' }}</h2>
 
-				{{# autoForm collection='Vouchers' id='pages_vouchers_add' type='method' meteormethod='vouchers_add' }}
-					{{> afQuickField name='categoryId' }}
-					<div class="ui tabular menu show-manual">
-						<div class="item" data-tab="tab-de">DE</div>
-						<div class="item" data-tab="tab-en">EN</div>
-						<div class="item" data-tab="tab-ar">AR</div>
-					</div>
-					<button class="auto-translation  show-manual">{{_ "translate_auto"}}</button>
-					<div class="ui tab" data-tab="tab-de">
-						<div class="show-manual">
-							{{> afQuickField name='title.de' label=" Titel"}}
-							{{> afQuickField name='shortDescription.de' label="Short Description"}}
-							{{> afQuickField name='description.de' type='textarea' label=" Description" }}
-							{{> afQuickField name='conditions.de' type='textarea' label=" Contitions"}}
-							<button class="manual-translation hide-manual">{{_ "translate_manual"}}</button>
-						</div>
-					</div>
-					<div class="ui tab" data-tab="tab-en">
-						<div class="show-manual">
-
-							{{> afQuickField name='title.en'  label=" Titel"}}
-							{{> afQuickField name='shortDescription.en'  label="Short Description"}}
-							{{> afQuickField name='description.en' type='textarea' label=" Description" }}
-							{{> afQuickField name='conditions.en' type='textarea'  label=" Contitions" }}
-							<button class="manual-translation hide-manual">{{_ "translate_manual"}}</button>
-						</div>
-					</div>
-					<div class="ui tab" data-tab="tab-ar">
-						<div class="show-manual">
-
-							{{> afQuickField name='title.ar'  label=" Titel"}}
-							{{> afQuickField name='shortDescription.ar'  label="Short Description"}}
-							{{> afQuickField name='description.ar' type='textarea' label=" Description"}}
-							{{> afQuickField name='conditions.ar' type='textarea'  label=" Contitions" }}
-							<button class=" manual-translation hide-manual">{{_ "translate_manual"}}</button>
-						</div>
-					</div>
-
-
-					<div class="fields">
-						<div class="twelve wide field">
-							{{> afQuickField name='street' }}
-						</div>
-						<div class="four wide field">
-							{{> afQuickField name='number' }}
-						</div>
-					</div>
-
-					<div class="fields">
-						<div class="five wide field">
-							{{> afQuickField name='zipcode' }}
-						</div>
-						<div class="eleven wide field">
-							{{> afQuickField name='city' }}
-						</div>
-					</div>
-
-					{{> afQuickField name='country' }}
-
-					{{> afQuickField name='quantity' }}
-
-					<div class="fields">
-						<div class="eight wide field">
-							{{> afQuickField name='published' }}
-						</div>
-						<div class="eight wide field">
-							{{> afQuickField name='end' }}
-						</div>
-					</div>
-
-
-					<div class="ui bottom fixed actions menu">
-						<a href="{{ pathFor 'pages_vouchers' }}" class="disabled item">
-							<i class="left chevron icon"></i> {{_ 'back' }} </a>
-						<button type="submit" class="right item save-voucher">
-							<i class="save icon"></i>
-							{{_ 'submit' }}
-						</button>
-					</div>
+				{{# autoForm collection='Vouchers' id='pages_vouchers_add' class="translate-form" type='method' meteormethod='vouchers_add' }}
+					{{>form_fields}}
 				{{/autoForm}}
 			</div>
 

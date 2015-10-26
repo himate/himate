@@ -104,7 +104,7 @@ VoucherSchema = new SimpleSchema({
             type: TranslationSchema,
         },
         description: {
-            type: TranslationSchema,
+            type: TranslationSchemaOptional,
         },
         conditions: {
             type: TranslationSchemaOptional,

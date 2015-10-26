@@ -76,10 +76,19 @@ Meteor.methods({
         check(id, String);
         check(doc, Object);
         check(doc.$set, {
-            title: String,
-            shortDescription: String,
-            description: Match.Optional(String),
-            conditions: Match.Optional(String),
+            "title.de": String,
+            "title.en": String,
+            "title.ar": String,
+            "shortDescription.de": String,
+            "shortDescription.en": String,
+            "shortDescription.ar": String,
+            "description.de":  Match.Optional(String),
+            "description.en":  Match.Optional(String),
+            "description.ar":  Match.Optional(String),
+            "conditions.de":  Match.Optional(String),
+            "conditions.en":  Match.Optional(String),
+            "conditions.ar":  Match.Optional(String),
+            conditions: Match.Optional(Object),
             categoryId: String,
             published: Date,
             end: Match.Optional(Date),

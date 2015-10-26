@@ -24,7 +24,7 @@ Meteor.methods({
      * @return {String} currently an xml string with the result -> will be changed to return only the result
      */
     "translate_text": function(text, from, to) {
-        console.log('Starting Translation for: ' + text);
+        //console.log('Starting Translation for: ' + text);
         check(text, String);
         check(from, String);
         check(to, String);
@@ -34,7 +34,7 @@ Meteor.methods({
 
         // send translation request
         var response = getMsTranslation(text, from, to);
-        console.log('Got response from API: ' + response.content);
+        //console.log('Got response from API: ' + response.content);
         //var xmlDoc = new XMLSerializer()
         return response.content.replace(/(<([^>]+)>)/ig, '');
     }
