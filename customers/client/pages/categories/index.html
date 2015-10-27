@@ -7,16 +7,18 @@
         <div class="ui categories js-categories">
             <div class="categories-back js-all centered-y padded-content">
                 <p class="headline">
-                    <a class="back-link" href="{{ pathFor 'pages_vouchers' }}"> {{_ 'categories' }}</a>
+                    <a class="back-link" href="{{ pathFor 'pages_vouchers' }}"> {{_ 'categories' }}
+                        <i class="icon-close ico-right"></i>
+                    </a>
                 </p>
-                <i class="right close icon"></i>
+
             </div>
             <div class="category item js-category js-all centered-y padded-content">
                 <p class="headline category-title">
                     {{_ 'all' }}
                     <span>({{ countVouchers }})</span>
                 </p>
-                <i class="right chevron icon"></i>
+                <i class="icon-arrow-right ico-right"></i>
             </div>
             {{# each categories }}
             <div class="category item js-category centered-y padded-content">
@@ -24,7 +26,7 @@
                     {{ title }}
                     <span>({{ countVouchers this }})</span>
                 </p>
-                <i class="right chevron icon"></i>
+                <i class="icon-arrow-right ico-right"></i>
             </div>
             {{/ each }}
         </div>
