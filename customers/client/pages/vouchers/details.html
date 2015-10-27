@@ -3,7 +3,7 @@
         <div class="header-navigation">
             <h1>
                 <a class="back-chevron" href="{{ pathFor 'pages_vouchers' }}">
-                    <i class="left chevron icon"></i>
+                    <i class="icon-arrow-left ico-left"></i>
                 </a>
                 {{_ 'voucher' }}
             </h1>
@@ -14,7 +14,7 @@
                 <div class="ui right aligned grid">
                     <div class="left  aligned six wide column ">
                         {{# with getCategory item.categoryId}}
-                        <h5>{{ category }}</h5>
+                        <h5>{{ title }}</h5>
                         {{/ with }}
                         <h2>
                             {{ item.title }}
