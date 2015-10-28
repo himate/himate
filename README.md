@@ -14,6 +14,11 @@ The database is controlled by the admin app. To ensure that all instances a
 running on the same database, you should use the two scripts inside of the 
 ./tools directory.
 
+### settings.json 
+The Apps need config values from a `settings.json`. 
+Please place the `settings.json` at the top dir of 
+this repository (`.`) .
+
 ### start all apps (tested on ubuntu)
 
     ./tools/start-all-apps.sh
