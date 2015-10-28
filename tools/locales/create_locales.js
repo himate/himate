@@ -1,7 +1,7 @@
 var fs = require('fs');
 var parse = require('csv-parse');
-
-var inputFile = 'locale.csv';
+var request = require('request');
+var inputFile = 'https://docs.google.com/spreadsheets/d/1HUXkkF25WWOa9_urbGNB2pMITR722M6n7YnZpp1zvcw/pub?gid=0&single=true&output=csv';
 
 var targets = ['../../packages/base/lib/locale/'];
 
@@ -39,4 +39,5 @@ var parser = parse({
         }
     });
 });
-fs.createReadStream(inputFile).pipe(parser); 
+
+request(inputFile).pipe(parser); 
