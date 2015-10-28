@@ -2,18 +2,15 @@
  * Translation
  */
 
-// TODO: read from local config from server -> should not be in public repo!
-MS_TOKEN_URL = "https://datamarket.accesscontrol.windows.net/v2/OAuth2-13";
+MS_TOKEN_URL = Meteor.settings.MsTokenUrl;
 MS_ACCESS_TOKEN = "";
-MS_ACCESS_TOKEN_EXPIRES = 0;
-// in s
-MS_CLIENT_ID = "waslchiraa-test";
-MS_CLIENT_SECRET = "ylUVBsM3%2FPOFzbDNAxHyb7QEpHmLeZlJggCtIzfC0GQ%3D";
-MS_TOKEN_SCOPE = "http://api.microsofttranslator.com";
-MS_TOKEN_GRANT_TYPE = "client_credentials";
-MS_TRANSLATOR_URL = "http://api.microsofttranslator.com/v2/Http.svc/Translate";
-MS_API_TO = 10000;
-// in ms
+MS_ACCESS_TOKEN_EXPIRES = 0; // in s
+MS_CLIENT_ID = Meteor.settings.MsClientId;
+MS_CLIENT_SECRET = Meteor.settings.MsClientSecret;
+MS_TOKEN_SCOPE = Meteor.settings.MsTokenScope;
+MS_TOKEN_GRANT_TYPE = Meteor.settings.MsTokenGrantType;
+MS_TRANSLATOR_URL = Meteor.settings.MsTranslatorUrl;
+MS_API_TO = 10000; // in ms
 
 Meteor.methods({
 
