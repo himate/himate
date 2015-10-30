@@ -38,6 +38,25 @@ Router.route('/vouchers/:_id/edit', {
 });
 
 /**
+ * voucher codes
+ */
+Router.route('/vouchers_codes/:_id', {
+    name: 'pages_voucher_codes',
+    onBeforeAction: Router.merchantRequired,
+    waitOn: function() {
+        return [Meteor.subscribe('voucher_voucher_codes',this.params._id), Meteor.subscribe('voucher_users',this.params._id)];
+    }
+});
+
+/**
+ * about us
+ */
+Router.route('/profile', {
+    name: 'pages_profile'
+});
+
+
+/**
  * about us
  */
 Router.route('/about-us', {
@@ -55,7 +74,8 @@ Router.route('/how-it-works', {
  * about us
  */
 Router.route('/verify-refugee', {
-    name: 'pages_verify_refugee'
+    name: 'pages_verify_refugee',
+    onBeforeAction: Router.merchantRequired
 });
 
 /**

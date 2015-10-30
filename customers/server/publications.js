@@ -49,6 +49,7 @@ Meteor.publish('vouchers', function() {
     return [vouchers, merchants];
 });
 
+
 /**
  * publish all categories
  */
@@ -61,4 +62,13 @@ Meteor.publish('categories', function() {
 
     // send collection
     return Categories.find();
+});
+
+
+Meteor.publish('voucher_codes', function(voucherIds) {
+    return VoucherCodes.find({
+        voucherId: {
+            $in: voucherIds
+        }
+    });
 });

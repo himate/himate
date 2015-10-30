@@ -1,0 +1,24 @@
+<template name="pages_categories_add">
+    {{> partials_sub_menu active='categories' search='title' }}
+
+    <div id="pages-categories_add" class="ui basic segment">
+        <div class="ui mobile reversed stackable grid">
+            <div class="twelve wide column">
+                <h2>{{_ 'category' }}</h2>
+
+                {{# autoForm collection='Categories' id='pages_categories_add' type='method' meteormethod='categories_add' }}
+
+                {{> afQuickField name='title' }}
+
+                <div class="ui bottom fixed actions menu">
+                    <a href="{{ pathFor 'pages_categories' }}" class="disabled item"> <i class="left chevron icon"></i> {{_ 'back' }} </a>
+                    <button type="submit" class="right item">
+                        <i class="save icon"></i>
+                        {{_ 'submit' }}
+                    </button>
+                </div>
+                {{/autoForm}}
+
+            </div>
+        </div><!-- .grid -->
+    </div><!-- #pages-categories --></template>

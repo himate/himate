@@ -27,9 +27,12 @@ tap:i18n
 tap:i18n-ui
 mrt:accounts-t9n
 aldeed:collection2
-fabienb4:autoform-semantic-ui
 audit-argument-checks
 aldeed:autoform
 check
 momentjs:moment
+fabienb4:autoform-semantic-ui
 
+waslchiraa:base
+less
+matb33:collection-hooks

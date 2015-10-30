@@ -1,21 +1,50 @@
 <template name="pages_vouchers_edit">
+	{{> partials_sub_menu active='vouchers' search='title' }}
     <div id="pages-vouchers-edit" class="ui basic segment">
         <div class="ui mobile reversed stackable grid">
             <div class="twelve wide column">
                 <h2>{{_ 'vouchers_edit' }}</h2>
 
                 {{# autoForm collection='Vouchers' doc=voucher id='pages_vouchers_edit' type='method-update' meteormethod='vouchers_edit' }}
-
-                <h3 class="ui dividing header">{{_ 'basics' }}</h3>
                 {{> afQuickField name='title' }}
-                {{> afQuickField name='description' type='textarea' }}
 
-                <h3 class="ui dividing header">{{_ 'relations' }}</h3>
-                {{> afQuickField name='userId' }}
                 {{> afQuickField name='categoryId' }}
 
-                <h3 class="ui dividing header">{{_ 'state' }}</h3>
-                {{> afQuickField name='published' }}
+                {{> afQuickField name='shortDescription' }}
+                {{> afQuickField name='description' type='textarea' }}
+
+                {{> afQuickField name='conditions' type='textarea' }}
+
+                <div class="fields">
+                    <div class="twelve wide field">
+                        {{> afQuickField name='street' }}
+                    </div>
+                    <div class="four wide field">
+                        {{> afQuickField name='number' }}
+                    </div>
+                </div>
+
+                <div class="fields">
+                    <div class="five wide field">
+                        {{> afQuickField name='zipcode' }}
+                    </div>
+                    <div class="eleven wide field">
+                        {{> afQuickField name='city' }}
+                    </div>
+                </div>
+
+                {{> afQuickField name='country' }}
+
+                {{> afQuickField name='quantity' }}
+
+                <div class="fields">
+                    <div class="eight wide field">
+                        {{> afQuickField name='published' }}
+                    </div>
+                    <div class="eight wide field">
+                        {{> afQuickField name='end' }}
+                    </div>
+                </div>
 
                 <div class="ui bottom fixed actions menu">
                     <a href="{{ pathFor 'pages_vouchers' }}" class="disabled item"> <i class="left chevron icon"></i> {{_ 'back' }} </a>
@@ -28,9 +57,9 @@
             </div>
 
             <div class="four wide column">
-                <h2>Info</h2>
+                <h2>{{_ 'information' }}</h2>
                 <p>
-                    Update a voucher here.
+                  {{_ 'update_voucher' }}
                 </p>
             </div>
         </div><!-- .grid -->

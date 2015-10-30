@@ -1,35 +1,32 @@
 <template name="pages_categories">
     <div id="pages-categories" class="ui container">
-        <h1>{{_ 'categories' }}</h1>
-
-        <div class="ui divider"></div>
-
-        <div class="ui items">
-            <div class="all item">
-                <div class="content">
-                    <div class="header">
-                        {{_ 'all' }}
-                        <i class="right chevron icon"></i>
-                        <em>({{ countVouchers }})</em>
-                    </div>
-                </div>
-            </div>
-
-            {{# each categories }}
-            <div class="item">
-                <div class="content">
-                    <div class="header">
-                        {{ title }}
-                        <i class="right chevron icon"></i>
-                        <em>({{ countVouchers this }})</em>
-                    </div>
-                </div>
-            </div>
-            {{/ each }}
+        <div class="header-navigation">
+            <h1>{{_ 'categories' }}</h1>
         </div>
 
-        <div class="ui bottom fixed actions menu">
-            <a class="item" href="{{ pathFor 'pages_vouchers' }}"><i class="left chevron icon"></i>{{_ 'back' }}</a>
+        <div class="ui categories js-categories">
+            <div class="categories-back js-all centered-y padded-content">
+                <p class="headline">
+                    <a class="back-link" href="{{ pathFor 'pages_vouchers' }}"> {{_ 'categories' }}</a>
+                </p>
+                <i class="right close icon"></i>
+            </div>
+            <div class="category item js-category js-all centered-y padded-content">
+                <p class="headline category-title">
+                    {{_ 'all' }}
+                    <span>({{ countVouchers }})</span>
+                </p>
+                <i class="right chevron icon"></i>
+            </div>
+            {{# each categories }}
+            <div class="category item js-category centered-y padded-content">
+                <p class="headline category-title">
+                    {{ title }}
+                    <span>({{ countVouchers this }})</span>
+                </p>
+                <i class="right chevron icon"></i>
+            </div>
+            {{/ each }}
         </div>
     </div>
 </template>

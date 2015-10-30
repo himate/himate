@@ -1,0 +1,67 @@
+@import "default.import.less";
+
+.pusher > .ui.container {
+  //padding: 6em 0 5em 0;
+  width: 100%;
+  padding: @nav-base-height 0;
+}
+
+.ui.primary.buttons .button, .ui.primary.button {
+  background-color: @button-primary-bg-color;
+  color: #FFF;
+}
+
+.ui.primary.buttons .button:hover, .ui.primary.button:hover {
+  background-color: @button-primary-bg-color;
+  color: #FFF;
+}
+
+/** app states */
+.pages-startpage.pushable > .pusher {
+  background: @button-primary-bg-color;
+}
+
+.pages-startpage.pushable > .pusher > .ui.container {
+  padding: 4.5em 0 5em;
+}
+
+.ui.divider{
+  color: @border-color-base;
+}
+
+.ui.container .header-navigation{
+  border-bottom: 1px solid @border-color-base;
+  height: @nav-base-height;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  & > h1 {
+    font-family: @font-family-headlines;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    color: @main-text-color;
+  }
+}
+
+//temporary
+.ui.container > h1 {
+  font-family: @font-family-headlines;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  color: @main-text-color;
+}
+
+.chevron.icon, .close.icon {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  color: @inverted-text-color;
+}

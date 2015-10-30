@@ -1,35 +1,27 @@
 <template name="pages_vouchers_add">
-    <div id="pages-vouchers-add" class="ui basic segment">
-        <div class="ui mobile reversed stackable grid">
-            <div class="twelve wide column">
-                <h2>{{_ 'vouchers_add' }}</h2>
+	<div id="pages-vouchers-add" class="ui basic segment">
+		<div class="ui mobile reversed stackable grid">
+			<div class="twelve wide column">
+				<h2>{{_ 'vouchers_add' }}</h2>
 
-                {{# autoForm collection='Vouchers' id='pages_vouchers_add' type='method' meteormethod='vouchers_add' }}
-                {{> afQuickField name='title' }}
+				{{# autoForm collection='Vouchers' id='pages_vouchers_add' class="translate-form" type='method' meteormethod='vouchers_add' }}
+					{{>form_fields}}
+				{{/autoForm}}
+			</div>
 
-                {{> afQuickField name='categoryId' }}
+			<div class="four wide column">
+				<h2>{{_ 'information' }}</h2>
 
-                {{> afQuickField name='description' type='textarea' }}
+				<p>
+					{{_ 'create_new_vouchers' }}
+				</p>
 
-                <div class="ui bottom fixed actions menu">
-                    <a href="{{ pathFor 'pages_vouchers' }}" class="disabled item"> <i class="left chevron icon"></i> {{_ 'back' }} </a>
-                    <button type="submit" class="right item">
-                        <i class="save icon"></i>
-                        {{_ 'submit' }}
-                    </button>
-                </div>
-                {{/autoForm}}
-            </div>
-
-            <div class="four wide column">
-                <h2>Info</h2>
-                <p>
-                    Create new vouchers here.
-                </p>
-                <p>
-                    We'll approve your new vouchers within 24 hours.
-                </p>
-            </div>
-        </div><!-- .grid -->
-    </div><!-- #pages-vouchers -->
+				<p>
+					{{_ 'approve_vouchers' }}
+				</p>
+			</div>
+		</div>
+		<!-- .grid -->
+	</div>
+	<!-- #pages-vouchers -->
 </template>

@@ -4,33 +4,21 @@
             <div class="twelve wide column">
                 <h2>{{_ 'vouchers_edit' }}</h2>
 
-                {{# autoForm collection='Vouchers' doc=voucher id='pages_vouchers_edit' type='method-update' meteormethod='vouchers_edit' }}
-                {{> afQuickField name='title' }}
-
-                {{> afQuickField name='categoryId' }}
-
-                {{> afQuickField name='description' type='textarea' }}
-
-                <div class="ui bottom fixed actions menu">
-                    <a href="{{ pathFor 'pages_vouchers' }}" class="disabled item"> <i class="left chevron icon"></i> {{_ 'back' }} </a>
-                    <button type="submit" class="right item">
-                        <i class="save icon"></i>
-                        {{_ 'submit' }}
-                    </button>
-                </div>
+                {{# autoForm collection='Vouchers' doc=voucher id='pages_vouchers_edit' class="translate-form" type='method-update' meteormethod='vouchers_edit' }}
+               		{{>form_fields}}
                 {{/autoForm}}
             </div>
 
             <div class="four wide column">
-                <h2>Info</h2>
+                <h2>{{_ 'information' }}</h2>
                 <p>
-                    Update your voucher here.
+                    {{_ 'update_voucher' }}
                 </p>
                 <p>
-                    Your voucher will be offline until verified!
+                  {{_ 'voucher_offline' }}
                 </p>
                 <p>
-                    We'll approve your update within 24 hours.
+                    {{_ 'approve_updated_vouchers' }}
                 </p>
             </div>
         </div><!-- .grid -->

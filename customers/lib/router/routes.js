@@ -9,7 +9,21 @@ Router.route('/', {
  * vouchers
  */
 Router.route('/vouchers', {
-    name: 'pages_vouchers'
+    name: 'pages_vouchers',
+    waitOn: function () {
+        var filter = {};
+        var c = Session.get('category');
+
+        if (c) {
+            filter.categoryId = c._id;
+        }
+
+        var voucherIds = Vouchers.find(filter).map(function (v) {
+            return v._id;
+        });
+
+        return Meteor.subscribe('voucher_codes', voucherIds);
+    }
 });
 
 /**
@@ -17,6 +31,14 @@ Router.route('/vouchers', {
  */
 Router.route('/vouchers/:_id', {
     name: 'pages_vouchers_details'
+});
+
+
+/**
+ * voucher codes
+ */
+Router.route('/voucher_codes', {
+    name: 'pages_voucher_codes'
 });
 
 /**

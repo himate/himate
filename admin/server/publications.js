@@ -1,7 +1,7 @@
 /**
  * publish all vouchers
  */
-Meteor.publish('vouchers', function() {
+Meteor.publish('vouchers', function () {
 
     // security checks
     if (!Roles.userIsInRole(this.userId, 'admin')) {
@@ -10,7 +10,7 @@ Meteor.publish('vouchers', function() {
 
     // collect data
     var vouchers = Vouchers.find();
-    var merchantIds = vouchers.map(function(v) {
+    var merchantIds = vouchers.map(function (v) {
         return v.userId;
     });
 
@@ -28,10 +28,14 @@ Meteor.publish('vouchers', function() {
     return [vouchers, merchants];
 });
 
+Meteor.publish("voucher_codes", function (voucherId) {
+    return VoucherCodes.find({'voucherId': voucherId});
+});
+
 /**
  * publish all categories
  */
-Meteor.publish('categories', function() {
+Meteor.publish('categories', function () {
     if (!Roles.userIsInRole(this.userId, 'admin')) {
         return this.ready();
     }
@@ -41,7 +45,7 @@ Meteor.publish('categories', function() {
 /**
  * publish all users
  */
-Meteor.publish('users', function() {
+Meteor.publish('users', function () {
     if (!Roles.userIsInRole(this.userId, 'admin')) {
         return this.ready();
     }

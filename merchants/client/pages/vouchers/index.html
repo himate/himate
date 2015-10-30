@@ -3,6 +3,7 @@
         <div class="ui mobile reversed stackable grid">
             <div class="twelve wide column">
                 <h2>{{_ 'vouchers' }}</h2>
+				{{testtrans}}
                 <table class="ui compact celled definition table">
                     <thead class="full-width">
                         <tr>
@@ -11,33 +12,17 @@
                             <th>{{_ 'description' }} </th>
                             <th>{{_ 'category' }}</th>
                             <th>{{_ 'published' }}</th>
-                            <th colspan="2">&nbsp;</th>
+                            <th>{{_ 'end' }}</th>
+                            <th>{{_ 'quantity' }}</th>                            <th colspan="2">&nbsp;</th>
                         </tr>
                     </thead>
 
                     <tbody>
                         {{# each vouchers }}
-                        <tr>
-                            <td class="collapsing">
-                            <div class="ui fitted checkbox">
-                                <input type="checkbox">
-                                <label></label>
-                            </div></td>
-
-                            <td><a href="{{ pathFor 'pages_vouchers_details' }}">{{ title }}</a></td>
-
-                            <td>{{ description }}</td>
-
-                            <td>{{# with getCategory categoryId }}{{ title }}{{/ with }}</td>
-
-                            <td>{{ published }}</td>
-
-                            <td width="10"><a class="edit write" href="{{ pathFor 'pages_vouchers_edit' }}" title="{{_ 'vouchers_edit' }}"><i class="pencil icon"></i></a></td>
-                            <td width="10"><a class="remove write" href="#" title="{{_ 'vouchers_remove' }}"><i class="trash icon"></i></a></td>
-                        </tr>
+                       		{{> pages_vouchers_voucher}}
                         {{ else }}
                         <tr>
-                            <td colspan="4">No items found.</td>
+                            <td colspan="4">{{_ 'no_vouchers_found' }}.</td>
                         </tr>
                         {{/ each }}
                     </tbody>
@@ -47,10 +32,7 @@
             <div class="four wide column">
                 <h2>Info</h2>
                 <p>
-                    Your vouchers on waslchiraa. Create new vouchers here.
-                </p>
-                <p>
-                    We'll approve your new vouchers within 24 hours.
+                    {{_ 'vouchers_info_text' }}
                 </p>
             </div>
         </div><!-- .grid -->
@@ -60,4 +42,30 @@
         <a href="#" class="disabled item"> <i class="trash icon"></i> {{_ 'delete_selected' }} </a>
         <a href="{{ pathFor 'pages_vouchers_add' }}" title="{{_ 'vouchers_add' }}" class="right item"><i class="add icon"></i>{{_ 'vouchers_add' }}</a>
     </div>
+</template>
+
+
+<template name="pages_vouchers_voucher">
+	<tr>
+		<td class="collapsing">
+			<div class="ui fitted checkbox">
+				<input type="checkbox">
+				<label></label>
+			</div></td>
+
+		<td><a href="{{ pathFor 'pages_vouchers_details' }}">{{ translateField this "title" }}</a></td>
+
+		<td>{{ translateField this "description" }}</td>
+
+		<td>{{# with getCategory categoryId }}{{ title }}{{/ with }}</td>
+
+        <td>{{formatDate published }}</td>
+
+        <td>{{#if end }} {{formatDate end }} {{ else }} - {{/if}}</td>
+
+        <td>{{#with getVoucherCodes _id}} {{total}} ({{available}} / {{ reserved }} / {{ redeemed }}) {{/ with}}</td>
+
+		<td width="10"><a class="edit write" href="{{ pathFor 'pages_vouchers_edit' }}" title="{{_ 'vouchers_edit' }}"><i class="pencil icon"></i></a></td>
+		<td width="10"><a class="remove write" href="#" title="{{_ 'vouchers_remove' }}"><i class="trash icon"></i></a></td>
+	</tr>
 </template>

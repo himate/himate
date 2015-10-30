@@ -65,8 +65,20 @@ Router.route('/vouchers/:_id/edit', {
     }
 });
 
+
 /**
- * category details
+ * voucher codes
+ */
+Router.route('/vouchers_codes/:_id', {
+    name: 'pages_voucher_codes',
+    onBeforeAction: Router.adminRequired,
+    waitOn: function() {
+        return [Meteor.subscribe('voucher_codes',this.params._id)];
+    }
+});
+
+/**
+     * category details
  */
 Router.route('/categories', {
     name: 'pages_categories',
@@ -74,6 +86,14 @@ Router.route('/categories', {
     waitOn: function() {
         return [Meteor.subscribe('categories')];
     }
+});
+
+/**
+ * category details
+ */
+Router.route('/categories/add', {
+    name: 'pages_categories_add',
+    onBeforeAction: Router.adminRequired
 });
 
 /**

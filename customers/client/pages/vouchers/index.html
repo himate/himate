@@ -1,59 +1,25 @@
 <template name="pages_vouchers">
     <div id="pages-vouchers" class="ui container">
-        <h1>{{_ 'vouchers' }}</h1>
-
-        <div class="ui divider"></div>
-
-        <!--<div class="ui center aligned two item menu amount">
-        <div class="active item single">
-        <i class="user icon"></i>Single
-        </div>
-        <div class="item group">
-        <i class="users icon"></i>Group
-        </div>
+        <div class="header-navigation">
+            <h1>{{_ 'vouchers' }}</h1>
         </div>
 
-        <div class="ui divider"></div>-->
-
-        <div class="ui items">
-            <div class="category item">
-                <div class="content">
-                    <div class="header">
-                        <h2>{{_ 'category' }}</h2>
-                        <i class="right chevron icon"></i>
-                        <p>
-                            {{# with category }}{{ category.title }}{{ else }}{{_ 'all' }}{{/ with }}
-                            <em>({{ countVouchers category }})</em>
-                        </p>
-                    </div>
-                </div>
+        <div class="ui js-categories">
+            <div class="js-category-item category item centered-y padded-content">
+                <h2 class="headline item-title">
+                    {{_ 'categories' }}:
+                </h2>
+                <p class="headline category-title">
+                    {{# with category }}{{ category.title }}{{ else }}{{_ 'all' }}{{/ with }}
+                    <span>({{ countVouchers category }})</span>
+                </p>
+                <i class="right chevron icon"></i>
             </div>
 
             {{# each vouchers }}
-            <div class="item">
-                <div class="ui small image">
-                    <img src="/images/wireframe/image.png">
-                </div>
-                <div class="content">
-                    <div class="header">
-                        {{ title }}
-                        <i class="right chevron icon"></i>
-                    </div>
-                    <div class="meta">
-                        <span class="valid">published: {{ published }}</span>
-                    </div>
-
-                    <div class="description">
-                        <p class="ui image">
-                            {{!-- description --}}
-                            <img src="/images/wireframe/short-paragraph.png" />
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ui divider"></div>
+                {{> pages_vouchers_voucher}}
             {{/ each }}
+
         </div>
     </div>
 </template>
