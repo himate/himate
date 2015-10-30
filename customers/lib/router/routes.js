@@ -30,7 +30,10 @@ Router.route('/vouchers', {
  * vouchers
  */
 Router.route('/vouchers/:_id', {
-    name: 'pages_vouchers_details'
+    name: 'pages_vouchers_details',
+    waitOn: function () {
+        return Meteor.subscribe('vouchers');
+    }
 });
 
 

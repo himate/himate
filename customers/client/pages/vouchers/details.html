@@ -9,7 +9,7 @@
                 <div>{{ category }}</div>
                 {{/ with }}
 
-                <h1 class="page-title">{{ item.title }}</h1>
+                <h1 class="page-title">{{ translateField item "title" }}{{item.title}}</h1>
 
                 {{# with getUser item.userId }}
                 <p class="from">
@@ -22,12 +22,12 @@
 
             <div class="description">
                 <p class="ui image">
-                    {{ item.description }}
+					{{ translateField item "description" }}
                 </p>
             </div>
 
             <div class="adress">
-                <p class="ui">{{ item.street }} {{ item.number }}, {{ item.zipcode }} {{ item.city }} | <a href="{{getMapUrl item }}">Check on map</a></p>
+                <!--<p class="ui">{{ item.street }} {{ item.number }}, {{ item.zipcode }} {{ item.city }} | <a href="{{getMapUrl item }}">Check on map</a></p>-->
             </div>
         </div>
 

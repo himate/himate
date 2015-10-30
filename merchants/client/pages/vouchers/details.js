@@ -8,6 +8,7 @@ Template.pages_vouchers_details.helpers({
      * @reactive
      */
     item: function() {
+        console.log(Router.current().params._id);
         return Vouchers.findOne(Router.current().params._id);
     }
 });
