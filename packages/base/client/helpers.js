@@ -44,6 +44,7 @@ Template.registerHelper('pageTitle', function () {
     return Session.get('pageTitle');
 });
 
+
 /**
  * @param {String} userId
  * @return {Object} user or null
