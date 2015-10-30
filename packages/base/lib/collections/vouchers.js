@@ -1,3 +1,76 @@
+TranslationSchemaOptional = new SimpleSchema({
+    de: {
+        type: String,
+        optional: true,
+    },
+    en: {
+        type: String,
+        optional: true,
+    },
+    ar: {
+        type: String,
+        optional: true,
+    },
+
+});
+TranslationSchemaOptionalTextarea = new SimpleSchema({
+    de: {
+        type: String,
+        optional: true,
+        autoform: {
+            rows: 5
+        }
+    },
+    en: {
+        type: String,
+        optional: true,
+        autoform: {
+            rows: 5
+        }
+    },
+    ar: {
+        type: String,
+        optional: true,
+        autoform: {
+            rows: 5
+        }
+    },
+
+});
+TranslationSchema = new SimpleSchema({
+    de: {
+        type: String,
+    },
+    en: {
+        type: String,
+    },
+    ar: {
+        type: String,
+    },
+
+});
+TranslationSchemaTextarea = new SimpleSchema({
+    de: {
+        type: String,
+        autoform: {
+            rows: 5
+        }
+    },
+    en: {
+        type: String,
+        autoform: {
+            rows: 5
+        }
+    },
+    ar: {
+        type: String,
+        autoform: {
+            rows: 5
+        }
+    },
+
+});
+
 VoucherSchema = new SimpleSchema({
         created: {
             type: Date,
@@ -73,18 +146,16 @@ VoucherSchema = new SimpleSchema({
             }
         },
         title: {
-            type: String
+            type: TranslationSchema,
         },
         description: {
-            type: String,
-            optional: true
+            type: TranslationSchemaOptionalTextarea,
         },
         conditions: {
-            type: String,
-            optional: true
+            type: TranslationSchemaOptionalTextarea,
         },
         shortDescription: {
-            type: String
+            type: TranslationSchemaTextarea,
         },
         published: {
             type: Date,

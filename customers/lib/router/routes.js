@@ -22,7 +22,10 @@ Router.route('/vouchers', {
             return v._id;
         });
 
-        return Meteor.subscribe('voucher_codes', voucherIds);
+        return [
+            Meteor.subscribe('voucher_codes', voucherIds),
+            Meteor.subscribe('vouchers'),
+        ];
     }
 });
 
@@ -32,7 +35,10 @@ Router.route('/vouchers', {
 Router.route('/vouchers/:_id', {
     name: 'pages_vouchers_details',
     waitOn: function () {
-        return Meteor.subscribe('voucher_codes');
+        return [
+            Meteor.subscribe('vouchers'),
+            Meteor.subscribe('voucher_codes')
+        ];
     }
 });
 

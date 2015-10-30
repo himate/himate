@@ -3,6 +3,7 @@
         <div class="ui mobile reversed stackable grid">
             <div class="twelve wide column">
                 <h2>{{_ 'vouchers' }}</h2>
+				{{testtrans}}
                 <table class="ui compact celled definition table">
                     <thead class="full-width">
                         <tr>
@@ -52,9 +53,9 @@
 				<label></label>
 			</div></td>
 
-		<td><a href="{{ pathFor 'pages_vouchers_details' }}">{{ title }}</a></td>
+		<td><a href="{{ pathFor 'pages_vouchers_details' }}">{{ translateField this "title" }}</a></td>
 
-		<td>{{ description }}</td>
+		<td>{{ translateField this "shortDescription" }}</td>
 
 		<td>{{# with getCategory categoryId }}{{ title }}{{/ with }}</td>
 

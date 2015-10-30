@@ -1,6 +1,6 @@
 <template name="pages_vouchers_details">
     <div id="pages-vouchers-details" class="ui container">
-        <h1>{{_ 'voucher' }}: {{ item.title }}</h1>
+        <h1>{{_ 'voucher' }}: {{ translateField item "title" }}</h1>
 
         <div class="ui divider"></div>
 
@@ -20,7 +20,7 @@
             <div class="description">
                 <p class="ui image">
                     {{!-- item.description --}}
-                    <img src="/images/wireframe/short-paragraph.png" />
+					{{ translateField item "description" }}
                 </p>
             </div>
         </div>

@@ -53,9 +53,9 @@
 				<label></label>
 			</div></td>
 
-		<td><a href="{{ pathFor 'pages_vouchers_details' }}">{{ title }}</a></td>
+		<td><a href="{{ pathFor 'pages_vouchers_details' }}">{{ translateField this "title" }}</a></td>
 
-		<td>{{ description }}</td>
+		<td>{{ translateField this "shortDescription" }}</td>
 
 		<td>{{# with getCategory categoryId }}{{ title }}{{/ with }}</td>
 

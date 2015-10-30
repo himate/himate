@@ -14,7 +14,15 @@ Template.pages_vouchers.helpers({
                 title: 1
             }
         });
+    },
+    'testtrans':function(){
+         Meteor.call('translate_text','Wie heisst Du?','de', 'en', function(err, result){
+             Session.set('trans', result);
+        });
+        return Session.get('trans')
+
     }
+
 });
 
 Template.pages_vouchers_voucher.helpers({

@@ -132,3 +132,14 @@ Template.registerHelper('isReservedByUser', function (voucherId) {
 Template.registerHelper('getMapUrl', function (item) {
     return item ? 'https://www.google.de/maps/place/' + item.street + '+' + item.number + '+' + item.zipcode + '+' + item.city + '+' + item.country : '' ;
 });
+
+
+Template.registerHelper('translateField', function (object, field){
+    var lang =  TAPi18n.getLanguage();
+    if(object && object[field] && object[field][lang]){
+        return object[field][lang];
+    }else{
+        return '';
+    }
+});
+

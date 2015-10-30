@@ -80,8 +80,6 @@ Meteor.methods({
             return vc;
         });
 
-        console.log(voucherCodes);
-
         return voucherCodes;
     }
 });

@@ -4,54 +4,8 @@
             <div class="twelve wide column">
                 <h2>{{_ 'vouchers_edit' }}</h2>
 
-                {{# autoForm collection='Vouchers' doc=voucher id='pages_vouchers_edit' type='method-update' meteormethod='vouchers_edit' }}
-                {{> afQuickField name='title' }}
-
-                {{> afQuickField name='categoryId' }}
-
-                {{> afQuickField name='shortDescription' }}
-                {{> afQuickField name='description' type='textarea' }}
-
-                {{> afQuickField name='conditions' type='textarea' }}
-
-                <div class="fields">
-                    <div class="twelve wide field">
-                        {{> afQuickField name='street' }}
-                    </div>
-                    <div class="four wide field">
-                        {{> afQuickField name='number' }}
-                    </div>
-                </div>
-
-                <div class="fields">
-                    <div class="five wide field">
-                        {{> afQuickField name='zipcode' }}
-                    </div>
-                    <div class="eleven wide field">
-                        {{> afQuickField name='city' }}
-                    </div>
-                </div>
-
-                {{> afQuickField name='country' }}
-
-                <div class="fields">
-                    {{> afQuickField name='quantity' }}
-
-                    <div class="eight wide field">
-                        {{> afQuickField name='published' }}
-                    </div>
-                    <div class="eight wide field">
-                        {{> afQuickField name='end' }}
-                    </div>
-                </div>
-
-                <div class="ui bottom fixed actions menu">
-                    <a href="{{ pathFor 'pages_vouchers' }}" class="disabled item"> <i class="left chevron icon"></i> {{_ 'back' }} </a>
-                    <button type="submit" class="right item">
-                        <i class="save icon"></i>
-                        {{_ 'submit' }}
-                    </button>
-                </div>
+                {{# autoForm collection='Vouchers' doc=voucher id='pages_vouchers_edit' class="translate-form" type='method-update' meteormethod='vouchers_edit' }}
+               		{{>form_fields}}
                 {{/autoForm}}
             </div>
 
