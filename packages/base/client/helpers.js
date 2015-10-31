@@ -114,7 +114,11 @@ Waslchiraa.Helpers.getVoucherCodes = function (voucherId) {
 
 
 Template.registerHelper('getVoucherCodes', function (voucherId) {
-    Waslchiraa.Helpers.getVoucherCodes(voucherId);
+    return Waslchiraa.Helpers.getVoucherCodes(voucherId);
+});
+
+Template.registerHelper('voucherCodeCount', function (voucherId) {
+    return Waslchiraa.Helpers.getVoucherCodes(voucherId).available;
 });
 
 

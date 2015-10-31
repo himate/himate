@@ -49,6 +49,14 @@ Router.route('/vouchers_codes/:_id', {
 });
 
 /**
+ * redeem voucher codes
+ */
+Router.route('/redeem', {
+    name: 'pages_redeem',
+    onBeforeAction: Router.merchantRequired
+});
+
+/**
  * about us
  */
 Router.route('/profile', {

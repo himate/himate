@@ -65,9 +65,8 @@ Meteor.methods({
         return code;
     },
 
-    /**
-     *
-     */
+
+
     'get_user_voucher_codes': function() {
         // :TODO: refactor to pub/sub
         // collect data
@@ -75,11 +74,60 @@ Meteor.methods({
             userId: Meteor.userId
         });
 
-        var voucherCodes = voucherCodes.map(function(vc) {
+        voucherCodes = voucherCodes.map(function(vc) {
             vc.voucher = Vouchers.findOne(vc.voucherId);
             return vc;
         });
 
         return voucherCodes;
+    },
+
+
+
+    'validateVoucher': function(voucherCode) {
+
+        // security checks
+        if (!Roles.userIsInRole(Meteor.userId(), ['customer'])) {
+            throw new Meteor.Error("not-authorized");
+        }
+
+        var voucher = Vouchers.findOne({
+            "userId": this.userId,
+            "voucherCode": voucherCode
+        });
+
+        if (!voucher) {
+            throw new Meteor.Error("not-found");
+        }
+
+        return true;
+    },
+
+
+
+    'redeemVoucher': function (voucherCode) {
+
+      // security checks
+      if (!Roles.userIsInRole(Meteor.userId(), ['customer'])) {
+          throw new Meteor.Error("not-authorized");
+      }
+
+      var voucher = Vouchers.findOne({
+          "userId": this.userId,
+          "voucherCode": voucherCode
+      });
+
+      if (!voucher) {
+          throw new Meteor.Error("not-found");
+      }
+
+      VoucherCodes.update({
+          "code": code,
+          "voucherId": voucher._id
+      }, {
+          redeemed: new Date()
+      });
+
+      return true;
     }
 });
