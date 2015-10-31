@@ -4,7 +4,7 @@ VoucherCodesSchema = new SimpleSchema({
         index: 1,
         autoValue: function() {
             if (this.isInsert) {
-                return new Date;
+                return new Date();
             }
         }
     },

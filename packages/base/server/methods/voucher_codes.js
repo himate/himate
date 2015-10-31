@@ -65,9 +65,8 @@ Meteor.methods({
         return code;
     },
 
-    /**
-     *
-     */
+
+
     'get_user_voucher_codes': function() {
         // :TODO: refactor to pub/sub
         // collect data
@@ -75,11 +74,55 @@ Meteor.methods({
             userId: Meteor.userId
         });
 
-        var voucherCodes = voucherCodes.map(function(vc) {
+        voucherCodes = voucherCodes.map(function(vc) {
             vc.voucher = Vouchers.findOne(vc.voucherId);
             return vc;
         });
 
         return voucherCodes;
+    },
+
+
+
+    'redeemVoucher': function (code) {
+
+      check(code, String);
+
+      // security checks
+      if (!Roles.userIsInRole(Meteor.userId(), ['merchant'])) {
+          throw new Meteor.Error("not-authorized");
+      }
+
+      var voucherCode = VoucherCodes.findOne({
+        code: code
+      });
+
+      if (!voucherCode) {
+          throw new Meteor.Error("not-found");
+      }
+
+      if (voucherCode.redeemed) {
+          throw new Meteor.Error("already-redeemed");
+      }
+
+      var voucher = Vouchers.findOne({
+          userId: this.userId,
+          _id: voucherCode.voucherId
+      });
+
+      if (!voucher) {
+          throw new Meteor.Error("not-found");
+      }
+
+      VoucherCodes.update({
+          code: code,
+          voucherId: voucherCode.voucherId
+      }, {
+          $set: {
+            redeemed: new Date()
+          }
+      });
+
+      return true;
     }
 });
