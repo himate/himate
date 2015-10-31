@@ -64,5 +64,8 @@
     "email_expired_subject": "",
     "email_expired_content": "",
     "my_voucher_codes": "",
-    "redeem_voucher": ""
+    "redeem_voucher": "",
+    "redeem": "",
+    "redeemed": "",
+    "reserved": ""
 }

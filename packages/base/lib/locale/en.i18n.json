@@ -64,5 +64,8 @@
     "email_expired_subject": "Voucher \"__title__\" expired",
     "email_expired_content": " Your voucher reservation is expired. Vouchers can be reserved only for 24h. Head to http://www.waslchiraa.com and look for new vouchers!",
     "my_voucher_codes": "My voucher code",
-    "redeem_voucher": "Redeem voucher"
+    "redeem_voucher": "Redeem voucher",
+    "redeem": "Redeem",
+    "redeemed": "Redeemed",
+    "reserved": "Reserved"
 }

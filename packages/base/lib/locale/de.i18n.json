@@ -64,5 +64,8 @@
     "email_expired_subject": "Gutschein \"__title__\" abgelaufen",
     "email_expired_content": " Ihr Gutschein ist abgelaufen. Gutscheine können maximal 24 Stunden reserviert werden. Besuchen Sie http://www.waslchiraa.com um neue Gutscheine zu finden.",
     "my_voucher_codes": "Meine Gutscheine",
-    "redeem_voucher": "Gutschein einlösen"
+    "redeem_voucher": "Gutschein einlösen",
+    "redeem": "Einlösen",
+    "redeemed": "Eingelöst",
+    "reserved": "Reserviert"
 }

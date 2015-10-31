@@ -84,37 +84,30 @@ Meteor.methods({
 
 
 
-    'validateVoucher': function(voucherCode) {
+    'redeemVoucher': function (code) {
 
-        // security checks
-        if (!Roles.userIsInRole(Meteor.userId(), ['customer'])) {
-            throw new Meteor.Error("not-authorized");
-        }
-
-        var voucher = Vouchers.findOne({
-            "userId": this.userId,
-            "voucherCode": voucherCode
-        });
-
-        if (!voucher) {
-            throw new Meteor.Error("not-found");
-        }
-
-        return true;
-    },
-
-
-
-    'redeemVoucher': function (voucherCode) {
+      check(code, String);
 
       // security checks
-      if (!Roles.userIsInRole(Meteor.userId(), ['customer'])) {
+      if (!Roles.userIsInRole(Meteor.userId(), ['merchant'])) {
           throw new Meteor.Error("not-authorized");
       }
 
+      var voucherCode = VoucherCodes.findOne({
+        code: code
+      });
+
+      if (!voucherCode) {
+          throw new Meteor.Error("not-found");
+      }
+
+      if (voucherCode.redeemed) {
+          throw new Meteor.Error("already-redeemed");
+      }
+
       var voucher = Vouchers.findOne({
-          "userId": this.userId,
-          "voucherCode": voucherCode
+          userId: this.userId,
+          _id: voucherCode.voucherId
       });
 
       if (!voucher) {
@@ -122,10 +115,12 @@ Meteor.methods({
       }
 
       VoucherCodes.update({
-          "code": code,
-          "voucherId": voucher._id
+          code: code,
+          voucherId: voucherCode.voucherId
       }, {
-          redeemed: new Date()
+          $set: {
+            redeemed: new Date()
+          }
       });
 
       return true;
