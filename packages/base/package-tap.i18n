@@ -2,5 +2,5 @@
     "helper_name": "_",
     "supported_languages": null,
     "i18n_files_route": "/lib/locale",
-    "preloaded_langs": ["ar", "en", "de"]
+    "preloaded_langs": ["en", "de", "ar"]
 }

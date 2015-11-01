@@ -17,8 +17,7 @@ Template.partials_languages.events({
      *
      */
     'click .locale-change': function(event, template) {
-        TAPi18n.setLanguageAmplify(this.tag);
-        T9n.setLanguage(this.tag);
+        Waslchiraa.Helpers.setLanguage(this.tag);
         return Waslchiraa.Helpers.cancel(event);
     },
 });

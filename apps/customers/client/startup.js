@@ -8,10 +8,5 @@ Meteor.startup(function() {
         $('#partials-sidebar').sidebar('hide');
     });
 
-    // :TODO: select language of user agent
-    TAPi18n.setLanguage("en").done(function() {
-        T9n.setLanguage("en");
-    }).fail(function(error) {
-        console.log(error);
-    });
+    Waslchiraa.Helpers.setDefaultLanguage();
 });

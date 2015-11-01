@@ -1,3 +1,45 @@
+// ----- private helper --------------------------------------------------------
+/**
+ * detect first browser language
+ *
+ * @return {String} locale
+ */
+var getPreferredLanguage = function() {
+    var nav = window.navigator;
+    var props = ['language', 'browserLanguage', 'systemLanguage', 'userLanguage'];
+    var lang = "";
+
+    // support for HTML 5.1 "navigator.languages"
+    if (Array.isArray(nav.languages)) {
+        for (var i = 0; i < nav.languages.length; i++) {
+            lang = nav.languages[i];
+            if (lang && lang.length) {
+                break;
+            }
+        }
+    }
+
+    // support for other well known properties in browsers
+    if (!lang) {
+        for (var i = 0; i < props.length; i++) {
+            lang = nav[props[i]];
+            if (lang && lang.length) {
+                break;
+            }
+        }
+    }
+
+    if (lang.indexOf('-') !== -1) {
+        lang = lang.split('-')[0];
+    }
+
+    if (lang.indexOf('_') !== -1) {
+        lang = lang.split('_')[0];
+    }
+
+    return lang ? lang : "en";
+};
+
 // ----- generic helpers -------------------------------------------------------
 /**
  * used to log subscription errors to the console
@@ -18,6 +60,45 @@ Waslchiraa.Helpers.cancel = function(event) {
     event.stopPropagation();
     event.preventDefault();
     return false;
+};
+
+/**
+ * set localization to users default browser language. Uses "en" as fallback.
+ */
+Waslchiraa.Helpers.setDefaultLanguage = function() {
+
+    var language = null;
+    var languages = null;
+    var storedLanguage = amplify.store('language');
+
+    // try to restore old language selection
+    if (!storedLanguage) {
+        language = getPreferredLanguage();
+        languages = TAPi18n.getLanguages();
+        if (!languages[language]) {
+            language = "en";
+        }
+    }
+    else {
+        language = storedLanguage;
+    }
+
+    Waslchiraa.Helpers.setLanguage(language);
+};
+
+/**
+ * set translations to specified <language>
+ * @param {String} language
+ */
+Waslchiraa.Helpers.setLanguage = function(language) {
+    Meteor.defer(function() {
+        amplify.store('language', language);
+        TAPi18n.setLanguageAmplify(language).done(function() {
+            T9n.setLanguage(language);
+        }).fail(function(error) {
+            console.log(error);
+        });
+    });
 };
 
 /**
