@@ -6,45 +6,45 @@ Router.route('/', {
 });
 
 /**
- * vouchers
+ * campaigns
  */
-Router.route('/vouchers', {
-    name: 'pages_vouchers',
+Router.route('/campaigns', {
+    name: 'pages_campaigns',
     onBeforeAction: Router.merchantRequired,
 });
 
 /**
- * vouchers add
+ * campaigns add
  */
-Router.route('/vouchers/add', {
-    name: 'pages_vouchers_add',
+Router.route('/campaigns/add', {
+    name: 'pages_campaigns_add',
     onBeforeAction: Router.merchantRequired
 });
 
 /**
  * voucher details
  */
-Router.route('/vouchers/:_id', {
-    name: 'pages_vouchers_details',
+Router.route('/campaigns/:_id', {
+    name: 'pages_campaigns_details',
     onBeforeAction: Router.merchantRequired
 });
 
 /**
  * voucher details
  */
-Router.route('/vouchers/:_id/edit', {
-    name: 'pages_vouchers_edit',
+Router.route('/campaigns/:_id/edit', {
+    name: 'pages_campaigns_edit',
     onBeforeAction: Router.merchantRequired
 });
 
 /**
  * voucher codes
  */
-Router.route('/vouchers_codes/:_id', {
-    name: 'pages_voucher_codes',
+Router.route('/campaigns_codes/:_id', {
+    name: 'pages_vouchers',
     onBeforeAction: Router.merchantRequired,
     waitOn: function() {
-        return [Meteor.subscribe('voucher_voucher_codes',this.params._id), Meteor.subscribe('voucher_users',this.params._id)];
+        return [Meteor.subscribe('voucher_vouchers',this.params._id), Meteor.subscribe('voucher_users',this.params._id)];
     }
 });
 
@@ -100,5 +100,5 @@ AccountsTemplates.configureRoute('signIn', {
     name: 'pages_sign_in',
     template: 'pages_sign_in',
     layoutTemplate: 'layouts_default',
-    redirect: '/vouchers',
+    redirect: '/campaigns',
 });

@@ -9,18 +9,31 @@ Template.pages_categories.helpers({
      * @reactive
      */
     categories: function() {
-        return Categories.find();
+        return Waslchiraa.Collections.Categories.find();
     },
 
-    voucherCount: function(){
-        var vouchers = Meteor.subscribe("vouchers");
-        return Vouchers.find({categoryId: this._id}).count();
+    /**
+     *
+     */
+    voucherCount: function() {
+        var campaigns = Meteor.subscribe("campaigns");
+        return Waslchiraa.Collections.Campaigns.find({
+            categoryId: this._id
+        }).count();
     }
 });
 
+// ----- template events -------------------------------------------------------
+/**
+ *
+ */
 Template.pages_categories.events({
 
-    "click .remove-category" :function (event){
-        Meteor.call("categories_remove",this._id);
+    /**
+     *
+     * @param {Object} event
+     */
+    "click .remove-category": function(event) {
+        Meteor.call("categories_remove", this._id);
     }
 });

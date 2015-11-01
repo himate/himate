@@ -1,0 +1,24 @@
+<template name="pages_campaigns">
+    <div id="pages-campaigns" class="ui container">
+        <div class="header-navigation">
+            <h1>{{_ 'campaigns' }}</h1>
+        </div>
+
+        <div class="ui js-categories">
+            <div class="js-category-item category item centered-y padded-content">
+                <h2 class="headline item-title"> {{_ 'categories' }}: </h2>
+                <p class="headline category-title">
+                    {{# with category }}{{ category.title }}{{ else }}{{_ 'all' }}{{/ with }}
+                    <span>({{ countCampaigns category }})</span>
+                </p>
+                <i class="icon-arrow-right ico-right"></i>
+            </div>
+
+            {{# each campaigns }}
+            {{#if hasAvailableVouchers this._id }}
+            {{> pages_campaigns_voucher }}
+            {{/if }}
+            {{/ each }}
+        </div>
+    </div>
+</template>

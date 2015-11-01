@@ -1,5 +1,5 @@
-<template name="pages_voucher_codes">
-	<div id="pages-vouchers-codes" class="ui container">
+<template name="pages_vouchers">
+	<div id="pages-vouchers" class="ui container">
 		<div class="ui mobile reversed stackable grid">
 			<div class="twelve wide column">
 				<h2>Voucher Codes</h2>
@@ -15,10 +15,10 @@
 					</thead>
 					<tbody>
 					{{# each codes }}
-						{{> pages_voucher_codes_code}}
+						{{> pages_vouchers_code}}
 					{{ else }}
 						<tr>
-							<td colspan="4">{{_ 'no_voucher_codes_found' }}</td>
+							<td colspan="4">{{_ 'no_vouchers_found' }}</td>
 						</tr>
 					{{/ each }}
 					</tbody>
@@ -28,10 +28,10 @@
 		</div>
 	</div>
 </template>
-<template name="pages_voucher_codes_code">
+<template name="pages_vouchers_code">
 	<tr>
 		<td>
-			{{ voucherId }}
+			{{ campaignId }}
 		</td>
 
 		<td>

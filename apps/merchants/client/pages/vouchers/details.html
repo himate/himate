@@ -1,5 +1,5 @@
-<template name="pages_vouchers_details">
-    <div id="pages-vouchers-details" class="ui container">
+<template name="pages_campaigns_details">
+    <div id="pages-campaigns-details" class="ui container">
         <h1>{{_ 'voucher' }}: {{ translateField item "title" }}</h1>
 
         <div class="ui divider"></div>
@@ -26,8 +26,8 @@
         </div>
 
         <div class="ui bottom fixed menu">
-            <a class="item" href="{{ pathFor 'pages_vouchers' }}"><i class="left chevron icon"></i>Back</a>
-			<a class="right item ui button" href="{{ pathFor 'pages_voucher_codes' _id=item._id }}"><i class="flag icon"></i>{{_ 'voucher_code_list' }}</a>
+            <a class="item" href="{{ pathFor 'pages_campaigns' }}"><i class="left chevron icon"></i>Back</a>
+			<a class="right item ui button" href="{{ pathFor 'pages_vouchers' _id=item._id }}"><i class="flag icon"></i>{{_ 'voucher_list' }}</a>
         </div>
     </div>
 </template>

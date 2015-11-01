@@ -1,11 +1,11 @@
-<template name="pages_vouchers_add">
-	{{> partials_sub_menu active='vouchers' search='title' }}
-	<div id="pages-vouchers-add" class="ui basic segment">
+<template name="pages_campaigns_add">
+	{{> partials_sub_menu active='campaigns' search='title' }}
+	<div id="pages-campaigns-add" class="ui basic segment">
 		<div class="ui mobile reversed stackable grid">
 			<div class="twelve wide column">
-				<h2>{{_ 'vouchers_add' }}</h2>
+				<h2>{{_ 'campaigns_add' }}</h2>
 
-				{{# autoForm collection='Vouchers' id='pages_vouchers_add' type='method' meteormethod='vouchers_add' }}
+				{{# autoForm collection='Waslchiraa.Collections.Campaigns' id='pages_campaigns_add' type='method' meteormethod='campaigns_add' }}
 
 					<h3 class="ui dividing header">{{_ 'basics' }}</h3>
 					{{> afQuickField name='title' }}
@@ -55,7 +55,7 @@
 					</div>
 
 					<div class="ui bottom fixed actions menu">
-						<a href="{{ pathFor 'pages_vouchers' }}" class="disabled item">
+						<a href="{{ pathFor 'pages_campaigns' }}" class="disabled item">
 							<i class="left chevron icon"></i> {{_ 'back' }} </a>
 						<button type="submit" class="right item">
 							<i class="save icon"></i>
@@ -69,11 +69,11 @@
 				<h2>{{_ 'information' }}</h2>
 
 				<p>
-					{{_ 'create_new_vouchers' }}
+					{{_ 'create_new_campaigns' }}
 				</p>
 			</div>
 		</div>
 		<!-- .grid -->
 	</div>
-	<!-- #pages-vouchers -->
+	<!-- #pages-campaigns -->
 </template>

@@ -1,8 +1,8 @@
-<template name="pages_vouchers">
-    <div id="pages-vouchers" class="ui basic segment">
+<template name="pages_campaigns">
+    <div id="pages-campaigns" class="ui basic segment">
         <div class="ui mobile reversed stackable grid">
             <div class="twelve wide column">
-                <h2>{{_ 'vouchers' }}</h2>
+                <h2>{{_ 'campaigns' }}</h2>
 				{{testtrans}}
                 <table class="ui compact celled definition table">
                     <thead class="full-width">
@@ -18,11 +18,11 @@
                     </thead>
 
                     <tbody>
-                        {{# each vouchers }}
-                       		{{> pages_vouchers_voucher}}
+                        {{# each campaigns }}
+                       		{{> pages_campaigns_voucher}}
                         {{ else }}
                         <tr>
-                            <td colspan="4">{{_ 'no_vouchers_found' }}.</td>
+                            <td colspan="4">{{_ 'no_campaigns_found' }}.</td>
                         </tr>
                         {{/ each }}
                     </tbody>
@@ -32,20 +32,20 @@
             <div class="four wide column">
                 <h2>Info</h2>
                 <p>
-                    {{_ 'vouchers_info_text' }}
+                    {{_ 'campaigns_info_text' }}
                 </p>
             </div>
         </div><!-- .grid -->
-    </div><!-- #pages-vouchers -->
+    </div><!-- #pages-campaigns -->
 
     <div class="ui bottom fixed actions menu">
         <a href="#" class="disabled item"> <i class="trash icon"></i> {{_ 'delete_selected' }} </a>
-        <a href="{{ pathFor 'pages_vouchers_add' }}" title="{{_ 'vouchers_add' }}" class="right item"><i class="add icon"></i>{{_ 'vouchers_add' }}</a>
+        <a href="{{ pathFor 'pages_campaigns_add' }}" title="{{_ 'campaigns_add' }}" class="right item"><i class="add icon"></i>{{_ 'campaigns_add' }}</a>
     </div>
 </template>
 
 
-<template name="pages_vouchers_voucher">
+<template name="pages_campaigns_voucher">
 	<tr>
 		<td class="collapsing">
 			<div class="ui fitted checkbox">
@@ -53,7 +53,7 @@
 				<label></label>
 			</div></td>
 
-		<td><a href="{{ pathFor 'pages_vouchers_details' }}">{{ translateField this "title" }}</a></td>
+		<td><a href="{{ pathFor 'pages_campaigns_details' }}">{{ translateField this "title" }}</a></td>
 
 		<td>{{ translateField this "shortDescription" }}</td>
 
@@ -63,9 +63,9 @@
 
         <td>{{#if end }} {{formatDate end }} {{ else }} - {{/if}}</td>
 
-        <td>{{#with getVoucherCodes _id}} {{total}} ({{available}} / {{ reserved }} / {{ redeemed }}) {{/ with}}</td>
+        <td>{{#with getCampaigns _id}} {{total}} ({{available}} / {{ reserved }} / {{ redeemed }}) {{/ with}}</td>
 
-		<td width="10"><a class="edit write" href="{{ pathFor 'pages_vouchers_edit' }}" title="{{_ 'vouchers_edit' }}"><i class="pencil icon"></i></a></td>
-		<td width="10"><a class="remove write" href="#" title="{{_ 'vouchers_remove' }}"><i class="trash icon"></i></a></td>
+		<td width="10"><a class="edit write" href="{{ pathFor 'pages_campaigns_edit' }}" title="{{_ 'campaigns_edit' }}"><i class="pencil icon"></i></a></td>
+		<td width="10"><a class="remove write" href="#" title="{{_ 'campaigns_remove' }}"><i class="trash icon"></i></a></td>
 	</tr>
 </template>

@@ -7,7 +7,7 @@
         <div class="ui categories js-categories">
             <div class="categories-back js-all centered-y padded-content">
                 <p class="headline">
-                    <a class="back-link" href="{{ pathFor 'pages_vouchers' }}"> {{_ 'categories' }}
+                    <a class="back-link" href="{{ pathFor 'pages_campaigns' }}"> {{_ 'categories' }}
                         <i class="icon-close ico-right"></i>
                     </a>
                 </p>
@@ -16,7 +16,7 @@
             <div class="category item js-category js-all centered-y padded-content">
                 <p class="headline category-title">
                     {{_ 'all' }}
-                    <span>({{ countVouchers }})</span>
+                    <span>({{ countCampaigns }})</span>
                 </p>
                 <i class="icon-arrow-right ico-right"></i>
             </div>
@@ -24,7 +24,7 @@
             <div class="category item js-category centered-y padded-content">
                 <p class="headline category-title">
                     {{ title }}
-                    <span>({{ countVouchers this }})</span>
+                    <span>({{ countCampaigns this }})</span>
                 </p>
                 <i class="icon-arrow-right ico-right"></i>
             </div>

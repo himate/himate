@@ -2,13 +2,13 @@
 /**
  *
  */
-Template.pages_vouchers_details.helpers({
+Template.pages_campaigns_details.helpers({
 
     /**
      * return data for current voucher
      * @reactive
      */
     item: function() {
-        return Vouchers.findOne(Router.current().params._id);
+        return Waslchiraa.Collections.Campaigns.findOne(Router.current().params._id);
     }
 });

@@ -22,21 +22,21 @@ Router.route('/users/:_id', {
 });
 
 /**
- * vouchers
+ * campaigns
  */
-Router.route('/vouchers', {
-    name: 'pages_vouchers',
+Router.route('/campaigns', {
+    name: 'pages_campaigns',
     onBeforeAction: Router.adminRequired,
     waitOn: function() {
-        return [Meteor.subscribe('vouchers'), Meteor.subscribe('categories')];
+        return [Meteor.subscribe('campaigns'), Meteor.subscribe('categories')];
     }
 });
 
 /**
- * vouchers add
+ * campaigns add
  */
-Router.route('/vouchers/add', {
-    name: 'pages_vouchers_add',
+Router.route('/campaigns/add', {
+    name: 'pages_campaigns_add',
     onBeforeAction: Router.adminRequired,
     waitOn: function() {
         return [Meteor.subscribe('categories')];
@@ -46,22 +46,22 @@ Router.route('/vouchers/add', {
 /**
  * voucher details
  */
-Router.route('/vouchers/:_id', {
-    name: 'pages_vouchers_details',
+Router.route('/campaigns/:_id', {
+    name: 'pages_campaigns_details',
     onBeforeAction: Router.adminRequired,
     waitOn: function() {
-        return [Meteor.subscribe('vouchers'), Meteor.subscribe('categories')];
+        return [Meteor.subscribe('campaigns'), Meteor.subscribe('categories')];
     }
 });
 
 /**
  * voucher details
  */
-Router.route('/vouchers/:_id/edit', {
-    name: 'pages_vouchers_edit',
+Router.route('/campaigns/:_id/edit', {
+    name: 'pages_campaigns_edit',
     onBeforeAction: Router.adminRequired,
     waitOn: function() {
-        return [Meteor.subscribe('vouchers'), Meteor.subscribe('categories')];
+        return [Meteor.subscribe('campaigns'), Meteor.subscribe('categories')];
     }
 });
 
@@ -69,11 +69,11 @@ Router.route('/vouchers/:_id/edit', {
 /**
  * voucher codes
  */
-Router.route('/vouchers_codes/:_id', {
-    name: 'pages_voucher_codes',
+Router.route('/campaigns_codes/:_id', {
+    name: 'pages_vouchers',
     onBeforeAction: Router.adminRequired,
     waitOn: function() {
-        return [Meteor.subscribe('voucher_codes',this.params._id)];
+        return [Meteor.subscribe('vouchers',this.params._id)];
     }
 });
 

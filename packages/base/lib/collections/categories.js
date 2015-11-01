@@ -1,8 +1,8 @@
-CategorySchema = new SimpleSchema({
+Waslchiraa.Schemas.Category = new SimpleSchema({
     created: {
         type: Date,
         label: "Created",
-        autoValue: function () {
+        autoValue: function() {
             if (this.isInsert) {
                 return new Date;
             }
@@ -21,5 +21,5 @@ CategorySchema = new SimpleSchema({
     }
 });
 
-Categories = new Mongo.Collection("categories");
-Categories.attachSchema(CategorySchema);
+Waslchiraa.Collections.Categories = new Mongo.Collection("waslchiraa_categories");
+Waslchiraa.Collections.Categories.attachSchema(Waslchiraa.Schemas.Category);

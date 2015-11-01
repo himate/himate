@@ -4,11 +4,11 @@
 /**
  *
  */
-Template.pages_vouchers_add.onCreated(function () {
-    Session.set('pageTitle', 'vouchers_add');
+Template.pages_campaigns_add.onCreated(function () {
+    Session.set('pageTitle', 'campaigns_add');
 });
 
-Template.pages_vouchers_add.events({
+Template.pages_campaigns_add.events({
 
 });
 
@@ -17,7 +17,7 @@ Template.pages_vouchers_add.events({
 /**
  *
  */
-AutoForm.addHooks(["pages_vouchers_add"], {
+AutoForm.addHooks(["pages_campaigns_add"], {
 
     /**
      * @param {Object} operation
@@ -26,7 +26,7 @@ AutoForm.addHooks(["pages_vouchers_add"], {
      */
     onSuccess: function (operation, result, template) {
         Waslchiraa.Helpers.infoMessage('ok');
-        Router.go("pages_vouchers");
+        Router.go("pages_campaigns");
     },
 
     /**

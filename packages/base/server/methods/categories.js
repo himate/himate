@@ -19,7 +19,7 @@ Meteor.methods({
         check(doc.title, String);
 
         // action
-        return Categories.insert(doc);
+        return Waslchiraa.Collections.Categories.insert(doc);
     },
 
     /**
@@ -35,7 +35,7 @@ Meteor.methods({
         }
 
         // voucher should be owned by the current user
-        var voucher = Vouchers.findOne({
+        var voucher = Waslchiraa.Collections.Campaigns.findOne({
             _id: id,
             userId: Meteor.userId()
         });
@@ -56,7 +56,7 @@ Meteor.methods({
         }));
 
         // save update
-        return Categories.update(id, doc);
+        return Waslchiraa.Collections.Categories.update(id, doc);
     },
 
     /**
@@ -72,16 +72,16 @@ Meteor.methods({
             throw new Meteor.Error("not-authorized");
         }
 
-        var category = Categories.findOne(id);
+        var category = Waslchiraa.Collections.Categories.findOne(id);
         if (category) {
-            //if it already has vouchers dont allow the remove
-            if (!Vouchers.find({
+            //if it already has campaigns dont allow the remove
+            if (!Waslchiraa.Collections.Campaigns.find({
                 categoryId: id
             }).count() > 0) {
-                Categories.remove(category._id);
+                Waslchiraa.Collections.Categories.remove(category._id);
                 return "ok";
             }
-            throw new Meteor.Error("has vouchers connected to it");
+            throw new Meteor.Error("has campaigns connected to it");
         }
 
         throw new Meteor.Error("not-found");

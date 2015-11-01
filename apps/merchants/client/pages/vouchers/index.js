@@ -2,14 +2,14 @@
 /**
  *
  */
-Template.pages_vouchers.helpers({
+Template.pages_campaigns.helpers({
 
     /**
-     * return all vouchers
+     * return all campaigns
      * @reactive
      */
-    vouchers: function() {
-        return Vouchers.find({}, {
+    campaigns: function() {
+        return Waslchiraa.Collections.Campaigns.find({}, {
             sort: {
                 title: 1
             }
@@ -25,7 +25,7 @@ Template.pages_vouchers.helpers({
 
 });
 
-Template.pages_vouchers_voucher.helpers({
+Template.pages_campaigns_voucher.helpers({
 
 
 });
@@ -34,19 +34,19 @@ Template.pages_vouchers_voucher.helpers({
 /**
  *
  */
-Template.pages_vouchers.events({
+Template.pages_campaigns.events({
 
     'click table .remove': function(event) {
         // :TODO: use semantic ui dialog & translate
         if (confirm('Delete Voucher "' + this.title + '"?')) {
-            Meteor.call('vouchers_remove', this._id);
+            Meteor.call('campaigns_remove', this._id);
         }
         return Waslchiraa.Helpers.cancel(event);
     }
 });
 
 
-Template.pages_vouchers_voucher.events({
+Template.pages_campaigns_voucher.events({
 
 
 });
@@ -56,8 +56,8 @@ Template.pages_vouchers_voucher.events({
 /**
  *
  */
-Template.pages_vouchers.onCreated(function() {
-    Session.set('pageTitle', 'vouchers');
+Template.pages_campaigns.onCreated(function() {
+    Session.set('pageTitle', 'campaigns');
 });
 
 

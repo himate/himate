@@ -2,23 +2,23 @@
 /**
  *
  */
-Template.pages_vouchers_details.helpers({
+Template.pages_campaigns_details.helpers({
 
     /**
      * return data for current voucher
      * @reactive
      */
     item: function() {
-        var result = Vouchers.findOne({_id:Router.current().params._id});
+        var result = Waslchiraa.Collections.Campaigns.findOne({_id:Router.current().params._id});
         console.log(Router.current().params._id, result);
         return result;
     }
 });
 
 
-Template.pages_vouchers_details.events({
+Template.pages_campaigns_details.events({
     'click .js-reserve-voucher': function (event, template) {
-        var voucher = Vouchers.findOne(Router.current().params._id);
+        var voucher = Waslchiraa.Collections.Campaigns.findOne(Router.current().params._id);
         if(voucher) {
             var vouchercode = Meteor.call('reserve_voucher',voucher._id.toString(), function(err, data){
                 console.log( err, data);

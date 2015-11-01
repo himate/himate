@@ -86,10 +86,10 @@ var checkTranslationsAndCommit = function(){
     console.log('submit', submit);
 
     if(submit) {
-        if($('#pages_vouchers_add').length) {
-            $("#pages_vouchers_add").submit();
+        if($('#pages_campaigns_add').length) {
+            $("#pages_campaigns_add").submit();
         }else{
-            $("#pages_vouchers_edit").submit();
+            $("#pages_campaigns_edit").submit();
         }
     }
 };

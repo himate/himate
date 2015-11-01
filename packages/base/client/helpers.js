@@ -3,7 +3,7 @@
  * @param {Object} event
  * @return {Boolean} whether to bubble <event> or not
  */
-Waslchiraa.Helpers.cancel = function (event) {
+Waslchiraa.Helpers.cancel = function(event) {
     event.stopPropagation();
     event.preventDefault();
     return false;
@@ -12,8 +12,8 @@ Waslchiraa.Helpers.cancel = function (event) {
 /**
  *
  */
-Waslchiraa.Helpers.infoMessage = function (message) {
-    Messages.insert({
+Waslchiraa.Helpers.infoMessage = function(message) {
+    Waslchiraa.Collections.Messages.insert({
         "message": message,
         "type": "info"
     });
@@ -22,25 +22,58 @@ Waslchiraa.Helpers.infoMessage = function (message) {
 /**
  *
  */
-Waslchiraa.Helpers.errorMessage = function (message) {
-    Messages.insert({
+Waslchiraa.Helpers.errorMessage = function(message) {
+    Waslchiraa.Collections.Messages.insert({
         "message": message,
         "type": "error"
     });
+};
+
+/**
+ *
+ */
+Waslchiraa.Helpers.getCampaigns = function(campaignId) {
+    var result = {
+        'available': 0,
+        'total': 0,
+        'reserved': 0,
+        'redeemed': 0
+    };
+    var campaign = Waslchiraa.Collections.Campaigns.findOne({
+        _id: campaignId
+    });
+    var now = new Date();
+    if (campaign) {
+        result = {
+            'total': campaign.quantity,
+            'reserved': Waslchiraa.Collections.Vouchers.find({
+                'campaignId': campaignId,
+                'redeemed': null
+            }).count(),
+            'redeemed': Waslchiraa.Collections.Vouchers.find({
+                'campaignId': campaignId,
+                'redeemed': {
+                    $lt: now
+                }
+            }).count(),
+        };
+        result.available = result.total - (result.redeemed + result.reserved);
+    }
+    return result;
 };
 
 // ----- template helpers ------------------------------------------------------
 /**
  *
  */
-Template.registerHelper("eq", function (a, b) {
+Template.registerHelper("eq", function(a, b) {
     return a == b;
 });
 
 /**
  *
  */
-Template.registerHelper('pageTitle', function () {
+Template.registerHelper('pageTitle', function() {
     return Session.get('pageTitle');
 });
 
@@ -49,7 +82,7 @@ Template.registerHelper('pageTitle', function () {
  * @return {Object} user or null
  * @reactive
  */
-Template.registerHelper('getUser', function (userId) {
+Template.registerHelper('getUser', function(userId) {
     return Meteor.users.findOne(userId);
 });
 
@@ -58,23 +91,22 @@ Template.registerHelper('getUser', function (userId) {
  * @return {Object} user or null
  * @reactive
  */
-Template.registerHelper('getCategory', function (categoryId) {
-    return Categories.findOne(categoryId);
+Template.registerHelper('getCategory', function(categoryId) {
+    return Waslchiraa.Collections.Categories.findOne(categoryId);
 });
 
 /**
  * @param {Object} category
- * @return {Number} voucher count
+ * @return {Number} campaign count
  * @reactive
  */
-Template.registerHelper('countVouchers', function (category) {
+Template.registerHelper('countCampaigns', function(category) {
     if (category) {
-        return Vouchers.find({
+        return Waslchiraa.Collections.Campaigns.find({
             categoryId: category._id
         }).count();
     }
-
-    return Vouchers.find().count();
+    return Waslchiraa.Collections.Campaigns.find().count();
 });
 
 /**
@@ -82,67 +114,62 @@ Template.registerHelper('countVouchers', function (category) {
  * @return {String} formatted date
  * @reactive
  */
-Template.registerHelper('formatDate', function (date) {
+Template.registerHelper('formatDate', function(date) {
     if (date) {
         return moment(date).format('MM-DD-YYYY');
-    } else {
+    }
+    else {
         return '-';
     }
 });
 
-
-
-Waslchiraa.Helpers.getVoucherCodes = function (voucherId) {
-    var result = {
-        'available': 0,
-        'total': 0,
-        'reserved': 0,
-        'redeemed': 0
-    };
-    var voucher = Vouchers.findOne({_id: voucherId});
-    var now = new Date();
-    if (voucher) {
-        result = {
-            'total': voucher.quantity,
-            'reserved': VoucherCodes.find({'voucherId': voucherId, 'redeemed': null}).count(),
-            'redeemed': VoucherCodes.find({'voucherId': voucherId, 'redeemed': {$lt: now}}).count(),
-        };
-        result.available = result.total - (result.redeemed + result.reserved);
-    }
-    return result;
-};
-
-
-Template.registerHelper('getVoucherCodes', function (voucherId) {
-    return Waslchiraa.Helpers.getVoucherCodes(voucherId);
+/**
+ *
+ */
+Template.registerHelper('getCampaigns', function(campaignId) {
+    return Waslchiraa.Helpers.getCampaigns(campaignId);
 });
 
-Template.registerHelper('voucherCodeCount', function (voucherId) {
-    return Waslchiraa.Helpers.getVoucherCodes(voucherId).available;
+/**
+ *
+ */
+Template.registerHelper('voucherCount', function(campaignId) {
+    return Waslchiraa.Helpers.getCampaigns(campaignId).available;
 });
 
-
-Template.registerHelper('hasAvailableCodes', function (voucherId) {
-    return Waslchiraa.Helpers.getVoucherCodes(voucherId).available > 0;
+/**
+ *
+ */
+Template.registerHelper('hasAvailableVouchers', function(campaignId) {
+    return Waslchiraa.Helpers.getCampaigns(campaignId).available > 0;
 });
 
-Template.registerHelper('isReservedByUser', function (voucherId) {
-    return VoucherCodes.find({
-        voucherId: voucherId,
+/**
+ *
+ */
+Template.registerHelper('isReservedByUser', function(campaignId) {
+    return Waslchiraa.Collections.Vouchers.find({
+        campaignId: campaignId,
         userId: Meteor.userId()
     }).count() > 0;
 });
 
-Template.registerHelper('getMapUrl', function (item) {
-    return item ? 'https://www.google.de/maps/place/' + item.street + '+' + item.number + '+' + item.zipcode + '+' + item.city + '+' + item.country : '' ;
+/**
+ *
+ */
+Template.registerHelper('getMapUrl', function(item) {
+    return item ? 'https://www.google.de/maps/place/' + item.street + '+' + item.number + '+' + item.zipcode + '+' + item.city + '+' + item.country : '';
 });
 
-
-Template.registerHelper('translateField', function (object, field){
-    var lang =  TAPi18n.getLanguage();
-    if(object && object[field] && object[field][lang]){
+/**
+ *
+ */
+Template.registerHelper('translateField', function(object, field) {
+    var lang = TAPi18n.getLanguage();
+    if (object && object[field] && object[field][lang]) {
         return object[field][lang];
-    }else{
+    }
+    else {
         return '';
     }
 });

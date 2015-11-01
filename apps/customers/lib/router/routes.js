@@ -6,10 +6,10 @@ Router.route('/', {
 });
 
 /**
- * vouchers
+ * campaigns
  */
-Router.route('/vouchers', {
-    name: 'pages_vouchers',
+Router.route('/campaigns', {
+    name: 'pages_campaigns',
     waitOn: function () {
         var filter = {};
         var c = Session.get('category');
@@ -18,26 +18,26 @@ Router.route('/vouchers', {
             filter.categoryId = c._id;
         }
 
-        var voucherIds = Vouchers.find(filter).map(function (v) {
+        var campaignIds = Waslchiraa.Collections.Campaigns.find(filter).map(function (v) {
             return v._id;
         });
 
         return [
-            Meteor.subscribe('voucher_codes', voucherIds),
-            Meteor.subscribe('vouchers'),
+            Meteor.subscribe('vouchers', campaignIds),
+            Meteor.subscribe('campaigns'),
         ];
     }
 });
 
 /**
- * vouchers
+ * campaigns
  */
-Router.route('/vouchers/:_id', {
-    name: 'pages_vouchers_details',
+Router.route('/campaigns/:_id', {
+    name: 'pages_campaigns_details',
     waitOn: function () {
         return [
-            Meteor.subscribe('vouchers'),
-            Meteor.subscribe('voucher_codes')
+            Meteor.subscribe('campaigns'),
+            Meteor.subscribe('vouchers')
         ];
     }
 });
@@ -46,8 +46,8 @@ Router.route('/vouchers/:_id', {
 /**
  * voucher codes
  */
-Router.route('/voucher_codes', {
-    name: 'pages_voucher_codes'
+Router.route('/vouchers', {
+    name: 'pages_vouchers'
 });
 
 /**
@@ -92,5 +92,5 @@ AccountsTemplates.configureRoute('signIn', {
     name: 'pages_sign_in',
     template: 'pages_sign_in',
     layoutTemplate: 'layouts_default',
-    redirect: '/vouchers',
+    redirect: '/campaigns',
 });

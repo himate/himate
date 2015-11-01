@@ -6,12 +6,14 @@
             <div class="twelve wide column">
                 <h2>{{_ 'category' }}</h2>
 
-                {{# autoForm collection='Categories' id='pages_categories_add' type='method' meteormethod='categories_add' }}
+                {{# autoForm collection='Waslchiraa.Collections.Categories' id='pages_categories_add' type='method' meteormethod='categories_add' }}
 
                 {{> afQuickField name='title' }}
 
                 <div class="ui bottom fixed actions menu">
-                    <a href="{{ pathFor 'pages_categories' }}" class="disabled item"> <i class="left chevron icon"></i> {{_ 'back' }} </a>
+                    <a href="{{ pathFor 'pages_categories' }}" class="disabled item">
+                        <i class="left chevron icon"></i> {{_ 'back' }}
+                    </a>
                     <button type="submit" class="right item">
                         <i class="save icon"></i>
                         {{_ 'submit' }}
@@ -21,4 +23,5 @@
 
             </div>
         </div><!-- .grid -->
-    </div><!-- #pages-categories --></template>
+    </div><!-- #pages-categories -->
+</template>

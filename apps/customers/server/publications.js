@@ -1,7 +1,7 @@
 /**
- * publish all vouchers
+ * publish all campaigns
  */
-Meteor.publish('vouchers', function() {
+Meteor.publish('campaigns', function() {
 
     // security checks
     if (!Roles.userIsInRole(this.userId, 'customer')) {
@@ -10,7 +10,7 @@ Meteor.publish('vouchers', function() {
 
     // collect data
     var today = moment().endOf('day').toDate();
-    var vouchers = Vouchers.find({
+    var campaigns = Waslchiraa.Collections.Campaigns.find({
         $and: [{
             published: {
                 $lte: today
@@ -26,17 +26,17 @@ Meteor.publish('vouchers', function() {
         }]
     });
 
-    // vouchers.forEach(function (v) {
-    //     v.codes = VoucherCodes.find({
-    //         voucherId: v._id
+    // campaigns.forEach(function (v) {
+    //     v.codes = Waslchiraa.Collections.Vouchers.find({
+    //         campaignId: v._id
     //     }).count();
     // });
 
-    var merchantIds = vouchers.map(function(v) {
+    var merchantIds = campaigns.map(function(v) {
         return v.userId;
     });
 
-    var categoryIds = vouchers.map(function(v) {
+    var categoryIds = campaigns.map(function(v) {
         return v.categoryId;
     });
 
@@ -52,7 +52,7 @@ Meteor.publish('vouchers', function() {
     });
 
     // send collections
-    return [vouchers, merchants];
+    return [campaigns, merchants];
 });
 
 
@@ -67,18 +67,18 @@ Meteor.publish('categories', function() {
     }
 
     // send collection
-    return Categories.find();
+    return Waslchiraa.Collections.Categories.find();
 });
 
 
-Meteor.publish('voucher_codes', function(voucherIds) {
+Meteor.publish('vouchers', function(campaignIds) {
     var filter = {};
 
-    if (voucherIds) {
-        filter.voucherId = {
-            $in: voucherIds
+    if (campaignIds) {
+        filter.campaignId = {
+            $in: campaignIds
         }
     }
 
-    return VoucherCodes.find(filter);
+    return Waslchiraa.Collections.Vouchers.find(filter);
 });

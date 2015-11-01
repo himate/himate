@@ -1,10 +1,10 @@
-<template name="pages_vouchers_edit">
-    <div id="pages-vouchers-edit" class="ui basic segment">
+<template name="pages_campaigns_edit">
+    <div id="pages-campaigns-edit" class="ui basic segment">
         <div class="ui mobile reversed stackable grid">
             <div class="twelve wide column">
-                <h2>{{_ 'vouchers_edit' }}</h2>
+                <h2>{{_ 'campaigns_edit' }}</h2>
 
-                {{# autoForm collection='Vouchers' doc=voucher id='pages_vouchers_edit' class="translate-form" type='method-update' meteormethod='vouchers_edit' }}
+                {{# autoForm collection='Waslchiraa.Collections.Campaigns' doc=voucher id='pages_campaigns_edit' class="translate-form" type='method-update' meteormethod='campaigns_edit' }}
                		{{>form_fields}}
                 {{/autoForm}}
             </div>
@@ -18,9 +18,9 @@
                   {{_ 'voucher_offline' }}
                 </p>
                 <p>
-                    {{_ 'approve_updated_vouchers' }}
+                    {{_ 'approve_updated_campaigns' }}
                 </p>
             </div>
         </div><!-- .grid -->
-    </div><!-- #pages-vouchers -->
+    </div><!-- #pages-campaigns -->
 </template>

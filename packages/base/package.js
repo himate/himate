@@ -26,10 +26,10 @@ Package.onUse(function(api) {
   // collections
   api.addFiles([
     'lib/namespaces.js',
+    'lib/collections/campaigns.js',
     'lib/collections/categories.js',
     'lib/collections/messages.js',
     'lib/collections/vouchers.js',
-    'lib/collections/voucher_codes.js',
     'lib/locale/ar.i18n.json',
     'lib/locale/de.i18n.json',
     'lib/locale/en.i18n.json'
@@ -44,12 +44,12 @@ Package.onUse(function(api) {
   ],['client']);
 
   api.addFiles([
-    'server/methods/vouchers.js',
-    'server/methods/voucher_codes.js',
+    'server/methods/campaigns.js',
+    'server/methods/campaign_translate.js',
     'server/methods/categories.js',
-    'server/methods/voucher_translate.js'
+    'server/methods/vouchers.js'
   ],['server']);
 
-  api.export(['Waslchiraa', 'Categories','Vouchers','Messages','VoucherCodes']);
+  api.export(['Waslchiraa']);
 
 });

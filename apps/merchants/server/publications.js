@@ -1,8 +1,8 @@
-// ----- vouchers --------------------------------------------------------------
+// ----- campaigns --------------------------------------------------------------
 /**
- * publish all vouchers owned by the current user/merchant
+ * publish all campaigns owned by the current user/merchant
  */
-Meteor.publish('vouchers', function () {
+Meteor.publish('campaigns', function () {
 
     // security checks
     if (!Roles.userIsInRole(this.userId, 'merchant')) {
@@ -10,7 +10,7 @@ Meteor.publish('vouchers', function () {
     }
 
     // action
-    return Vouchers.find({
+    return Waslchiraa.Collections.Campaigns.find({
         userId: this.userId
     }, {
         fields: {
@@ -30,16 +30,16 @@ Meteor.publish('vouchers', function () {
         }
     });
 });
-Meteor.publish("voucher_voucher_codes", function (voucherId) {
-    check(voucherId, String);
-    return VoucherCodes.find({'voucherId': voucherId});
+Meteor.publish("voucher_vouchers", function (campaignId) {
+    check(campaignId, String);
+    return Waslchiraa.Collections.Vouchers.find({'campaignId': campaignId});
 });
 
-Meteor.publish('voucher_users', function (voucherId) {
-    check(voucherId, String);
+Meteor.publish('voucher_users', function (campaignId) {
+    check(campaignId, String);
 
-    var vouchers = VoucherCodes.find({'voucherId': voucherId});
-    var userIds = vouchers.map(function (v) {
+    var campaigns = Waslchiraa.Collections.Vouchers.find({'campaignId': campaignId});
+    var userIds = campaigns.map(function (v) {
         return v.userId;
     });
     console.log(userIds);
@@ -58,24 +58,24 @@ Meteor.publish('voucher_users', function (voucherId) {
     return result;
 });
 
-Meteor.publish('voucher_codes', function () {
+Meteor.publish('vouchers', function () {
 
     // security checks
     if (!Roles.userIsInRole(this.userId, 'merchant')) {
         return this.ready();
     }
 
-    var vouchers = Vouchers.find({
+    var campaigns = Waslchiraa.Collections.Campaigns.find({
         userId: this.userId
     });
 
-    var voucherIds = vouchers.map(function (v) {
+    var campaignIds = campaigns.map(function (v) {
         return v._id;
     });
 
-    return VoucherCodes.find({
-            voucherId: {
-                $in: voucherIds
+    return Waslchiraa.Collections.Vouchers.find({
+            campaignId: {
+                $in: campaignIds
             }
         }
     );
@@ -93,6 +93,6 @@ Meteor.publish('categories', function () {
     }
 
     // action
-    return Categories.find();
+    return Waslchiraa.Collections.Categories.find();
 });
 

@@ -1,7 +1,7 @@
 /**
- * publish all vouchers
+ * publish all campaigns
  */
-Meteor.publish('vouchers', function () {
+Meteor.publish('campaigns', function () {
 
     // security checks
     if (!Roles.userIsInRole(this.userId, 'admin')) {
@@ -9,8 +9,8 @@ Meteor.publish('vouchers', function () {
     }
 
     // collect data
-    var vouchers = Vouchers.find();
-    var merchantIds = vouchers.map(function (v) {
+    var campaigns = Waslchiraa.Collections.Campaigns.find();
+    var merchantIds = campaigns.map(function (v) {
         return v.userId;
     });
 
@@ -25,11 +25,11 @@ Meteor.publish('vouchers', function () {
         }
     });
 
-    return [vouchers, merchants];
+    return [campaigns, merchants];
 });
 
-Meteor.publish("voucher_codes", function (voucherId) {
-    return VoucherCodes.find({'voucherId': voucherId});
+Meteor.publish("vouchers", function (campaignId) {
+    return Waslchiraa.Collections.Vouchers.find({'campaignId': campaignId});
 });
 
 /**
@@ -39,7 +39,7 @@ Meteor.publish('categories', function () {
     if (!Roles.userIsInRole(this.userId, 'admin')) {
         return this.ready();
     }
-    return Categories.find();
+    return Waslchiraa.Collections.Categories.find();
 });
 
 /**

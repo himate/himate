@@ -1,5 +1,5 @@
 /**
- * Vouchers
+ * Waslchiraa.Collections.Campaigns
  */
 Meteor.methods({
 

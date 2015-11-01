@@ -2,13 +2,13 @@
 /**
  *
  */
-Template.pages_vouchers_edit.helpers({
+Template.pages_campaigns_edit.helpers({
 
     /**
      *
      */
     voucher: function() {
-        return Vouchers.findOne(Router.current().params._id);
+        return Waslchiraa.Collections.Campaigns.findOne(Router.current().params._id);
     }
 });
 
@@ -16,15 +16,15 @@ Template.pages_vouchers_edit.helpers({
 /**
  *
  */
-Template.pages_vouchers_edit.onCreated(function() {
-    Session.set('pageTitle', 'vouchers_edit');
+Template.pages_campaigns_edit.onCreated(function() {
+    Session.set('pageTitle', 'campaigns_edit');
 });
 
 // ----- form hooks ------------------------------------------------------------
 /**
  *
  */
-AutoForm.addHooks(["pages_vouchers_edit"], {
+AutoForm.addHooks(["pages_campaigns_edit"], {
 
     /**
      * @param {Object} operation
@@ -33,7 +33,7 @@ AutoForm.addHooks(["pages_vouchers_edit"], {
      */
     onSuccess: function(operation, result, template) {
         Waslchiraa.Helpers.infoMessage('ok');
-        Router.go("pages_vouchers");
+        Router.go("pages_campaigns");
     },
 
     /**

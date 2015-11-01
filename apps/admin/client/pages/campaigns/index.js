@@ -2,14 +2,14 @@
 /**
  *
  */
-Template.pages_vouchers.helpers({
+Template.pages_campaigns.helpers({
 
     /**
-     * return all vouchers
+     * return all campaigns
      * @reactive
      */
-    vouchers: function() {
-        return Vouchers.find();
+    campaigns: function() {
+        return Waslchiraa.Collections.Campaigns.find();
     }
 });
 
@@ -17,7 +17,7 @@ Template.pages_vouchers.helpers({
 /**
  *
  */
-Template.pages_vouchers.events({
+Template.pages_campaigns.events({
 
     /**
      *
@@ -25,7 +25,7 @@ Template.pages_vouchers.events({
     'click table .remove': function(event) {
         // :TODO: use semantic ui dialog & translate
         if (confirm('Delete Voucher "' + this.title + '"?')) {
-            Meteor.call('vouchers_remove', this._id);
+            Meteor.call('campaigns_remove', this._id);
         }
         return Waslchiraa.Helpers.cancel(event);
     }
