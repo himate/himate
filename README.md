@@ -10,7 +10,7 @@ The project contains three separate meteor apps, which will share one database.
 
 ## start / stop servers
 
-The database is controlled by the admin app. To ensure that all instances a 
+The database is controlled by the admin app. To ensure that all instances are
 running on the same database, you should use the two scripts inside of the 
 ./tools directory.
 

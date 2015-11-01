@@ -11,15 +11,15 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('1.2.0.2');
+  api.versionsFrom('1.2.1');
   api.use('ecmascript');
   api.use('email');
   api.use('mongo');
   api.use('templating', 'client');
-  api.use('aldeed:autoform@5.7.1');
+  api.use('aldeed:autoform');
   api.use('aldeed:collection2');
   api.use('aldeed:simple-schema');
-  api.use('less@2.5.0_3');
+  api.use('less');
   api.use('tap:i18n');
   api.use('http');
 
