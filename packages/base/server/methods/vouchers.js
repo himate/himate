@@ -7,15 +7,18 @@ Meteor.methods({
      * add the <doc> to the campaigns collection
      * @param {Object} doc
      */
-    "reserve_voucher": function(campaignId) {
+    "vouchers_reserve": function(campaignId) {
 
         // security checks
         if (!Roles.userIsInRole(Meteor.userId(), ['customer'])) {
             throw new Meteor.Error("not-authorized");
         }
 
-        var voucher = Waslchiraa.Collections.Campaigns.findOne(campaignId);
+        // check user input
+        check(campaignId, String);
 
+        // check voucher and avoid duplicates
+        var voucher = Waslchiraa.Collections.Campaigns.findOne(campaignId);
         if (!voucher) {
             throw new Meteor.Error("not-found");
         }
@@ -33,6 +36,7 @@ Meteor.methods({
             throw new Meteor.Error("no_campaigns_available");
         }
 
+        // generate new voucher
         var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         var code = "";
         do {
@@ -60,12 +64,14 @@ Meteor.methods({
         };
 
         Email.send(email);
-
         return code;
     },
 
+    /**
+     *
+     */
     'get_user_vouchers': function() {
-        // :TODO: refactor to pub/sub
+        // :TODO: refactor to pub/sub!
         // collect data
         var voucherCodes = Waslchiraa.Collections.Vouchers.find({
             userId: Meteor.userId
@@ -82,7 +88,7 @@ Meteor.methods({
     /**
      * @param {Object} code
      */
-    'redeemVoucher': function(code) {
+    'vouchers_redeem': function(code) {
 
         // security checks
         if (!Roles.userIsInRole(Meteor.userId(), ['merchant'])) {

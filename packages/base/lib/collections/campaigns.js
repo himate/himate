@@ -1,4 +1,4 @@
-TranslationSchemaOptional = new SimpleSchema({
+var TranslationSchemaOptional = new SimpleSchema({
     de: {
         type: String,
         optional: true,
@@ -13,7 +13,8 @@ TranslationSchemaOptional = new SimpleSchema({
     },
 
 });
-TranslationSchemaOptionalTextarea = new SimpleSchema({
+
+var TranslationSchemaOptionalTextarea = new SimpleSchema({
     de: {
         type: String,
         optional: true,
@@ -37,7 +38,7 @@ TranslationSchemaOptionalTextarea = new SimpleSchema({
     },
 
 });
-TranslationSchema = new SimpleSchema({
+var TranslationSchema = new SimpleSchema({
     de: {
         type: String,
     },
@@ -49,7 +50,7 @@ TranslationSchema = new SimpleSchema({
     },
 
 });
-TranslationSchemaTextarea = new SimpleSchema({
+var TranslationSchemaTextarea = new SimpleSchema({
     de: {
         type: String,
         autoform: {
@@ -72,126 +73,125 @@ TranslationSchemaTextarea = new SimpleSchema({
 });
 
 Waslchiraa.Schemas.Campaign = new SimpleSchema({
-        created: {
-            type: Date,
-            label: "Created",
-            autoValue: function () {
-                if (this.isInsert) {
-                    return new Date;
-                }
-                else if (this.isUpsert) {
-                    return {
-                        $setOnInsert: new Date
-                    };
-                }
-                else {
-                    this.unset();
-                }
+    created: {
+        type: Date,
+        label: "Created",
+        autoValue: function() {
+            if (this.isInsert) {
+                return new Date;
             }
-        },
-        userId: {
-            type: String,
-            regEx: SimpleSchema.RegEx.Id,
-            optional: true,
-            index: 1,
-            autoform: {
-                options: function () {
-                    var options = [];
-                    Meteor.users.find({
-                        roles: {
-                            $in: ['merchant']
-                        }
-                    }, {
-                        fields: {
-                            username: 1,
-                            _id: 1
-                        },
-                        sort: {
-                            username: 1
-                        }
-                    }).forEach(function (element) {
-                        options.push({
-                            label: element.username,
-                            value: element._id
-                        });
-                    });
-                    return options;
-                }
+            else if (this.isUpsert) {
+                return {
+                    $setOnInsert: new Date
+                };
             }
-        },
-        // voucher category
-        categoryId: {
-            type: String,
-            regEx: SimpleSchema.RegEx.Id,
-            index: 1,
-            autoform: {
-                options: function () {
-                    var options = [];
-                    Waslchiraa.Collections.Categories.find({}, {
-                        fields: {
-                            title: 1,
-                            _id: 1
-                        },
-                        sort: {
-                            title: 1
-                        }
-                    }).fetch().forEach(function (element) {
-                        options.push({
-                            label: element.title,
-                            value: element._id
-                        });
-                    });
-                    return options;
-                }
+            else {
+                this.unset();
             }
-        },
-        title: {
-            type: TranslationSchema,
-        },
-        description: {
-            type: TranslationSchemaOptionalTextarea,
-        },
-        conditions: {
-            type: TranslationSchemaOptionalTextarea,
-        },
-        shortDescription: {
-            type: TranslationSchemaTextarea,
-        },
-        published: {
-            type: Date,
-            autoform: {
-                value: new Date()
-            }
-        },
-        end: {
-            type: Date,
-            optional: true
-        },
-        quantity: {
-            type: Number,
-            min: 1,
-            autoform: {
-                value: 1
-            }
-        },
-        street: {
-            type: String
-        },
-        number: {
-            type: String
-        },
-        zipcode: {
-            type: String
-        },
-        city: {
-            type: String
-        },
-        country: {
-            type: String
         }
+    },
+    userId: {
+        type: String,
+        regEx: SimpleSchema.RegEx.Id,
+        optional: true,
+        index: 1,
+        autoform: {
+            options: function() {
+                var options = [];
+                Meteor.users.find({
+                    roles: {
+                        $in: ['merchant']
+                    }
+                }, {
+                    fields: {
+                        username: 1,
+                        _id: 1
+                    },
+                    sort: {
+                        username: 1
+                    }
+                }).forEach(function(element) {
+                    options.push({
+                        label: element.username,
+                        value: element._id
+                    });
+                });
+                return options;
+            }
+        }
+    },
+    // voucher category
+    categoryId: {
+        type: String,
+        regEx: SimpleSchema.RegEx.Id,
+        index: 1,
+        autoform: {
+            options: function() {
+                var options = [];
+                Waslchiraa.Collections.Categories.find({}, {
+                    fields: {
+                        title: 1,
+                        _id: 1
+                    },
+                    sort: {
+                        title: 1
+                    }
+                }).fetch().forEach(function(element) {
+                    options.push({
+                        label: element.title,
+                        value: element._id
+                    });
+                });
+                return options;
+            }
+        }
+    },
+    title: {
+        type: TranslationSchema,
+    },
+    description: {
+        type: TranslationSchemaOptionalTextarea,
+    },
+    conditions: {
+        type: TranslationSchemaOptionalTextarea,
+    },
+    shortDescription: {
+        type: TranslationSchemaTextarea,
+    },
+    published: {
+        type: Date,
+        autoform: {
+            value: new Date()
+        }
+    },
+    end: {
+        type: Date,
+        optional: true
+    },
+    quantity: {
+        type: Number,
+        min: 1,
+        autoform: {
+            value: 1
+        }
+    },
+    street: {
+        type: String
+    },
+    number: {
+        type: String
+    },
+    zipcode: {
+        type: String
+    },
+    city: {
+        type: String
+    },
+    country: {
+        type: String
     }
-);
+});
 
+// create collection and register schema
 Waslchiraa.Collections.Campaigns = new Mongo.Collection("waslchiraa_campaigns");
 Waslchiraa.Collections.Campaigns.attachSchema(Waslchiraa.Schemas.Campaign);
-

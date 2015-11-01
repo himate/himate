@@ -63,7 +63,7 @@
 
         <td>{{#if end }} {{formatDate end }} {{ else }} - {{/if}}</td>
 
-        <td>{{#with getCampaigns _id}} {{total}} ({{available}} / {{ reserved }} / {{ redeemed }}) {{/ with}}</td>
+        <td>{{#with getVouchers _id}} {{total}} ({{available}} / {{ reserved }} / {{ redeemed }}) {{/ with}}</td>
 
 		<td width="10"><a class="edit write" href="{{ pathFor 'pages_campaigns_edit' }}" title="{{_ 'campaigns_edit' }}"><i class="pencil icon"></i></a></td>
 		<td width="10"><a class="remove write" href="#" title="{{_ 'campaigns_remove' }}"><i class="trash icon"></i></a></td>

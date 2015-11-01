@@ -1,55 +1,54 @@
 Package.describe({
-  name: 'waslchiraa:base',
-  version: '0.0.1',
-  // Brief, one-line summary of the package.
-  summary: '',
-  // URL to the Git repository containing the source code for this package.
-  git: '',
-  // By default, Meteor will default to using README.md for documentation.
-  // To avoid submitting documentation, set this field to null.
-  documentation: 'README.md'
+    name: 'waslchiraa:base',
+    version: '0.0.2',
+    summary: '',
+    git: 'https://github.com/waslchiraa/waslchiraa',
+    documentation: 'README.md'
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('1.2.1');
-  api.use('ecmascript');
-  api.use('email');
-  api.use('mongo');
-  api.use('templating', 'client');
-  api.use('aldeed:autoform');
-  api.use('aldeed:collection2');
-  api.use('aldeed:simple-schema');
-  api.use('less');
-  api.use('tap:i18n');
-  api.use('http');
+    api.versionsFrom('1.2.1');
+    api.use('ecmascript');
+    api.use('email');
+    api.use('mongo');
+    api.use('templating', 'client');
+    api.use('aldeed:autoform');
+    api.use('aldeed:collection2');
+    api.use('aldeed:simple-schema');
+    api.use('less');
+    api.use('tap:i18n');
+    api.use('http');
 
-  // collections
-  api.addFiles([
-    'lib/namespaces.js',
-    'lib/collections/campaigns.js',
-    'lib/collections/categories.js',
-    'lib/collections/messages.js',
-    'lib/collections/vouchers.js',
-    'lib/locale/ar.i18n.json',
-    'lib/locale/de.i18n.json',
-    'lib/locale/en.i18n.json'
-  ],['client','server']);
+    // collections
+    api.addFiles([
+        'lib/namespaces.js',
+        'lib/collections/campaigns.js',
+        'lib/collections/categories.js',
+        'lib/collections/messages.js',
+        'lib/collections/vouchers.js',
+        'lib/locale/ar.i18n.json',
+        'lib/locale/de.i18n.json',
+        'lib/locale/en.i18n.json'
+    ], [
+        'client',
+        'server'
+    ]);
 
-  api.addFiles([
-    'client/less/base.less',
-    'client/partials/messages.html',
-    'client/partials/messages.js',
-    'client/partials/messages.less',
-    'client/helpers.js'
-  ],['client']);
+    api.addFiles([
+        'client/less/base.less',
+        'client/partials/messages.html',
+        'client/partials/messages.js',
+        'client/partials/messages.less',
+        'client/helpers.js'
+    ], ['client']);
 
-  api.addFiles([
-    'server/methods/campaigns.js',
-    'server/methods/campaign_translate.js',
-    'server/methods/categories.js',
-    'server/methods/vouchers.js'
-  ],['server']);
+    api.addFiles([
+        'server/methods/campaigns.js',
+        'server/methods/campaign_translate.js',
+        'server/methods/categories.js',
+        'server/methods/vouchers.js'
+    ], ['server']);
 
-  api.export(['Waslchiraa']);
-
+    // export "Waslchiraa" namespace to be used in including apps
+    api.export(['Waslchiraa']);
 });

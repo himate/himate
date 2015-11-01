@@ -1,3 +1,7 @@
+// ----- private helper --------------------------------------------------------
+var l = Waslchiraa.Helpers.subscriptionLogger;
+
+// ----- routes ----------------------------------------------------------------
 /**
  * homepage
  */
@@ -23,8 +27,8 @@ Router.route('/campaigns', {
         });
 
         return [
-            Meteor.subscribe('vouchers', campaignIds),
-            Meteor.subscribe('campaigns'),
+            Meteor.subscribe('vouchers', campaignIds, l),
+            Meteor.subscribe('campaigns', l),
         ];
     }
 });
@@ -36,8 +40,8 @@ Router.route('/campaigns/:_id', {
     name: 'pages_campaigns_details',
     waitOn: function () {
         return [
-            Meteor.subscribe('campaigns'),
-            Meteor.subscribe('vouchers')
+            Meteor.subscribe('campaigns', l),
+            Meteor.subscribe('vouchers', l)
         ];
     }
 });

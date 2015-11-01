@@ -1,7 +1,18 @@
 // ----- generic helpers -------------------------------------------------------
 /**
+ * used to log subscription errors to the console
+ */
+Waslchiraa.Helpers.subscriptionLogger = {
+    onError: function(result) {
+        console.log(result);
+    }
+};
+
+/**
+ * stops event propagation
+ *
  * @param {Object} event
- * @return {Boolean} whether to bubble <event> or not
+ * @return {Boolean} false
  */
 Waslchiraa.Helpers.cancel = function(event) {
     event.stopPropagation();
@@ -10,7 +21,10 @@ Waslchiraa.Helpers.cancel = function(event) {
 };
 
 /**
+ * creates an info popup on top of the main menu.
+ * Should be used instead of "alert()" messages.
  *
+ * @param {String} message
  */
 Waslchiraa.Helpers.infoMessage = function(message) {
     Waslchiraa.Collections.Messages.insert({
@@ -20,7 +34,10 @@ Waslchiraa.Helpers.infoMessage = function(message) {
 };
 
 /**
+ * creates an error message on top of the main menu.
+ * Should be used instead of "alert()" messages.
  *
+ * @param {String} message
  */
 Waslchiraa.Helpers.errorMessage = function(message) {
     Waslchiraa.Collections.Messages.insert({
@@ -30,9 +47,13 @@ Waslchiraa.Helpers.errorMessage = function(message) {
 };
 
 /**
+ * collect voucher details for the given campain
  *
+ * @param {String} campaignId
+ * @return {Object} (available, total, reserved, redeemed)
+ * @reactive
  */
-Waslchiraa.Helpers.getCampaigns = function(campaignId) {
+Waslchiraa.Helpers.getVouchers = function(campaignId) {
     var result = {
         'available': 0,
         'total': 0,
@@ -43,6 +64,7 @@ Waslchiraa.Helpers.getCampaigns = function(campaignId) {
         _id: campaignId
     });
     var now = new Date();
+
     if (campaign) {
         result = {
             'total': campaign.quantity,
@@ -59,19 +81,27 @@ Waslchiraa.Helpers.getCampaigns = function(campaignId) {
         };
         result.available = result.total - (result.redeemed + result.reserved);
     }
+
     return result;
 };
 
 // ----- template helpers ------------------------------------------------------
 /**
+ * check if <a> equals <b>
  *
+ * @param {String} a
+ * @param {String} b
+ * @return {Boolean}
  */
 Template.registerHelper("eq", function(a, b) {
     return a == b;
 });
 
 /**
+ * get the current pageTitle from global Session object
  *
+ * @return {String}
+ * @reactive
  */
 Template.registerHelper('pageTitle', function() {
     return Session.get('pageTitle');
@@ -96,6 +126,9 @@ Template.registerHelper('getCategory', function(categoryId) {
 });
 
 /**
+ * Count campaigns related to given <category>. If no category is set, this will
+ * count ALL campaigns.
+ *
  * @param {Object} category
  * @return {Number} campaign count
  * @reactive
@@ -116,7 +149,9 @@ Template.registerHelper('countCampaigns', function(category) {
  */
 Template.registerHelper('formatDate', function(date) {
     if (date) {
-        return moment(date).format('MM-DD-YYYY');
+        // :TODO: enable locale support for momentjs
+        //return moment(date).locale(TAPi18n.getLanguage()).format('LL');
+        return moment(date).format('LL');
     }
     else {
         return '-';
@@ -124,28 +159,43 @@ Template.registerHelper('formatDate', function(date) {
 });
 
 /**
- *
+ * @see Waslchiraa.Helpers.getVouchers
+ * @param {String} campaignId
+ * @reactive
  */
-Template.registerHelper('getCampaigns', function(campaignId) {
-    return Waslchiraa.Helpers.getCampaigns(campaignId);
+Template.registerHelper('getVouchers', function(campaignId) {
+    return Waslchiraa.Helpers.getVouchers(campaignId);
 });
 
 /**
+ * returns the available vouchers for given <campaignId>
  *
+ * @see Waslchiraa.Helpers.getVouchers
+ * @param {String} campaignId
+ * @return {Number}
+ * @reactive
  */
-Template.registerHelper('voucherCount', function(campaignId) {
-    return Waslchiraa.Helpers.getCampaigns(campaignId).available;
+Template.registerHelper('availableVouchersCount', function(campaignId) {
+    return Waslchiraa.Helpers.getVouchers(campaignId).available;
 });
 
 /**
- *
+ * @see Waslchiraa.Helpers.getVouchers
+ * @param {String} campaignId
+ * @return {Boolean}
+ * @reactive
  */
 Template.registerHelper('hasAvailableVouchers', function(campaignId) {
-    return Waslchiraa.Helpers.getCampaigns(campaignId).available > 0;
+    return Waslchiraa.Helpers.getVouchers(campaignId).available > 0;
 });
 
 /**
+ * returns whether the user as reserved a voucher
+ * for the given <campaignId>, or not
  *
+ * @param {String} campaignId
+ * @return {Boolean}
+ * @reactive
  */
 Template.registerHelper('isReservedByUser', function(campaignId) {
     return Waslchiraa.Collections.Vouchers.find({
@@ -155,22 +205,29 @@ Template.registerHelper('isReservedByUser', function(campaignId) {
 });
 
 /**
+ * returns a url to google maps for the given <campaign>
  *
+ * @param {Object} campaign
+ * @return {String} url
  */
-Template.registerHelper('getMapUrl', function(item) {
-    return item ? 'https://www.google.de/maps/place/' + item.street + '+' + item.number + '+' + item.zipcode + '+' + item.city + '+' + item.country : '';
+Template.registerHelper('getMapUrl', function(campaign) {
+    return campaign ? 'https://www.google.de/maps/place/' + campaign.street + '+' + campaign.number + '+' + campaign.zipcode + '+' + campaign.city + '+' + campaign.country : '';
 });
 
 /**
+ * load the localized version of a <field> of <object>. Returns "" if no translation
+ * is available for the current language.
  *
+ * @param {Object} object
+ * @param {String} field
+ * @return {String} translation
+ * @reactive
  */
 Template.registerHelper('translateField', function(object, field) {
     var lang = TAPi18n.getLanguage();
     if (object && object[field] && object[field][lang]) {
         return object[field][lang];
     }
-    else {
-        return '';
-    }
+    return '';
 });
 

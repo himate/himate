@@ -5,7 +5,7 @@
                 <a class="back-chevron" href="{{ pathFor 'pages_campaigns' }}">
                     <i class="icon-arrow-left ico-left"></i>
                 </a>
-                {{_ 'voucher' }}
+                {{_ 'campaign' }}
             </h1>
         </div>
 
@@ -13,7 +13,7 @@
             <div class="panel-details">
                 <div class="ui right aligned grid">
                     <div class="left  aligned six wide column ">
-                        {{# with getCategory item.categoryId}}
+                        {{# with getCategory item.categoryId }}
                         <h5>{{ title }}</h5>
                         {{/ with }}
                         <h2>

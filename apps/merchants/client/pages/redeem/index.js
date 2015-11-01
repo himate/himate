@@ -6,7 +6,7 @@ Template.pages_redeem.events({
       // Get value from form element
       var voucher = event.target.voucher.value;
 
-      var result = Meteor.call('redeemVoucher', voucher, function(err, data){
+      var result = Meteor.call('vouchers_redeem', voucher, function(err, data){
           if(err) {
               Waslchiraa.Helpers.errorMessage(err.message);
           }else{

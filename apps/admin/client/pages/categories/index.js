@@ -15,8 +15,7 @@ Template.pages_categories.helpers({
     /**
      *
      */
-    voucherCount: function() {
-        var campaigns = Meteor.subscribe("campaigns");
+    campaignCount: function() {
         return Waslchiraa.Collections.Campaigns.find({
             categoryId: this._id
         }).count();
