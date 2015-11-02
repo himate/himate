@@ -1,11 +1,110 @@
+@import "../layouts/default.import.less";
+
 #partials-sidebar {
-    background: #FFF;
+    text-align: center;
+
+   .ui.base.segment {
+       background: @inactive-bg-color;
+       height: 100%;
+       padding: 0;
+       border-radius: 0;
+   }
+
+   .user-container {
+       padding: 4em;
+       .name {
+           margin: 1em;
+       }
+       .ui.button {
+           border-radius: 2px;
+       }
+   }
+
+   .ui.segment {
+       border: none;
+       box-shadow: none;
+   }
+    .ui.breadcrumb {
+        height: 52px;
+        left: 0;
+        background-color: @lighter-text-color;
+        padding: 1em 1em;
+
+        & a {
+            color:@inverted-text-color;
+        }
+    }
+
+    .segments-container {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: 60px;
+        margin-bottom: 1rem;
+        & a, a:focus{
+            color:@inverted-text-color;
+        }
+    }
 }
 
-#partials-sidebar .ui.segment {
-    border: none;
-    box-shadow: none;
-    padding-top: 2em;
+.at-form, #pages-sign-in {
+
+    .ui.segment {
+        background-color: #EEE;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .at-title {
+        height: 60px;
+        padding: 1em;
+        margin-bottom: 0;
+    }
+    .at-title .ui.header {
+        text-transform: uppercase;
+        font-size: 12px;
+        padding: 1em;
+    }
+    .ui.form .field > label {
+        display: none;
+    }
+    .at-pwd-form .at-input .ui.input > input {
+        height: 46px;
+        border-radius: 2px;
+        font-family: @font-family-headlines;
+        font-weight: 600;
+        text-transform: uppercase;
+        &:focus {
+            border-color: @lighter-text-color;
+        }
+    }
+
+    .at-link.at-pwd {
+        font-size: @label-base-size;
+        font-weight: 900;
+        font-family: @font-family-headlines;
+        text-transform: uppercase;
+    }
+    .ui.button {
+        height: 46px;
+        min-width: 130px;
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .ui.large.message {
+        border: none;
+        box-shadow: none;
+        background-color: transparent;
+        padding: 0;
+
+        p {
+            font-size: 15px;
+            font-family: @font-family-headlines;
+            font-weight: 500;
+        }
+    }
 }
 
 #partials-sidebar .transparent.menu {
@@ -15,9 +114,4 @@
 #partials-sidebar .circular.image {
     width: 64px;
     height: 64px;
-}
-
-/* customize login form */
-#partials-sidebar .at-form form > .ui.segment {
-    padding: 0;
 }
