@@ -11,6 +11,7 @@ Package.onUse(function(api) {
     api.use('ecmascript');
     api.use('email');
     api.use('mongo');
+    api.use('check');
     api.use('templating', 'client');
     api.use('aldeed:autoform');
     api.use('aldeed:collection2');
