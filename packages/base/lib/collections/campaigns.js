@@ -154,11 +154,13 @@ Waslchiraa.Schemas.Campaign = new SimpleSchema({
     },
     description: {
         type: TranslationSchemaOptionalTextarea,
-        label: Waslchiraa.Helpers.i18nLabel("description")
+        label: Waslchiraa.Helpers.i18nLabel("description"),
+        optional: true
     },
     conditions: {
         type: TranslationSchemaOptionalTextarea,
-        label: Waslchiraa.Helpers.i18nLabel("conditions")
+        label: Waslchiraa.Helpers.i18nLabel("conditions"),
+        optional: true
     },
     shortDescription: {
         type: TranslationSchemaTextarea,

@@ -1,5 +1,5 @@
 <template name="pages_campaigns_edit">
-	{{> partials_sub_menu active='campaigns' search='title' }}
+    {{> partials_sub_menu active='campaigns' search='title' }}
     <div id="pages-campaigns-edit" class="ui basic segment">
         <div class="ui mobile reversed stackable grid">
             <div class="twelve wide column">
@@ -7,12 +7,8 @@
 
                 {{# autoForm collection='Waslchiraa.Collections.Campaigns' doc=voucher id='pages_campaigns_edit' type='method-update' meteormethod='campaigns_edit' }}
                 {{> afQuickField name='title' }}
-
-                {{> afQuickField name='categoryId' }}
-
                 {{> afQuickField name='shortDescription' }}
                 {{> afQuickField name='description' }}
-
                 {{> afQuickField name='conditions' }}
 
                 <div class="fields">
@@ -35,6 +31,11 @@
 
                 {{> afQuickField name='country' }}
 
+                <h3 class="ui dividing header">{{_ 'relations' }}</h3>
+                {{> afQuickField name='userId' }}
+                {{> afQuickField name='categoryId' }}
+
+                <h3 class="ui dividing header">{{_ 'state' }}</h3>
                 {{> afQuickField name='quantity' }}
 
                 <div class="fields">
@@ -47,7 +48,9 @@
                 </div>
 
                 <div class="ui bottom fixed actions menu">
-                    <a href="{{ pathFor 'pages_campaigns' }}" class="disabled item"> <i class="left chevron icon"></i> {{_ 'back' }} </a>
+                    <a href="{{ pathFor 'pages_campaigns' }}" class="disabled item">
+                        <i class="left chevron icon"></i> {{_ 'back' }}
+                    </a>
                     <button type="submit" class="right item">
                         <i class="save icon"></i>
                         {{_ 'submit' }}
@@ -59,7 +62,7 @@
             <div class="four wide column">
                 <h2>{{_ 'information' }}</h2>
                 <p>
-                  {{_ 'update_voucher' }}
+                    {{_ 'update_voucher' }}
                 </p>
             </div>
         </div><!-- .grid -->

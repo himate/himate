@@ -22,9 +22,19 @@ Meteor.methods({
 
         // check user input
         check(doc, Object);
-        check(doc.title, Object);
-        check(doc.description, Match.Optional(Object));
-        check(doc.userId, String);
+        check("title.de", String);
+        check("title.en", String);
+        check("title.ar", String);
+        check("shortDescription.de", String);
+        check("shortDescription.en", String);
+        check("shortDescription.ar", String);
+        check("description.de", Match.Optional(String));
+        check("description.en", Match.Optional(String));
+        check("description.ar", Match.Optional(String));
+        check("conditions.de", Match.Optional(String));
+        check("conditions.en", Match.Optional(String));
+        check("conditions.ar", Match.Optional(String));
+        check(doc.userId, Match.Optional(String));
         check(doc.categoryId, String);
         check(doc.published, Match.Optional(Date));
         check(doc.end, Match.Optional(Date));
@@ -34,14 +44,11 @@ Meteor.methods({
         check(doc.zipcode, String);
         check(doc.city, String);
         check(doc.country, String);
-        check(doc.conditions, Object);
-        check(doc.shortDescription, Object);
 
         //var translateFields = ['title','description','shortDescription','conditions'];
         //translateFields.forEach(function(field){
         //    doc[field].foreach(value, key){}
         //})
-
 
         // action
         return Waslchiraa.Collections.Campaigns.insert(doc);
@@ -82,12 +89,12 @@ Meteor.methods({
             "shortDescription.de": String,
             "shortDescription.en": String,
             "shortDescription.ar": String,
-            "description.de":  Match.Optional(String),
-            "description.en":  Match.Optional(String),
-            "description.ar":  Match.Optional(String),
-            "conditions.de":  Match.Optional(String),
-            "conditions.en":  Match.Optional(String),
-            "conditions.ar":  Match.Optional(String),
+            "description.de": Match.Optional(String),
+            "description.en": Match.Optional(String),
+            "description.ar": Match.Optional(String),
+            "conditions.de": Match.Optional(String),
+            "conditions.en": Match.Optional(String),
+            "conditions.ar": Match.Optional(String),
             conditions: Match.Optional(Object),
             categoryId: String,
             published: Date,
@@ -136,5 +143,4 @@ Meteor.methods({
         return "ok";
 
     }
-
 });
