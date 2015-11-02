@@ -74,5 +74,15 @@
     "vouchers_manage": "Gutscheine, verwalten",
     "Wasl Chiraa": "Wasl Chiraa",
     "welcome": "Willkommen",
-    "zipcode": "PLZ"
+    "zipcode": "PLZ",
+    "campaigns": "Kampagnen",
+    "campaigns_add": "Neue Kampagne",
+    "campaigns_edit": "Kampagne bearbeiten",
+    "campaigns_remove": "Kampagne löschen",
+    "campaigns_info_text": "Legen Sie hier neue Kampagnen an",
+    "delete_selected": "Ausgewählte löschen",
+    "categories_add": "Neue Kategorie",
+    "categories_edit": "Kategorie bearbeiten",
+    "categories_remove": "Kategorie löschen",
+    "campaign_count": "Anzahl Kampagnen"
 }

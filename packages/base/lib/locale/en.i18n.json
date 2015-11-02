@@ -74,5 +74,15 @@
     "vouchers_manage": "Manage Vouchers",
     "Wasl Chiraa": "Wasl Chiraa",
     "welcome": "Welcome",
-    "zipcode": "Zipcode"
+    "zipcode": "Zipcode",
+    "campaigns": "Campaigns",
+    "campaigns_add": "Add Campaign",
+    "campaigns_edit": "Edit Campaign",
+    "campaigns_remove": "Remove Campaign",
+    "campaigns_info_text": "Add new campaigns here",
+    "delete_selected": "Delete selected",
+    "categories_add": "Add Category",
+    "categories_edit": "Edit Category",
+    "categories_remove": "Remove Category",
+    "campaign_count": "Campaign Count"
 }

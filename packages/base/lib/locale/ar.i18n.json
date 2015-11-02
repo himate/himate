@@ -74,5 +74,15 @@
     "vouchers_manage": "إدارة قسائم",
     "Wasl Chiraa": "وصل Chiraa",
     "welcome": "أهلا بك",
-    "zipcode": "الرمز البريدي"
+    "zipcode": "الرمز البريدي",
+    "campaigns": "الحملات",
+    "campaigns_add": "إضافة حملة",
+    "campaigns_edit": "تحرير الحملة",
+    "campaigns_remove": "إزالة حملة",
+    "campaigns_info_text": "إضافة حملات جديدة هنا",
+    "delete_selected": "احذف المختار",
+    "categories_add": "إضافة فئة",
+    "categories_edit": "تحرير الفئة",
+    "categories_remove": "إزالة الفئة",
+    "campaign_count": ""
 }
