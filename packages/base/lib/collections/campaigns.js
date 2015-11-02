@@ -75,7 +75,7 @@ var TranslationSchemaTextarea = new SimpleSchema({
 Waslchiraa.Schemas.Campaign = new SimpleSchema({
     created: {
         type: Date,
-        label: "Created",
+        label: Waslchiraa.Helpers.i18nLabel("created"),
         autoValue: function() {
             if (this.isInsert) {
                 return new Date;
@@ -93,6 +93,7 @@ Waslchiraa.Schemas.Campaign = new SimpleSchema({
     userId: {
         type: String,
         regEx: SimpleSchema.RegEx.Id,
+        label: Waslchiraa.Helpers.i18nLabel("user"),
         optional: true,
         index: 1,
         autoform: {
@@ -124,6 +125,7 @@ Waslchiraa.Schemas.Campaign = new SimpleSchema({
     categoryId: {
         type: String,
         regEx: SimpleSchema.RegEx.Id,
+        label: Waslchiraa.Helpers.i18nLabel("category"),
         index: 1,
         autoform: {
             options: function() {
@@ -148,47 +150,59 @@ Waslchiraa.Schemas.Campaign = new SimpleSchema({
     },
     title: {
         type: TranslationSchema,
+        label: Waslchiraa.Helpers.i18nLabel("title")
     },
     description: {
         type: TranslationSchemaOptionalTextarea,
+        label: Waslchiraa.Helpers.i18nLabel("description")
     },
     conditions: {
         type: TranslationSchemaOptionalTextarea,
+        label: Waslchiraa.Helpers.i18nLabel("conditions")
     },
     shortDescription: {
         type: TranslationSchemaTextarea,
+        label: Waslchiraa.Helpers.i18nLabel("short_description")
     },
     published: {
         type: Date,
+        label: Waslchiraa.Helpers.i18nLabel("published"),
         autoform: {
             value: new Date()
         }
     },
     end: {
         type: Date,
+        label: Waslchiraa.Helpers.i18nLabel("end"),
         optional: true
     },
     quantity: {
         type: Number,
         min: 1,
+        label: Waslchiraa.Helpers.i18nLabel("quantity"),
         autoform: {
             value: 1
         }
     },
     street: {
-        type: String
+        type: String,
+        label: Waslchiraa.Helpers.i18nLabel("street")
     },
     number: {
-        type: String
+        type: String,
+        label: Waslchiraa.Helpers.i18nLabel("number")
     },
     zipcode: {
-        type: String
+        type: String,
+        label: Waslchiraa.Helpers.i18nLabel("zipcode")
     },
     city: {
-        type: String
+        type: String,
+        label: Waslchiraa.Helpers.i18nLabel("city")
     },
     country: {
-        type: String
+        type: String,
+        label: Waslchiraa.Helpers.i18nLabel("country")
     }
 });
 

@@ -1,7 +1,7 @@
 Waslchiraa.Schemas.Category = new SimpleSchema({
     created: {
         type: Date,
-        label: "Created",
+        label: Waslchiraa.Helpers.i18nLabel("created"),
         autoValue: function() {
             if (this.isInsert) {
                 return new Date;

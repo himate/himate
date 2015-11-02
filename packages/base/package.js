@@ -22,6 +22,7 @@ Package.onUse(function(api) {
     // collections
     api.addFiles([
         'lib/namespaces.js',
+        'lib/helpers.js',
         'lib/collections/campaigns.js',
         'lib/collections/categories.js',
         'lib/collections/messages.js',
