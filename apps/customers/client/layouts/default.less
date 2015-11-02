@@ -138,18 +138,29 @@ a {
   height: @item-base-height;
 }
 
-.ui.primary.button {
-  background-color: @button-primary-bg-color;
+.ui.button {
   color: #FFF;
   text-transform: uppercase;
   font-family: @font-family-headlines;
   font-weight: 600;
   font-size: @button-text-size;
+  height: 45px;
+  border-radius: 2px;
 
   &:focus, &:hover {
-    background-color: rgba(243,89,55,0.8);
+    background-color: transparent;
+  }
+
+  &.primary {
+    background-color: @button-primary-bg-color;
+  }
+  &.success {
+    background-color:@button-success-bg-color;
+
   }
 }
+
+
 
 @font-face {
   font-family: 'icomoon';
