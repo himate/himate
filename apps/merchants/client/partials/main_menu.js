@@ -31,7 +31,7 @@ Template.partials_main_menu.events({
     }
 });
 
-// ----- template books --------------------------------------------------------
+// ----- template hooks --------------------------------------------------------
 /**
  * called each the the template is rendered
  */
