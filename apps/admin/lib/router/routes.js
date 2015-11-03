@@ -76,7 +76,7 @@ Router.route('/campaigns_codes/:_id', {
     name: 'pages_vouchers',
     onBeforeAction: Router.adminRequired,
     waitOn: function() {
-        return [Meteor.subscribe('vouchers', this.params._id, l)];
+        return [Meteor.subscribe('campaigns', l), Meteor.subscribe('vouchers', this.params._id, l)];
     }
 });
 

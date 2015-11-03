@@ -1,31 +1,35 @@
 <template name="pages_vouchers">
-    {{> partials_sub_menu active='campaigns' search='title' }}
+    {{> partials_sub_menu active='campaigns' }}
 
-    <div id="pages-vouchers" class="ui container">
+    <div id="pages-vouchers" class="ui basic segment">
         <div class="ui mobile reversed stackable grid">
             <div class="twelve wide column">
-                <h2>Vouchers</h2>
+                <h2>{{_ 'vouchers' }}</h2>
 
                 <table class="ui compact celled definition table">
                     <thead class="full-width">
                         <tr>
                             <th>
-                                ID
+                                &nbsp;
                             </th>
                             <th>
-                                USER ID
+                                {{_ 'id' }}
                             </th>
                             <th>
-                                CODE
+                                {{_ 'user' }}
                             </th>
                             <th>
-                                REDEEMED
+                                {{_ 'code' }}
                             </th>
                             <th>
-                                RESERVED
+                                {{_ 'redeemed' }}
+                            </th>
+                            <th>
+                                {{_ 'reserved' }}
                             </th>
                         </tr>
                     </thead>
+
                     <tbody>
                         {{# each codes }}
                         {{> pages_vouchers_code }}
@@ -39,30 +43,14 @@
                     </tbody>
                 </table>
             </div>
+
+            <div class="four wide column">
+
+            </div>
+        </div>
+
+        <div class="ui bottom fixed menu">
+            <a class="item" href="{{ pathFor 'pages_campaigns_details' _id=campaign._id }}"><i class="left chevron icon"></i>{{_ 'back' }}</a>
         </div>
     </div>
-</template>
-
-<template name="pages_vouchers_code">
-    <tr>
-        <td>
-            {{ campaignId }}
-        </td>
-
-        <td>
-            {{ user }}
-        </td>
-
-        <td>
-            {{ code }}
-        </td>
-
-        <td>
-            {{ formatDate redeemed }}
-        </td>
-
-        <td>
-            {{ formatDate reserved }}
-        </td>
-    </tr>
 </template>

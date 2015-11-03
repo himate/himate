@@ -1,7 +1,8 @@
 <template name="pages_campaigns_details">
-	{{> partials_sub_menu active='campaigns' search='title' }}
+    {{> partials_sub_menu active='campaigns' }}
+
     <div id="pages-campaigns-details" class="ui container">
-        <h1>Voucher: {{ translateField item "title" }}</h1>
+        <h1>{{_ 'campaign' }}: {{ translateField item "title" }}</h1>
 
         <div class="ui divider"></div>
 
@@ -14,22 +15,30 @@
         <div class="ui image">
             <img src="/images/wireframe/image.png">
         </div>
+
         <div class="content">
             <div class="meta">
-                <span class="valid">valid until 01/01/1970</span>
+                <span class="valid">{{_ 'starts_at' }}: {{ item.published }}</span>
+                <br />
+                <span class="valid">{{_ 'valid_until' }}: {{ item.end }}</span>
             </div>
             <div class="description">
                 <p class="ui image">
-                    {{!-- item.description --}}
-					{{ translateField item "description" }}
+                    {{ translateField item 'description' }}
                 </p>
             </div>
         </div>
 
         <div class="ui bottom fixed menu">
-            <a class="item" href="{{ pathFor 'pages_campaigns' }}"><i class="left chevron icon"></i>Back</a>
+            <a class="item" href="{{ pathFor 'pages_campaigns' }}">
+                <i class="left chevron icon"></i>
+                {{_ 'back' }}
+            </a>
 
-            <a class="right item ui button" href="{{ pathFor 'pages_vouchers' _id=item._id }}"><i class="flag icon"></i>{{_ 'voucher_list' }}</a>
+            <a class="right item ui button" href="{{ pathFor 'pages_vouchers' _id=item._id }}">
+                <i class="flag icon"></i>
+                {{_ 'vouchers_list' }}
+            </a>
         </div>
     </div>
 </template>

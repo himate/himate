@@ -1,7 +1,7 @@
 {
     "about_us": "Über uns",
     "about_us_text\n": "Auf Wasl Chiraa finden geflüchtete Menschen echte Gutscheine von Firmen, Geschäften und Veranstaltern für ihren Start und ihr Leben in Europa. Zum Beispiel fürs Kino, für die Mitgliedschaft im Fußball-Verein, für die Eisdiele nebenan, für die Sprach-Lern-App, den Optiker und vieles mehr. ",
-    "access_denied": "Zugang verweigert.",
+    "access_denied": "Zugriff verweigert.",
     "administration": "Administration",
     "approve_new_vouchers\n": "Wir prüfen Ihre neuen Gutscheine innerhalb von 24 Stunden.",
     "approve_updated_vouchers\n": "Wir prüfen Ihre Bearbeitung innerhalb von 24 Stunden.",
@@ -40,7 +40,7 @@
     "no_users_found": "Es wurden keine Benutzerkonten gefunden",
     "no_vouchers_found": "Es wurden keine Gutscheine gefunden",
     "number": "Nummer",
-    "page_not_found": "Die Seite wurde nicht gefunden",
+    "page_not_found": "Die Seite wurde nicht gefunden.",
     "privacy": "Datenschutz",
     "privacy_text": "Wasl Chiraa respektiert den Datenschutz. Wir erheben nur Daten, die für unsere Dienstleistung notwendig sind.",
     "profile_edit": "Profil bearbeiten",
@@ -84,5 +84,11 @@
     "categories_add": "Neue Kategorie",
     "categories_edit": "Kategorie bearbeiten",
     "categories_remove": "Kategorie löschen",
-    "campaign_count": "Anzahl Kampagnen"
+    "campaign_count": "Anzahl Kampagnen",
+    "username": "Benutzername",
+    "email": "E-Mail",
+    "roles": "Rollen",
+    "vouchers_list": "Gutscheine",
+    "code": "Code",
+    "id": "ID"
 }

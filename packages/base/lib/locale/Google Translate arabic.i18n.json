@@ -84,5 +84,11 @@
     "categories_add": "إضافة فئة",
     "categories_edit": "تحرير الفئة",
     "categories_remove": "إزالة الفئة",
-    "campaign_count": ""
+    "campaign_count": "عدد حملة",
+    "username": "اسم المستخدم",
+    "email": "البريد الإلكتروني",
+    "roles": "الأدوار",
+    "vouchers_list": "قسائم ذات الصلة",
+    "code": "رمز",
+    "id": "هوية شخصية"
 }

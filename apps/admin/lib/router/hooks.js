@@ -6,6 +6,9 @@ Router.onAfterAction(function() {
     if (Meteor.isClient) {
         var route = Router.current().route.getName().replace(/_/g, "-");
         $("body").removeAttr('class').addClass('pushable').addClass(route);
+        Meteor.defer(function() {
+            $('input:eq(0)').focus();
+        });
     }
 });
 

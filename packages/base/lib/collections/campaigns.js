@@ -1,77 +1,3 @@
-var TranslationSchemaOptional = new SimpleSchema({
-    de: {
-        type: String,
-        optional: true,
-    },
-    en: {
-        type: String,
-        optional: true,
-    },
-    ar: {
-        type: String,
-        optional: true,
-    },
-
-});
-
-var TranslationSchemaOptionalTextarea = new SimpleSchema({
-    de: {
-        type: String,
-        optional: true,
-        autoform: {
-            rows: 5
-        }
-    },
-    en: {
-        type: String,
-        optional: true,
-        autoform: {
-            rows: 5
-        }
-    },
-    ar: {
-        type: String,
-        optional: true,
-        autoform: {
-            rows: 5
-        }
-    },
-
-});
-var TranslationSchema = new SimpleSchema({
-    de: {
-        type: String,
-    },
-    en: {
-        type: String,
-    },
-    ar: {
-        type: String,
-    },
-
-});
-var TranslationSchemaTextarea = new SimpleSchema({
-    de: {
-        type: String,
-        autoform: {
-            rows: 5
-        }
-    },
-    en: {
-        type: String,
-        autoform: {
-            rows: 5
-        }
-    },
-    ar: {
-        type: String,
-        autoform: {
-            rows: 5
-        }
-    },
-
-});
-
 Waslchiraa.Schemas.Campaign = new SimpleSchema({
     created: {
         type: Date,
@@ -149,21 +75,21 @@ Waslchiraa.Schemas.Campaign = new SimpleSchema({
         }
     },
     title: {
-        type: TranslationSchema,
+        type: Waslchiraa.Schemas.TranslationSchema,
         label: Waslchiraa.Helpers.i18nLabel("title")
     },
     description: {
-        type: TranslationSchemaOptionalTextarea,
+        type: Waslchiraa.Schemas.TranslationSchemaOptionalTextarea,
         label: Waslchiraa.Helpers.i18nLabel("description"),
         optional: true
     },
     conditions: {
-        type: TranslationSchemaOptionalTextarea,
+        type: Waslchiraa.Schemas.TranslationSchemaOptionalTextarea,
         label: Waslchiraa.Helpers.i18nLabel("conditions"),
         optional: true
     },
     shortDescription: {
-        type: TranslationSchemaTextarea,
+        type: Waslchiraa.Schemas.TranslationSchemaTextarea,
         label: Waslchiraa.Helpers.i18nLabel("short_description")
     },
     published: {

@@ -9,7 +9,11 @@ Template.pages_users.helpers({
      * @reactive
      */
     users: function() {
-        return Meteor.users.find();
+        var filter = {};
+        if (Session.get('query')) {
+            filter.username = new RegExp(Session.get('query'), "gi");
+        }
+        return Meteor.users.find(filter);
     },
 
     /**
@@ -22,3 +26,4 @@ Template.pages_users.helpers({
         return "";
     }
 });
+

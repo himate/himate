@@ -9,7 +9,14 @@ Template.pages_categories.helpers({
      * @reactive
      */
     categories: function() {
-        return Waslchiraa.Collections.Categories.find();
+        var filter = {};
+        var locale = TAPi18n.getLanguage();
+        if (Session.get('query')) {
+            //filter["title." + locale] = new RegExp(Session.get('query'), "gi");
+            filter["title"] = new RegExp(Session.get('query'), "gi");
+        }
+
+        return Waslchiraa.Collections.Categories.find(filter);
     },
 
     /**

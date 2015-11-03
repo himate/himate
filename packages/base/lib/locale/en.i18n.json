@@ -84,5 +84,11 @@
     "categories_add": "Add Category",
     "categories_edit": "Edit Category",
     "categories_remove": "Remove Category",
-    "campaign_count": "Campaign Count"
+    "campaign_count": "Campaign Count",
+    "username": "User Name",
+    "email": "Email",
+    "roles": "Roles",
+    "vouchers_list": "Related vouchers",
+    "code": "Code",
+    "id": "ID"
 }

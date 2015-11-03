@@ -9,7 +9,12 @@ Template.pages_campaigns.helpers({
      * @reactive
      */
     campaigns: function() {
-        return Waslchiraa.Collections.Campaigns.find();
+        var filter = {};
+        var locale = TAPi18n.getLanguage();
+        if (Session.get('query')) {
+            filter["title." + locale] = new RegExp(Session.get('query'), "gi");
+        }
+        return Waslchiraa.Collections.Campaigns.find(filter);
     }
 });
 
