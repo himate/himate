@@ -38,6 +38,8 @@ Package.onUse(function(api) {
 
     api.addFiles([
         'client/less/base.less',
+        'client/errors/403.html',
+        'client/errors/404.html',
         'client/partials/messages.html',
         'client/partials/messages.js',
         'client/partials/messages.less',
