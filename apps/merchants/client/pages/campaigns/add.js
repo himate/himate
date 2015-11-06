@@ -1,30 +1,16 @@
-// ----- template helpers ------------------------------------------------------
-/**
- *
- */
-Template.pages_campaigns_edit.helpers({
-
-    /**
-     *
-     */
-    voucher: function() {
-        return Waslchiraa.Collections.Campaigns.findOne(Router.current().params._id);
-    }
-});
-
 // ----- template hooks --------------------------------------------------------
 /**
  *
  */
-Template.pages_campaigns_edit.onCreated(function() {
-    Session.set('pageTitle', 'campaigns_edit');
+Template.pages_campaigns_add.onCreated(function() {
+    Session.set('pageTitle', 'campaigns');
 });
 
 // ----- form hooks ------------------------------------------------------------
 /**
  *
  */
-AutoForm.addHooks(["pages_campaigns_edit"], {
+AutoForm.addHooks(["pages_campaigns_add"], {
 
     /**
      * @param {Object} operation
@@ -48,5 +34,6 @@ AutoForm.addHooks(["pages_campaigns_edit"], {
         else if (error.error) {
             Waslchiraa.Helpers.errorMessage(error.error);
         }
-    }
+    },
 });
+

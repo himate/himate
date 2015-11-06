@@ -40,7 +40,7 @@ Router.route('/campaigns/:_id/edit', {
 /**
  * voucher codes
  */
-Router.route('/campaigns_codes/:_id', {
+Router.route('/vouchers/:_id', {
     name: 'pages_vouchers',
     onBeforeAction: Router.merchantRequired,
     waitOn: function() {
@@ -60,7 +60,8 @@ Router.route('/redeem', {
  * about us
  */
 Router.route('/profile', {
-    name: 'pages_profile'
+    name: 'pages_profile',
+    onBeforeAction: Router.merchantRequired
 });
 
 

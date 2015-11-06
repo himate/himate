@@ -4,23 +4,26 @@
             <div class="twelve wide column">
                 <h2>{{_ 'campaigns_edit' }}</h2>
 
-                {{# autoForm collection='Waslchiraa.Collections.Campaigns' doc=voucher id='pages_campaigns_edit' class="translate-form" type='method-update' meteormethod='campaigns_edit' }}
-               		{{>form_fields}}
-                {{/autoForm}}
+                {{# autoForm collection='Waslchiraa.Collections.Campaigns' doc=item id='pages_campaigns_edit' class="translate-form" type='method-update' meteormethod='campaigns_edit' }}
+                {{> form_fields }}
+                {{/ autoForm }}
             </div>
 
             <div class="four wide column">
                 <h2>{{_ 'information' }}</h2>
+
                 <p>
                     {{_ 'update_voucher' }}
                 </p>
+
                 <p>
-                  {{_ 'voucher_offline' }}
+                    {{_ 'voucher_offline' }}
                 </p>
+
                 <p>
                     {{_ 'approve_updated_campaigns' }}
                 </p>
             </div>
         </div><!-- .grid -->
-    </div><!-- #pages-campaigns -->
+    </div><!-- #pages-campaigns-edit -->
 </template>

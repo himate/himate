@@ -91,5 +91,11 @@
     "vouchers_list": "Related vouchers",
     "code": "Code",
     "id": "ID",
-    "campaigns_manage": "Manage campaigns"
+    "campaigns_manage": "Manage campaigns",
+    "first_name": "First Name",
+    "last_name": "Last Name",
+    "salutation": "Salutation",
+    "company": "Company",
+    "phone": "Phone",
+    "merchants": "Merchants"
 }

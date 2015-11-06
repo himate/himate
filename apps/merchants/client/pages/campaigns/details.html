@@ -19,15 +19,14 @@
             </div>
             <div class="description">
                 <p class="ui image">
-                    {{!-- item.description --}}
-					{{ translateField item "description" }}
+                    {{ translateField item "description" }}
                 </p>
             </div>
         </div>
 
         <div class="ui bottom fixed menu">
-            <a class="item" href="{{ pathFor 'pages_campaigns' }}"><i class="left chevron icon"></i>Back</a>
-			<a class="right item ui button" href="{{ pathFor 'pages_vouchers' _id=item._id }}"><i class="flag icon"></i>{{_ 'voucher_list' }}</a>
+            <a class="item" href="{{ pathFor 'pages_campaigns' }}"><i class="left chevron icon"></i>{{_ 'back' }}</a>
+            <a class="right item ui button" href="{{ pathFor 'pages_vouchers' _id=item._id }}"><i class="flag icon"></i>{{_ 'voucher_code_list' }}</a>
         </div>
     </div>
 </template>

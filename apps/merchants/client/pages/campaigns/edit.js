@@ -1,16 +1,30 @@
+// ----- template helpers ------------------------------------------------------
+/**
+ *
+ */
+Template.pages_campaigns_edit.helpers({
+
+    /**
+     *
+     */
+    item: function() {
+        return Waslchiraa.Collections.Campaigns.findOne(Router.current().params._id);
+    }
+});
+
 // ----- template hooks --------------------------------------------------------
 /**
  *
  */
-Template.pages_profile.onCreated(function() {
-    Session.set('pageTitle', 'profile');
+Template.pages_campaigns_edit.onCreated(function() {
+    Session.set('pageTitle', 'campaigns_edit');
 });
 
 // ----- form hooks ------------------------------------------------------------
 /**
  *
  */
-AutoForm.addHooks(["pages_profile"], {
+AutoForm.addHooks(["pages_campaigns_edit"], {
 
     /**
      * @param {Object} operation

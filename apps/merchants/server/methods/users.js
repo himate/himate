@@ -8,19 +8,14 @@ Meteor.methods({
      * @param {Object} doc
      * @param {String} id
      */
-    "users_edit": function (doc, id) {
+    "users_edit": function(doc, id) {
 
-
-        // voucher should be owned by the current user
-        var user = Meteor.users.findOne(id);
-        console.log(doc, id);
-        if (!user) {
-            throw new Meteor.Error("not-found");
-        }
-
-        if (user._id != Meteor.userId()) {
+        // security check
+        if (!Meteor.userId() || Meteor.userId() != id) {
             throw new Meteor.Error("not-authorized");
         }
+
+        // check user input
         check(id, String);
         check(doc, Object);
         check(doc.$set, {
@@ -35,11 +30,12 @@ Meteor.methods({
             'profile.country': String,
             'profile.tel': Match.Optional(String),
         });
+        check(doc.$unset, Match.Optional({
+            'profile.tel': String
+        }));
 
         // save update
-        return Meteor.users.update(id, doc);
+        return Meteor.users.update(Meteor.userId(), doc);
     }
-
 });
-
 

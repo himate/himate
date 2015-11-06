@@ -91,5 +91,11 @@
     "vouchers_list": "Gutscheine",
     "code": "Code",
     "id": "ID",
-    "campaigns_manage": "Kampagnen verwalten"
+    "campaigns_manage": "Kampagnen verwalten",
+    "first_name": "Vorname",
+    "last_name": "Nachname",
+    "salutation": "Anrede",
+    "company": "Firma",
+    "phone": "Telefon",
+    "merchants": "Händler"
 }

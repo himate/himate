@@ -91,5 +91,11 @@
     "vouchers_list": "قسائم ذات الصلة",
     "code": "رمز",
     "id": "هوية شخصية",
-    "campaigns_manage": "إدارة الحملات"
+    "campaigns_manage": "إدارة الحملات",
+    "first_name": "الاسم الأول",
+    "last_name": "اسم العائلة",
+    "salutation": "تحية",
+    "company": "شركة",
+    "phone": "هاتف",
+    "merchants": "التجار"
 }
