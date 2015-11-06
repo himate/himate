@@ -1,11 +1,11 @@
 <template name="pages_about_us">
     <div id="pages-about-us" class="ui container">
         <div class="header-navigation">
-        <h1>{{_ 'about_us' }}</h1>
+            <h1>{{_ 'about_us' }}</h1>
         </div>
         <div class="padded-content">
             <p>
-                {{_ 'about_us_text' }}
+                {{# markdown }}{{_ 'about_us_text' }}{{/ markdown }}
             </p>
         </div>
     </div>
