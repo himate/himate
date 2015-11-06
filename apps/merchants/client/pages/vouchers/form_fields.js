@@ -45,25 +45,18 @@ var showAutotranslation = function () {
     $('.tab[data-tab="tab-' + TAPi18n.getLanguage() + '"]').addClass('active');
     $('.tab[data-tab="tab-' + TAPi18n.getLanguage() + '"] div.show-manual').show();
     Session.set('translation', 'auto');
-
-}
+};
 
 var translateField = function (field, from, to) {
     var fromKey = field + '.' + from;
     var toKey = field + '.' + to;
     var $from = $('[name="' + fromKey + '"]');
     var $to = $('[name="' + toKey + '"]');
-    if (!$to.val().length) {
-        if ($from.val().length) {
-            Meteor.call('translate_text', $from.val(), from, to, function (err, data) {
-                $to.val(data);
-                checkTranslationsAndCommit();
-            });
-        }else{
+    if (!$to.val().length && $from.val().length) {
+        Meteor.call('translate_text', $from.val(), from, to, function (err, data) {
+            $to.val(data);
             checkTranslationsAndCommit();
-        }
-    }else{
-        checkTranslationsAndCommit();
+        });
     }
 };
 

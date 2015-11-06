@@ -90,5 +90,6 @@
     "roles": "Roles",
     "vouchers_list": "Related vouchers",
     "code": "Code",
-    "id": "ID"
+    "id": "ID",
+    "campaigns_manage": "Manage campains"
 }

@@ -90,5 +90,6 @@
     "roles": "Rollen",
     "vouchers_list": "Gutscheine",
     "code": "Code",
-    "id": "ID"
+    "id": "ID",
+    "campaigns_manage": "Kampagnen verwalten"
 }

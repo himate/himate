@@ -96,7 +96,7 @@ Waslchiraa.Schemas.Campaign = new SimpleSchema({
         type: Date,
         label: Waslchiraa.Helpers.i18nLabel("published"),
         autoform: {
-            value: new Date()
+            defaultValue: new Date()
         }
     },
     end: {
@@ -109,7 +109,7 @@ Waslchiraa.Schemas.Campaign = new SimpleSchema({
         min: 1,
         label: Waslchiraa.Helpers.i18nLabel("quantity"),
         autoform: {
-            value: 1
+            defaultValue: 1
         }
     },
     street: {
