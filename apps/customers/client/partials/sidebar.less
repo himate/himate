@@ -76,10 +76,28 @@
         border-radius: 2px;
         font-family: @font-family-headlines;
         font-weight: 600;
-        text-transform: uppercase;
+
         &:focus {
             border-color: @lighter-text-color;
         }
+
+        &::-webkit-input-placeholder {
+            text-transform: uppercase;
+        }
+
+        &:-moz-placeholder { /* Firefox 18- */
+            text-transform: uppercase;
+        }
+
+        &::-moz-placeholder {  /* Firefox 19+ */
+            text-transform: uppercase;
+        }
+
+        &:-ms-input-placeholder {
+            text-transform: uppercase;
+        }
+
+
     }
 
     .at-link.at-pwd {
