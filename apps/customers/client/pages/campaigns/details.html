@@ -27,7 +27,7 @@
                     </div>
                     <div class="right floated aligned six wide column">
                         <div class="headline voucher-description">
-                            <p class="description-headline">Valid Until
+                            <p class="description-headline">{{_ 'valid_until'}}
                                 <span class="description-text">{{formatDate item.end }}</span>
                             </p>
                         </div>
@@ -48,15 +48,19 @@
                 <h5>{{_ 'description' }}</h5>
 
                 <p>
-					{{ translateField item "description" }} 
+					{{ translateField item "description" }}
                 </p>
 
             </div>
             <div class="panel-details last">
-                <h5>{{_ 'special conditions' }}</h5>
-
+                <h5>{{_ 'conditions' }}</h5>
                 <p>
-					{{ translateField item "conditions" }}
+                  {{_ 'conditions_content' }}
+                </p>
+
+                <h5>{{_ 'special conditions' }}</h5>
+                <p>
+					        {{ translateField item "conditions" }}
                 </p>
 
             </div>

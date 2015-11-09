@@ -8,7 +8,6 @@
     }
    .ui.base.segment {
        background: @inactive-bg-color;
-       height: 100%;
        padding: 0;
        border-radius: 0;
    }
@@ -29,7 +28,7 @@
        padding: 0.5em 0.5em;
    }
     .ui.breadcrumb {
-        height: 52px;
+        width: 100%;
         left: 0;
         background-color: @lighter-text-color;
         padding: 1em 1em;
@@ -40,11 +39,6 @@
     }
 
     .segments-container {
-        position: absolute;
-        width: 100%;
-        left: 0;
-        bottom: 60px;
-        margin-bottom: 1rem;
         & a, a:focus{
             color:@inverted-text-color;
         }

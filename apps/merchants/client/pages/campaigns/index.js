@@ -28,7 +28,7 @@ Template.pages_campaigns.events({
      */
     'click table .remove': function(event) {
         // :TODO: use semantic ui dialog & translate
-        if (confirm('Delete Voucher "' + this.title + '"?')) {
+        if (confirm('Delete Voucher "' + this.title[TAPi18n.getLanguage()] + '"?')) {
             Meteor.call('campaigns_remove', this._id);
         }
         return Waslchiraa.Helpers.cancel(event);
@@ -42,4 +42,3 @@ Template.pages_campaigns.events({
 Template.pages_campaigns.onCreated(function() {
     Session.set('pageTitle', 'campaigns');
 });
-

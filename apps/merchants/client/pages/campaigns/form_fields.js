@@ -33,54 +33,16 @@ var showAutotranslation = function() {
 var translateField = function(field, from, to) {
     var fromKey = field + '.' + from;
     var toKey = field + '.' + to;
+
     var $from = $('[name="' + fromKey + '"]');
     var $to = $('[name="' + toKey + '"]');
-    if (!$to.val().length) {
-        if ($from.val().length) {
-            Meteor.call('translate_text', $from.val(), from, to, function(err, data) {
-                $to.val(data);
-                checkTranslationsAndCommit();
-            });
-        }
-        else {
-            checkTranslationsAndCommit();
-        }
-    }
-    else {
-        checkTranslationsAndCommit();
+
+    // target field is empty, but source is not
+    if (!$to.val().length && $from.val().length) {
+        return Meteor.callPromise('translate_text', $from.val(), from, to);
     }
 };
 
-/**
- *
- */
-var checkTranslationsAndCommit = function() {
-
-    var submit = true;
-    translateFields.forEach(function(field) {
-        languages.forEach(function(lang) {
-            var $input = $('[name="' + field + '.' + lang + '"]');
-            var $srcInput = $('[name="' + field + '.' + TAPi18n.getLanguage() + '"]');
-            if (!$input || !$input.val() || !$input.val().length) {
-                if (mandatoryFields.indexOf(field) >= 0 && !$srcInput.val().length) {
-                    console.log('nosubmit', field, lang, $srcInput);
-                    submit = false;
-                }
-            }
-        });
-    });
-
-    console.log('submit', submit);
-
-    if (submit) {
-        if ($('#pages_campaigns_add').length) {
-            $("#pages_campaigns_add").submit();
-        }
-        else {
-            $("#pages_campaigns_edit").submit();
-        }
-    }
-};
 
 // ----- template events -------------------------------------------------------
 /**
@@ -114,14 +76,41 @@ Template.form_fields.events({
      * @param {Object} template
      */
     'click .save-voucher': function(event, template) {
-        translateFields.forEach(function(field) {
-            languages.forEach(function(lang) {
+        var promises = [];
+
+        // each field to translate
+        translateFields.forEach(function (field) {
+
+            // each language to translate
+            languages.forEach(function (lang) {
+
+                // assumption: currently set language is source
                 if (lang != TAPi18n.getLanguage()) {
-                    translateField(field, TAPi18n.getLanguage(), lang);
+
+                    // request transation
+                    var promise = translateField(field, TAPi18n.getLanguage(), lang);
+
+                    // if API call happens, promise is returned
+                    if (promise) {
+
+                        // fill in form field when promise is resolved
+                        promise.then(function (err, data) {
+                            var $to = $('[name="' + field + '.' +  lang + '"]');
+                            $to.val(err, data);
+                        });
+
+                        // collect promises
+                        promises.push(promise);
+                    }
                 }
             });
         });
-        checkTranslationsAndCommit();
+
+        // if all translation completed: submit form
+        Promise.all(promises).then(function () {
+            $(event.delegateTarget).submit();
+        });
+
         return Waslchiraa.Helpers.cancel(event);
     },
 });
