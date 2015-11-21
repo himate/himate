@@ -18,21 +18,21 @@ Meteor.methods({
         check(campaignId, String);
 
         // check voucher and avoid duplicates
-        var voucher = Waslchiraa.Collections.Campaigns.findOne(campaignId);
-        if (!voucher) {
+        var campaign = Waslchiraa.Collections.Campaigns.findOne(campaignId);
+        if (!campaign) {
             throw new Meteor.Error("not-found");
         }
 
         if (Waslchiraa.Collections.Vouchers.findOne({
             "userId": this.userId,
-            "campaignId": voucher._id
+            "campaignId": campaign._id
         })) {
             throw new Meteor.Error("allready-reserved");
         }
 
         if (Waslchiraa.Collections.Vouchers.find({
-            "campaignId": voucher._id
-        }).count() >= voucher.quantity) {
+            "campaignId": campaign._id
+        }).count() >= campaign.quantity) {
             throw new Meteor.Error("no_campaigns_available");
         }
 
@@ -49,14 +49,14 @@ Meteor.methods({
         Waslchiraa.Collections.Vouchers.insert({
             "code": code,
             "userId": this.userId,
-            "campaignId": voucher._id
+            "campaignId": campaign._id
         });
 
         var email = {
             to: Meteor.user().emails[0].address,
             from: TAPi18n.__('email_reserve_from'),
             subject: TAPi18n.__('email_reserve_subject', {
-                title: voucher.title
+                title: campaign.title
             }),
             text: TAPi18n.__('email_reserve_content', {
                 code: code
