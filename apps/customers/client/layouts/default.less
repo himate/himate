@@ -153,6 +153,7 @@ a {
 
   &:focus, &:hover {
     background-color: transparent;
+
   }
 
   &.primary {
@@ -164,7 +165,27 @@ a {
   }
 }
 
+.ui.modal{
+  .header{
+    background-color: @main-color ;
+    color: white;
+  }
+  .actions{
+    .button{
+      border-radius: 8px;
+      &.approve{
+        background-color: @main-color ;
+        border: 2px solid @main-color;
+      }
+      &.cancel{
+        border: 2px solid black;
+        color:black;
+        background-color: white ;
+      }
+    }
 
+  }
+}
 
 @font-face {
   font-family: 'icomoon';

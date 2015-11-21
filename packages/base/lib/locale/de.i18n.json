@@ -9,7 +9,7 @@
     "back": "Zurück",
     "basics": "Basisinformationen",
     "campaign_count": "Anzahl Kampagnen",
-    "campaigns": "Kampagnen",
+    "campaigns": "Aktuelle Gutscheine",
     "campaigns_add": "Neue Kampagne",
     "campaigns_edit": "Kampagne bearbeiten",
     "campaigns_info_text": "Legen Sie hier neue Kampagnen an",
@@ -104,5 +104,8 @@
     "special_conditions": "Sonderkonditionen",
     "conditions": "Konditionen",
     "valid_until": "Gültig bis",
-    "conditions_content": "Ein paar Konditionen."
+    "conditions_content": "Ein paar Konditionen.",
+    "cancel": "Abbrechen",
+    "yes": "Ja",
+    "reserve_notice": "<p>Du musst diesen Gutschein innerhalb von 24h einlösen. Schaffst Du das?</p>\n<p>Du wirst eine E-Mail mit dem Gutscheincode and die hinterlgete E-Mail-Adresse erhalten: <br>\n__email__</p>\n<p><strong>Bring bitte Deine Dokumente mit!</strong></p>"
 }

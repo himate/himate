@@ -198,6 +198,16 @@ Template.registerHelper('getUser', function(userId) {
 });
 
 /**
+ * @return {Object} user or null
+ * @reactive
+ */
+Template.registerHelper('currentUserEmail', function() {
+    return Meteor.user().emails[0].address;
+});
+
+
+
+/**
  * @param {String} categoryId
  * @return {Object} user or null
  * @reactive
