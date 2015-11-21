@@ -107,5 +107,9 @@
     "conditions_content": "",
     "cancel": "",
     "yes": "",
-    "reserve_notice": ""
+    "reserve_notice": "",
+    "reserve_unregistered_title": "",
+    "reserve_unregistered_notice": "",
+    "sign_in": "",
+    "sign_up": ""
 }

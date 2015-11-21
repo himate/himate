@@ -107,5 +107,9 @@
     "conditions_content": "Some conditions.",
     "cancel": "Cancel",
     "yes": "Yes",
-    "reserve_notice": "<p>You need to redeem this voucher within 24h. Can you do this?</p>\n<p>You will receive a email with the voucher code at the specified address<br>\n__email__<br></p>\n<p><strong>Please make sure to bring you documents!</strong></p>"
+    "reserve_notice": "<p>You need to redeem this voucher within 24h. Can you do this?</p>\n<p>You will receive a email with the voucher code at the specified address<br>\n__email__<br></p>\n<p><strong>Please make sure to bring you documents!</strong></p>",
+    "reserve_unregistered_title": "Sign up or login",
+    "reserve_unregistered_notice": "<p>You need an account to reserve a voucher!</p>\n<p><strong>Please login or create a new account!</strong></p>",
+    "sign_in": "Login",
+    "sign_up": "Sign up"
 }

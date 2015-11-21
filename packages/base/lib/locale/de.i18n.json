@@ -107,5 +107,9 @@
     "conditions_content": "Ein paar Konditionen.",
     "cancel": "Abbrechen",
     "yes": "Ja",
-    "reserve_notice": "<p>Du musst diesen Gutschein innerhalb von 24h einlösen. Schaffst Du das?</p>\n<p>Du wirst eine E-Mail mit dem Gutscheincode and die hinterlgete E-Mail-Adresse erhalten: <br>\n__email__</p>\n<p><strong>Bring bitte Deine Dokumente mit!</strong></p>"
+    "reserve_notice": "<p>Du musst diesen Gutschein innerhalb von 24h einlösen. Schaffst Du das?</p>\n<p>Du wirst eine E-Mail mit dem Gutscheincode and die hinterlgete E-Mail-Adresse erhalten: <br>\n__email__</p>\n<p><strong>Bring bitte Deine Dokumente mit!</strong></p>",
+    "reserve_unregistered_title": "Login oder Registrieren",
+    "reserve_unregistered_notice": "Um einen Gutschein zu reservieren, musst Du angemeldet sein.\nMelde Dich an, oder registriere Dich.",
+    "sign_in": "Login",
+    "sign_up": "Registrieren"
 }

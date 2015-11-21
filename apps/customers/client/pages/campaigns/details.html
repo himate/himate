@@ -69,7 +69,7 @@
                         <button class="ui button success">{{_ 'reserved' }}</button>
                     {{ else }}
                       {{#if hasAvailableVouchers item._id }}
-                        <button class="ui button primary js-reserve-voucher">{{_ 'reserve voucher' }}</button>
+                        <button class="ui button primary js-reserve-voucher">{{_ 'reserve_voucher' }}</button>
                       {{/if }}
                 {{/if }}
             </div>
@@ -85,6 +85,16 @@
 		<div class="actions">
 			<div class="ui approve button">{{_ 'yes' }}</div>
 			<div class="ui cancel button">{{_ 'cancel' }}</div>
+		</div>
+	</div>
+	<div class="ui modal login">
+		<div class="header">{{_ 'reserve_unregistered_title' }}</div>
+		<div class="content">
+				{{{_ 'reserve_unregistered_notice' }}}
+		</div>
+		<div class="actions">
+			<div class="ui approve button">{{_ 'sign_in' }}</div>
+			<div class="ui cancel button">{{_ 'sign_up' }}</div>
 		</div>
 	</div>
 </template>
