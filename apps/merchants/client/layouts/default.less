@@ -1,23 +1,44 @@
+@import "default.import.less";
+
 .pusher > .ui.container {
-    padding: 5em 0;
+  padding: 5em 0;
 }
 
 .pusher > .ui.basic.segment, .pusher > .ui.container.error {
-    padding: 5em 2em 5em 2em;
+  padding: 5em 2em 5em 2em;
 }
 
-.ui.primary.buttons .button, .ui.primary.button {
-    background: #005364;
-}
-
-.ui.primary.buttons .button:hover, .ui.primary.button:hover {
-    background: #005364 !important;
-}
-
-.ui.container a, .ui.basic.segment a {
-    color: #005364 !important;
-}
-
-.ui.bottom.fixed.actions.menu button {
+.ui {
+  &.basic {
+    &.segment {
+      background-color: transparent;
+      h1 {
+        border-bottom: 1px solid @border-color-base;
+        height: 35px;
+        font-family: @font-family-headlines;
+        font-weight: 700;
+        font-size: 12px;
+        text-align: center;
+        text-transform: uppercase;
+        color: @main-text-color;
+        margin-left:-28px;
+        margin-right:-28px;
+        .box-shadow( 0px 3px 3px 0px #999);
+      }
+    }
+  }
+  &.bottom.fixed.actions.menu button {
     border: none !important;
+  }
+  &.container a, .ui.basic.segment a {
+    color: @main-color !important;
+  }
+  &.primary.buttons, &.primary.dropdown {
+    .button, &.button {
+      background: @main-color;
+      &:hover {
+        background: @main-color !important;
+      }
+    }
+  }
 }

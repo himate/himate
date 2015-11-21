@@ -84,7 +84,22 @@ Meteor.methods({
 
         return voucherCodes;
     },
+    /**
+     * @param {Object} code
+     */
+    'vouchers_get_campaign': function(code) {
+        // security checks
+        if (!Roles.userIsInRole(Meteor.userId(), ['merchant'])) {
+            throw new Meteor.Error("not-authorized");
+        }
 
+        // check user input
+        check(code, String);
+        var voucher = checkVoucher(code)
+        var campaign = getVoucherCampaign(voucher);
+        return campaign;
+    },
+    
     /**
      * @param {Object} code
      */
@@ -97,31 +112,12 @@ Meteor.methods({
 
         // check user input
         check(code, String);
-
-        var voucherCode = Waslchiraa.Collections.Vouchers.findOne({
-            code: code
-        });
-
-        if (!voucherCode) {
-            throw new Meteor.Error("not-found");
-        }
-
-        if (voucherCode.redeemed) {
-            throw new Meteor.Error("already-redeemed");
-        }
-
-        var voucher = Waslchiraa.Collections.Campaigns.findOne({
-            userId: this.userId,
-            _id: voucherCode.campaignId
-        });
-
-        if (!voucher) {
-            throw new Meteor.Error("not-found");
-        }
+        var voucher = checkVoucher(code)
+        var campaign = getVoucherCampaign(voucher);
 
         Waslchiraa.Collections.Vouchers.update({
             code: code,
-            campaignId: voucherCode.campaignId
+            campaignId: voucher.campaignId
         }, {
             $set: {
                 redeemed: new Date()
@@ -131,3 +127,30 @@ Meteor.methods({
         return true;
     }
 });
+
+var checkVoucher = function(code){
+    var voucher = Waslchiraa.Collections.Vouchers.findOne({
+        code: code
+    });
+
+    if (!voucher) {
+        throw new Meteor.Error("voucher-not-found");
+    }
+
+    if (voucher.redeemed) {
+        throw new Meteor.Error("already-redeemed");
+    }
+    return voucher;
+}
+
+var getVoucherCampaign = function (voucher){
+    var campaign = Waslchiraa.Collections.Campaigns.findOne({
+        userId: Meteor.userId(),
+        _id: voucher.campaignId
+    });
+
+    if (!campaign) {
+        throw new Meteor.Error("campaign-not-found");
+    }
+    return campaign;
+};

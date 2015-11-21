@@ -111,5 +111,8 @@
     "reserve_unregistered_title": "Sign up or login",
     "reserve_unregistered_notice": "<p>You need an account to reserve a voucher!</p>\n<p><strong>Please login or create a new account!</strong></p>",
     "sign_in": "Login",
-    "sign_up": "Sign up"
+    "sign_up": "Sign up",
+    "redeem_voucher_notice": "<p>1. Check valid documents</p>\n<p>2. Plese enter the code provided by the refugee</p>",
+    "reservations": "reservations",
+    "invalid_code": "Invalid voucher code"
 }

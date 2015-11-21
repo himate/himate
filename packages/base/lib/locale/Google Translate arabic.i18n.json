@@ -111,5 +111,8 @@
     "reserve_unregistered_title": "",
     "reserve_unregistered_notice": "",
     "sign_in": "",
-    "sign_up": ""
+    "sign_up": "",
+    "redeem_voucher_notice": "",
+    "reservations": "",
+    "invalid_code": ""
 }

@@ -111,5 +111,8 @@
     "reserve_unregistered_title": "Login oder Registrieren",
     "reserve_unregistered_notice": "Um einen Gutschein zu reservieren, musst Du angemeldet sein.\nMelde Dich an, oder registriere Dich.",
     "sign_in": "Login",
-    "sign_up": "Registrieren"
+    "sign_up": "Registrieren",
+    "redeem_voucher_notice": "<p>1. Prüfen Sie die Gültigkeit der Dokumente</p>\n<p>2. Geben Sie den Gutscheincode des Flüchtlings ein.</p>",
+    "reservations": "Reservierungen",
+    "invalid_code": "Ungültiger Gutscheincode"
 }

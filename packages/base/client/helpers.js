@@ -162,6 +162,7 @@ Waslchiraa.Helpers.getVouchers = function(campaignId) {
         };
         result.available = result.total - (result.redeemed + result.reserved);
     }
+    console.log(result);
 
     return result;
 };

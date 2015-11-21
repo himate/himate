@@ -1,16 +1,18 @@
+@import "../layouts/default.import.less";
+
 #partials-main-menu {
-    background: #005364;
+    background: @main-color;
+    .sidebar {
+        font-size: 1.25em;
+        padding: 0 .5em;
+    }
+    .item:before {
+        display: none;
+    }
+    .logo {
+        width: 32px !important;
+    }
 }
 
-#partials-main-menu .sidebar {
-    font-size: 1.25em;
-    padding: 0 .5em;
-}
 
-#partials-main-menu .item:before {
-    display: none;
-}
 
-#partials-main-menu .logo {
-    width: 32px !important;
-}
