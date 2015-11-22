@@ -28,7 +28,7 @@ Template.pages_vouchers.events({
      * jump to details page, if user clicks on a list item
      * @param {Object} event
      */
-    'click .items .item': function(event) {
+    'click .js-voucher': function(event) {
         Router.go('pages_campaigns_details', {
             _id: this.campaignId
         });

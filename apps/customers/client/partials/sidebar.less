@@ -17,12 +17,25 @@
        padding: 1em;
        .name {
            margin: 1em;
+           font-size: 17px;
+           text-transform: uppercase;
+           color: #000;
        }
        .ui.button {
-           border-radius: 2px;
+           border: 1.5px solid @default-button-color;
+           border-radius: 7px;
+           color: @default-button-color;
+           font-size: @button-text-size;
+           font-weight: 400;
+           background: transparent;
+           font-family: @font-family-headlines;
        }
    }
-
+    .ui.segment.user {
+        background: #EEE;
+        border-bottom: 1px solid @border-color-base;
+        border-radius: 0;
+    }
    .ui.segment {
        background: @inactive-bg-color;
        border: none;
@@ -46,6 +59,10 @@
         & a, a:focus{
             color:@inverted-text-color;
         }
+    }
+    .ui.stacked.segment:after {
+        background: transparent;
+        border: 0;
     }
 }
 
@@ -118,6 +135,7 @@
         box-shadow: none;
         background-color: transparent;
         padding: 0;
+        margin-bottom: 45px;
 
         p {
             font-size: 15px;

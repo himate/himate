@@ -2,11 +2,11 @@
     <div id="partials-sidebar" class="ui fixed left sidebar">
         <div class="ui base segment">
             {{# if currentUser }}
-            <div class="ui center aligned segment">
+            <div class="ui center aligned segment user">
                 <div class="user-container">
-                    <img class="ui circular avatar image" src="/images/avatars/elyse.png" />
+                    <!--<img class="ui circular avatar image" src="/images/avatars/elyse.png" />-->
                     <div class="name">{{ currentUser.username }}</div>
-                    {{> atNavButton }}
+                    <!--{{> atNavButton }}-->
                 </div>
             </div>
             {{ else }}
@@ -17,7 +17,7 @@
 
             <div class="ui segments-container">
                 {{# if currentUser }}
-                <div class="ui divider"></div>
+                <!--<div class="ui divider"></div>-->
                 <div class="ui vertical segment">
                     <h2><a class="js-home" href="{{ pathFor 'pages_startpage' }}">{{_ 'home' }}</a></h2>
                 </div>
@@ -39,6 +39,14 @@
                     <h2><a  class="js-navigation-link" href="{{ pathFor 'pages_about_us' }}">{{_ 'about_us' }}</a></h2>
                 </div>
             </div>
+            {{# if currentUser }}
+            <div class="ui center aligned segment">
+                <div class="user-container">
+                    <!--<img class="ui circular avatar image" src="/images/avatars/elyse.png" />-->
+                    {{> atNavButton }}
+                </div>
+            </div>
+            {{/ if }}
             <div class="ui breadcrumb">
                 <h3 class="section"><a class="js-navigation-link" href="{{ pathFor 'pages_privacy' }}">{{_ 'privacy' }}</a></h3>
                 <div class="divider"> | </div>

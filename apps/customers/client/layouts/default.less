@@ -149,7 +149,7 @@ a {
   font-weight: 600;
   font-size: @button-text-size;
   height: 45px;
-  border-radius: 2px;
+  border-radius: 7px;
 
   &:focus, &:hover {
     background-color: transparent;
@@ -158,6 +158,9 @@ a {
 
   &.primary {
     background-color: @button-primary-bg-color;
+    &:focus {
+      background-color: @button-primary-bg-color;
+    }
   }
   &.success {
     background-color:@button-success-bg-color;
@@ -165,22 +168,39 @@ a {
   }
 }
 
+.ui.button.default {
+  border: 1.5px solid @default-button-color;
+  border-radius: 7px;
+  color: @default-button-color;
+  font-size: @button-text-size;
+  font-weight: 400;
+  background: transparent;
+  font-family: @font-family-headlines;
+}
+
 .ui.modal{
+  border-radius: 0;
+  text-align: center;
   .header{
     background-color: @main-color ;
     color: white;
+    text-transform: uppercase;
+    font-size: @headline-1-size;
+    border-radius: 0!important;
   }
   .actions{
+    text-align: center;
     .button{
-      border-radius: 8px;
+      border-radius: 7px;
+      font-weight: 600;
       &.approve{
         background-color: @main-color ;
-        border: 2px solid @main-color;
+        border: 1.5px solid @main-color;
       }
       &.cancel{
-        border: 2px solid black;
-        color:black;
-        background-color: white ;
+        border: 1.5px solid @default-button-color;
+        color: @default-button-color;
+        background-color: transparent;
       }
     }
 
