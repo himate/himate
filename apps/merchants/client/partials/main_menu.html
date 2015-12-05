@@ -1,11 +1,11 @@
 <template name="partials_main_menu">
     <div id="partials-main-menu" class="ui top fixed inverted menu">
-        <a class="sidebar toggle item icon">
-            <img src="/favicon.png" class="logo" alt="Waslchiraa Logo" />
-        </a>
+        <div class="sidebar toggle item icon">
+            <i class="icon-menu"></i>
+        </div>
 
-        <div class="item">
-            <strong> {{_ pageTitle }}</strong>
+        <div class="centered-y centered-h">
+            <a href="{{ pathFor 'pages_startpage' }}"><i class="icon-waslchiraa-logo logo"></i></a>
         </div>
 
         <div class="right item">

@@ -2,17 +2,17 @@
 
 #partials-main-menu {
     background: @main-color;
+    height: @nav-base-height;
     .sidebar {
         font-size: 1.25em;
         padding: 0 .5em;
+        &.item:before {
+            display: none;
+        }
     }
-    .item:before {
-        display: none;
-    }
+
     .logo {
-        width: 32px !important;
+        width: 100%;
+        color: #FFFFFF;
     }
 }
-
-
-

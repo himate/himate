@@ -1,17 +1,67 @@
 @import "default.import.less";
 
-.pusher > .ui.container {
-  padding: 5em 0;
+h1,h2,h3,h4,h5 {
+  text-transform: uppercase;
 }
 
-.pusher > .ui.basic.segment, .pusher > .ui.container.error {
-  padding: 5em 2em 5em 2em;
+h1 {
+  font-size: @headline-1-size;
+  margin: 0;
+}
+
+h2 {
+  font-size: @headline-2-size;
+  margin: 0;
+}
+
+h3 {
+  font-size: @headline-3-size;
+  margin: 0;
+}
+
+h4 {
+  font-size: @headline-4-size;
+  margin: 0;
+}
+
+h5 {
+  font-size: @headline-5-size;
+}
+
+p {
+  font-size: @text-base-size;
+  font-family: @font-family-text;
+  font-weight: 300;
+}
+
+a {
+  color: @inverted-text-color;
+}
+
+.centered-y {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.centered-h {
+  text-align: center;
+  width: 100%;
+}
+
+.pusher {
+  > .ui.container {
+    padding: 5em 0;
+  }
+  > .ui.container.error {
+    padding: 5em 2em 5em 2em;
+  }
 }
 
 .ui {
   &.basic {
     &.segment {
       background-color: transparent;
+      padding: 5em 2em 5em 2em;
       h1 {
         border-bottom: 1px solid @border-color-base;
         height: 35px;
@@ -41,4 +91,118 @@
       }
     }
   }
+
+  &.button {
+    color: #FFF;
+    text-transform: uppercase;
+    font-family: @font-family-headlines;
+    font-weight: 600;
+    font-size: @button-text-size;
+    height: 45px;
+    border-radius: 7px;
+
+    &:focus, &:hover {
+      background-color: transparent;
+
+    }
+
+    &.primary {
+      background-color: @button-primary-bg-color;
+      &:focus {
+        background-color: @button-primary-bg-color;
+      }
+    }
+    &.success {
+      background-color:@button-success-bg-color;
+
+    }
+    &.default {
+      border: 1.5px solid @default-button-color;
+      border-radius: 7px;
+      color: @default-button-color;
+      font-size: @button-text-size;
+      font-weight: 400;
+      background: transparent;
+      font-family: @font-family-headlines;
+    }
+  }
+  &.divider{
+    color: @border-color-base;
+  }
+
+  &.labeled.icon.button > .icon {
+    &.world {
+      background-color: transparent;
+    }
+  }
+}
+
+.button-container {
+  height: @item-base-height;
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src:url('../../fonts/icomoon.eot?3be3qj');
+  src:url('../../fonts/icomoon.eot?3be3qj#iefix') format('embedded-opentype'),
+  url('../../fonts/icomoon.ttf?3be3qj') format('truetype'),
+  url('../../fonts/icomoon.woff?3be3qj') format('woff'),
+  url('../../fonts/icomoon.svg?3be3qj#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0em 0.25rem 0em 0em;
+  text-align: center;
+  width: 2em;
+  height: 1em;
+}
+.icon-waslchiraa-logo:before {
+  content: "\e900";
+}
+.icon-arrow-left:before {
+  content: "\e901";
+}
+.icon-arrow-right:before {
+  content: "\e902";
+}
+.icon-calendar:before {
+  content: "\e903";
+}
+.icon-camera:before {
+  content: "\e904";
+}
+.icon-check:before {
+  content: "\e905";
+}
+.icon-close:before {
+  content: "\e906";
+}
+.icon-logo:before {
+  content: "\e907";
+}
+.icon-menu:before {
+  content: "\e908";
+}
+.icon-password:before {
+  content: "\e909";
+}
+.icon-small-arrow:before {
+  content: "\e90a";
+}
+
+html.ios, html.ios body {
+  height: 100% !important;
 }
