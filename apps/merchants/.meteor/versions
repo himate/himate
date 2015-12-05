@@ -57,6 +57,7 @@ email@1.0.8
 es5-shim@4.1.14
 fabienb4:autoform-semantic-ui@0.7.2
 fastclick@1.0.7
+fortawesome:fontawesome@4.4.0_1
 geojson-utils@1.0.4
 handlebars@1.0.4
 hot-code-push@1.0.0
@@ -78,7 +79,6 @@ less@2.5.1
 livedata@1.0.15
 localstorage@1.0.5
 logging@1.0.8
-loredanacirstea:cfs-autoform-semantic-ui@2.2.1
 markdown@1.0.5
 matb33:collection-hooks@0.8.1
 meteor@1.1.10
@@ -137,3 +137,4 @@ useraccounts:semantic-ui@1.12.4
 waslchiraa:base@0.0.2
 webapp@1.2.3
 webapp-hashing@1.0.5
+yogiben:autoform-file@0.3.0

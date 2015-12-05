@@ -43,5 +43,4 @@ deanius:promise
 cfs:standard-packages
 cfs:ui
 cfs:graphicsmagick
-cfs:autoform
-loredanacirstea:cfs-autoform-semantic-ui
+yogiben:autoform-file

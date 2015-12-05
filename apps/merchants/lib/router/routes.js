@@ -11,6 +11,9 @@ Router.route('/', {
 Router.route('/campaigns', {
     name: 'pages_campaigns',
     onBeforeAction: Router.merchantRequired,
+    waitOn: function() {
+        return [Meteor.subscribe('images')];
+    }
 });
 
 /**
@@ -44,7 +47,7 @@ Router.route('/vouchers/:_id', {
     name: 'pages_vouchers',
     onBeforeAction: Router.merchantRequired,
     waitOn: function() {
-        return [Meteor.subscribe('voucher_vouchers',this.params._id), Meteor.subscribe('voucher_users',this.params._id)];
+        return [Meteor.subscribe('voucher_vouchers', this.params._id), Meteor.subscribe('voucher_users', this.params._id)];
     }
 });
 
@@ -63,7 +66,6 @@ Router.route('/profile', {
     name: 'pages_profile',
     onBeforeAction: Router.merchantRequired
 });
-
 
 /**
  * about us

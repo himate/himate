@@ -20,6 +20,8 @@ Meteor.methods({
             throw new Meteor.Error("not-authorized");
         }
 
+        console.log(doc);
+
         // check user input
         check(doc, Object);
         check("title.de", String);
@@ -62,9 +64,9 @@ Meteor.methods({
      */
     "campaigns_edit": function(doc, id) {
 
-        // voucher should be owned by the current user
-        var voucher = Waslchiraa.Collections.Campaigns.findOne(id);
-        if (!voucher) {
+        // campaign should be owned by the current user
+        var campaign = Waslchiraa.Collections.Campaigns.findOne(id);
+        if (!campaign) {
             throw new Meteor.Error("not-found");
         }
 
@@ -72,7 +74,7 @@ Meteor.methods({
             //nothing to do
         }
         else if (Roles.userIsInRole(Meteor.userId(), ['merchant'])) {
-            if (voucher.userId != Meteor.userId()) {
+            if (campaign.userId != Meteor.userId()) {
                 throw new Meteor.Error("not-authorized");
             }
         }
@@ -126,8 +128,8 @@ Meteor.methods({
         // check user input
         check(id, String);
 
-        var voucher = Waslchiraa.Collections.Campaigns.findOne(id);
-        if (!voucher) {
+        var campaign = Waslchiraa.Collections.Campaigns.findOne(id);
+        if (!campaign) {
             throw new Meteor.Error("not-found");
         }
 
@@ -135,7 +137,7 @@ Meteor.methods({
             //nothing to do
         }
         else if (Roles.userIsInRole(Meteor.userId(), ['merchant'])) {
-            if (voucher.userId != Meteor.userId()) {
+            if (campaign.userId != Meteor.userId()) {
                 throw new Meteor.Error("not-authorized");
             }
         }
@@ -145,7 +147,8 @@ Meteor.methods({
 
         // :TODO: delete corresponding reservations and send emails to reservation users
         // :TODO: perhaps we should flag as "deleted" instead?
-        Waslchiraa.Collections.Campaigns.remove(voucher._id);
+        Waslchiraa.Collections.Images.remove(campaign.imageId);
+        Waslchiraa.Collections.Campaigns.remove(campaign._id);
 
         return "ok";
 
