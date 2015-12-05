@@ -48,9 +48,21 @@ a {
   width: 100%;
 }
 
+.padded-content {
+  padding: 0 25px;
+}
+
+.fixed-bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
 .pusher {
   > .ui.container {
-    padding: 5em 0;
+    //padding: 5em 0;
+    padding: 5em 2em 5em 2em;
+    width: 100%;
   }
   > .ui.container.error {
     padding: 5em 2em 5em 2em;
@@ -135,11 +147,42 @@ a {
       background-color: transparent;
     }
   }
+
+  &.modal{
+    border-radius: 0;
+    text-align: center;
+    .header{
+      background-color: @main-color ;
+      color: white;
+      text-transform: uppercase;
+      font-size: @headline-1-size;
+      border-radius: 0!important;
+    }
+    .actions{
+      text-align: center;
+      .button{
+        border-radius: 7px;
+        font-weight: 600;
+        &.approve{
+          background-color: @main-color ;
+          border: 1.5px solid @main-color;
+        }
+        &.cancel{
+          border: 1.5px solid @default-button-color;
+          color: @default-button-color;
+          background-color: transparent;
+        }
+      }
+
+    }
+  }
 }
 
 .button-container {
   height: @item-base-height;
 }
+
+
 
 @font-face {
   font-family: 'icomoon';
