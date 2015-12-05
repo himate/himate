@@ -2,83 +2,51 @@
     <div id="partials-sidebar" class="ui fixed left sidebar">
         <div class="ui base segment">
             {{# if currentUser }}
-            <!-- user is logged in: show profile link and complete main menu -->
-            <div class="ui center aligned base segment">
-                <div>
-                    <img class="ui circular avatar image" src="/images/avatars/elyse.png" />
-                    <br />
-                    <strong>{{ currentUser.username }}</strong>
-                    <br />
-                    {{> atNavButton }}
+            <div class="ui center aligned segment user">
+                <div class="user-container">
+                    <div class="name">{{ currentUser.username }}</div>
                 </div>
             </div>
-
-            <div class="ui divider"></div>
-
-            <div class="ui transparent vertical menu">
-                <a class="item" href="{{ pathFor 'pages_profile' }}">
-                    {{_ 'profile_edit' }}<i class="user icon"></i>
-                </a>
-            </div>
-
-            <div class="ui transparent vertical menu">
-                <a class="item" href="{{ pathFor 'pages_startpage' }}">
-                    {{_ 'home' }}
-                    <i class="home icon"></i>
-                </a>
-                <a class="item" href="{{ pathFor 'pages_campaigns' }}">
-                    {{_ 'campaigns_manage' }}
-                    <i class="qrcode icon"></i>
-                </a>
-                <a class="item" href="{{ pathFor 'pages_redeem' }}">
-                    {{_ 'redeem_voucher' }}
-                    <i class="browser icon"></i>
-                </a>
-            </div>
-
-            <div class="ui transparent vertical menu">
-                <a class="item" href="{{ pathFor 'pages_about_us' }}">
-                    {{_ 'about_us' }}
-                    <i class="info icon"></i>
-                </a>
-                <a class="item" href="{{ pathFor 'pages_how_it_works' }}">
-                    {{_ 'how_it_works' }}
-                    <i class="help icon"></i>
-                </a>
-            </div>
-
             {{ else }}
-            <!-- not logged in: show signup form and reduces main menu -->
             <div class="at-form">
                 {{> atForm }}
             </div>
-
-            <div class="ui divider"></div>
-
-            <div class="ui transparent vertical menu">
-                <a class="item" href="{{ pathFor 'pages_startpage' }}">
-                    {{_ 'home' }}
-                    <i class="home icon"></i>
-                </a>
-                <a class="item" href="{{ pathFor 'pages_about_us' }}">
-                    {{_ 'about_us' }}
-                    <i class="info icon"></i>
-                </a>
-                <a class="item" href="{{ pathFor 'pages_how_it_works' }}">
-                    {{_ 'how_it_works' }}
-                    <i class="help icon"></i>
-                </a>
-            </div>
             {{/ if }}
 
-            <div class="ui divider"></div>
-
-            <!-- imprint is always visible -->
-            <div class="ui center aligned one item menu">
-                <a class="item" href="{{ pathFor 'pages_imprint' }}">
-                    {{_ 'imprint' }}
-                    <i class="legal icon"></i>
-                </a>
+            <div class="ui segments-container">
+                <div class="ui vertical segment">
+                    <h2><a class="js-home" href="{{ pathFor 'pages_startpage' }}">{{_ 'home' }}</a></h2>
+                </div>
+                <div class="ui divider"></div>
+                {{# if currentUser }}
+                <div class="ui vertical segment">
+                    <h2><a class="js-navigation-link" href="{{ pathFor 'pages_campaigns' }}">{{_ 'campaigns_manage' }}</a></h2>
+                </div>
+                <div class="ui divider"></div>
+                <div class="ui vertical segment">
+                    <h2><a class="js-navigation-link" href="{{ pathFor 'pages_redeem' }}">{{_ 'redeem_voucher' }}</a></h2>
+                </div>
+                <div class="ui divider"></div>
+                {{/ if }}
+                <div class="ui vertical segment">
+                    <h2><a class="js-navigation-link" href="{{ pathFor 'pages_how_it_works' }}">{{_ 'how_it_works' }}</a></h2>
+                </div>
+                <div class="ui divider"></div>
+                <div class="ui vertical segment">
+                    <h2><a  class="js-navigation-link" href="{{ pathFor 'pages_about_us' }}">{{_ 'about_us' }}</a></h2>
+                </div>
+            </div>
+            {{# if currentUser }}
+            <div class="ui center aligned segment">
+                <div class="user-container">
+                    {{> atNavButton }}
+                </div>
+            </div>
+            {{/ if }}
+            <div class="ui breadcrumb">
+                <h3 class="section"><a class="js-navigation-link" href="{{ pathFor 'pages_privacy' }}">{{_ 'privacy' }}</a></h3>
+                <div class="divider"> | </div>
+                <h3 class="active section"><a class="js-navigation-link"  href="{{ pathFor 'pages_imprint' }}">{{_ 'imprint' }}</a></h3>
             </div>
         </div>
     </div>

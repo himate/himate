@@ -1,15 +1,16 @@
+@import "../layouts/default.import.less";
+
 #partials-main-menu {
     background: @main-color;
     height: @nav-base-height;
-}
 
-#partials-main-menu .sidebar {
-    font-size: 1.25em;
-    padding: 0 .5em;
-}
-
-#partials-main-menu .sidebar.item:before {
-    display: none;
+    & .sidebar {
+        font-size: 1.25em;
+        padding: 0 .5em;
+        &.item:before {
+            display: none;
+        }
+    }
 }
 
 .logo {
@@ -20,4 +21,3 @@
 body.pages-startpage #partials-main-menu {
     display: none;
 }
-@import "../layouts/default.import.less";

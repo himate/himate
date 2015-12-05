@@ -1,18 +1,25 @@
 <template name="pages_startpage">
     <div id="pages-startpage" class="ui center aligned container">
+        <div class="ui middle aligned center aligned grid">
+            <div class="column">
+                <div class="ui teal image img-container">
+                    <img src="/images/wasl-chiraa.png" class="image">
+                </div>
+                <div class="content">
+                    {{_ 'welcome' }}
+                </div>
+            </div>
 
-        <h1>{{_ 'waslchiraa' }}</h1>
+        </div>
+        <div class="fixed-bottom button-container">
+            <div class="ui divider"></div>
 
-        <p>
-            {{_ 'welcome' }}
-        </p>
+            <a href="#" target="_blank"><i class="facebook square icon"></i></a>
+            <a href="#" target="_blank"><i class="google plus square icon"></i></a>
+            <a href="#" target="_blank"><i class="twitter square icon"></i></a>
+            <a href="#" target="_blank"><i class="pinterest square icon"></i></a>
+            <a href="#" target="_blank"><i class="reddit square icon"></i></a>
+        </div>
 
-        <div class="ui divider"></div>
-
-        <a href="#" target="_blank"><i class="facebook square icon"></i></a>
-        <a href="#" target="_blank"><i class="google plus square icon"></i></a>
-        <a href="#" target="_blank"><i class="twitter square icon"></i></a>
-        <a href="#" target="_blank"><i class="pinterest square icon"></i></a>
-        <a href="#" target="_blank"><i class="reddit square icon"></i></a>
     </div>
 </template>
