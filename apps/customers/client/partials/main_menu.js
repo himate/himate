@@ -8,8 +8,8 @@ Template.partials_main_menu.events({
      * open/close the sidebar
      * @param {Object} event
      */
-    'click .sidebar.toggle.item': function(event) {
-        $('#partials-sidebar').sidebar('setting', 'transition', 'overlay').sidebar('toggle');
+    'click .js-sidebar': function(event) {
+        $('#partials-sidebar').sidebar('setting', 'transition', 'push').sidebar('toggle');
         return Waslchiraa.Helpers.cancel(event);
     },
 
