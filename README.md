@@ -5,6 +5,10 @@ The project contains three separate meteor apps, which will share one database.
 ## system requirements
 - meteor 1.2
 - ubuntu, mac osx or windows 7
+- imagemagick or graphicsmagick
+      http://www.imagemagick.org/script/binary-releases.php
+- nodejs bindings for imagemagick
+      npm install -g imagemagick
 - at least 1GB free ram
 - multi core cpu recommended
 
@@ -14,7 +18,7 @@ The database is controlled by the admin app. To ensure that all instances are
 running on the same database, you should use the two scripts inside of the 
 ./tools directory.
 
-### settings.json 
+### settings.json
 The Apps need config values from a `settings.json`. 
 Please place the `settings.json` at the top dir of 
 this repository (`.`) .
@@ -34,7 +38,7 @@ This will start
 Abort the running script, OR run:
 
     ./tools/stop-all-apps.sh
-    
+
 This will stop all running nodejs processes.
 
 ### reset projects / initial data
@@ -42,7 +46,7 @@ This will stop all running nodejs processes.
 Run
 
     ./tools/reset-all-apps.sh
-    
+
 to delete the local database and clear meteor cache. Once you restart the apps
 the admin app will load the fixtures located in /admin/server/fixtures/*.
 
