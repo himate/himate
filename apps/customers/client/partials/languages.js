@@ -12,7 +12,14 @@ Template.partials_languages.events({
         $('#partials-sidebar').sidebar('setting', 'transition', 'push').sidebar('toggle');
         return Waslchiraa.Helpers.cancel(event);
     },
-
+    /**
+     * open/close the sidebar for mobile users
+     * @param {Object} event
+     */
+    'touchstart .js-menu': function(event) {
+        $('.ui.sidebar').sidebar('toggle');
+        return Waslchiraa.Helpers.cancel(event);
+    },
     /**
      *
      */
