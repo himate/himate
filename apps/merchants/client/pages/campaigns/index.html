@@ -9,6 +9,9 @@
                         <tr>
                             <th width="10"></th>
                             <th>
+                                {{_ 'image' }}
+                            </th>
+                            <th>
                                 {{_ 'title' }}
                             </th>
                             <th>
@@ -70,6 +73,18 @@
                 <input type="checkbox">
                 <label></label>
             </div>
+        </td>
+
+        <td>
+            {{ imageId }}
+            {{# with FS.GetFile 'waslchiraa_images' imageId }}
+            FOO
+            <div class="image">
+                <img src="{{ this.url store='waslchiraa_thumbnails' }}" alt="" />
+            </div>
+            {{ else }}
+            &nbsp;
+            {{/ with }}
         </td>
 
         <td>

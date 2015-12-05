@@ -1,6 +1,9 @@
 <template name="form_fields">
+    <div class="ui dividing header">
+        {{_ 'basics' }}
+    </div>
     {{> afQuickField name='categoryId' }}
-    
+
     <div class="ui tabular menu show-manual">
         <div class="item" data-tab="tab-de">
             DE
@@ -15,7 +18,7 @@
     <button class="auto-translation  show-manual">
         {{_ "translate_auto"}}
     </button>
-    
+
     <div class="ui tab" data-tab="tab-de">
         <div class="show-manual">
             {{> afQuickField name='title.de' label=" Titel"}}
@@ -27,7 +30,7 @@
             </button>
         </div>
     </div>
-    
+
     <div class="ui tab" data-tab="tab-en">
         <div class="show-manual">
 
@@ -40,7 +43,7 @@
             </button>
         </div>
     </div>
-    
+
     <div class="ui tab" data-tab="tab-ar">
         <div class="show-manual">
 
@@ -54,6 +57,9 @@
         </div>
     </div>
 
+    <div class="ui dividing header">
+        {{_ 'contact_data' }}
+    </div>
     <div class="fields">
         <div class="twelve wide field">
             {{> afQuickField name='street' }}
@@ -74,6 +80,17 @@
 
     {{> afQuickField name='country' }}
 
+    {{!-- imageUpload flag set in add.html, but not edit.html. This is a temporary fix, as cfs:autoform cannot handle image upload on updates --}}
+    {{# if imageUpload }}
+    <div class="ui dividing header">
+        {{_ 'image' }}
+    </div>
+    {{> afQuickField name='imageId' }}
+    {{/ if }}
+
+    <div class="ui dividing header">
+        {{_ 'publish' }}
+    </div>
     {{> afQuickField name='quantity' }}
 
     <div class="fields">
@@ -86,7 +103,7 @@
     </div>
 
     <div class="ui bottom fixed actions menu">
-        <a href="{{ pathFor 'pages_campaigns' }}" class="disabled item">
+        <a href="{{ pathFor 'pages_campaigns' }}" class="item">
             <i class="left chevron icon"></i> {{_ 'back' }}
         </a>
         <button type="submit" class="right item save-voucher">

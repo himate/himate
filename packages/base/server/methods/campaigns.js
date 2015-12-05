@@ -34,6 +34,7 @@ Meteor.methods({
         check("conditions.de", Match.Optional(String));
         check("conditions.en", Match.Optional(String));
         check("conditions.ar", Match.Optional(String));
+        check(doc.imageId, Match.Optional(String));
         check(doc.userId, Match.Optional(String));
         check(doc.categoryId, String);
         check(doc.published, Match.Optional(Date));
@@ -79,6 +80,11 @@ Meteor.methods({
             throw new Meteor.Error("not-authorized");
         }
 
+        // do not update the imageId of the doc, if it has the "dummyId"
+        if (doc && doc.imageId == "dummyId") {
+            delete doc.imageId;
+        }
+
         // check user input
         check(id, String);
         check(doc, Object);
@@ -96,6 +102,7 @@ Meteor.methods({
             "conditions.en": Match.Optional(String),
             "conditions.ar": Match.Optional(String),
             conditions: Match.Optional(Object),
+            imageId: Match.Optional(String),
             categoryId: String,
             published: Date,
             end: Match.Optional(Date),

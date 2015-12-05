@@ -19,6 +19,10 @@ Package.onUse(function(api) {
     api.use('less');
     api.use('tap:i18n');
     api.use('http');
+    api.use('cfs:standard-packages');
+    api.use('cfs:gridfs');
+    api.use('cfs:autoform');
+    api.use('cfs:graphicsmagick');
 
     // collections
     api.addFiles([
@@ -27,6 +31,7 @@ Package.onUse(function(api) {
         'lib/helpers.js',
         'lib/collections/campaigns.js',
         'lib/collections/categories.js',
+        'lib/collections/images.js',
         'lib/collections/messages.js',
         'lib/collections/vouchers.js',
         'lib/locale/ar.i18n.json',

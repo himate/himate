@@ -131,6 +131,18 @@ Waslchiraa.Schemas.Campaign = new SimpleSchema({
     country: {
         type: String,
         label: Waslchiraa.Helpers.i18nLabel("country")
+    },
+    // image
+    imageId: {
+        type: String,
+        label: Waslchiraa.Helpers.i18nLabel("images_add"),
+        optional: true,
+        autoform: {
+            afFieldInput: {
+                type: "cfs-file",
+                collection: "waslchiraa_images"
+            }
+        }
     }
 });
 
