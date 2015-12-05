@@ -96,7 +96,7 @@ Waslchiraa.Schemas.Campaign = new SimpleSchema({
         type: Date,
         label: Waslchiraa.Helpers.i18nLabel("published"),
         autoform: {
-            defaultValue: new Date()
+            defaultValue: new Date(new Date().getTime() + 24 * 60 * 60 * 1000)
         }
     },
     end: {
