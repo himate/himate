@@ -139,8 +139,25 @@ Waslchiraa.Schemas.Campaign = new SimpleSchema({
         optional: true,
         autoform: {
             afFieldInput: {
-                type: "cfs-file",
-                collection: "waslchiraa_images"
+                type: 'fileUpload',
+                accept: 'image/*',
+                collection: 'waslchiraa_images',
+                label: 'Choose file',
+                onBeforeInsert: function() {
+                    return function(fileObj) {
+                        console.log(fileObj);
+                    };
+                },
+                onAfterInsert: function() {
+                    return function(err, fileObj) {
+                        if (err) {
+                            console.log(err);
+                            return;
+                        }
+                        $('input[data-schema-key="imageId"]').val(fileObj._id);
+                        console.log(fileObj);
+                    };
+                }
             }
         }
     }

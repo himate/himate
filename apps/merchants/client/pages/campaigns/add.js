@@ -12,13 +12,6 @@ Template.pages_campaigns_add.onCreated(function() {
  */
 AutoForm.addHooks(["pages_campaigns_add"], {
 
-    before: {
-        method: CfsAutoForm.Hooks.beforeInsert
-    },
-    after: {
-        method: CfsAutoForm.Hooks.afterInsert
-    },
-
     /**
      * @param {Object} operation
      * @param {Object} result
