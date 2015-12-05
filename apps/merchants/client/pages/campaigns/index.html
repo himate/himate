@@ -76,9 +76,7 @@
         </td>
 
         <td>
-            {{ imageId }}
             {{# with FS.GetFile 'waslchiraa_images' imageId }}
-            FOO
             <div class="image">
                 <img src="{{ this.url store='waslchiraa_thumbnails' }}" alt="" />
             </div>

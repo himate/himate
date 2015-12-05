@@ -125,7 +125,6 @@ Meteor.publish('images', function() {
         return v.imageId;
     });
 
-console.log(imageIds);
     //
     return Waslchiraa.Collections.Images.find({
         _id: {

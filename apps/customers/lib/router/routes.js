@@ -28,6 +28,7 @@ Router.route('/campaigns', {
 
         return [
             Meteor.subscribe('vouchers', campaignIds, l),
+            Meteor.subscribe('images', campaignIds, l),
             Meteor.subscribe('campaigns', l),
         ];
     }
@@ -41,6 +42,7 @@ Router.route('/campaigns/:_id', {
     waitOn: function () {
         return [
             Meteor.subscribe('campaigns', l),
+            Meteor.subscribe('images', l),
             Meteor.subscribe('vouchers', l)
         ];
     }

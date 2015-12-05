@@ -73,8 +73,10 @@ Meteor.publish('categories', function() {
  *
  */
 Meteor.publish('vouchers', function(campaignIds) {
-    var filter = {};
 
+    check(campaignIds, Match.Optional(Array));
+
+    var filter = {};
     if (campaignIds) {
         filter.campaignId = {
             $in: campaignIds
@@ -82,4 +84,30 @@ Meteor.publish('vouchers', function(campaignIds) {
     }
 
     return Waslchiraa.Collections.Vouchers.find(filter);
+});
+
+/**
+ *
+ */
+Meteor.publish('images', function(campaignIds) {
+
+    check(campaignIds, Match.Optional(Array));
+
+    var filter = {};
+    if (campaignIds) {
+        filter.campaignId = {
+            $in: campaignIds
+        };
+    }
+
+    var imageIds = Waslchiraa.Collections.Campaigns.find(filter).map(function(v) {
+        return v.imageId;
+    });
+
+    //
+    return Waslchiraa.Collections.Images.find({
+        _id: {
+            $in: imageIds
+        }
+    });
 });
