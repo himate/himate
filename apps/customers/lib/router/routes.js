@@ -100,3 +100,16 @@ AccountsTemplates.configureRoute('signIn', {
     layoutTemplate: 'layouts_default',
     redirect: '/campaigns',
 });
+
+
+AccountsTemplates.configureRoute('verifyEmail', {
+    layoutTemplate: 'layouts_default',
+    name: 'verifyEmail',
+    path: '/verify-email'
+});
+
+AccountsTemplates.configureRoute('resetPwd', {
+    layoutTemplate: 'layouts_default',
+    name: 'resetPwd',
+    path: '/reset-password'
+});

@@ -2,14 +2,14 @@
  * Translation
  */
 
-MS_TOKEN_URL = Meteor.settings.MsTokenUrl;
+MS_TOKEN_URL = Meteor.settings.translation.MsTokenUrl;
 MS_ACCESS_TOKEN = "";
 MS_ACCESS_TOKEN_EXPIRES = 0; // in s
-MS_CLIENT_ID = Meteor.settings.MsClientId;
-MS_CLIENT_SECRET = Meteor.settings.MsClientSecret;
-MS_TOKEN_SCOPE = Meteor.settings.MsTokenScope;
-MS_TOKEN_GRANT_TYPE = Meteor.settings.MsTokenGrantType;
-MS_TRANSLATOR_URL = Meteor.settings.MsTranslatorUrl;
+MS_CLIENT_ID = Meteor.settings.translation.MsClientId;
+MS_CLIENT_SECRET = Meteor.settings.translation.MsClientSecret;
+MS_TOKEN_SCOPE = Meteor.settings.translation.MsTokenScope;
+MS_TOKEN_GRANT_TYPE = Meteor.settings.translation.MsTokenGrantType;
+MS_TRANSLATOR_URL = Meteor.settings.translation.MsTranslatorUrl;
 MS_API_TO = 10000; // in ms
 
 Meteor.methods({

@@ -33,6 +33,9 @@ check
 momentjs:moment
 fabienb4:autoform-semantic-ui
 
+wylio:mandrill
+email
+
 waslchiraa:base
 less
 matb33:collection-hooks
