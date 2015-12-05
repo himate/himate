@@ -9,11 +9,13 @@ AccountsTemplates.configure({
     showLabels: true,
     showPlaceholders: true,
 
+    sendVerificationEmail: true,
+    enforceEmailVerification:true,
+
     // Behaviours
     confirmPassword: true,
     enablePasswordChange: false,
     forbidClientAccountCreation: false,
-    sendVerificationEmail: false,
     homeRoutePath: '/',
     redirectTimeout: 200,
 

@@ -32,6 +32,10 @@ accounts-facebook
 accounts-twitter
 momentjs:moment
 
+wylio:mandrill
+email
+
+
 waslchiraa:base
 less
 matb33:collection-hooks
