@@ -8,8 +8,8 @@ Template.partials_languages.events({
      * toggle siderbar
      * @param {object} event
      */
-    'click .js-sidebar': function(event) {
-        $('#partials-sidebar').sidebar('setting', 'transition', 'overlay').sidebar('toggle');
+    'click .js-menu': function(event) {
+        $('#partials-sidebar').sidebar('setting', 'transition', 'push').sidebar('toggle');
         return Waslchiraa.Helpers.cancel(event);
     },
 
