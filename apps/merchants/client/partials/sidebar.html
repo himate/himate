@@ -1,6 +1,6 @@
 <template name="partials_sidebar">
     <div id="partials-sidebar" class="ui fixed left sidebar">
-        <div class="ui base segment">
+        <div class="ui base segment" id="sidebar-nav">
             {{# if currentUser }}
             <div class="ui center aligned segment user">
                 <div class="user-container">
@@ -26,15 +26,15 @@
                 <div class="ui vertical segment">
                     <h2><a class="js-navigation-link" href="{{ pathFor 'pages_redeem' }}">{{_ 'redeem_voucher' }}</a></h2>
                 </div>
-                <div class="ui divider"></div>
+                <!--<div class="ui divider"></div>-->
                 {{/ if }}
-                <div class="ui vertical segment">
-                    <h2><a class="js-navigation-link" href="{{ pathFor 'pages_how_it_works' }}">{{_ 'how_it_works' }}</a></h2>
-                </div>
-                <div class="ui divider"></div>
-                <div class="ui vertical segment">
-                    <h2><a  class="js-navigation-link" href="{{ pathFor 'pages_about_us' }}">{{_ 'about_us' }}</a></h2>
-                </div>
+                <!--<div class="ui vertical segment">-->
+                    <!--<h2><a class="js-navigation-link" href="{{ pathFor 'pages_how_it_works' }}">{{_ 'how_it_works' }}</a></h2>-->
+                <!--</div>-->
+                <!--<div class="ui divider"></div>-->
+                <!--<div class="ui vertical segment">-->
+                    <!--<h2><a  class="js-navigation-link" href="{{ pathFor 'pages_about_us' }}">{{_ 'about_us' }}</a></h2>-->
+                <!--</div>-->
             </div>
             {{# if currentUser }}
             <div class="ui center aligned segment">
@@ -44,8 +44,8 @@
             </div>
             {{/ if }}
             <div class="ui breadcrumb">
-                <h3 class="section"><a class="js-navigation-link" href="{{ pathFor 'pages_privacy' }}">{{_ 'privacy' }}</a></h3>
-                <div class="divider"> | </div>
+                <!--<h3 class="section"><a class="js-navigation-link" href="{{ pathFor 'pages_privacy' }}">{{_ 'privacy' }}</a></h3>-->
+                <!--<div class="divider"> | </div>-->
                 <h3 class="active section"><a class="js-navigation-link"  href="{{ pathFor 'pages_imprint' }}">{{_ 'imprint' }}</a></h3>
             </div>
         </div>
