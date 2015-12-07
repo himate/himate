@@ -143,6 +143,7 @@ Waslchiraa.Schemas.Campaign = new SimpleSchema({
                 accept: 'image/*',
                 collection: 'waslchiraa_images',
                 label: 'Choose file',
+                previewTemplate: 'afFileUploadThumbIcon',
                 onBeforeInsert: function() {
                     return function(fileObj) {
                         console.log(fileObj);
@@ -154,8 +155,16 @@ Waslchiraa.Schemas.Campaign = new SimpleSchema({
                             console.log(err);
                             return;
                         }
+
+                        // add fileObj._id to campaign form
+                        // :TODO: use built-in functionality of yogiben:autoform-file - or fork and fix it, if buggy
                         $('input[data-schema-key="imageId"]').val(fileObj._id);
-                        console.log(fileObj);
+
+                        // show preview (give server some time to build the thumbnail)
+                        var previewUrl = '/cfs/files/waslchiraa_images/' + fileObj._id + '?store=waslchiraa_thumbnails';
+                        setTimeout(function() {
+                            $('.ui.image.preview img').attr('src', previewUrl);
+                        }, 500);
                     };
                 }
             }
