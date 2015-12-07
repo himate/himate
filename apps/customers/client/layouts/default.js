@@ -1,14 +1,14 @@
 Template.layouts_default.events({
     /**
      */
-    'click .pusher': function() {
+    'click .dimmed': function() {
         $('.ui.sidebar').sidebar('toggle');
         $('#partials-main-menu').removeClass('active');
         $('#partials-languages').removeClass('active');
     },
     /**
      */
-    'touchstart .pusher': function() {
+    'touchstart .dimmed': function() {
         $('.ui.sidebar').sidebar('toggle');
         $('#partials-main-menu').removeClass('active');
         $('#partials-languages').removeClass('active');
