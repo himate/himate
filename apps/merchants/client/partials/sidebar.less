@@ -104,13 +104,10 @@
     }
     .ui.breadcrumb {
         width: 100%;
-        position: absolute;
-        bottom: 0;
-        left: 0;
+        position: relative;
         background-color: @lighter-text-color;
         padding: 1em 1em;
-        display: block;
-
+        margin-top: 35px;
         & a {
             color:@inverted-text-color;
         }
@@ -196,13 +193,17 @@
         box-shadow: none;
         background-color: transparent;
         padding: 0;
-        margin-bottom: 45px;
+        margin-bottom: 25px;
 
         p {
             font-size: 15px;
             font-family: @font-family-headlines;
             font-weight: 500;
         }
+    }
+    .ui.icon.message.error> .icon,.ui.icon.message.error> .content p {
+        font-size: 10px;
+        margin: 0;
     }
 }
 
