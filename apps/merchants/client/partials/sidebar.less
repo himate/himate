@@ -23,6 +23,7 @@
 //}
 @import "../layouts/default.import.less";
 
+// new code for sidebar // to be refactored
 #partials-sidebar {
     margin-left: 85% !important;
     left: -85%;
@@ -56,6 +57,8 @@
 #partials-main-menu.active #partials-sidebar {
     left: 260px;
 }
+
+// end new code for sidebar
 
 #partials-sidebar {
     text-align: center;
@@ -106,6 +109,7 @@
         left: 0;
         background-color: @lighter-text-color;
         padding: 1em 1em;
+        display: block;
 
         & a {
             color:@inverted-text-color;
