@@ -24,6 +24,40 @@
 @import "../layouts/default.import.less";
 
 #partials-sidebar {
+    margin-left: 85% !important;
+    left: -85%;
+    width: 85%;
+    background: #ccc;
+    position: fixed;
+    height: 100%;
+    z-index: 10000;
+    transition: all 500ms ease 0s;
+}
+
+#sidebar-nav {
+    display: block;
+    float: left;
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#pages-startpage {
+    padding-left: 0;
+    margin-left: 0;
+    width: 100%;
+    height: auto;
+}
+#partials-main-menu.active {
+    padding-left: 85%;
+    transition: all 500ms ease 0s;
+}
+#partials-main-menu.active #partials-sidebar {
+    left: 260px;
+}
+
+#partials-sidebar {
     text-align: center;
 
     .ui.divider {

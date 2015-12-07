@@ -18,6 +18,8 @@ Template.partials_main_menu.events({
      */
     'click .js-menu': function(event) {
         $('.ui.sidebar').sidebar('toggle');
+        var menu = event.currentTarget.id;
+        $('#'+menu).parent().toggleClass('active');
         return Waslchiraa.Helpers.cancel(event);
     },
     /**
@@ -26,6 +28,8 @@ Template.partials_main_menu.events({
      */
     'touchstart .js-menu': function(event) {
         $('.ui.sidebar').sidebar('toggle');
+        var menu = event.currentTarget.id;
+        $('#'+menu).parent().toggleClass('active');
         return Waslchiraa.Helpers.cancel(event);
     },
 
