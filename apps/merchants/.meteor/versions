@@ -118,6 +118,7 @@ semantic:ui-css@2.1.2
 service-configuration@1.0.5
 session@1.1.1
 sha@1.0.4
+shinn:autoform-file@0.3.2
 softwarerero:accounts-t9n@1.1.4
 spacebars@1.0.7
 spacebars-compiler@1.0.7
@@ -138,4 +139,3 @@ waslchiraa:base@0.0.2
 webapp@1.2.3
 webapp-hashing@1.0.5
 wylio:mandrill@1.0.1
-yogiben:autoform-file@0.3.0

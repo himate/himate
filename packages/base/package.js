@@ -23,6 +23,7 @@ Package.onUse(function(api) {
     api.use('cfs:gridfs');
     api.use('cfs:autoform');
     api.use('cfs:graphicsmagick');
+    api.use('matb33:collection-hooks');
 
     // collections
     api.addFiles([

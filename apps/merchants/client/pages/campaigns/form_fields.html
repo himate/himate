@@ -80,10 +80,6 @@
 
         <h3 class="ui dividing header"> {{_ 'image' }} </h3>
         {{> afQuickField name='imageId' }}
-        {{> FS.UploadProgressBar semantic=true }}
-        <div class="ui image preview">
-            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />
-        </div>
 
         <h3 class="ui dividing header"> {{_ 'publish' }} </h3>
         {{> afQuickField name='quantity' }}
@@ -107,4 +103,14 @@
             </button>
         </div>
     </div>
+</template>
+
+<template name="pages_campaigns_form_fields_image_preview">
+    {{# if file }}
+    <img class="ui centered image" src="{{ file.url store='waslchiraa_thumbnails_x2' }}" alt="" />
+    {{/ if }}
+</template>
+
+<template name="pages_campaigns_form_fields_upload_progress">
+    {{> FS.UploadProgressBar semantic=true }}
 </template>

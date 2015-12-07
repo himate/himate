@@ -46,7 +46,7 @@ Waslchiraa.Collections.Images.allow({
         //return !!userId;
         return true;
     },
-    insert: function(userId) {
+    insert: function(userId, doc) {
         return true;
     },
     update: function(userId) {
@@ -56,4 +56,11 @@ Waslchiraa.Collections.Images.allow({
         return true;
     },
     fetch: null
+});
+
+/**
+ *
+ */
+Waslchiraa.Collections.Images.files.before.insert(function(userId, doc) {
+    doc.userId = userId;
 });

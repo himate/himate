@@ -10,10 +10,7 @@ Router.route('/', {
  */
 Router.route('/campaigns', {
     name: 'pages_campaigns',
-    onBeforeAction: Router.merchantRequired,
-    waitOn: function() {
-        return [Meteor.subscribe('images')];
-    }
+    onBeforeAction: Router.merchantRequired
 });
 
 /**
@@ -29,10 +26,7 @@ Router.route('/campaigns/add', {
  */
 Router.route('/campaigns/:_id', {
     name: 'pages_campaigns_details',
-    onBeforeAction: Router.merchantRequired,
-    waitOn: function() {
-        return [Meteor.subscribe('images', Router.current().params._id)];
-    }
+    onBeforeAction: Router.merchantRequired
 });
 
 /**

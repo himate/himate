@@ -26,15 +26,6 @@ Template.pages_campaigns_edit.onCreated(function() {
  */
 AutoForm.addHooks(["pages_campaigns_edit"], {
 
-    // :TODO: does not work! Find a workaround/alternative implementation of
-    // cfs:autoform w/ "method-update" support - or fork it...
-    //before: {
-    //    method: CfsAutoForm.Hooks.beforeInsert
-    //},
-    //after: {
-    //    method: CfsAutoForm.Hooks.afterInsert
-    //},
-
     /**
      * @param {Object} operation
      * @param {Object} result
