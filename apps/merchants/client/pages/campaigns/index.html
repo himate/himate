@@ -76,13 +76,13 @@
         </td>
 
         <td>
-            {{# with FS.GetFile 'waslchiraa_images' imageId }}
-            <div class="image">
+            <a class="image" href="{{ pathFor 'pages_campaigns_details' }}">
+                {{# with FS.GetFile 'waslchiraa_images' imageId }}
                 <img src="{{ this.url store='waslchiraa_thumbnails' }}" alt="" />
-            </div>
-            {{ else }}
-            &nbsp;
-            {{/ with }}
+                {{ else }}
+                &nbsp;
+                {{/ with }}
+            </a>
         </td>
 
         <td>

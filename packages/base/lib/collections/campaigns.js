@@ -142,8 +142,7 @@ Waslchiraa.Schemas.Campaign = new SimpleSchema({
                 type: 'fileUpload',
                 accept: 'image/*',
                 collection: 'waslchiraa_images',
-                label: 'Choose file',
-                previewTemplate: 'afFileUploadThumbIcon',
+                label: Waslchiraa.Helpers.i18nLabel("choose_image"),
                 onBeforeInsert: function() {
                     return function(fileObj) {
                         console.log(fileObj);

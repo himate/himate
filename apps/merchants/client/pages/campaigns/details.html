@@ -1,19 +1,22 @@
 <template name="pages_campaigns_details">
     <div id="pages-campaigns-details" class="ui container">
         <h1>{{_ 'voucher' }}: {{ translateField item "title" }}</h1>
-
         <div class="ui divider"></div>
 
-        {{# with getUser item.userId }}
-        <p>
-            <strong>{{_ 'from' }}</strong>: {{ username }}
-        </p>
+        {{# with FS.GetFile 'waslchiraa_images' item.imageId }}
+        <div class="panel-details">
+            <img class="ui centered image" src="{{ this.url store='waslchiraa_thumbnails_x2' }}" alt="" />
+        </div>
+        <div class="ui divider"></div>
         {{/ with }}
 
-        <div class="ui image">
-            <img src="/images/wireframe/image.png">
-        </div>
         <div class="content">
+            {{# with getUser item.userId }}
+            <p>
+                <strong>{{_ 'from' }}</strong>: {{ username }}
+            </p>
+            {{/ with }}
+
             <div class="meta">
                 <span class="valid">valid until 01/01/1970</span>
             </div>

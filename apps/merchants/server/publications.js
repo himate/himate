@@ -112,16 +112,24 @@ Meteor.publish('categories', function() {
 /**
  *
  */
-Meteor.publish('images', function() {
+Meteor.publish('images', function(campaignId) {
+
+    // check
+    check(campaignId, Match.Optional(String));
 
     // security checks
     if (!Roles.userIsInRole(this.userId, 'merchant')) {
         return this.ready();
     }
 
-    var imageIds = Waslchiraa.Collections.Campaigns.find({
+    var filter = {
         userId: this.userId
-    }).map(function(v) {
+    };
+    if (campaignId) {
+        filter._id = campaignId;
+    }
+
+    var imageIds = Waslchiraa.Collections.Campaigns.find(filter).map(function(v) {
         return v.imageId;
     });
 
