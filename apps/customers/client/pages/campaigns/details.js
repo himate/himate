@@ -42,6 +42,7 @@ Template.pages_campaigns_details.events({
                             }
                             else {
                                 Waslchiraa.Helpers.infoMessage('voucher ' + data + ' has been reserved');
+                                Meteor.call('send_voucher_reservation_email',data);
                             }
                         });
                     }

@@ -57,7 +57,8 @@ Package.onUse(function(api) {
         'server/methods/campaigns.js',
         'server/methods/campaign_translate.js',
         'server/methods/categories.js',
-        'server/methods/vouchers.js'
+        'server/methods/vouchers.js',
+        'server/methods/users.js'
     ], ['server']);
 
     // export "Waslchiraa" namespace to be used in including apps
