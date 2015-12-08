@@ -26,6 +26,13 @@ Template.partials_main_menu.events({
         return Waslchiraa.Helpers.cancel(event);
     },
     /**
+     *
+     */
+    'click .locale-change': function(event, template) {
+    Waslchiraa.Helpers.setLanguage(this.tag);
+    return Waslchiraa.Helpers.cancel(event);
+    },
+    /**
      * logout current user
      * @param {Object} event
      */

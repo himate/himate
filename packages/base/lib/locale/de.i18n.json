@@ -6,6 +6,7 @@
     "approve_offers": "",
     "approve_new_vouchers": "Wir prüfen Ihre neuen Gutscheine innerhalb von 24 Stunden.",
     "approve_updated_vouchers": "Wir prüfen Ihre Bearbeitung innerhalb von 24 Stunden.",
+    "available": "available",
     "back": "Zurück",
     "basics": "Basisinformationen",
     "offer_count": "Anzahl Angebote",
@@ -121,5 +122,10 @@
     "email_header": "Waslchiraa",
     "email_link": "http://www.waslchiraa.com",
     "email_forgot_password_text": "Klicken Sie auf den Button um ihr Passwort zurückzusetzen. Schliesen Sie den Vorgang in unserer App ab.",
-    "email_forgot_password_reset_button": "Passwort zurücksetzen"
+    "email_forgot_password_reset_button": "Passwort zurücksetzen",
+    "email_voucher_reservation_text_intro": "Das ist dein Gutscheincode",
+    "email_voucher_reservation_text_conditions": "Und das sind die Bedingungen",
+    "email_voucher_reservation_subject": "Dein Waslchiraa Gutscheincode",
+    "email_voucher_remove_subject": "Dein Waslchiraa Gutscheincode",
+    "email_voucher_remove_text": "Deien Reservierung wurde gelöscht."
 }

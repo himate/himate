@@ -4,12 +4,12 @@
             <h1>
             <a class="back-chevron" href="{{ pathFor 'pages_campaigns' }}">
                 <i class="icon-arrow-left ico-left"></i>
-            </a> {{_ 'campaign' }} </h1>
+            </a> {{_ 'voucher' }} </h1>
         </div>
 
         <div class="ui voucher-details">
             {{# with FS.GetFile 'waslchiraa_images' item.imageId }}
-            <div class="panel-details">
+            <div class="panel-details panel-image">
                 <img class="ui centered image" src="{{ this.url store='waslchiraa_thumbnails_x2' }}" alt="" />
             </div>
             {{/ with }}
