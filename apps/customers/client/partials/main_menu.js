@@ -41,3 +41,10 @@ Template.partials_main_menu.events({
         return Waslchiraa.Helpers.cancel(event);
     }
 });
+// ----- template hooks --------------------------------------------------------
+/**
+ * called each the the template is rendered
+ */
+Template.partials_languages.onRendered(function() {
+    $('#partials-main-menu .dropdown').dropdown();
+});

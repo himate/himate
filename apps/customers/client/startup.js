@@ -6,6 +6,8 @@ Meteor.startup(function() {
     // close sidebar after login
     Accounts.onLogin(function() {
         $('#partials-sidebar').sidebar('hide');
+        $('#partials-main-menu').removeClass('active');
+        $('#partials-languages').removeClass('active');
     });
 
     Waslchiraa.Helpers.setDefaultLanguage();

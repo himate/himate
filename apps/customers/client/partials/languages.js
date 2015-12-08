@@ -29,7 +29,7 @@ Template.partials_languages.events({
     'click .locale-change': function(event, template) {
         Waslchiraa.Helpers.setLanguage(this.tag);
         return Waslchiraa.Helpers.cancel(event);
-    },
+    }
 });
 
 // ----- template hooks --------------------------------------------------------
