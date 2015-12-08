@@ -54,7 +54,6 @@ Meteor.publish('voucher_users', function(campaignId) {
     var userIds = campaigns.map(function(v) {
         return v.userId;
     });
-    console.log(userIds);
     var result = Meteor.users.find({
         _id: {
             $in: userIds

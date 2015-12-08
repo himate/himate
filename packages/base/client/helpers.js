@@ -95,6 +95,7 @@ Waslchiraa.Helpers.setLanguage = function(language) {
         amplify.store('language', language);
         TAPi18n.setLanguageAmplify(language).done(function() {
             T9n.setLanguage(language);
+            Meteor.call('set_default_language',language);
         }).fail(function(error) {
             console.log(error);
         });
@@ -162,7 +163,6 @@ Waslchiraa.Helpers.getVouchers = function(campaignId) {
         };
         result.available = result.total - (result.redeemed + result.reserved);
     }
-    console.log(result);
 
     return result;
 };

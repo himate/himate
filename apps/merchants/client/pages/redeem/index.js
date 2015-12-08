@@ -9,7 +9,6 @@ Template.pages_redeem.helpers({
         return Session.get('voucherCode');
     },
     isInvalid: function () {
-        console.log(Session.get('invalid'));
         return Session.get('invalid');
     }
 
@@ -34,7 +33,6 @@ Template.pages_redeem.events({
         event.preventDefault();
         // Get value from form element
         var voucherCode = $(event.target).closest('form').find('[name="voucher"]').val();
-        console.log(voucherCode);
         var result = Meteor.call('vouchers_get_campaign', voucherCode, function(err, campaign) {
             if (err) {
                 Waslchiraa.Helpers.errorMessage(err.message);
@@ -43,7 +41,6 @@ Template.pages_redeem.events({
                 Session.set('voucherCode', null);
             }
             else {
-                console.log(campaign);
                 Session.set('voucherCode', voucherCode);
                 Session.set('invalid', false);
                 Session.set('campaign', campaign);

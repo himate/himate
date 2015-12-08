@@ -10,19 +10,45 @@ Meteor.startup(function() {
         key: Meteor.settings.mandrill.apiKey,
     });
     Meteor.methods({
-        'sendVoucherReservationEmail': function ( voucherCode) {
+        'send_voucher_reservation_email': function (voucherCode) {
             if(Meteor.user()) {
                 var mailTo = Meteor.user().emails[0].address;
-                this.unblock();
-                var message = 'Hi There,\n' +
-                    userName + ' you reserved a vouchercode. ';
+                var lang = 'en';
+                if(Meteor.user().lastLanguage && Meteor.user().lastLanguage.length){
+                    lang = Meteor.user().lastLanguage
+                }
 
-                message += 'this is it:' + voucherCode;
-                Email.send({
-                    to: mailTo,
-                    from: "Waslchira" + ' <' + Meteor.settings.contacts.noreply + '>',
-                    subject: 'waslchiraa vouchercode',
-                    text: message
+                var message = {
+                    "subject": TAPi18n.__('email_voucher_reservation_subject'),
+                    "from_email":  Meteor.settings.contacts.noreply,
+                    "from_name": "Waslchiraa",
+                    "to": [{
+                        "email":mailTo,
+                        "type": "to"
+                    }],
+                    "global_merge_vars": [
+                        {
+                            name: 'vouchercode',
+                            content: voucherCode
+                        },
+                        {
+                            name: 'email_voucher_reservation_text_intro',
+                            content: TAPi18n.__('email_voucher_reservation_text_intro', lang)
+                        },
+                        {
+                            name: 'email_voucher_reservation_text_conditions',
+                            content: TAPi18n.__('email_voucher_reservation_text_conditions', lang)
+                        },
+                        {
+                            name: 'email_header',
+                            content: TAPi18n.__('email_header', lang)
+                        }
+                    ],
+                };
+                Mandrill.messages.sendTemplate({
+                    template_name: 'waslchiraa_send_vouchercode',
+                    template_content: [],
+                    'message': message
                 });
             }
 
@@ -38,6 +64,10 @@ Meteor.startup(function() {
 
     Accounts.emailTemplates.verifyEmail.html = function (user, url) {
         var result;
+        var lang = 'en';
+        if(user.lastLanguage && user.lastLanguage.length){
+            lang = user.lastLanguage
+        }
         try {
             result = Mandrill.templates.render({
                 template_name: 'waslchiraa-registration',
@@ -49,19 +79,19 @@ Meteor.startup(function() {
                     },
                     {
                         name: 'email_registration_welcometext',
-                        content: TAPi18n.__('email_registration_welcometext')
+                        content: TAPi18n.__('email_registration_welcometext',lang)
                     },
                     {
                         name: 'email_registration_complete_button',
-                        content: TAPi18n.__('email_registration_complete_button')
+                        content: TAPi18n.__('email_registration_complete_button',lang)
                     },
                     {
                         name: 'email_header',
-                        content: TAPi18n.__('email_header')
+                        content: TAPi18n.__('email_header',lang)
                     },
                     {
                         name: 'email_link',
-                        content: TAPi18n.__('email_link')
+                        content: TAPi18n.__('email_link',lang)
                     },
                 ],
             });
@@ -77,6 +107,10 @@ Meteor.startup(function() {
 
     Accounts.emailTemplates.resetPassword.html = function (user, url) {
         var result;
+        var lang = 'en';
+        if(user.lastLanguage && user.lastLanguage.length){
+            lang = user.lastLanguage
+        }
         try {
             result = Mandrill.templates.render({
                 template_name: 'waslchiraa-forgot-password',
