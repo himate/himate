@@ -52,18 +52,19 @@ Meteor.methods({
             "campaignId": campaign._id
         });
 
-        var email = {
-            to: Meteor.user().emails[0].address,
-            from: TAPi18n.__('email_reserve_from'),
-            subject: TAPi18n.__('email_reserve_subject', {
-                title: campaign.title
-            }),
-            text: TAPi18n.__('email_reserve_content', {
-                code: code
-            }),
-        };
-
-        Email.send(email);
+        Meteor.call('send_voucher_reservation_email',code);
+        //var email = {
+        //    to: Meteor.user().emails[0].address,
+        //    from: TAPi18n.__('email_reserve_from'),
+        //    subject: TAPi18n.__('email_reserve_subject', {
+        //        title: campaign.title
+        //    }),
+        //    text: TAPi18n.__('email_reserve_content', {
+        //        code: code
+        //    }),
+        //};
+        //
+        //Email.send(email);
         return code;
     },
 
