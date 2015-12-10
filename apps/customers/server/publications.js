@@ -11,19 +11,28 @@ Meteor.publish('campaigns', function() {
     // collect data
     var today = moment().endOf('day').toDate();
     var campaigns = Waslchiraa.Collections.Campaigns.find({
-        $and: [{
-            published: {
-                $lte: today
-            }
+        $or: [{
+            end: null
         }, {
-            published: {
-                $exists: true
-            }
-        }, {
-            published: {
-                $ne: null
-            }
-        }]
+            $and: [{
+                published: {
+                    $lte: today
+                }
+            }, {
+                published: {
+                    $exists: true
+                }
+            }, {
+                published: {
+                    $ne: null
+                }
+            }, {
+                end: {
+                    $gte: today
+                }
+            }]
+        }
+        ]
     });
 
     // campaigns.forEach(function (v) {

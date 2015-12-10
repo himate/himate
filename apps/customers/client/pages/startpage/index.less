@@ -1,6 +1,31 @@
-#pages-startpage * {
-    color: #FFF;
+@import "../../layouts/default.import.less";
+
+#pages-startpage  {
+    * {
+        color: @main-bg-color;
+    }
+    .text-indication {
+        margin-bottom: 15px;
+        margin-top: 25px;
+
+        & p {
+            margin-bottom: 1px;
+        }
+    }
+    .img-container {
+        padding-bottom: 50px;
+    }
+    .ui.button.default,.ui.button.default.active {
+        background-color: @main-text-color;
+        border:  1.5px solid @main-text-color;
+        color: @lighter-text-color;
+        > i , > span {
+            color: @lighter-text-color;
+        }
+    }
+
+    .menu .item {
+        color: @main-text-color;
+    }
 }
-.img-container {
-    padding: 150px 0;
-}
+

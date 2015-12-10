@@ -27,7 +27,8 @@ Meteor.publish('campaigns', function() {
             number: 1,
             zipcode: 1,
             city: 1,
-            country: 1
+            country: 1,
+            end:1
         }
     });
 });
