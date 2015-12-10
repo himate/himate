@@ -15,7 +15,7 @@
 
 <template name="pages_vouchers_voucher">
     <div class="ui vertical segment js-voucher">
-        <span>{{_ "reserved"}}:</span>
+        <span>{{_ "reserved"}}: <span class="text-primary">{{ code }}</span> </span>
         <h2>{{ translateField voucher "title" }}</h2>
         <p> {{ translateField voucher "shortDescription" }}</p>
         {{#if redeemed}}

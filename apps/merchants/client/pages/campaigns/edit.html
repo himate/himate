@@ -1,29 +1,30 @@
 <template name="pages_campaigns_edit">
-    <div id="pages-campaigns-edit" class="ui basic segment">
-        <div class="ui mobile reversed stackable grid">
-            <div class="twelve wide column">
-                <h2>{{_ 'campaigns_edit' }}</h2>
+    <div id="pages-campaigns-edit" class="ui basic">
+        <h1>{{_ 'offers_edit' }}</h1>
+        <div  class="ui basic segment">
+            <div class="ui mobile reversed stackable grid">
+                <div class="twelve wide column">
+                    {{# autoForm collection='Waslchiraa.Collections.Campaigns' doc=item id='pages_campaigns_edit' class="translate-form" type='method-update' meteormethod='campaigns_edit' }}
+                    {{> form_fields }}
+                    {{/ autoForm }}
+                </div>
 
-                {{# autoForm collection='Waslchiraa.Collections.Campaigns' doc=item id='pages_campaigns_edit' class="translate-form" type='method-update' meteormethod='campaigns_edit' }}
-                {{> form_fields }}
-                {{/ autoForm }}
-            </div>
+                <div class="four wide column">
+                    <h2>{{_ 'information' }}</h2>
 
-            <div class="four wide column">
-                <h2>{{_ 'information' }}</h2>
+                    <p>
+                        {{_ 'update_voucher' }}
+                    </p>
 
-                <p>
-                    {{_ 'update_voucher' }}
-                </p>
+                    <p>
+                        {{_ 'voucher_offline' }}
+                    </p>
 
-                <p>
-                    {{_ 'voucher_offline' }}
-                </p>
-
-                <p>
-                    {{_ 'approve_updated_campaigns' }}
-                </p>
-            </div>
-        </div><!-- .grid -->
+                    <p>
+                        {{_ 'approve_updated_vouchers' }}
+                    </p>
+                </div>
+            </div><!-- .grid -->
+        </div>
     </div><!-- #pages-campaigns-edit -->
 </template>

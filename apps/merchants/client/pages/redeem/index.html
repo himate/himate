@@ -1,20 +1,21 @@
 <template name="pages_redeem">
-	<div id="pages-redeem" class="ui basic segment">
+	<div id="pages-redeem" class="ui basic">
 		<h1>{{_ 'redeem_voucher' }}</h1>
-		{{{_ 'redeem_voucher_notice'}}}
-		<form class="ui form{{#if isInvalid}} error{{/if}}">
-			<div class="field">
-				<label>{{_ 'code'}}</label>
-				{{#if campaign}}
+		<div class="ui basic segment">
+			{{{_ 'redeem_voucher_notice'}}}
+			<form class="ui form{{#if isInvalid}} error{{/if}}">
+				<div class="field">
+					<label>{{_ 'code'}}</label>
+					{{#if campaign}}
 					<input type="text" name="voucher" value="{{voucherCode}}" disabled/>
-				{{else}}
-					<input type="text" name="voucher" placeholder="Voucher"/>
-				{{/if}}
-			</div>
-			<div class="ui error message ">
-				<p>{{_ 'invalid_code'}}</p>
-			</div>
-			{{#if campaign}}
+					{{else}}
+					<input type="text" name="voucher" placeholder="{{_ 'code'}}"/>
+					{{/if}}
+				</div>
+				<div class="ui error message ">
+					<p>{{_ 'invalid_code'}}</p>
+				</div>
+				{{#if campaign}}
 				<table class="ui compact celled definition table">
 					<tbody>
 					<tr>
@@ -23,12 +24,14 @@
 								{{ translateField campaign "title" }}
 							</a>
 						</td>
-						<td>
+						<td><bdi>
 							{{_ 'end'}}: {{#if campaign.end }} {{ formatDate campaign.end }} {{ else }} - {{/if}}<br>
 							{{#with getVouchers campaign._id}}
-								{{_ 'reservations'}}: {{ reserved}}/{{campaign.quantity }}<br>
-								{{_ 'redeemed'}}: {{ redeemed}}/{{campaign.quantity }}
+							{{_ 'reservations'}}: {{ reserved}} {{_ 'out_of'}} {{campaign.quantity }}<br>
+							{{_ 'redeemed'}}: {{ redeemed}} {{_ 'out_of'}} {{campaign.quantity }}
 							{{/ with}}
+						</bdi>
+
 						</td>
 
 						<td>
@@ -39,9 +42,11 @@
 				</table>
 				<button class="ui button redeem-voucher" type="submit">{{_ 'redeem' }}</button>
 				<button class="ui button cancel-voucher" type="submit">{{_ 'cancel' }}</button>
-			{{else}}
-				<button class="ui button check-voucher" type="submit">check</button>
-			{{/if}}
-		</form>
+				{{else}}
+				<button class="ui button check-voucher" type="submit">{{_ 'check'}}</button>
+				{{/if}}
+			</form>
+		</div>
 	</div>
 </template>
+

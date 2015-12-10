@@ -1,13 +1,13 @@
 <template name="pages_campaigns">
-    <div id="pages-campaigns" class="ui basic segment">
-        <div class="ui mobile reversed stackable grid">
-            <div class="twelve wide column">
-                <h2>{{_ 'campaigns' }}</h2>
-
-                <table class="ui compact celled definition table">
-                    <thead class="full-width">
+    <div id="pages-campaigns" class="ui">
+            <h1>{{_ 'all_offers' }}</h1>
+        <div class="ui basic segment">
+            <div class="ui mobile reversed stackable grid">
+                <div class="twelve wide column">
+                    <table class="ui compact celled definition table">
+                        <thead class="full-width">
                         <tr>
-                            <th width="10"></th>
+                            <th width="12"></th>
                             <th>
                                 {{_ 'image' }}
                             </th>
@@ -33,9 +33,9 @@
                                 &nbsp;
                             </th>
                         </tr>
-                    </thead>
+                        </thead>
 
-                    <tbody>
+                        <tbody>
                         {{# each campaigns }}
                         {{> pages_campaigns_voucher }}
                         {{ else }}
@@ -45,24 +45,19 @@
                             </td>
                         </tr>
                         {{/ each }}
-                    </tbody>
-                </table>
-            </div>
+                        </tbody>
+                    </table>
+                </div>
+            </div><!-- .grid -->
+        </div>
 
-            <div class="four wide column">
-                <h2>Info</h2>
-                <p>
-                    {{_ 'campaigns_info_text' }}
-                </p>
-            </div>
-        </div><!-- .grid -->
     </div><!-- #pages-campaigns -->
 
     <div class="ui bottom fixed actions menu">
         <a href="#" class="disabled item">
             <i class="trash icon"></i> {{_ 'delete_selected' }}
         </a>
-        <a href="{{ pathFor 'pages_campaigns_add' }}" title="{{_ 'campaigns_add' }}" class="right item"><i class="add icon"></i>{{_ 'campaigns_add' }}</a>
+        <a href="{{ pathFor 'pages_campaigns_add' }}" title="{{_ 'campaigns_add' }}" class="right item"><i class="add icon"></i>{{_ 'offers_add' }}</a>
     </div>
 </template>
 
@@ -107,15 +102,20 @@
             {{#if end }} {{formatDate end }} {{ else }} - {{/if}}
         </td>
 
-        <td>
-            {{#with getVouchers _id}} {{total}} ({{available}} / {{ reserved }} / {{ redeemed }}) {{/ with}}
+        <td class="numbers-info">
+            {{#with getVouchers _id}}
+            <p>{{_ 'total'}}: {{ total }} </p>
+            <p>{{_ 'reservations'}}: {{ reserved }} </p>
+            <p>{{_ 'available'}}: {{ available }} </p>
+            <p>{{_ 'redeemed'}}: {{ redeemed }} </p>
+            {{/ with}}
         </td>
 
         <td width="10">
-            <a class="edit write" href="{{ pathFor 'pages_campaigns_edit' }}" title="{{_ 'campaigns_edit' }}"><i class="pencil icon"></i></a>
+            <a class="edit write" href="{{ pathFor 'pages_campaigns_edit' }}" title="{{_ 'offers_edit' }}"><i class="pencil icon"></i></a>
         </td>
         <td width="10">
-            <a class="remove write" href="#" title="{{_ 'campaigns_remove' }}"><i class="trash icon"></i></a>
+            <a class="remove write" href="#" title="{{_ 'offers_remove' }}"><i class="trash icon"></i></a>
         </td>
     </tr>
 </template>

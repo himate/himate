@@ -6,7 +6,7 @@
             </h3>
             <span class="headline voucher-address">
                  {{ street }} {{ number }}, {{ zipcode }} {{ city }}
-                        <a class="maps-link" href="{{getMapUrl item }}">{{_ 'check on maps' }}</a>
+                        <a class="maps-link" href="{{getMapUrl item }}"> {{_ 'check_on_maps'}}</a>
             </span>
 
         </div>
@@ -15,7 +15,7 @@
                 <p class="description-headline">{{_ 'valid_until' }}
                 <span class="description-text">{{formatDate end }}</span></p>
                 <p class="description-headline">{{_ 'available' }}
-                    <span class="description-text">{{ quantity }} / {{ availableVouchersCount _id }} </span>
+                    <span class="description-text"> <bdi>{{ availableVouchersCount _id }} {{_ 'out_of'}} {{ quantity }}</bdi></span>
                 </p>
             </div>
         </div>
