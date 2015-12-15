@@ -135,5 +135,8 @@
     "Wasl Chiraa": "Wasl Chiraa",
     "welcome": "Willkommen",
     "yes": "Ja",
-    "zipcode": "PLZ"
+    "zipcode": "PLZ",
+    "welcome_text": "<h3>WELCOME to Wasl Chiraa !</h3> \n<h3>مرحباً بك في تطبيق وصل شراء</h3> ",
+    "welcome_text_step1": "<p>Choose your language</p>\n<p>قم بإختيار اللغة</p>",
+    "welcome_text_step2": "<p>After that</p>\n<p>بعد ذلك</p>"
 }

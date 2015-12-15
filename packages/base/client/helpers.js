@@ -167,6 +167,20 @@ Waslchiraa.Helpers.getVouchers = function(campaignId) {
     return result;
 };
 
+//TODO: i need the url of the image , this did not work
+//Waslchiraa.Helpers.getImage = function(imageId) {
+//    var result = '' ;
+//    var image = Waslchiraa.Collections.Images.findOne({
+//        _id: imageId
+//    });
+//
+//    if (image) {
+//        result = image.url();
+//    }
+//
+//    return result;
+//};
+
 // ----- template helpers ------------------------------------------------------
 /**
  * check if <a> equals <b>
@@ -248,6 +262,16 @@ Template.registerHelper('formatDate', function(date) {
     else {
         return '-';
     }
+});
+
+
+/**
+ * @see Waslchiraa.Helpers.getImage
+ * @param {String} imageId
+ * @reactive
+ */
+Template.registerHelper('image', function(imageId) {
+    return Waslchiraa.Helpers.getImage(imageId);
 });
 
 /**

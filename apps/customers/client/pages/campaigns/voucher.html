@@ -1,25 +1,27 @@
 <template name="pages_campaigns_voucher">
-    <div class="voucher item js-voucher  padded-content">
-        <div class="left-content centered-y">
-            <h3 class="voucher-title">
-				{{ translateField this "title" }}
-            </h3>
+    <!-- TODO: please correct the way i am hacking image url could not do it via helpers -->
+    <div class="voucher item js-voucher"  style="background: url( /cfs/files/waslchiraa_images/{{ imageId }} );background-size: 100%;">
+        <div class="padded-content text-container">
+            <div class="left-content centered-y">
+                <h3 class="voucher-title">
+                    {{ translateField this "title" }}
+                </h3>
             <span class="headline voucher-address">
                  {{ street }} {{ number }}, {{ zipcode }} {{ city }}
                         <a class="maps-link" href="{{getMapUrl item }}"> {{_ 'check_on_maps'}}</a>
             </span>
 
-        </div>
-        <div class="right-content centered-y">
-            <div class="headline voucher-description">
-                <p class="description-headline">{{_ 'valid_until' }}
-                <span class="description-text">{{formatDate end }}</span></p>
-                <p class="description-headline">{{_ 'available' }}
-                    <span class="description-text"> <bdi>{{ availableVouchersCount _id }} {{_ 'out_of'}} {{ quantity }}</bdi></span>
-                </p>
             </div>
+            <div class="right-content centered-y">
+                <div class="headline voucher-description">
+                    <p class="description-headline">{{_ 'valid_until' }}
+                        <span class="description-text">{{formatDate end }}</span></p>
+                    <p class="description-headline">{{_ 'available' }}
+                        <span class="description-text"> <bdi>{{ availableVouchersCount _id }} {{_ 'out_of'}} {{ quantity }}</bdi></span>
+                    </p>
+                </div>
+            </div>
+            <i class="icon-arrow-right ico-right"></i>
         </div>
-        <i class="icon-arrow-right ico-right"></i>
-        <!--<i class="right chevron icon"></i>-->
     </div>
 </template>

@@ -135,5 +135,8 @@
     "Wasl Chiraa": "وصل شراء",
     "welcome": "أهلا بك",
     "yes": "نعم",
-    "zipcode": "الرمز البريدي"
+    "zipcode": "الرمز البريدي",
+    "welcome_text": "",
+    "welcome_text_step1": "",
+    "welcome_text_step2": ""
 }

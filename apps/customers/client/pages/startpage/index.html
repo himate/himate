@@ -6,13 +6,11 @@
                     <img src="/images/wasl-chiraa.png" class="image">
                 </div>
                 <div class="content">
-                    <h3>WELCOME to Wasl Chiraa !</h3>
-                    <h3>مرحباً بك في تطبيق وصل شراء</h3>
+                    {{{_ 'welcome_text'}}}
                 </div>
                 <div>
                     <div class="text-indication">
-                        <p>Choose your language</p>
-                        <p>قم بإختيار اللغة</p>
+                        {{{_ 'welcome_text_step1'}}}
                     </div>
                     <div class="ui floating dropdown labeled icon button default">
                         <i class="world icon"></i>
@@ -26,8 +24,7 @@
                         </div>
                     </div>
                     <div class="text-indication">
-                        <p>After that</p>
-                        <p>بعد ذلك</p>
+                        {{{_ 'welcome_text_step2'}}}
                     </div>
                     <a href="{{ pathFor 'pages_campaigns' }}" class="ui button default">{{_ 'offers'}}</a>
                 </div>

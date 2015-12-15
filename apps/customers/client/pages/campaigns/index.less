@@ -8,7 +8,7 @@
         -webkit-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
         -moz-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
         box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
-        margin-bottom: 5px;
+        //margin-bottom: 5px;
         > .ico-right{
             color: @inverted-text-color;
         }
@@ -44,15 +44,21 @@
     }
     .voucher.item {
         position: relative;
-        height: 112.5px;
+        //height: 112.5px;
+        height: 150px;
         border-bottom: 1px solid @border-color-base;
-        background-color: @inactive-bg-color;
+        //background-color: @inactive-bg-color;
         &:hover {
             background-color: @active-bg-color;
         }
         > .ico-right{
             color: @inverted-text-color;
         }
+    }
+    .text-container {
+        background-color: rgba(0,0,0,0.5);
+        color: white !important;
+        height: inherit;
     }
     .voucher-title {
         font-family: @font-family-headlines;
@@ -68,7 +74,7 @@
 
     .voucher-address {
         font-size: 11px;
-        color: @inverted-text-color;
+        //color: @inverted-text-color;
         line-height: 1.2;
     }
     .maps-link{
@@ -78,7 +84,7 @@
     }
 
     .voucher-description {
-        color: @inverted-text-color;
+        //color: @inverted-text-color;
         line-height: 1.2;
         > .description-headline {
             font-family: @font-family-headlines;
