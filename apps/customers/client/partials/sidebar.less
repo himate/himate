@@ -9,6 +9,8 @@
     height: 100%;
     z-index: 10000;
     transition: all 500ms ease 0s;
+    -webkit-transition: all 500ms ease 0s;
+    -moz-transition: all 500ms ease 0s;
 }
 
 #sidebar-nav {
@@ -29,6 +31,8 @@
 #partials-main-menu.active, #partials-languages.active {
     padding-left: 85%;
     transition: all 500ms ease 0s;
+    -webkit-transition: all 500ms ease 0s;
+    -moz-transition: all 500ms ease 0s;
 }
 #partials-main-menu.active #partials-sidebar, #partials-languages.active #partials-sidebar {
     left: 260px;
@@ -123,6 +127,7 @@
     }
     .at-pwd-form .at-input .ui.input > input {
         height: 46px;
+        width: 100% !important;
         border-radius: 2px;
         font-family: @font-family-headlines;
         font-weight: 600;
