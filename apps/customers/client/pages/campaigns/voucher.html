@@ -1,6 +1,5 @@
 <template name="pages_campaigns_voucher">
-    <!-- TODO: please correct the way i am hacking image url could not do it via helpers -->
-    <div class="voucher item js-voucher"  style="background: url( /cfs/files/waslchiraa_images/{{ imageId }} );background-size: 100%;">
+    <div class="voucher item js-voucher" style="{{# with FS.GetFile 'waslchiraa_images' imageId }}background: url({{ this.url }}){{/ with }};background-size: 100%;">
         <div class="padded-content text-container">
             <div class="left-content centered-y">
                 <h3 class="voucher-title">

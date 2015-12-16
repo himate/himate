@@ -104,7 +104,7 @@ Meteor.publish('images', function(campaignIds) {
 
     var filter = {};
     if (campaignIds) {
-        filter.campaignId = {
+        filter._id = {
             $in: campaignIds
         };
     }
