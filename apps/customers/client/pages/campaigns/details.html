@@ -1,10 +1,10 @@
 <template name="pages_campaigns_details">
     <div id="pages-campaigns-details" class="ui container">
         <div class="header-navigation">
-            <h1>
+            <h1>{{_ 'voucher' }} </h1>
             <a class="back-chevron" href="{{ pathFor 'pages_campaigns' }}">
                 <i class="icon-arrow-left ico-left"></i>
-            </a> {{_ 'voucher' }} </h1>
+            </a>
         </div>
 
         <div class="ui voucher-details">
@@ -64,18 +64,20 @@
                 </p>
 
             </div>
-            <div class="fixed-bottom button-container centered-y">
-                {{#if isReservedByUser item._id  }}
-                <button class="ui button success">
-                    {{_ 'reserved' }}
-                </button>
-                {{ else }}
-                {{#if hasAvailableVouchers item._id }}
-                <button class="ui button primary js-reserve-voucher">
-                    {{_ 'reserve_voucher' }}
-                </button>
-                {{/if }}
-                {{/if }}
+            <div class="fixed bottom shadow-top">
+                <div class=" ui segment vertical  button-container">
+                    {{#if isReservedByUser item._id  }}
+                    <button class="ui button success">
+                        {{_ 'reserved' }}
+                    </button>
+                    {{ else }}
+                    {{#if hasAvailableVouchers item._id }}
+                    <button class="ui button primary js-reserve-voucher">
+                        {{_ 'reserve_voucher' }}
+                    </button>
+                    {{/if }}
+                    {{/if }}
+                </div>
             </div>
         </div>
     </div>

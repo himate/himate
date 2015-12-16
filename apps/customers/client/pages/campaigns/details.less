@@ -1,10 +1,6 @@
 @import "../../layouts/default.import.less";
 
 .pages-campaigns-details{
-  .voucher-details{
-    padding-bottom: 80px;
-  }
-
  .panel-details{
    padding: 15px 25px ;
    min-height: @panel-base-height;
@@ -39,16 +35,15 @@
    }
  }
 
-  .button-container {
-    -webkit-box-shadow: 0 -4px 4px 0 rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0 -4px 4px 0 rgba(0, 0, 0, 0.2);
-    box-shadow: 0 -4px 4px 0 rgba(0, 0, 0, 0.2);
+  .shadow-top {
+    .box-shadow(0 -4px 4px 0 rgba(0, 0, 0, 0.2));
+
     .ui.button {
       margin-left: auto;
       margin-right: auto;
-      min-width: 258px;
+      min-width: 210px;
       width: auto;
-
+      .center-x-y();
     }
   }
 

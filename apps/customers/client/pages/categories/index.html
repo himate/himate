@@ -5,15 +5,15 @@
         </div>
 
         <div class="ui categories js-categories">
-            <div class="categories-back js-all centered-y padded-content">
-                <p class="headline">
+            <div class="categories-back js-all ui middle segment">
+                <p class="ui vertical segment text-primary">
                     <a class="back-link" href="{{ pathFor 'pages_campaigns' }}"> {{_ 'categories' }}
                         <i class="icon-close ico-right"></i>
                     </a>
                 </p>
 
             </div>
-            <div class="category item js-category js-all centered-y padded-content">
+            <div class="category item js-category js-all ui middle segment">
                 <p class="headline category-title">
                     {{_ 'all' }}
                     <span>({{ countCampaigns }})</span>
@@ -21,7 +21,7 @@
                 <i class="icon-arrow-right ico-right"></i>
             </div>
             {{# each categories }}
-            <div class="category item js-category centered-y padded-content">
+            <div class="category item js-category ui middle segment">
                 <p class="headline category-title">
                     {{ title }}
                     <span>({{ countCampaigns this }})</span>

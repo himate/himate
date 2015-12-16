@@ -15,7 +15,7 @@
         -webkit-transform: translate3d(-100%, 0, 0);
         transform: translate3d(-100%, 0, 0);
         -ms-transform: translate3d(-100%, 0, 0);
-
+        z-index: 10;
     }
 
     #sidebar-nav {
@@ -53,10 +53,17 @@
            border: none;
            box-shadow: none;
            padding: 0.5em 0.5em;
+           &:not(.stacked){
+               height: 40px;
+           }
+           & h2 {
+               .center-x-y();
+           }
            &.user {
                background: #EEE;
                border-bottom: 1px solid @border-color-base;
                border-radius: 0;
+               height: @nav-base-height;
            }
 
            .user-container {
@@ -175,5 +182,10 @@
     .ui.icon.message.error> .icon,.ui.icon.message.error> .content p{
         font-size: 10px;
         margin: 0;
+    }
+
+    .ui.stacked.segment:after{
+        bottom: -10px;
+        height: 1px;
     }
 }
