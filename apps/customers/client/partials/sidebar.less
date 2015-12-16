@@ -1,16 +1,22 @@
 @import "../layouts/default.import.less";
 // new code for sidebar // to be refactored
-#partials-sidebar {
-    margin-left: 85% !important;
-    left: -85%;
+#partials-sidebar{
     width: 85%;
-    background: @inactive-bg-color;
-    position: fixed;
     height: 100%;
+    background: @inactive-bg-color;
     z-index: 10000;
-    transition: all 500ms ease 0s;
-    -webkit-transition: all 500ms ease 0s;
-    -moz-transition: all 500ms ease 0s;
+    &:not(.visible) {
+        margin-left: 85% !important;
+        left: -85%;
+        position: fixed;
+        transition: all 500ms ease 0s  !important;
+        -webkit-transition: all 500ms ease 0s  !important;
+        -moz-transition: all 500ms ease 0s  !important;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+        -ms-transform: translate3d(-100%, 0, 0);
+
+    }
 
     #sidebar-nav {
         display: block;
@@ -29,9 +35,9 @@
 }
 #partials-main-menu.active, #partials-languages.active {
     padding-left: 85%;
-    transition: all 500ms ease 0s;
-    -webkit-transition: all 500ms ease 0s;
-    -moz-transition: all 500ms ease 0s;
+    transition: all 500ms ease 0s !important;
+    -webkit-transition: all 500ms ease 0s  !important;
+    -moz-transition: all 500ms ease 0s !important;
 }
 // end new code for sidebar
 #partials-sidebar {
