@@ -162,37 +162,38 @@ a {
 }
 
 .ui.button {
-  color: #FFF;
+  color:  @main-bg-color;
   text-transform: uppercase;
   font-family: @font-family-headlines;
   font-weight: 600;
   font-size: @button-text-size;
-  height: 45px;
-  border-radius: 7px;
+  //height: 45px;
+  border-radius: @border-radius-base;
+  border: none;
+  background: transparent;
 
-  &:focus, &:hover {
-    background-color: transparent;
-
+  &:focus, &:hover, &.active:active, &.active:hover {
+    background: transparent;
+    color: @default-button-color;
   }
 
   &.primary {
+    color: @main-bg-color;
     background-color: @button-primary-bg-color;
     &:focus {
       background-color: @button-primary-bg-color;
     }
   }
   &.success {
+    color: @main-bg-color;
     background-color:@button-success-bg-color;
 
   }
   &.default {
+    color:  @default-button-color;
     border: 1.5px solid @default-button-color;
-    border-radius: 7px;
-    color: @default-button-color;
-    font-size: @button-text-size;
     font-weight: 400;
     background: transparent;
-    font-family: @font-family-headlines;
   }
 }
 
