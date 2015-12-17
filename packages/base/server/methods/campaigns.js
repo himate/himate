@@ -20,8 +20,6 @@ Meteor.methods({
             throw new Meteor.Error("not-authorized");
         }
 
-        console.log(doc);
-
         // check user input
         check(doc, Object);
         check("title.de", String);
@@ -80,11 +78,6 @@ Meteor.methods({
         }
         else {
             throw new Meteor.Error("not-authorized");
-        }
-
-        // do not update the imageId of the doc, if it has the "dummyId"
-        if (doc && doc.imageId == "dummyId") {
-            delete doc.imageId;
         }
 
         // check user input
