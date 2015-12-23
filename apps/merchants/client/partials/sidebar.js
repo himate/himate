@@ -19,5 +19,13 @@ Template.partials_sidebar.events({
     'click .js-navigation-link': function() {
         $('.ui.sidebar').sidebar('toggle');
         $('#partials-main-menu').removeClass('active');
+    },
+
+    /**
+     *
+     */
+    'click .js-profile': function() {
+        $('.ui.sidebar').sidebar('toggle');
+        $('#partials-main-menu').removeClass('active');
     }
 });

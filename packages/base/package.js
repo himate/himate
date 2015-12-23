@@ -30,6 +30,7 @@ Package.onUse(function(api) {
         'lib/namespaces.js',
         'lib/schemas.js',
         'lib/helpers.js',
+        'lib/collections/users.js',
         'lib/collections/campaigns.js',
         'lib/collections/categories.js',
         'lib/collections/images.js',
