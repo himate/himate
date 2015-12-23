@@ -5,7 +5,9 @@
             <div class="ui center aligned segment user">
                 <div class="user-container">
                     <!--<img class="ui circular avatar image" src="/images/avatars/elyse.png" />-->
-                    <div class="name">{{ currentUser.username }}</div>
+                    <div class="name">
+                        {{ currentUser.username }}
+                    </div>
                     <!--{{> atNavButton }}-->
                 </div>
             </div>
@@ -18,27 +20,37 @@
             <div class="ui segments-container">
                 <!--<div class="ui divider"></div>-->
                 <div class="ui vertical segment">
-                    <h2><a class="js-home" href="{{ pathFor 'pages_startpage' }}">{{_ 'home' }}</a></h2>
+                    <h2>
+                    <a class="js-home" href="{{ pathFor 'pages_startpage' }}">
+                        {{_ 'home' }}
+                    </a></h2>
                 </div>
                 <div class="ui divider"></div>
                 {{# if currentUser }}
                 <div class="ui vertical segment">
-                    <h2><a class="js-navigation-link" href="{{ pathFor 'pages_vouchers' }}">{{_ 'my_vouchers' }}</a></h2>
+                    <h2>
+                    <a class="js-navigation-link" href="{{ pathFor 'pages_vouchers' }}">
+                        {{_ 'my_vouchers' }}
+                    </a></h2>
                 </div>
                 <div class="ui divider"></div>
                 {{/ if }}
                 <div class="ui vertical segment">
-                    <h2><a class="js-navigation-link" href="{{ pathFor 'pages_campaigns' }}">{{_ 'offers' }}</a></h2>
+                    <h2>
+                    <a class="js-navigation-link" href="{{ pathFor 'pages_campaigns' }}">
+                        {{_ 'offers_current' }}
+                    </a></h2>
                 </div>
                 <div class="ui divider"></div>
                 <!--<div class="ui vertical segment">-->
-                    <!--<h2><a class="js-navigation-link" href="{{ pathFor 'pages_how_it_works' }}">{{_ 'how_it_works' }}</a></h2>-->
+                <!--<h2><a class="js-navigation-link" href="{{ pathFor 'pages_how_it_works' }}">{{_ 'how_it_works' }}</a></h2>-->
                 <!--</div>-->
                 <!--<div class="ui divider"></div>-->
                 <!--<div class="ui vertical segment">-->
-                    <!--<h2><a  class="js-navigation-link" href="{{ pathFor 'pages_about_us' }}">{{_ 'about_us' }}</a></h2>-->
+                <!--<h2><a  class="js-navigation-link" href="{{ pathFor 'pages_about_us' }}">{{_ 'about_us' }}</a></h2>-->
                 <!--</div>-->
             </div>
+
             {{# if currentUser }}
             <div class="ui center aligned segment">
                 <div class="user-container">
@@ -47,10 +59,14 @@
                 </div>
             </div>
             {{/ if }}
+
             <div class="ui breadcrumb">
                 <!--<h3 class="section"><a class="js-navigation-link" href="{{ pathFor 'pages_privacy' }}">{{_ 'privacy' }}</a></h3>-->
                 <!--<div class="divider"> | </div>-->
-                <h3 class="active section"><a class="js-navigation-link"  href="http://restart.global/de/impressum" target="_blank">{{_ 'imprint' }}</a></h3>
+                <h3 class="active section">
+                <a class="js-navigation-link"  href="http://restart.global/de/impressum" target="_blank">
+                    {{_ 'imprint' }}
+                </a></h3>
             </div>
         </div>
     </div>

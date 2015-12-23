@@ -78,7 +78,9 @@
     "no_vouchers_found": "لا يوجد وصول شراء",
     "number": "عدد",
     "offer_count": "عدد العرض",
+    "offer": "عرض",
     "offers": "العروض الجارية",
+    "offers_current": "عروض الحالية",
     "offers_add": "إضافة عرض",
     "offers_edit": "تعديل العرض ",
     "offers_info_text": "قم هنا بإضافة عرض جديد",
@@ -115,6 +117,7 @@
     "title": "عنوان",
     "total": "الجملة",
     "update_voucher": "يمكنك هنا تعديل وصل الشراء",
+    "update_offer": "تحديث عرضا هنا.",
     "user": "المستخدم",
     "username": "اسم المستخدم",
     "users": "المستخدمين",
@@ -136,7 +139,7 @@
     "welcome": "مرحباً بك في تطبيق وصل شراء",
     "yes": "نعم",
     "zipcode": "الرمز البريدي",
-    "welcome_text": "h3>WELCOME to HiMate.org !</h3>\n<h3>مرحباً بك في تطبيق وصل شراء</h3>",
-    "welcome_text_step1": "<p>Choose your language</p>\n<p>قم بإختيار اللغة</p>",
-    "welcome_text_step2": "<p>After that</p>\n<p>بعد ذلك</p>"
+    "welcome_text": "<h3>WELCOME to HiMate.org!</h3> \n<h3>مرحباً بك في تطبيق وصل شراء</h3> ",
+    "welcome_text_step1": "<p>1. Wähle deine Sprache</p>\n<p>1. Choose your language</p>\n<p>قم بإختيار اللغة</p>",
+    "welcome_text_step2": "<p>2. Danach schau dir das an:</p>\n<p>2. After that check our:</p>\n<p>بعد ذلك</p>"
 }
