@@ -52,7 +52,19 @@ Meteor.methods({
         //})
 
         // action
-        return Waslchiraa.Collections.Campaigns.insert(doc);
+        var id = Waslchiraa.Collections.Campaigns.insert(doc);
+
+        // fix image ownership, if admin adds the image
+        if (Roles.userIsInRole(Meteor.userId(), ['admin']) && doc.imageId) {
+            Waslchiraa.Collections.Images.update(doc.imageId, {
+                $set: {
+                    userId: doc.userId
+                }
+            });
+        }
+
+        // return new id
+        return id;
     },
 
     /**
@@ -75,6 +87,7 @@ Meteor.methods({
             if (campaign.userId != Meteor.userId()) {
                 throw new Meteor.Error("not-authorized");
             }
+            doc.$set.userId = Meteor.userId();
         }
         else {
             throw new Meteor.Error("not-authorized");
@@ -98,6 +111,7 @@ Meteor.methods({
             "conditions.ar": Match.Optional(String),
             conditions: Match.Optional(Object),
             imageId: Match.Optional(String),
+            userId: Match.Optional(String),
             categoryId: String,
             published: Date,
             end: Match.Optional(Date),
@@ -110,7 +124,18 @@ Meteor.methods({
         });
 
         // save update
-        return Waslchiraa.Collections.Campaigns.update(id, doc);
+        var result = Waslchiraa.Collections.Campaigns.update(id, doc);
+
+        // fix image ownership, if admin adds the image
+        if (Roles.userIsInRole(Meteor.userId(), ['admin']) && doc.$set.imageId) {
+            Waslchiraa.Collections.Images.update(doc.$set.imageId, {
+                $set: {
+                    userId: doc.$set.userId
+                }
+            });
+        }
+
+        return result;
     },
 
     /**

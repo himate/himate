@@ -32,7 +32,7 @@ Router.route('/campaigns', {
     name: 'pages_campaigns',
     onBeforeAction: Router.adminRequired,
     waitOn: function() {
-        return [Meteor.subscribe('campaigns', l), Meteor.subscribe('categories', l)];
+        return [Meteor.subscribe('campaigns', l), Meteor.subscribe('categories', l), Meteor.subscribe('images', l)];
     }
 });
 
@@ -43,7 +43,7 @@ Router.route('/campaigns/add', {
     name: 'pages_campaigns_add',
     onBeforeAction: Router.adminRequired,
     waitOn: function() {
-        return [Meteor.subscribe('categories', l)];
+        return [Meteor.subscribe('categories', l), Meteor.subscribe('images', l)];
     }
 });
 
@@ -54,7 +54,7 @@ Router.route('/campaigns/:_id', {
     name: 'pages_campaigns_details',
     onBeforeAction: Router.adminRequired,
     waitOn: function() {
-        return [Meteor.subscribe('campaigns', l), Meteor.subscribe('categories', l)];
+        return [Meteor.subscribe('campaigns', l), Meteor.subscribe('categories', l), Meteor.subscribe('images', l)];
     }
 });
 
@@ -65,7 +65,7 @@ Router.route('/campaigns/:_id/edit', {
     name: 'pages_campaigns_edit',
     onBeforeAction: Router.adminRequired,
     waitOn: function() {
-        return [Meteor.subscribe('campaigns', l), Meteor.subscribe('categories', l)];
+        return [Meteor.subscribe('campaigns', l), Meteor.subscribe('categories', l), Meteor.subscribe('images', l)];
     }
 });
 

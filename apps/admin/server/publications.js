@@ -1,7 +1,7 @@
 /**
  * publish all campaigns
  */
-Meteor.publish('campaigns', function () {
+Meteor.publish('campaigns', function() {
 
     // security checks
     if (!Roles.userIsInRole(this.userId, 'admin')) {
@@ -10,7 +10,7 @@ Meteor.publish('campaigns', function () {
 
     // collect data
     var campaigns = Waslchiraa.Collections.Campaigns.find();
-    var merchantIds = campaigns.map(function (v) {
+    var merchantIds = campaigns.map(function(v) {
         return v.userId;
     });
 
@@ -28,14 +28,19 @@ Meteor.publish('campaigns', function () {
     return [campaigns, merchants];
 });
 
-Meteor.publish("vouchers", function (campaignId) {
-    return Waslchiraa.Collections.Vouchers.find({'campaignId': campaignId});
+/**
+ * publish all vouchers with the given <campaignId>
+ */
+Meteor.publish("vouchers", function(campaignId) {
+    return Waslchiraa.Collections.Vouchers.find({
+        'campaignId': campaignId
+    });
 });
 
 /**
  * publish all categories
  */
-Meteor.publish('categories', function () {
+Meteor.publish('categories', function() {
     if (!Roles.userIsInRole(this.userId, 'admin')) {
         return this.ready();
     }
@@ -45,9 +50,19 @@ Meteor.publish('categories', function () {
 /**
  * publish all users
  */
-Meteor.publish('users', function () {
+Meteor.publish('users', function() {
     if (!Roles.userIsInRole(this.userId, 'admin')) {
         return this.ready();
     }
     return Meteor.users.find();
+});
+
+/**
+ * publish all images
+ */
+Meteor.publish('images', function() {
+    if (!Roles.userIsInRole(this.userId, 'admin')) {
+        return this.ready();
+    }
+    return Waslchiraa.Collections.Images.find();
 });

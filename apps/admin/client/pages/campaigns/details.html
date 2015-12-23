@@ -2,43 +2,73 @@
     {{> partials_sub_menu active='campaigns' }}
 
     <div id="pages-campaigns-details" class="ui container">
-        <h1>{{_ 'offer' }}: {{ translateField item "title" }}</h1>
-
-        <div class="ui divider"></div>
-
-        {{# with getUser item.userId }}
-        <p>
-            <strong>{{_ 'from' }}</strong>: {{ username }}
-        </p>
-        {{/ with }}
-
-        <div class="ui image">
-            <img src="/images/wireframe/image.png">
+        <div class="header-navigation">
+            <h1>{{_ 'voucher' }} </h1>
+            <a class="back-chevron" href="{{ pathFor 'pages_campaigns' }}">
+                <i class="icon-arrow-left ico-left"></i>
+            </a>
         </div>
 
-        <div class="content">
-            <div class="meta">
-                <span class="valid">{{_ 'starts_at' }}: {{ item.published }}</span>
-                <br />
-                <span class="valid">{{_ 'valid_until' }}: {{ item.end }}</span>
+        <div class="ui voucher-details">
+            {{# with FS.GetFile 'waslchiraa_images' item.imageId }}
+            <div class="panel-details panel-image">
+                <img class="ui centered image" src="{{ this.url store='waslchiraa_thumbnails_x2' }}" alt="" />
             </div>
-            <div class="description">
-                <p class="ui image">
-                    {{ translateField item 'description' }}
+            {{/ with }}
+
+            <div class="panel-details">
+                <div class="ui right aligned grid">
+                    <div class="left aligned six wide column ">
+                        {{# with getCategory item.categoryId }}
+                        <h5>{{ title }}</h5>
+                        {{/ with }}
+                        <h2> {{ translateField item "title" }} </h2>
+                        {{# with getUser item.userId }}
+                        <h3 class="headline voucher-shop"> {{ username }} </h3>
+                        {{/ with }}
+                    </div>
+                    <div class="right floated aligned six wide column">
+                        <div class="headline voucher-description">
+                            <p class="description-headline">
+                                {{_ 'valid_until'}} <span class="description-text">{{formatDate item.end }}</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="voucher-address">
+                    <p>
+                        {{ item.street }} {{ item.number }}, {{ item.zipcode }} {{ item.city }}
+                        <a  href="{{getMapUrl item }}">
+                            {{_ 'check_on_maps'}}
+                        </a>
+                    </p>
+                </div>
+                <h2 class="short-description"> {{ translateField item "shortDescription" }} </h2>
+            </div>
+
+            <div class="panel-details">
+                <h5>{{_ 'description' }}</h5>
+                <p>
+                    {{ translateField item "description" }}
+                </p>
+            </div>
+
+            <div class="panel-details last">
+                <h5>{{_ 'conditions' }}</h5>
+                <p>
+                    {{_ 'conditions_content' }}
+                </p>
+
+                <h5>{{_ 'special conditions' }}</h5>
+                <p>
+                    {{ translateField item "conditions" }}
                 </p>
             </div>
         </div>
 
         <div class="ui bottom fixed menu">
-            <a class="item" href="{{ pathFor 'pages_campaigns' }}">
-                <i class="left chevron icon"></i>
-                {{_ 'back' }}
-            </a>
-
-            <a class="right item ui button" href="{{ pathFor 'pages_vouchers' _id=item._id }}">
-                <i class="flag icon"></i>
-                {{_ 'vouchers_list' }}
-            </a>
+            <a class="item" href="{{ pathFor 'pages_campaigns' }}"><i class="left chevron icon"></i>{{_ 'back' }}</a>
+            <a class="right item ui button" href="{{ pathFor 'pages_vouchers' _id=item._id }}"><i class="flag icon"></i>{{_ 'voucher_code_list' }}</a>
         </div>
     </div>
 </template>

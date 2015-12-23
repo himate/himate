@@ -39,3 +39,7 @@ meteorhacks:zones
 email
 wylio:mandrill
 
+cfs:standard-packages
+cfs:ui
+cfs:graphicsmagick
+shinn:autoform-file

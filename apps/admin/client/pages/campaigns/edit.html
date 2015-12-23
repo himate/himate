@@ -12,6 +12,8 @@
                 {{> afQuickField name='description' }}
                 {{> afQuickField name='conditions' }}
 
+                <h3 class="ui dividing header"> {{_ 'contact_data' }} </h3>
+
                 <div class="fields">
                     <div class="twelve wide field">
                         {{> afQuickField name='street' }}
@@ -31,6 +33,9 @@
                 </div>
 
                 {{> afQuickField name='country' }}
+
+                <h3 class="ui dividing header"> {{_ 'image' }} </h3>
+                {{> afQuickField name='imageId' }}
 
                 <h3 class="ui dividing header">{{_ 'relations' }}</h3>
                 {{> afQuickField name='userId' }}

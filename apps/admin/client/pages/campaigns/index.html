@@ -11,6 +11,9 @@
                         <tr>
                             <th width="10"></th>
                             <th>
+                                {{_ 'image' }}
+                            </th>
+                            <th>
                                 {{_ 'title' }}
                             </th>
                             <th>
@@ -41,8 +44,8 @@
                         {{> pages_campaigns_voucher }}
                         {{ else }}
                         <tr>
-                            <td colspan="4">
-                                {{_ 'no_campaigns_found' }}
+                            <td colspan="10">
+                                {{_ 'no_offers_found' }}
                             </td>
                         </tr>
                         {{/ each }}
@@ -75,6 +78,16 @@
                 <input type="checkbox">
                 <label></label>
             </div>
+        </td>
+
+        <td>
+            <a class="image" href="{{ pathFor 'pages_campaigns_details' }}">
+                {{# with FS.GetFile 'waslchiraa_images' imageId }}
+                <img src="{{ this.url store='waslchiraa_thumbnails' }}" alt="" />
+                {{ else }}
+                &nbsp;
+                {{/ with }}
+            </a>
         </td>
 
         <td>
