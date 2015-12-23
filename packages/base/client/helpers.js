@@ -95,7 +95,7 @@ Waslchiraa.Helpers.setLanguage = function(language) {
         amplify.store('language', language);
         TAPi18n.setLanguageAmplify(language).done(function() {
             T9n.setLanguage(language);
-            Meteor.call('set_default_language',language);
+            Meteor.call('set_default_language', language);
         }).fail(function(error) {
             console.log(error);
         });
@@ -205,8 +205,6 @@ Template.registerHelper('getUser', function(userId) {
 Template.registerHelper('currentUserEmail', function() {
     return Meteor.user().emails[0].address;
 });
-
-
 
 /**
  * @param {String} categoryId

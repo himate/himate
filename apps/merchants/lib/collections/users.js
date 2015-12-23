@@ -96,5 +96,10 @@ Meteor.users.attachSchema(new SimpleSchema({
         label: Waslchiraa.Helpers.i18nLabel('services'),
         optional: true,
         blackbox: true
+    },
+    lastLanguage: {
+        type: String,
+        defaultValue: "en",
+        optional: true
     }
 }));

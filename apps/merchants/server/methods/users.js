@@ -1,5 +1,5 @@
 /**
- * Waslchiraa.Collections.Campaigns
+ * server methods for Meteor.users
  */
 Meteor.methods({
 

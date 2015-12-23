@@ -1,10 +1,29 @@
+/**
+ * Users
+ */
 Meteor.methods({
-    "set_default_language":function(lang){
-        console.log(Meteor.user());
-        if(Meteor.user()){
+
+    /**
+     * save the currently selected language to user account, so we can send
+     * emails in his preferred language
+     *
+     * @param {Object} lang
+     */
+    "set_default_language": function(lang) {
+
+        // check user input
+        check(lang, String);
+
+        // action
+        if (Meteor.user()) {
             var user = Meteor.user();
-            console.log(user._id, lang);
-            Meteor.users.update({_id: user._id},{$set:{lastLanguage:lang}});
+            Meteor.users.update({
+                _id: user._id
+            }, {
+                $set: {
+                    lastLanguage: lang
+                }
+            });
         }
     }
 });
