@@ -1,0 +1,63 @@
+<template name="pages_users_add">
+    <div id="pages-users-add" class="ui basic segment">
+        <div class="ui mobile reversed stackable grid">
+            <div class="twelve wide column">
+                <h2>{{_ 'users_add' }}</h2>
+
+                {{# autoForm collection='Meteor.users' id='users_add' type='method' meteormethod='users_add' }}
+
+                {{> afQuickField name='profile.company' }}
+                {{> afQuickField name='profile.salutation' }}
+                {{> afQuickField name='profile.firstName' }}
+                {{> afQuickField name='profile.lastName' }}
+                <div class="fields">
+                    <div class="twelve wide field">
+                        {{> afQuickField name='profile.street' }}
+                    </div>
+                    <div class="four wide field">
+                        {{> afQuickField name='profile.number' }}
+                    </div>
+                </div>
+
+                <div class="fields">
+                    <div class="five wide field">
+                        {{> afQuickField name='profile.zipcode' }}
+                    </div>
+                    <div class="eleven wide field">
+                        {{> afQuickField name='profile.city' }}
+                    </div>
+                </div>
+
+                {{> afQuickField name='profile.country' }}
+                {{> afQuickField name='profile.tel' }}
+
+                <h3 class="ui dividing header">{{_ 'access__control' }}</h3>
+                {{> afQuickField name='roles' options='allowed' }}
+
+                <div class="ui divider"></div>
+                {{> afQuickField name='password' }}
+                {{> afQuickField name='password2' }}
+
+                <div class="ui bottom fixed actions menu">
+                    <a class="item" href="{{ pathFor 'pages_users' }}">
+                        <i class="chevron left icon"></i>
+                        {{_ 'back' }}
+                    </a>
+                    <button type="submit" class="right item">
+                        <i class="save icon"></i>
+                        {{_ 'submit' }}
+                    </button>
+                </div>
+
+                {{/autoForm}}
+            </div>
+
+            <div class="four wide column">
+                <h2>{{_ 'Info' }}</h2>
+                <p>
+                    {{_ 'users_add_info' }}
+                </p>
+            </div>
+        </div>
+    </div>
+</template>

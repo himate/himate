@@ -1,7 +1,5 @@
-// ----- private helper --------------------------------------------------------
 var l = Waslchiraa.Helpers.subscriptionLogger;
 
-// ----- routes ----------------------------------------------------------------
 /**
  * homepage
  */
@@ -9,6 +7,7 @@ Router.route('/', {
     name: 'pages_startpage'
 });
 
+// ----- users ----------------------------------------------------------------
 /**
  * users
  */
@@ -20,19 +19,20 @@ Router.route('/users', {
 /**
  * users > add
  */
-//Router.route('/users/add', {
-//    name: 'pages_users_add',
-//    onBeforeAction: Router.adminRequired
-//});
-
-/**
- * user > details
- */
-Router.route('/users/:_id', {
-    name: 'pages_users_details',
+Router.route('/users/add', {
+    name: 'pages_users_add',
     onBeforeAction: Router.adminRequired
 });
 
+/**
+ * user > edit
+ */
+Router.route('/users/:_id', {
+    name: 'pages_users_edit',
+    onBeforeAction: Router.adminRequired
+});
+
+// ----- campaigns -------------------------------------------------------------
 /**
  * campaigns
  */
@@ -45,7 +45,7 @@ Router.route('/campaigns', {
 });
 
 /**
- * campaigns add
+ * campaigns > add
  */
 Router.route('/campaigns/add', {
     name: 'pages_campaigns_add',
@@ -56,7 +56,7 @@ Router.route('/campaigns/add', {
 });
 
 /**
- * voucher details
+ * campaigns > details
  */
 Router.route('/campaigns/:_id', {
     name: 'pages_campaigns_details',
@@ -67,7 +67,7 @@ Router.route('/campaigns/:_id', {
 });
 
 /**
- * voucher details
+ * campaigns > edit
  */
 Router.route('/campaigns/:_id/edit', {
     name: 'pages_campaigns_edit',
@@ -78,7 +78,7 @@ Router.route('/campaigns/:_id/edit', {
 });
 
 /**
- * voucher codes
+ * campaigns > voucher codes
  */
 Router.route('/campaigns_codes/:_id', {
     name: 'pages_vouchers',
@@ -88,6 +88,7 @@ Router.route('/campaigns_codes/:_id', {
     }
 });
 
+// ----- categories ------------------------------------------------------------
 /**
  * categories
  */
@@ -123,6 +124,17 @@ Router.route('/categories/:_id/edit', {
  */
 Router.route('/imprint', {
     name: 'pages_imprint'
+});
+
+/**
+ * monitoring
+ */
+Router.route('/monitoring', {
+    name: 'pages_monitoring',
+    onBeforeAction: Router.adminRequired,
+    waitOn: function() {
+        return [Meteor.subscribe('activities', l)];
+    }
 });
 
 /**

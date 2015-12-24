@@ -31,6 +31,7 @@ Package.onUse(function(api) {
         'lib/schemas.js',
         'lib/helpers.js',
         'lib/collections/users.js',
+        'lib/collections/activities.js',
         'lib/collections/campaigns.js',
         'lib/collections/categories.js',
         'lib/collections/images.js',

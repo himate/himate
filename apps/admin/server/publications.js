@@ -66,3 +66,13 @@ Meteor.publish('images', function() {
     }
     return Waslchiraa.Collections.Images.find();
 });
+
+/**
+ * publish all activities
+ */
+Meteor.publish('activities', function() {
+    if (!Roles.userIsInRole(this.userId, 'admin')) {
+        return this.ready();
+    }
+    return Waslchiraa.Collections.Activities.find();
+});

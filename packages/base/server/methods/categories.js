@@ -24,7 +24,18 @@ Meteor.methods({
         });
 
         // action
-        return Waslchiraa.Collections.Categories.insert(doc);
+        var id = Waslchiraa.Collections.Categories.insert(doc);
+
+        Waslchiraa.Collections.Activities.insert({
+            username: Meteor.user().username,
+            userId: Meteor.userId(),
+            role: 'admin',
+            entryId: id,
+            route: 'pages_categories_edit',
+            action: 'categories_add'
+        });
+
+        return id;
     },
 
     /**
@@ -49,7 +60,18 @@ Meteor.methods({
         });
 
         // save update
-        return Waslchiraa.Collections.Categories.update(id, doc);
+        var result = Waslchiraa.Collections.Categories.update(id, doc);
+
+        Waslchiraa.Collections.Activities.insert({
+            username: Meteor.user().username,
+            userId: Meteor.userId(),
+            role: 'admin',
+            entryId: id,
+            route: 'pages_categories_edit',
+            action: 'categories_edit'
+        });
+
+        return result;
     },
 
     /**
@@ -73,6 +95,16 @@ Meteor.methods({
                 categoryId: id
             }).count() > 0) {
                 Waslchiraa.Collections.Categories.remove(category._id);
+
+                Waslchiraa.Collections.Activities.insert({
+                    username: Meteor.user().username,
+                    userId: Meteor.userId(),
+                    role: 'admin',
+                    entryId: id,
+                    route: '',
+                    action: 'categories_remove'
+                });
+
                 return "ok";
             }
             throw new Meteor.Error("has campaigns connected to it");

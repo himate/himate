@@ -1,0 +1,110 @@
+<template name="pages_monitoring">
+    {{> partials_sub_menu active='monitoring' }}
+
+    <div id="pages-monitoring" class="ui basic segment">
+        <div class="ui two column divided relaxed stackable grid">
+            <div class="row">
+                <!-- charts -->
+                <div class="four wide column">
+                    <h2>{{_ 'system' }}</h2>
+
+                    <div class="ui basic segment">
+                        <strong>Users</strong>
+                        <canvas id="chart-1"></canvas>
+
+                        <div class="ui divider"></div>
+
+                        <strong>CPU load</strong>
+                        <canvas id="chart-2"></canvas>
+
+                        <div class="ui divider"></div>
+
+                        <strong>Memory</strong>
+                        <canvas id="chart-3"></canvas>
+                    </div>
+                </div>
+
+                <!-- grids -->
+                <div class="twelve wide column">
+                    <h2>{{_ 'activities' }}</h2>
+
+                    <table class="ui compact celled definition table">
+                        <thead class="full-width">
+                            <tr class="top aligned">
+                                <th width="10"></th>
+                                <th width="150">
+                                    {{_ 'created' }}
+                                </th>
+                                <th>
+                                    {{_ 'user' }}
+                                </th>
+                                <th>
+                                    {{_ 'role' }}
+                                </th>
+                                <th>
+                                    {{_ 'action' }}
+                                </th>
+                                <th>
+                                    {{_ 'id' }}
+                                </th>
+                                <th>
+                                    &nbsp;
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{# each activities }}
+                            <tr class="top aligned">
+                                <td class="collapsing">
+                                    <div class="ui fitted checkbox">
+                                        <input type="checkbox">
+                                        <label></label>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    {{ formatDate created }}
+                                </td>
+
+                                <td>
+                                    <a href="{{ pathFor 'pages_users_edit' _id=userId }}">
+                                        {{ username }}
+                                    </a>
+                                </td>
+
+                                <td>
+                                    {{ role }}
+                                </td>
+
+                                <td>
+                                    {{ action }}
+                                </td>
+
+                                <td>
+                                    {{# if route }}
+                                    <a href="{{ pathFor route _id=entryId }}">
+                                        {{ entryId }}
+                                    </a>
+                                    {{ else }}
+                                    {{ entryId }}
+                                    {{/ if }}
+                                </td>
+
+                                <td width="10">
+                                    <a class="remove write" href="#" title="{{_ 'activities_remove' }}"><i class="trash icon"></i></a>
+                                </td>
+                            </tr>
+                            {{ else }}
+                            <tr>
+                                <td colspan="4">
+                                    {{_ 'no_activities_found' }}
+                                </td>
+                            </tr>
+                            {{/ each }}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div><!-- .stackable.grid -->
+    </div><!-- .basic.segment -->
+</template>

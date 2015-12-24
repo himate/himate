@@ -1,0 +1,31 @@
+<template name="pages_users_edit">
+    {{> partials_sub_menu active='users' }}
+
+    <div id="pages-users-edit" class="ui basic segment">
+        <div class="ui mobile reversed stackable grid">
+            <div class="twelve wide column">
+                <h2>{{_ 'users_edit' }}</h2>
+
+                TODO....
+
+                <div class="ui bottom fixed actions menu">
+                    <a class="item" href="{{ pathFor 'pages_users' }}">
+                        <i class="chevron left icon"></i>
+                        {{_ 'back' }}
+                    </a>
+                </div>
+            </div>
+
+            <div class="four wide column">
+                <h2>{{_ 'Info' }}</h2>
+                <p>
+                    To set a new password, enter it in plain text. Leave blank otherwise.
+                </p>
+
+                <p>
+                    If you set a new password, the user will be logged off immediately.
+                </p>
+            </div>
+        </div>
+    </div>
+</template>

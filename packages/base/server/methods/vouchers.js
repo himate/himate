@@ -46,13 +46,23 @@ Meteor.methods({
         }
         while (Waslchiraa.Collections.Campaigns.findOne({"code": code}));
 
-        Waslchiraa.Collections.Vouchers.insert({
+        var voucherId = Waslchiraa.Collections.Vouchers.insert({
             "code": code,
             "userId": this.userId,
             "campaignId": campaign._id
         });
 
-        Meteor.call('send_voucher_reservation_email',code);
+        Meteor.call('send_voucher_reservation_email', code);
+
+        Waslchiraa.Collections.Activities.insert({
+            username: Meteor.user().username,
+            userId: Meteor.userId(),
+            role: 'customer',
+            entryId: voucherId,
+            route: 'pages_vouchers',
+            action: 'vouchers_reserve'
+        });
+
         //var email = {
         //    to: Meteor.user().emails[0].address,
         //    from: TAPi18n.__('email_reserve_from'),
@@ -96,11 +106,11 @@ Meteor.methods({
 
         // check user input
         check(code, String);
-        var voucher = checkVoucher(code)
+        var voucher = checkVoucher(code);
         var campaign = getVoucherCampaign(voucher);
         return campaign;
     },
-    
+
     /**
      * @param {Object} code
      */
@@ -113,7 +123,7 @@ Meteor.methods({
 
         // check user input
         check(code, String);
-        var voucher = checkVoucher(code)
+        var voucher = checkVoucher(code);
         var campaign = getVoucherCampaign(voucher);
 
         Waslchiraa.Collections.Vouchers.update({
@@ -125,11 +135,23 @@ Meteor.methods({
             }
         });
 
+        Waslchiraa.Collections.Activities.insert({
+            username: Meteor.user().username,
+            userId: Meteor.userId(),
+            role: 'merchant',
+            entryId: voucher._id,
+            route: 'pages_vouchers',
+            action: 'vouchers_redeem'
+        });
+
         return true;
     }
 });
 
-var checkVoucher = function(code){
+/**
+ *
+ */
+var checkVoucher = function(code) {
     var voucher = Waslchiraa.Collections.Vouchers.findOne({
         code: code
     });
@@ -142,9 +164,13 @@ var checkVoucher = function(code){
         throw new Meteor.Error("already-redeemed");
     }
     return voucher;
-}
+};
 
-var getVoucherCampaign = function (voucher){
+/**
+ *
+ * @param {Object} voucher
+ */
+var getVoucherCampaign = function(voucher) {
     var campaign = Waslchiraa.Collections.Campaigns.findOne({
         userId: Meteor.userId(),
         _id: voucher.campaignId

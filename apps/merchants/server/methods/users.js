@@ -35,7 +35,18 @@ Meteor.methods({
         }));
 
         // save update
-        return Meteor.users.update(Meteor.userId(), doc);
+        var result = Meteor.users.update(Meteor.userId(), doc);
+
+        Waslchiraa.Collections.Activities.insert({
+            username: Meteor.user().username,
+            userId: Meteor.userId(),
+            entryId: Meteor.userId(),
+            role: (Meteor.user().roles ? Meteor.user().roles[0] : 'unknown'),
+            route: 'pages_users_edit',
+            action: 'users_update'
+        });
+
+        return result;
     }
 });
 
