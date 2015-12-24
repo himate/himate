@@ -18,7 +18,15 @@ Router.route('/users', {
 });
 
 /**
- * user details
+ * users > add
+ */
+//Router.route('/users/add', {
+//    name: 'pages_users_add',
+//    onBeforeAction: Router.adminRequired
+//});
+
+/**
+ * user > details
  */
 Router.route('/users/:_id', {
     name: 'pages_users_details',
@@ -81,7 +89,7 @@ Router.route('/campaigns_codes/:_id', {
 });
 
 /**
- * category details
+ * categories
  */
 Router.route('/categories', {
     name: 'pages_categories',
@@ -92,11 +100,22 @@ Router.route('/categories', {
 });
 
 /**
- * category details
+ * categories > add
  */
 Router.route('/categories/add', {
     name: 'pages_categories_add',
     onBeforeAction: Router.adminRequired
+});
+
+/**
+ * categories > edit
+ */
+Router.route('/categories/:_id/edit', {
+    name: 'pages_categories_edit',
+    onBeforeAction: Router.adminRequired,
+    waitOn: function() {
+        return [Meteor.subscribe('categories', l)];
+    }
 });
 
 /**

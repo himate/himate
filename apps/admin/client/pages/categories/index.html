@@ -15,7 +15,7 @@
                             <th>
                                 {{_ 'offer_count' }}
                             </th>
-                            <th>
+                            <th colspan="2">
                                 &nbsp;
                             </th>
                         </tr>
@@ -37,7 +37,10 @@
                                 {{ campaignCount }}
                             </td>
                             <td width="10">
-                                <a class="remove write remove-category" href="#" title="{{_ 'Remove' }}"><i class="trash icon"></i></a>
+                                <a class="write" href="{{ pathFor 'pages_categories_edit' }}" title="{{_ 'categories_edit' }}"><i class="pencil icon"></i></a>
+                            </td>
+                            <td width="10">
+                                <a class="remove write remove-category" href="#" title="{{_ 'categories_remove' }}"><i class="trash icon"></i></a>
                             </td>
                         </tr>
                         {{ else }}

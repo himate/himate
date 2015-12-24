@@ -1,12 +1,12 @@
-<template name="pages_categories_add">
+<template name="pages_categories_edit">
     {{> partials_sub_menu active='categories' }}
 
-    <div id="pages-categories-add" class="ui basic segment">
+    <div id="pages-categories-edit" class="ui basic segment">
         <div class="ui mobile reversed stackable grid">
             <div class="twelve wide column">
-                <h2>{{_ 'category' }}</h2>
+                <h2>{{_ 'categories_edit' }}</h2>
 
-                {{# autoForm collection='Waslchiraa.Collections.Categories' id='pages_categories_add' type='method' meteormethod='categories_add' }}
+                {{# autoForm collection='Waslchiraa.Collections.Categories' doc=category id='categories_edit' type='method-update' meteormethod='categories_edit' }}
 
                 {{> afQuickField name='title' }}
 
@@ -30,5 +30,5 @@
                 </p>
             </div>
         </div><!-- .grid -->
-    </div><!-- #pages-categories -->
+    </div><!-- #pages-categories-edit -->
 </template>

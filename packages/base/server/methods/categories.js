@@ -34,26 +34,12 @@ Meteor.methods({
             throw new Meteor.Error("not-authorized");
         }
 
-        // voucher should be owned by the current user
-        var voucher = Waslchiraa.Collections.Campaigns.findOne({
-            _id: id,
-            userId: Meteor.userId()
-        });
-        if (!voucher) {
-            throw new Meteor.Error("not-found");
-        }
-
         // check user input
         check(id, String);
         check(doc, Object);
         check(doc.$set, {
-            title: String,
-            categoryId: String,
-            description: Match.Optional(String)
+            title: String
         });
-        check(doc.$unset, Match.Optional({
-            description: String
-        }));
 
         // save update
         return Waslchiraa.Collections.Categories.update(id, doc);
