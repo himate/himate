@@ -30,15 +30,19 @@
                                     <label></label>
                                 </div>
                             </td>
+
                             <td>
-                                {{ title }}
+                                {{ translateField this "title" }}
                             </td>
+
                             <td>
                                 {{ campaignCount }}
                             </td>
+
                             <td width="10">
                                 <a class="write" href="{{ pathFor 'pages_categories_edit' }}" title="{{_ 'categories_edit' }}"><i class="pencil icon"></i></a>
                             </td>
+
                             <td width="10">
                                 <a class="remove write remove-category" href="#" title="{{_ 'categories_remove' }}"><i class="trash icon"></i></a>
                             </td>

@@ -315,9 +315,18 @@ Template.registerHelper('getMapUrl', function(campaign) {
  */
 Template.registerHelper('translateField', function(object, field) {
     var lang = TAPi18n.getLanguage();
+
+    // default behaviour
     if (object && object[field] && object[field][lang]) {
         return object[field][lang];
     }
+
+    // old field, or wrong usage, show field + "*" as hint!
+    if (object && object[field]) {
+        return object[field] + '*';
+    }
+
+    // fallback: do nothing
     return '';
 });
 

@@ -12,8 +12,8 @@ Template.pages_categories.helpers({
         var filter = {};
         var locale = TAPi18n.getLanguage();
         if (Session.get('query')) {
-            //filter["title." + locale] = new RegExp(Session.get('query'), "gi");
-            filter["title"] = new RegExp(Session.get('query'), "gi");
+            filter["title." + locale] = new RegExp(Session.get('query'), "gi");
+            //filter["title"] = new RegExp(Session.get('query'), "gi");
         }
 
         return Waslchiraa.Collections.Categories.find(filter);
@@ -36,10 +36,15 @@ Template.pages_categories.helpers({
 Template.pages_categories.events({
 
     /**
-     *
      * @param {Object} event
      */
     "click .remove-category": function(event) {
-        Meteor.call("categories_remove", this._id);
+        Meteor.call("categories_remove", this._id, function(err, response) {
+            if (err) {
+                Waslchiraa.Helpers.errorMessage(err.error);
+                return;
+            }
+            Waslchiraa.Helpers.infoMessage(response);
+        });
     }
 });

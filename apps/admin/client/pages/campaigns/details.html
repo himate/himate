@@ -20,7 +20,7 @@
                 <div class="ui right aligned grid">
                     <div class="left aligned six wide column ">
                         {{# with getCategory item.categoryId }}
-                        <h5>{{ title }}</h5>
+                        <h5>{{ translateField this "title" }}</h5>
                         {{/ with }}
                         <h2> {{ translateField item "title" }} </h2>
                         {{# with getUser item.userId }}

@@ -15,8 +15,13 @@ Meteor.methods({
         }
 
         // check user input
-        check(doc, Object);
-        check(doc.title, String);
+        check(doc, {
+            title: {
+                de: String,
+                en: String,
+                ar: String
+            }
+        });
 
         // action
         return Waslchiraa.Collections.Categories.insert(doc);
@@ -38,7 +43,9 @@ Meteor.methods({
         check(id, String);
         check(doc, Object);
         check(doc.$set, {
-            title: String
+            "title.de": String,
+            "title.en": String,
+            "title.ar": String
         });
 
         // save update
@@ -58,6 +65,7 @@ Meteor.methods({
             throw new Meteor.Error("not-authorized");
         }
 
+        // action
         var category = Waslchiraa.Collections.Categories.findOne(id);
         if (category) {
             //if it already has campaigns dont allow the remove

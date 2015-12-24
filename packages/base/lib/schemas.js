@@ -1,21 +1,21 @@
 /**
  * some generic schemas for translated db fields
- * 
+ *
  * @todo auto generate schemas based on available languages (TAPi18n.getLanguages())
  */
 Waslchiraa.Schemas.TranslationSchemaOptional = new SimpleSchema({
     de: {
         type: String,
-        optional: true,
+        optional: true
     },
     en: {
         type: String,
-        optional: true,
+        optional: true
     },
     ar: {
         type: String,
-        optional: true,
-    },
+        optional: true
+    }
 
 });
 
@@ -51,13 +51,13 @@ Waslchiraa.Schemas.TranslationSchemaOptionalTextarea = new SimpleSchema({
  */
 Waslchiraa.Schemas.TranslationSchema = new SimpleSchema({
     de: {
-        type: String,
+        type: String
     },
     en: {
-        type: String,
+        type: String
     },
     ar: {
-        type: String,
+        type: String
     }
 });
 

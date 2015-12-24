@@ -8,7 +8,7 @@
             <div class="js-category-item category item ui middle segment">
                 <h2 class="headline item-title"> {{_ 'categories' }}: </h2>
                 <p class="headline category-title">
-                    {{# with category }}{{ category.title }}{{ else }}{{_ 'all' }}{{/ with }}
+                    {{# with category }}{{ translateField category "title" }}{{ else }}{{_ 'all' }}{{/ with }}
                     <span>({{ countCampaigns category }})</span>
                 </p>
                 <i class="icon-arrow-right ico-right"></i>

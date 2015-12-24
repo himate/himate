@@ -17,7 +17,8 @@ Waslchiraa.Schemas.Category = new SimpleSchema({
         }
     },
     title: {
-        type: String
+        type: Waslchiraa.Schemas.TranslationSchema,
+        label: Waslchiraa.Helpers.i18nLabel("title")
     }
 });
 

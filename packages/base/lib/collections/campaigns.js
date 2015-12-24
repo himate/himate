@@ -66,7 +66,7 @@ Waslchiraa.Schemas.Campaign = new SimpleSchema({
                     }
                 }).fetch().forEach(function(element) {
                     options.push({
-                        label: element.title,
+                        label: element.title[TAPi18n.getLanguage()],
                         value: element._id
                     });
                 });

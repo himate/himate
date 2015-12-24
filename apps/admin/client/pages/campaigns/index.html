@@ -101,7 +101,7 @@
         </td>
 
         <td>
-            {{# with getCategory categoryId }}{{ title }}{{/ with }}
+            {{# with getCategory categoryId }}{{ translateField this "title" }}{{/ with }}
         </td>
 
         <td>
@@ -119,6 +119,7 @@
         <td>
             {{ quantity }} {{# with getVouchers campaignId }} / {{ reserved.length }} / {{ redeemed.length }} {{/ with }}
         </td>
+
         {{# unless hideEdit }}
         <td width="10">
             <a class="edit write" href="{{ pathFor 'pages_campaigns_edit' }}" title="{{_ 'campaigns_edit' }}"><i class="pencil icon"></i></a>
