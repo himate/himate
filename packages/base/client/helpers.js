@@ -63,6 +63,20 @@ Waslchiraa.Helpers.cancel = function(event) {
 };
 
 /**
+ * default handler for method calls (show errors/server response as message)
+ *
+ * @param {Object} err
+ * @param {String} response
+ */
+Waslchiraa.Helpers.onAfterMethodCall = function(err, response) {
+    if (err) {
+        Waslchiraa.Helpers.errorMessage(err.error);
+        return;
+    }
+    Waslchiraa.Helpers.infoMessage(response);
+};
+
+/**
  * set localization to users default browser language. Uses "en" as fallback.
  */
 Waslchiraa.Helpers.setDefaultLanguage = function() {

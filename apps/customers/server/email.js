@@ -15,7 +15,7 @@ Meteor.startup(function() {
                 var mailTo = Meteor.user().emails[0].address;
                 var lang = 'en';
                 if(Meteor.user().lastLanguage && Meteor.user().lastLanguage.length){
-                    lang = Meteor.user().lastLanguage
+                    lang = Meteor.user().lastLanguage;
                 }
 
                 var message = {
@@ -66,7 +66,7 @@ Meteor.startup(function() {
         var result;
         var lang = 'en';
         if(user.lastLanguage && user.lastLanguage.length){
-            lang = user.lastLanguage
+            lang = user.lastLanguage;
         }
         try {
             result = Mandrill.templates.render({
@@ -109,7 +109,7 @@ Meteor.startup(function() {
         var result;
         var lang = 'en';
         if(user.lastLanguage && user.lastLanguage.length){
-            lang = user.lastLanguage
+            lang = user.lastLanguage;
         }
         try {
             result = Mandrill.templates.render({

@@ -63,6 +63,15 @@ Meteor.methods({
             });
         }
 
+        Waslchiraa.Collections.Activities.insert({
+            username: Meteor.user().username,
+            userId: Meteor.userId(),
+            entryId: id,
+            role: (Meteor.user().roles ? Meteor.user().roles[0] : 'unknown'),
+            route: 'pages_campaigns_edit',
+            action: 'campaigns_add'
+        });
+
         // return new id
         return id;
     },
@@ -135,6 +144,15 @@ Meteor.methods({
             });
         }
 
+        Waslchiraa.Collections.Activities.insert({
+            username: Meteor.user().username,
+            userId: Meteor.userId(),
+            entryId: id,
+            role: (Meteor.user().roles ? Meteor.user().roles[0] : 'unknown'),
+            route: 'pages_campaigns_edit',
+            action: 'campaigns_edit'
+        });
+
         return result;
     },
 
@@ -167,6 +185,15 @@ Meteor.methods({
         // :TODO: perhaps we should flag as "deleted" instead?
         Waslchiraa.Collections.Images.remove(campaign.imageId);
         Waslchiraa.Collections.Campaigns.remove(campaign._id);
+
+        Waslchiraa.Collections.Activities.insert({
+            username: Meteor.user().username,
+            userId: Meteor.userId(),
+            entryId: id,
+            role: (Meteor.user().roles ? Meteor.user().roles[0] : 'unknown'),
+            route: '',
+            action: 'campaigns_remove'
+        });
 
         return "ok";
 

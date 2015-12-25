@@ -35,6 +35,10 @@ Waslchiraa.Schemas.Activity = new SimpleSchema({
         optional: true,
         index: 1
     },
+    code:  {
+        type: String,
+        optional: true
+    },
     route: {
         type: String,
         optional: true,

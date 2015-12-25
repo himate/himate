@@ -58,7 +58,8 @@ Meteor.methods({
             username: Meteor.user().username,
             userId: Meteor.userId(),
             role: 'customer',
-            entryId: voucherId,
+            entryId: campaign._id,
+            code: code,
             route: 'pages_vouchers',
             action: 'vouchers_reserve'
         });
@@ -99,6 +100,8 @@ Meteor.methods({
      * @param {Object} code
      */
     'vouchers_get_campaign': function(code) {
+        // :TODO: refactor to pub/sub!
+
         // security checks
         if (!Roles.userIsInRole(Meteor.userId(), ['merchant'])) {
             throw new Meteor.Error("not-authorized");
@@ -139,7 +142,8 @@ Meteor.methods({
             username: Meteor.user().username,
             userId: Meteor.userId(),
             role: 'merchant',
-            entryId: voucher._id,
+            entryId: voucher.campaignId,
+            code: voucher.code,
             route: 'pages_vouchers',
             action: 'vouchers_redeem'
         });
