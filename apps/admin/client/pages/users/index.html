@@ -1,5 +1,5 @@
 <template name="pages_users">
-    {{> partials_sub_menu active='users' search='username' }}
+    {{> partials_sub_menu active='users' search='email' }}
 
     <div id="pages-users" class="ui basic segment">
         <div class="ui mobile reversed stackable grid">
@@ -13,7 +13,7 @@
                             <th >
                                 {{_ 'email' }}
                             </th>
-                            <th width="130">
+                            <th width="180">
                                 {{_ 'verified_email' }}
                             </th>
                             <th width="80">
@@ -43,7 +43,7 @@
                             </td>
 
                             <td>
-                                <i class="toggle verified {{# if checkVerifiedEmail this }}green check mark{{ else }}red remove{{/ if }} icon"></i>
+                                <i class="{{# if checkVerifiedEmail this }}check mark{{ else }}remove{{/ if }} icon"></i>
                             </td>
 
                             <td>
@@ -51,7 +51,9 @@
                             </td>
 
                             <td>
-                                <i class="toggle disable {{# unless disabled }}green check mark{{ else }}red remove{{/ unless }} icon"></i>
+                                <a title="{{_ 'users_toggle_disabled' }}" class="toggle state" href="#">
+                                    <i class="{{# unless disabled }}green check mark{{ else }}red remove{{/ unless }} icon"></i>
+                                </a>
                             </td>
 
                             <td width="10">

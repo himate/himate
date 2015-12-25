@@ -41,5 +41,15 @@ Template.pages_users.events({
             Meteor.call("users_remove", this._id, Waslchiraa.Helpers.onAfterMethodCall);
         }
         return Waslchiraa.Helpers.cancel(event);
+    },
+
+    /**
+     * @param {Object} event
+     */
+    "click .toggle.state": function(event) {
+        if (confirm('Toggle account state for "' + this.username + '"?')) {
+            Meteor.call("users_toggle_disabled", this._id, Waslchiraa.Helpers.onAfterMethodCall);
+        }
+        return Waslchiraa.Helpers.cancel(event);
     }
 });

@@ -10,7 +10,7 @@ Meteor.methods({
     "users_add": function(doc) {
 
         // security check
-        if (!Roles.userIsInRole(this.userId, 'admin')) {
+        if (!Roles.userIsInRole(Meteor.userId(), 'admin')) {
             throw new Meteor.Error("not-authorized");
         }
     },
@@ -21,7 +21,7 @@ Meteor.methods({
     "users_remove": function(id) {
 
         // security check
-        if (!Roles.userIsInRole(this.userId, 'admin')) {
+        if (!Roles.userIsInRole(Meteor.userId(), 'admin')) {
             throw new Meteor.Error("not-authorized");
         }
 
@@ -43,5 +43,76 @@ Meteor.methods({
         });
 
         return result;
+    },
+
+    /**
+     * @param {String} id
+     */
+    "users_toggle_disabled": function(id) {
+
+        // security check
+        if (!Roles.userIsInRole(Meteor.userId(), 'admin')) {
+            throw new Meteor.Error("not-authorized");
+        }
+
+        // cannot disable own account
+        if (id == Meteor.userId()) {
+            throw new Meteor.Error("not-authorized");
+        }
+
+        // action
+        var user = Meteor.users.findOne(id);
+        if (!user) {
+            throw new Meteor.Error("not-found");
+        }
+
+        // toggle disabled
+        if (!user.disabled) {
+
+            // disable account
+            Meteor.users.update({
+                _id: id
+            }, {
+                $set: {
+                    'disabled': true
+                }
+            });
+
+            // Logout user
+            Meteor.users.update(id, {
+                $set: {
+                    "services.resume.loginTokens": []
+                }
+            });
+
+            Waslchiraa.Collections.Activities.insert({
+                username: Meteor.user().username,
+                userId: Meteor.userId(),
+                entryId: id,
+                role: 'admin',
+                route: 'pages_users_edit',
+                action: 'users_disable'
+            });
+
+            return "ok";
+        }
+
+        // reactivate account
+        Meteor.users.update(id, {
+            $set: {
+                'disabled': false
+            }
+        });
+
+        Waslchiraa.Collections.Activities.insert({
+            username: Meteor.user().username,
+            userId: Meteor.userId(),
+            entryId: id,
+            role: 'admin',
+            route: 'pages_users_edit',
+            action: 'users_enable'
+        });
+
+        return "ok";
     }
 });
