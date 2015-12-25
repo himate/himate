@@ -101,5 +101,9 @@ Meteor.users.attachSchema(new SimpleSchema({
         type: String,
         defaultValue: "en",
         optional: true
+    },
+    disabled: {
+        type: Boolean,
+        defaultValue: false
     }
 }));

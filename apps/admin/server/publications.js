@@ -54,7 +54,18 @@ Meteor.publish('users', function() {
     if (!Roles.userIsInRole(this.userId, 'admin')) {
         return this.ready();
     }
-    return Meteor.users.find();
+
+    return Meteor.users.find({}, {
+        fields: {
+            username: 1,
+            roles: 1,
+            createdAt: 1,
+            "profile.firstName": 1,
+            "profile.lastName": 1,
+            emails: 1,
+            disabled: 1
+        }
+    });
 });
 
 /**
