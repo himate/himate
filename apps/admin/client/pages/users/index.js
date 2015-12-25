@@ -19,11 +19,27 @@ Template.pages_users.helpers({
     /**
      *
      */
-    firstEmail: function(user) {
+    checkVerifiedEmail: function(user) {
         if (user.emails && user.emails[0]) {
-            return user.emails[0].address;
+            return user.emails[0].verified;
         }
-        return "";
+        return false;
     }
 });
 
+// ----- template events -------------------------------------------------------
+/**
+ *
+ */
+Template.pages_users.events({
+
+    /**
+     * @param {Object} event
+     */
+    "click .remove-user": function(event) {
+        if (confirm('Delete User "' + this.username + '"?')) {
+            Meteor.call("users_remove", this._id, Waslchiraa.Helpers.onAfterMethodCall);
+        }
+        return Waslchiraa.Helpers.cancel(event);
+    }
+});

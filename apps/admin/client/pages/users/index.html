@@ -8,16 +8,19 @@
 
                 <table class="ui compact celled definition table">
                     <thead class="full-width">
-                        <tr>
+                        <tr class="top aligned">
                             <th width="10"></th>
-                            <th>
-                                {{_ 'username' }}
-                            </th>
-                            <th>
+                            <th >
                                 {{_ 'email' }}
                             </th>
-                            <th>
+                            <th width="130">
+                                {{_ 'verified_email' }}
+                            </th>
+                            <th width="80">
                                 {{_ 'roles' }}
+                            </th>
+                            <th width="60">
+                                {{_ 'active' }}
                             </th>
                             <th>
                                 &nbsp;
@@ -40,15 +43,19 @@
                             </td>
 
                             <td>
-                                {{ firstEmail this }}
+                                <i class="toggle verified {{# if checkVerifiedEmail this }}green check mark{{ else }}red remove{{/ if }} icon"></i>
                             </td>
 
                             <td>
                                 {{ roles }}
                             </td>
 
+                            <td>
+                                <i class="toggle disable {{# unless disabled }}green check mark{{ else }}red remove{{/ unless }} icon"></i>
+                            </td>
+
                             <td width="10">
-                                <a class="remove write" href="#" title="{{_ 'users_remove' }}"><i class="trash icon"></i></a>
+                                <a class="remove-user write" href="#" title="{{_ 'users_remove' }}"><i class="trash icon"></i></a>
                             </td>
                         </tr>
                         {{ else }}

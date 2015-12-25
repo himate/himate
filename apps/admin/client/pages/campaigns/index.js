@@ -30,7 +30,7 @@ Template.pages_campaigns.events({
     'click table .remove': function(event) {
         // :TODO: use semantic ui dialog & translate
         if (confirm('Delete Voucher "' + this.title + '"?')) {
-            Meteor.call('campaigns_remove', this._id);
+            Meteor.call('campaigns_remove', this._id, Waslchiraa.Helpers.onAfterMethodCall);
         }
         return Waslchiraa.Helpers.cancel(event);
     }
