@@ -32,6 +32,11 @@ var parser = parse({
     columns.forEach(function(value, index) {
         if (index > 0) {
             targets.forEach(function(target) {
+                // omit google translate column
+                if (value.length > 2)
+                    return;
+
+                // write i18n file
                 var filename = value + '.i18n.json';
                 console.log('copying ' + filename + ' to ' + target);
                 fs.writeFile(target + filename, JSON.stringify(locales[value], null, 4));
@@ -40,4 +45,4 @@ var parser = parse({
     });
 });
 
-request(inputFile).pipe(parser); 
+request(inputFile).pipe(parser);

@@ -149,5 +149,8 @@
     "system": "نظام",
     "no_activities_found": "لم يتم العثور على الأنشطة",
     "action": "إجراء",
-    "role": "دور"
+    "role": "دور",
+    "active": "نشط",
+    "double_opt_in": "مزدوج التقيد في",
+    "verified_email": "البريد الإلكتروني التحقق"
 }

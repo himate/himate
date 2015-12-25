@@ -149,5 +149,8 @@
     "system": "System",
     "no_activities_found": "Keine Aktivitäten aufgezeichnet",
     "action": "Aktion",
-    "role": "Rolle"
+    "role": "Rolle",
+    "active": "Aktiv",
+    "double_opt_in": "Double Opt-In",
+    "verified_email": "Geprüfte Emailadresse"
 }
