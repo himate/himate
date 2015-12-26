@@ -46,7 +46,6 @@ Waslchiraa.Collections.Reports.attachSchema(Waslchiraa.Schemas.Report);
 
 // ----- public methods --------------------------------------------------------
 Waslchiraa.Collections.Reports.collectData = function() {
-    //console.log('Waslchiraa.Collections.Reports.collectData()', this);
 
     // collect data
     var report = {};
@@ -56,13 +55,13 @@ Waslchiraa.Collections.Reports.collectData = function() {
 
     report.vouchers = {};
     report.campaigns = {};
+    Waslchiraa.Collections.Reports.insert(report);
     //console.log(report);
 
-    Waslchiraa.Collections.Reports.insert(report);
-
     // remove old entries
+    var mins = 20;
     var now = new Date();
-    var toOld = new Date(now.getTime() - 20 * 60 * 1000); // 20 mins
+    var toOld = new Date(now.getTime() - mins * 60 * 1000);
     Waslchiraa.Collections.Reports.remove({
         created: {
             $lt: toOld
@@ -72,5 +71,5 @@ Waslchiraa.Collections.Reports.collectData = function() {
     // restart in 60 seconds
     Meteor.setTimeout(function() {
         Waslchiraa.Collections.Reports.collectData();
-    }, 60 * 1000);
+    }, 30 * 1000);
 };

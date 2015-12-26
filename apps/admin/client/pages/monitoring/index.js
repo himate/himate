@@ -1,3 +1,53 @@
+// ----- private helpers -------------------------------------------------------
+
+/**
+ *
+ */
+var observer = null;
+
+/**
+ * @param {Array} reports
+ */
+var updateUserChart = function() {
+
+    if ($('#chart-1').length) {
+        var labels = [];
+        var values = [];
+        var reports = Waslchiraa.Collections.Reports.find({}, {
+            sort: {
+                created: -1
+            },
+            limit: 10
+        }).forEach(function(elem, idx) {
+            labels.push(moment(elem.created).format('HH:mm'));
+            values.push(elem.activeUsers);
+        });
+
+        labels = labels.reverse();
+        values = values.reverse();
+
+        var ctx = document.getElementById("chart-1").getContext("2d");
+        var data = {
+            labels: labels,
+            datasets: [{
+                label: "Active Users",
+                fillColor: "rgba(151,187,205,0.2)",
+                strokeColor: "rgba(151,187,205,1)",
+                pointColor: "rgba(151,187,205,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(220,220,220,1)",
+                data: values
+            }]
+        };
+        var myLineChart = new Chart(ctx).Line(data, {
+            responsive: true,
+            animation: false,
+            scaleBeginAtZero: true
+        });
+    }
+};
+
 // ----- template helpers ------------------------------------------------------
 /**
  *
@@ -51,38 +101,17 @@ Template.pages_monitoring.events({
  */
 Template.pages_monitoring.onRendered(function() {
 
-    Meteor.defer(function() {
-
-        /**
-         * first chart
-         */
-        var ctx = document.getElementById("chart-1").getContext("2d");
-        var data = {
-            labels: ["06:00", "08:00", "10:00", "12:00", "14:00", "16:00", "18:00"],
-            datasets: [{
-                label: "Concurrent Users",
-                fillColor: "rgba(220,220,220,0.2)",
-                strokeColor: "rgba(220,220,220,1)",
-                pointColor: "rgba(220,220,220,1)",
-                pointStrokeColor: "#fff",
-                pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(220,220,220,1)",
-                data: [65, 59, 80, 81, 56, 55, 40]
-            }, {
-                label: "Connections",
-                fillColor: "rgba(151,187,205,0.2)",
-                strokeColor: "rgba(151,187,205,1)",
-                pointColor: "rgba(151,187,205,1)",
-                pointStrokeColor: "#fff",
-                pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(151,187,205,1)",
-                data: [28, 48, 40, 19, 86, 27, 90]
-            }]
-        };
-        var myLineChart = new Chart(ctx).Line(data, {
-            responsive: true
+    // check for updates from other users
+    Meteor.setTimeout(function() {
+        observer = Waslchiraa.Collections.Reports.find().observe({
+            added: updateUserChart,
+            changed: updateUserChart,
+            removed: updateUserChart
         });
+        updateUserChart();
+    }, 1000);
 
+    Meteor.defer(function() {
         // chart 2
         ctx = document.getElementById("chart-2").getContext("2d");
         data = {
@@ -121,4 +150,13 @@ Template.pages_monitoring.onRendered(function() {
             responsive: true
         });
     });
+});
+
+/**
+ *
+ */
+Template.pages_monitoring.onDestroyed(function() {
+    // stop the observer
+    observer.stop();
+    observer = null;
 });
