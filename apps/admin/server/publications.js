@@ -63,7 +63,8 @@ Meteor.publish('users', function() {
             "profile.firstName": 1,
             "profile.lastName": 1,
             emails: 1,
-            disabled: 1
+            disabled: 1,
+            status: 1
         }
     });
 });
@@ -86,4 +87,14 @@ Meteor.publish('activities', function() {
         return this.ready();
     }
     return Waslchiraa.Collections.Activities.find();
+});
+
+/**
+ * publish all reports
+ */
+Meteor.publish('reports', function() {
+    if (!Roles.userIsInRole(this.userId, 'admin')) {
+        return this.ready();
+    }
+    return Waslchiraa.Collections.Reports.find();
 });

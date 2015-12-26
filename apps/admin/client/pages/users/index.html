@@ -10,19 +10,25 @@
                     <thead class="full-width">
                         <tr class="top aligned">
                             <th width="10"></th>
-                            <th >
+                            <th>
                                 {{_ 'email' }}
                             </th>
-                            <th width="180">
-                                {{_ 'verified_email' }}
-                            </th>
-                            <th width="80">
-                                {{_ 'roles' }}
-                            </th>
-                            <th width="60">
-                                {{_ 'active' }}
+                            <th>
+                                {{_ 'role' }}
                             </th>
                             <th>
+                                {{_ 'last_login' }}
+                            </th>
+                            <th>
+                                {{_ 'online' }}
+                            </th>
+                            <th>
+                                {{_ 'verified_email' }}
+                            </th>
+                            <th width="10">
+                                {{_ 'active' }}
+                            </th>
+                            <th width="10">
                                 &nbsp;
                             </th>
                         </tr>
@@ -30,7 +36,7 @@
 
                     <tbody>
                         {{# each users }}
-                        <tr>
+                        <tr class="top aligned">
                             <td class="collapsing">
                                 <div class="ui fitted checkbox">
                                     <input type="checkbox">
@@ -43,11 +49,19 @@
                             </td>
 
                             <td>
-                                <i class="{{# if checkVerifiedEmail this }}check mark{{ else }}remove{{/ if }} icon"></i>
+                                {{ roles }}
                             </td>
 
                             <td>
-                                {{ roles }}
+                                {{ formatDate status.lastLogin.date 'DD.MM.YYYY HH:mm' }}
+                            </td>
+
+                            <td>
+                                <i class="{{# if status.online }}grey check mark{{ else }}grey remove{{/ if }} icon"></i>
+                            </td>
+
+                            <td>
+                                <i class="{{# if checkVerifiedEmail this }}grey check mark{{ else }}grey remove{{/ if }} icon"></i>
                             </td>
 
                             <td>

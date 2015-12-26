@@ -133,7 +133,7 @@ Router.route('/monitoring', {
     name: 'pages_monitoring',
     onBeforeAction: Router.adminRequired,
     waitOn: function() {
-        return [Meteor.subscribe('activities', l)];
+        return [Meteor.subscribe('activities', l), Meteor.subscribe('reports')];
     }
 });
 

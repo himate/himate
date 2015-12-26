@@ -152,5 +152,7 @@
     "role": "Role",
     "active": "Active",
     "double_opt_in": "Double Opt-In",
-    "verified_email": "Verified Email"
+    "verified_email": "Verified Email",
+    "online": "Online",
+    "last_login": "Last Login"
 }

@@ -86,6 +86,11 @@ Meteor.users.attachSchema(new SimpleSchema({
         label: Waslchiraa.Helpers.i18nLabel('created'),
         optional: true,
     },
+    status: {
+        type: Object,
+        blackbox: true,
+        optional: true
+    },
     profile: {
         type: UserProfileSchema,
         label: Waslchiraa.Helpers.i18nLabel('profile'),

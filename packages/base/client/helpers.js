@@ -251,11 +251,20 @@ Template.registerHelper('countCampaigns', function(category) {
  * @return {String} formatted date
  * @reactive
  */
-Template.registerHelper('formatDate', function(date) {
+Template.registerHelper('formatDate', function(date, format) {
+
+    // Spacebars.kw: if <format.hash> is present, then formatDate was called
+    // without second parameter (<format>)...
+    // So fall back to default format ('LL')
+    // @see: http://stackoverflow.com/questions/27755891/meteor-what-is-spacebars-kw-hash-object
+    if (format && format.hash) {
+        format = 'LL';
+    }
+
     if (date) {
         // :TODO: enable locale support for momentjs
         //return moment(date).locale(TAPi18n.getLanguage()).format('LL');
-        return moment(date).format('LL');
+        return moment(date).format(format);
     }
     else {
         return '-';
