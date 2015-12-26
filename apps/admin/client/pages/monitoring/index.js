@@ -1,5 +1,4 @@
 // ----- private helpers -------------------------------------------------------
-
 /**
  *
  */
@@ -8,24 +7,29 @@ var observer = null;
 /**
  * @param {Array} reports
  */
-var updateUserChart = function() {
+var updateCharts = function() {
 
     if ($('#chart-1').length) {
+
         var labels = [];
-        var values = [];
+        var userValues = [];
+        var cpuValues = [];
+        var memoryValues = [];
+        var totalMemoryValue;
+
         var reports = Waslchiraa.Collections.Reports.find({}, {
             sort: {
-                created: -1
-            },
-            limit: 10
+                created: 1
+            }
         }).forEach(function(elem, idx) {
             labels.push(moment(elem.created).format('HH:mm'));
-            values.push(elem.activeUsers);
+            userValues.push(elem.activeUsers);
+            cpuValues.push(elem.cpuLoad);
+            memoryValues.push(elem.memory.total - elem.memory.free);
+            totalMemoryValue = elem.memory.total;
         });
 
-        labels = labels.reverse();
-        values = values.reverse();
-
+        // active users
         var ctx = document.getElementById("chart-1").getContext("2d");
         var data = {
             labels: labels,
@@ -37,13 +41,89 @@ var updateUserChart = function() {
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(220,220,220,1)",
-                data: values
+                data: userValues
             }]
         };
-        var myLineChart = new Chart(ctx).Line(data, {
+        new Chart(ctx).Line(data, {
             responsive: true,
             animation: false,
-            scaleBeginAtZero: true
+            scaleBeginAtZero: true,
+            showTooltips: false,
+            tooltipFontSize: 10,
+            tooltipYPadding: 4,
+            tooltipXPadding: 4,
+            tooltipCaretSize: 4,
+            tooltipCornerRadius: 4
+        });
+
+        // cpu load
+        var ctx = document.getElementById("chart-2").getContext("2d");
+        var data = {
+            labels: labels,
+            datasets: [{
+                label: "CPU Load",
+                fillColor: "rgba(151,187,205,0.2)",
+                strokeColor: "rgba(151,187,205,1)",
+                pointColor: "rgba(151,187,205,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(220,220,220,1)",
+                data: cpuValues
+            }]
+        };
+        new Chart(ctx).Line(data, {
+            responsive: true,
+            animation: false,
+            showTooltips: false,
+            tooltipFontSize: 10,
+            tooltipYPadding: 4,
+            tooltipXPadding: 4,
+            tooltipCaretSize: 4,
+            tooltipCornerRadius: 4,
+            tooltipTemplate: "<%= value %> %",
+            scaleBeginAtZero: true,
+            scaleOverride: true,
+            scaleStepWidth: 20,
+            scaleSteps: 5,
+            scaleStartValue: 0,
+            scaleLabel: function(param) {
+                return param.value + "%";
+            }
+        });
+
+        // memory usage
+        var ctx = document.getElementById("chart-3").getContext("2d");
+        var data = {
+            labels: labels,
+            datasets: [{
+                label: "Memory Usage",
+                fillColor: "rgba(151,187,205,0.2)",
+                strokeColor: "rgba(151,187,205,1)",
+                pointColor: "rgba(151,187,205,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(220,220,220,1)",
+                data: memoryValues
+            }]
+        };
+        new Chart(ctx).Line(data, {
+            responsive: true,
+            animation: false,
+            showTooltips: false,
+            tooltipFontSize: 10,
+            tooltipYPadding: 4,
+            tooltipXPadding: 4,
+            tooltipCaretSize: 4,
+            tooltipCornerRadius: 4,
+            tooltipTemplate: "<%= Waslchiraa.Helpers.sizify(value) %>",
+            scaleBeginAtZero: true,
+            scaleOverride: true,
+            scaleStepWidth: totalMemoryValue / 5,
+            scaleSteps: 5,
+            scaleStartValue: 0,
+            scaleLabel: function(payload) {
+                return (payload.value / totalMemoryValue * 100) + "%";
+            }
         });
     }
 };
@@ -104,52 +184,13 @@ Template.pages_monitoring.onRendered(function() {
     // check for updates from other users
     Meteor.setTimeout(function() {
         observer = Waslchiraa.Collections.Reports.find().observe({
-            added: updateUserChart,
-            changed: updateUserChart,
-            removed: updateUserChart
+            added: updateCharts,
+            changed: updateCharts,
+            removed: updateCharts
         });
-        updateUserChart();
+        updateCharts();
     }, 1000);
 
-    Meteor.defer(function() {
-        // chart 2
-        ctx = document.getElementById("chart-2").getContext("2d");
-        data = {
-            labels: ["06:00", "08:00", "10:00", "12:00", "14:00", "16:00", "18:00"],
-            datasets: [{
-                label: "Load",
-                fillColor: "rgba(151,187,205,0.2)",
-                strokeColor: "rgba(151,187,205,1)",
-                pointColor: "rgba(151,187,205,1)",
-                pointStrokeColor: "#fff",
-                pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(151,187,205,1)",
-                data: [28, 48, 40, 58, 86, 78, 90]
-            }]
-        };
-        myLineChart = new Chart(ctx).Line(data, {
-            responsive: true
-        });
-
-        // chart 3
-        ctx = document.getElementById("chart-3").getContext("2d");
-        data = {
-            labels: ["06:00", "08:00", "10:00", "12:00", "14:00", "16:00", "18:00"],
-            datasets: [{
-                label: "Memory",
-                fillColor: "rgba(151,187,205,0.2)",
-                strokeColor: "rgba(151,187,205,1)",
-                pointColor: "rgba(151,187,205,1)",
-                pointStrokeColor: "#fff",
-                pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(151,187,205,1)",
-                data: [38, 48, 52, 58, 86, 90, 90]
-            }]
-        };
-        myLineChart = new Chart(ctx).Line(data, {
-            responsive: true
-        });
-    });
 });
 
 /**

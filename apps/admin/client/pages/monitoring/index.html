@@ -9,7 +9,7 @@
                     <h2>{{_ 'system' }}</h2>
 
                     <div class="ui basic segment">
-                        <strong>{{_ 'active_users' }}</strong>
+                        <strong>{{_ 'users_logged_in' }}</strong>
                         <canvas id="chart-1"></canvas>
 
                         <div class="ui divider"></div>
@@ -66,7 +66,7 @@
                                 </td>
 
                                 <td>
-                                    {{ formatDate created }}
+                                    {{ formatDate created 'DD.MM.YYYY HH:mm:ss' }}
                                 </td>
 
                                 <td>

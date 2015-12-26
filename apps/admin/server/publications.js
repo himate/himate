@@ -96,5 +96,10 @@ Meteor.publish('reports', function() {
     if (!Roles.userIsInRole(this.userId, 'admin')) {
         return this.ready();
     }
-    return Waslchiraa.Collections.Reports.find();
+    return Waslchiraa.Collections.Reports.find({}, {
+        sort: {
+            created: -1
+        },
+        limit: 10
+    });
 });

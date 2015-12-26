@@ -117,6 +117,30 @@ Waslchiraa.Helpers.setLanguage = function(language) {
 };
 
 /**
+ * Simple kb/mb/gb size formatter
+ *
+ * @param {Number}
+ * @return {String}
+ */
+Waslchiraa.Helpers.sizify = function(value) {
+    var ext = 'b';
+    value = parseInt(value);
+    if (value < 512000) {
+        value = value / 1024.0;
+        ext = 'kb';
+    }
+    else if (value < 4194304000) {
+        value = value / 1048576.0;
+        ext = 'mb';
+    }
+    else {
+        value = value / 1073741824.0;
+        ext = 'gb';
+    }
+    return Math.round(value, 2).toString() + " " + ext;
+};
+
+/**
  * creates an info popup on top of the main menu.
  * Should be used instead of "alert()" messages.
  *
@@ -269,6 +293,16 @@ Template.registerHelper('formatDate', function(date, format) {
     else {
         return '-';
     }
+});
+
+/**
+ * Simple kb/mb/gb size snippet for templates:
+ * {{ sizify file.size }}
+ * @param {Number}
+ * @return {String}
+ */
+Template.registerHelper("sizify", function(value) {
+    return Waslchiraa.Helpers.sizify(value);
 });
 
 /**

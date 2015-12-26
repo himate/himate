@@ -25,9 +25,9 @@ Waslchiraa.Schemas.Report = new SimpleSchema({
         type: Number,
         defaultValue: 0
     },
-    memoryUsed: {
-        type: Number,
-        defaultValue: 0
+    memory: {
+        type: Object,
+        blackbox: true
     },
     // summaries of user data,
     vouchers: {
@@ -53,10 +53,17 @@ Waslchiraa.Collections.Reports.collectData = function() {
         'status.online': true
     }).count();
 
+    var os = Npm.require('os');
+    report.cpuLoad = parseInt(os.loadavg()[0] / os.cpus().length * 100);
+    report.memory = {};
+    report.memory.free = os.freemem();
+    report.memory.total = os.totalmem();
+
     report.vouchers = {};
     report.campaigns = {};
-    Waslchiraa.Collections.Reports.insert(report);
+
     //console.log(report);
+    Waslchiraa.Collections.Reports.insert(report);
 
     // remove old entries
     var mins = 20;
@@ -71,5 +78,5 @@ Waslchiraa.Collections.Reports.collectData = function() {
     // restart in 60 seconds
     Meteor.setTimeout(function() {
         Waslchiraa.Collections.Reports.collectData();
-    }, 30 * 1000);
+    }, 60 * 1000);
 };

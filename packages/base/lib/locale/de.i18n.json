@@ -154,5 +154,8 @@
     "double_opt_in": "Double Opt-In",
     "verified_email": "Geprüfte E-Mail",
     "online": "Online",
-    "last_login": "Letzter Login"
+    "last_login": "Letzter Login",
+    "users_logged_in": "Angemeldete Nutzer",
+    "cpu_load": "CPU-Last (Gesamtsystem)",
+    "memory_usage": "Speicherverbrauch (Gesamtsystem)"
 }
