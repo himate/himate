@@ -62,11 +62,7 @@ Waslchiraa.Collections.Reports.collectData = function() {
 
     // remove old entries
     var now = new Date();
-    var toOld = new Date();
-    toOld.setDate(now.getDate());
-    toOld.setHours(0);
-    toOld.setMinutes(now.getMinutes() - 20);
-    toOld.setSeconds(0);
+    var toOld = new Date(now.getTime() - 20 * 60 * 1000); // 20 mins
     Waslchiraa.Collections.Reports.remove({
         created: {
             $lt: toOld
