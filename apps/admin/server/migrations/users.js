@@ -3,15 +3,15 @@
  */
 Meteor.startup(function() {
 
-    // fix usernames
-    // we'll use the first email address as username, and
-    Meteor.users.find({
-        "username": ""
-    }).forEach(function(elem) {
-        Meteor.users.update(elem._id, {
-            $set: {
-                username: elem.emails[0].address
-            }
-        });
+    // fix usernames: we use the first email address as username
+    // :TODO: remove before launch, this only fixes old dbs
+    Meteor.users.find().forEach(function(u) {
+        if (u.emails && u.emails[0] && u.username != u.emails[0].address) {
+            Meteor.users.update(u._id, {
+                $set: {
+                    username: u.emails[0].address
+                }
+            });
+        }
     });
 });
