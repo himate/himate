@@ -138,7 +138,24 @@ Template.pages_monitoring.helpers({
      *
      */
     activities: function() {
-        return Waslchiraa.Collections.Activities.find({}, {
+        var filter = {};
+        if (Session.get('query')) {
+            filter["$or"] = [];
+            filter["$or"].push({
+                'username': new RegExp(Session.get('query'), "gi")
+            });
+            filter["$or"].push({
+                'entryId': new RegExp(Session.get('query'), "gi")
+            });
+            filter["$or"].push({
+                'action': new RegExp(Session.get('query'), "gi")
+            });
+            filter["$or"].push({
+                'code': new RegExp(Session.get('query'), "gi")
+            });
+        }
+
+        return Waslchiraa.Collections.Activities.find(filter, {
             sort: {
                 created: -1
             }
@@ -180,24 +197,20 @@ Template.pages_monitoring.events({
  *
  */
 Template.pages_monitoring.onRendered(function() {
-
-    // check for updates from other users
+    updateCharts();
     Meteor.setTimeout(function() {
         observer = Waslchiraa.Collections.Reports.find().observe({
             added: updateCharts,
             changed: updateCharts,
             removed: updateCharts
         });
-        updateCharts();
     }, 1000);
-
 });
 
 /**
  *
  */
 Template.pages_monitoring.onDestroyed(function() {
-    // stop the observer
     observer.stop();
     observer = null;
 });

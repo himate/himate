@@ -157,5 +157,6 @@
     "last_login": "Letzter Login",
     "users_logged_in": "Angemeldete Nutzer",
     "cpu_load": "CPU-Last (Gesamtsystem)",
-    "memory_usage": "Speicherverbrauch (Gesamtsystem)"
+    "memory_usage": "Speicherverbrauch (Gesamtsystem)",
+    "fulltext": "Volltext"
 }
