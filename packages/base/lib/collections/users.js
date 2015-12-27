@@ -66,8 +66,7 @@ Meteor.users.attachSchema(new SimpleSchema({
     username: {
         type: String,
         optional: true,
-        label: Waslchiraa.Helpers.i18nLabel('username'),
-        regEx: /^[a-z0-9A-Z_]{3,15}$/
+        label: Waslchiraa.Helpers.i18nLabel('username')
     },
     emails: {
         type: [Object],
