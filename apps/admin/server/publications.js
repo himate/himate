@@ -32,9 +32,14 @@ Meteor.publish('campaigns', function() {
  * publish all vouchers with the given <campaignId>
  */
 Meteor.publish("vouchers", function(campaignId) {
-    return Waslchiraa.Collections.Vouchers.find({
-        'campaignId': campaignId
-    });
+
+    check(campaignId, Match.Optional(String));
+
+    var filter = {};
+    if (campaignId) {
+        filter.campaignId = campaignId;
+    }
+    return Waslchiraa.Collections.Vouchers.find(filter);
 });
 
 /**

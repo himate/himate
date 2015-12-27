@@ -32,6 +32,37 @@ Router.route('/users/:_id', {
     onBeforeAction: Router.adminRequired
 });
 
+// ----- categories ------------------------------------------------------------
+/**
+ * categories
+ */
+Router.route('/categories', {
+    name: 'pages_categories',
+    onBeforeAction: Router.adminRequired,
+    waitOn: function() {
+        return [Meteor.subscribe('categories', l), Meteor.subscribe('campaigns', l)];
+    }
+});
+
+/**
+ * categories > add
+ */
+Router.route('/categories/add', {
+    name: 'pages_categories_add',
+    onBeforeAction: Router.adminRequired
+});
+
+/**
+ * categories > edit
+ */
+Router.route('/categories/:_id/edit', {
+    name: 'pages_categories_edit',
+    onBeforeAction: Router.adminRequired,
+    waitOn: function() {
+        return [Meteor.subscribe('categories', l)];
+    }
+});
+
 // ----- campaigns -------------------------------------------------------------
 /**
  * campaigns
@@ -80,42 +111,23 @@ Router.route('/campaigns/:_id/edit', {
 /**
  * campaigns > voucher codes
  */
-Router.route('/campaigns_codes/:_id', {
-    name: 'pages_vouchers',
+Router.route('/campaigns/:_id/vouchers', {
+    name: 'pages_campaigns_vouchers',
     onBeforeAction: Router.adminRequired,
     waitOn: function() {
         return [Meteor.subscribe('campaigns', l), Meteor.subscribe('vouchers', this.params._id, l)];
     }
 });
 
-// ----- categories ------------------------------------------------------------
+// ----- vouchers --------------------------------------------------------------
 /**
- * categories
+ * vouchers
  */
-Router.route('/categories', {
-    name: 'pages_categories',
+Router.route('/vouchers', {
+    name: 'pages_vouchers',
     onBeforeAction: Router.adminRequired,
     waitOn: function() {
-        return [Meteor.subscribe('categories', l), Meteor.subscribe('campaigns', l)];
-    }
-});
-
-/**
- * categories > add
- */
-Router.route('/categories/add', {
-    name: 'pages_categories_add',
-    onBeforeAction: Router.adminRequired
-});
-
-/**
- * categories > edit
- */
-Router.route('/categories/:_id/edit', {
-    name: 'pages_categories_edit',
-    onBeforeAction: Router.adminRequired,
-    waitOn: function() {
-        return [Meteor.subscribe('categories', l)];
+        return [Meteor.subscribe('campaigns', l), Meteor.subscribe('vouchers', l)];
     }
 });
 

@@ -1,10 +1,10 @@
-<template name="pages_vouchers">
-    {{> partials_sub_menu active='vouchers' search='code' }}
+<template name="pages_campaigns_vouchers">
+    {{> partials_sub_menu active='campaigns' }}
 
-    <div id="pages-vouchers" class="ui basic segment">
+    <div id="pages-campaigns-vouchers" class="ui basic segment">
         <div class="ui mobile reversed stackable grid">
             <div class="twelve wide column">
-                <h2>{{_ 'vouchers' }}</h2>
+                <h2>{{ translateField campaign 'title' }}: {{_ 'vouchers' }}</h2>
 
                 <table class="ui compact celled definition table">
                     <thead class="full-width">
@@ -58,7 +58,7 @@
                         </tr>
                         {{ else }}
                         <tr>
-                            <td colspan="6">
+                            <td colspan="4">
                                 {{_ 'no_vouchers_found' }}
                             </td>
                         </tr>
@@ -68,12 +68,12 @@
             </div>
 
             <div class="four wide column">
-                <h2>{{_ 'information' }}</h2>
 
-                <p>
-                    {{_ 'vouchers_info_text' }}
-                </p>
             </div>
+        </div>
+
+        <div class="ui bottom fixed menu">
+            <a class="item" href="{{ pathFor 'pages_campaigns_details' _id=campaign._id }}"><i class="left chevron icon"></i>{{_ 'back' }}</a>
         </div>
     </div>
 </template>
