@@ -22,10 +22,10 @@
                                 {{_ 'code' }}
                             </th>
                             <th>
-                                {{_ 'redeemed' }}
+                                {{_ 'reserved' }}
                             </th>
                             <th>
-                                {{_ 'reserved' }}
+                                {{_ 'redeemed' }}
                             </th>
                         </tr>
                     </thead>
@@ -41,7 +41,11 @@
                             </td>
 
                             <td>
-                                {{# with getUser userId }}{{ username }}{{/ with }}
+                                {{# with getUser userId }}
+                                <a href="{{ pathFor 'pages_users_edit' }}">
+                                    {{ username }}
+                                </a>
+                                {{/ with }}
                             </td>
 
                             <td>
@@ -49,11 +53,11 @@
                             </td>
 
                             <td>
-                                {{ formatDate redeemed }}
+                                {{ formatDate reserved }}
                             </td>
 
                             <td>
-                                {{ formatDate reserved }}
+                                {{ formatDate redeemed }}
                             </td>
                         </tr>
                         {{ else }}

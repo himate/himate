@@ -105,7 +105,11 @@
         </td>
 
         <td>
-            {{# with getUser userId }}{{ username }}{{/ with }}
+            {{# with getUser userId }}
+            <a href="{{ pathFor 'pages_users_edit' }}">
+                {{ username }}
+            </a>
+            {{/ with }}
         </td>
 
         <td>

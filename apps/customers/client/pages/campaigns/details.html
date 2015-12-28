@@ -20,9 +20,11 @@
                         {{# with getCategory item.categoryId }}
                         <h5>{{ translateField this "title" }}</h5>
                         {{/ with }}
+
                         <h2> {{ translateField item "title" }} </h2>
+
                         {{# with getUser item.userId }}
-                        <h3 class="headline voucher-shop"> {{ username }} </h3>
+                        <h3 class="headline voucher-shop"> {{ profile.company }} </h3>
                         {{/ with }}
                     </div>
                     <div class="right floated aligned six wide column">
@@ -36,7 +38,7 @@
                 <div class="voucher-address">
                     <p>
                         {{ item.street }} {{ item.number }}, {{ item.zipcode }} {{ item.city }}
-                        <a  href="{{getMapUrl item }}">
+                        <a target="_blank" href="{{ getMapUrl item }}">
                             {{_ 'check_on_maps'}}
                         </a>
                     </p>

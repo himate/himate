@@ -56,7 +56,7 @@ Meteor.publish('campaigns', function() {
         }
     }, {
         fields: {
-            username: 1
+            "profile.company": 1
         }
     });
 

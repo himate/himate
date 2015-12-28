@@ -13,6 +13,10 @@ Template.pages_vouchers.helpers({
         if (Session.get('query')) {
             filter['code'] = new RegExp(Session.get('query'), "gi");
         }
-        return Waslchiraa.Collections.Vouchers.find(filter);
+        return Waslchiraa.Collections.Vouchers.find(filter, {
+            sort: {
+                redeemed: -1
+            }
+        });
     }
 });

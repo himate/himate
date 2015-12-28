@@ -45,7 +45,9 @@
                             </td>
 
                             <td>
-                                {{ username }}
+                                <a href="{{ pathFor 'pages_users_edit' }}">
+                                    {{ username }}
+                                </a>
                             </td>
 
                             <td>
@@ -53,7 +55,7 @@
                             </td>
 
                             <td>
-                                {{ formatDate status.lastLogin.date 'DD.MM.YYYY HH:mm' }}
+                                {{ formatDate status.lastLogin.date }}
                             </td>
 
                             <td>

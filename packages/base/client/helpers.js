@@ -108,6 +108,7 @@ Waslchiraa.Helpers.setLanguage = function(language) {
     Meteor.defer(function() {
         amplify.store('language', language);
         TAPi18n.setLanguageAmplify(language).done(function() {
+            moment.locale(language);
             T9n.setLanguage(language);
             Meteor.call('set_default_language', language);
         }).fail(function(error) {
@@ -282,13 +283,11 @@ Template.registerHelper('formatDate', function(date, format) {
     // So fall back to default format ('LL')
     // @see: http://stackoverflow.com/questions/27755891/meteor-what-is-spacebars-kw-hash-object
     if (format && format.hash) {
-        format = 'LL';
+        format = 'lll';
     }
 
     if (date) {
-        // :TODO: enable locale support for momentjs
-        //return moment(date).locale(TAPi18n.getLanguage()).format('LL');
-        return moment(date).format(format);
+        return moment(date).locale(TAPi18n.getLanguage()).format(format);
     }
     else {
         return '-';

@@ -14,7 +14,12 @@ Template.pages_campaigns.helpers({
         if (Session.get('query')) {
             filter["title." + locale] = new RegExp(Session.get('query'), "gi");
         }
-        return Waslchiraa.Collections.Campaigns.find(filter);
+
+        return Waslchiraa.Collections.Campaigns.find(filter, {
+            sort: {
+                published: -1
+            }
+        });
     }
 });
 

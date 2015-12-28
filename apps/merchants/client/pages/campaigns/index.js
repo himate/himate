@@ -11,7 +11,7 @@ Template.pages_campaigns.helpers({
     campaigns: function() {
         return Waslchiraa.Collections.Campaigns.find({}, {
             sort: {
-                title: 1
+                published: -1
             }
         });
     }
