@@ -3,14 +3,35 @@
  *
  */
 Template.pages_users_edit.helpers({
-    // :TODO:....
+
+    /**
+     *
+     */
+    user: function() {
+        var u = Meteor.users.findOne(Router.current().params._id);
+        if (u) {
+            if (Roles.userIsInRole(u._id, 'admin')) {
+                Router.go('pages_users');
+            }
+
+            return {
+                _id: u._id,
+                firstName: u.profile.firstName,
+                lastName: u.profile.lastName,
+                email: u.emails[0].address,
+                role: u.roles[0]
+            };
+        }
+
+        return false;
+    }
 });
 
 // ----- form hooks ------------------------------------------------------------
 /**
  *
  */
-AutoForm.addHooks(["pages_users_edit"], {
+AutoForm.addHooks(["users_edit"], {
 
     /**
      * @param {Object} operation
@@ -18,7 +39,8 @@ AutoForm.addHooks(["pages_users_edit"], {
      * @param {Object} template
      */
     onSuccess: function(operation, result, template) {
-        Nugency.Helpers.infoMessage("ok");
+        Waslchiraa.Helpers.infoMessage("ok");
+        Router.go('pages_users');
     },
 
     /**
@@ -28,10 +50,10 @@ AutoForm.addHooks(["pages_users_edit"], {
      */
     onError: function(formType, error) {
         if (error.reason) {
-            Nugency.Helpers.errorMessage(error.reason);
+            Waslchiraa.Helpers.errorMessage(error.reason);
         }
         else if (error.error) {
-            Nugency.Helpers.errorMessage(error.error);
+            Waslchiraa.Helpers.errorMessage(error.error);
         }
     }
 });

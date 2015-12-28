@@ -31,7 +31,7 @@
                             <th width="10">
                                 {{_ 'active' }}
                             </th>
-                            <th width="10">
+                            <th colspan="2">
                                 &nbsp;
                             </th>
                         </tr>
@@ -48,9 +48,13 @@
                             </td>
 
                             <td>
+                                {{# unless userIsInRole 'admin' this }}
                                 <a href="{{ pathFor 'pages_users_edit' }}">
                                     {{ username }}
                                 </a>
+                                {{ else }}
+                                {{ username }}
+                                {{/ unless }}
                             </td>
 
                             <td>
@@ -84,7 +88,19 @@
                             </td>
 
                             <td width="10">
+                                {{# unless userIsInRole 'admin' this }}
+                                <a href="{{ pathFor 'pages_users_edit' }}" title="{{_ 'users_edit' }}"><i class="pencil icon"></i></a>
+                                {{ else }}
+                                &nbsp;
+                                {{/ unless }}
+                            </td>
+
+                            <td width="10">
+                                {{# unless userIsInRole 'admin' this }}
                                 <a class="remove-user write" href="#" title="{{_ 'users_remove' }}"><i class="trash icon"></i></a>
+                                {{ else }}
+                                &nbsp;
+                                {{/ unless }}
                             </td>
                         </tr>
                         {{ else }}

@@ -161,5 +161,8 @@
     "fulltext": "Volltext",
     "password": "Passwort",
     "password2": "Passwort (Wiederholung)",
-    "access_control": "Zugriffskontrolle"
+    "access_control": "Zugriffskontrolle",
+    "users_edit": "Benutzer bearbeiten",
+    "users_remove": "Benutzer löschen",
+    "users_edit_info_text": "Um ein neues Passwort zu setzen, geben Sie es zweimal im Klartext ein. Sonst lassen Sie beide Felder leer. \n\nWenn Sie ein neues Passwort vergeben, wird der entsprechende Nutzer sofort ausgeloggt."
 }

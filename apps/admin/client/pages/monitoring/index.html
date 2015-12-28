@@ -70,9 +70,13 @@
                                 </td>
 
                                 <td>
+                                    {{# unless userIsInRole 'admin' userId }}
                                     <a href="{{ pathFor 'pages_users_edit' _id=userId }}">
                                         {{ username }}
                                     </a>
+                                    {{ else }}
+                                    {{ username }}
+                                    {{/ unless }}
                                 </td>
 
                                 <td>

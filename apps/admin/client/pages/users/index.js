@@ -13,7 +13,11 @@ Template.pages_users.helpers({
         if (Session.get('query')) {
             filter.username = new RegExp(Session.get('query'), "gi");
         }
-        return Meteor.users.find(filter);
+        return Meteor.users.find(filter, {
+            sort: {
+                created: 1
+            }
+        });
     },
 
     /**
@@ -25,15 +29,6 @@ Template.pages_users.helpers({
             return user.emails[0].verified;
         }
         return false;
-    },
-
-    /**
-     * @param {String} role
-     * @param {Object} user
-     * @return {Boolean}
-     */
-    userIsInRole: function(role, user) {
-        return Roles.userIsInRole(user._id, role);
     }
 });
 

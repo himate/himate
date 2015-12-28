@@ -64,6 +64,94 @@ Meteor.methods({
     },
 
     /**
+     * update user
+     * @param {String} id
+     * @param {Object} doc
+     */
+    "users_edit": function(doc, id) {
+
+        // check user input
+        check(id, String);
+
+        check(doc, Object);
+        check(doc.$set, Object);
+        check(doc.$set.email, String);
+        check(doc.$set.role, String);
+        check(doc.$set.firstName, Match.Optional(String));
+        check(doc.$set.lastName, Match.Optional(String));
+        check(doc.$set.password, Match.Optional(String));
+        check(doc.$set.password2, Match.Optional(String));
+
+        check(doc.$unset, Match.Optional({
+            firstName: Match.Optional(String),
+            lastName: Match.Optional(String),
+            password: Match.Optional(String),
+            password2: Match.Optional(String)
+        }));
+
+        // security checks
+        if (!Roles.userIsInRole(Meteor.userId(), 'admin')) {
+            throw new Meteor.Error("not-authorized");
+        }
+
+        if (doc.$set.password != doc.$set.password2) {
+            throw new Meteor.Error("passwords don't match.");
+        }
+
+        // duplicate email check (we use <username>!)
+        // :TODO: get rid of this <username> stuff (all apps) - or make sth. useful w/ it...
+        var duplicateEmailCheck = Meteor.users.findOne({
+            _id: {
+                $ne: id
+            },
+            "username": doc.$set.email
+        });
+        if (duplicateEmailCheck) {
+            throw new Meteor.Error("email address already in use.");
+        }
+
+        // action
+        Meteor.users.update(id, {
+            $set: {
+                "username": doc.$set.email,
+                "profile.firstName": doc.$set.firstName,
+                "profile.lastName": doc.$set.lastName,
+                "emails.0.address": doc.$set.email,
+                "roles": [doc.$set.role]
+            }
+        }, {
+            validate: false
+        });
+
+        // log activity
+        Waslchiraa.Collections.Activities.insert({
+            username: Meteor.user().username,
+            userId: Meteor.userId(),
+            entryId: id,
+            role: 'admin',
+            route: 'pages_users_edit',
+            action: 'users_edit'
+        });
+
+        // set new password, if any
+        if (doc.$set.password && doc.$set.password == doc.$set.password2) {
+            Accounts.setPassword(id, doc.$set.password);
+
+            // log activity
+            Waslchiraa.Collections.Activities.insert({
+                username: Meteor.user().username,
+                userId: Meteor.userId(),
+                entryId: id,
+                role: 'admin',
+                route: 'pages_users_edit',
+                action: 'users_password_change'
+            });
+        }
+
+        return id;
+    },
+
+    /**
      *
      */
     "users_remove": function(id) {
