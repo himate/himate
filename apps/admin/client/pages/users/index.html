@@ -14,6 +14,9 @@
                                 {{_ 'email' }}
                             </th>
                             <th>
+                                {{_ 'name' }}
+                            </th>
+                            <th>
                                 {{_ 'role' }}
                             </th>
                             <th>
@@ -48,6 +51,10 @@
                                 <a href="{{ pathFor 'pages_users_edit' }}">
                                     {{ username }}
                                 </a>
+                            </td>
+
+                            <td>
+                                {{ profile.firstName }} {{ profile.lastName }}
                             </td>
 
                             <td>

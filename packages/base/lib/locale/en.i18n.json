@@ -158,5 +158,8 @@
     "users_logged_in": "Users Logged In",
     "cpu_load": "CPU Load (system)",
     "memory_usage": "Memory Usage (system)",
-    "fulltext": "Full text"
+    "fulltext": "Full text",
+    "password": "Password",
+    "password2": "Password (again)",
+    "access_control": "Access Control"
 }

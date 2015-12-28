@@ -158,5 +158,8 @@
     "users_logged_in": "Angemeldete Nutzer",
     "cpu_load": "CPU-Last (Gesamtsystem)",
     "memory_usage": "Speicherverbrauch (Gesamtsystem)",
-    "fulltext": "Volltext"
+    "fulltext": "Volltext",
+    "password": "Passwort",
+    "password2": "Passwort (Wiederholung)",
+    "access_control": "Zugriffskontrolle"
 }

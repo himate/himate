@@ -109,5 +109,10 @@ Meteor.users.attachSchema(new SimpleSchema({
     disabled: {
         type: Boolean,
         defaultValue: false
+    },
+    roles: {
+        type: [String],
+        label: Waslchiraa.Helpers.i18nLabel('roles'),
+        optional: true
     }
 }));

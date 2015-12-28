@@ -9,10 +9,58 @@ Meteor.methods({
      */
     "users_add": function(doc) {
 
-        // security check
+        // check user input
+        check(doc, Object);
+        check(doc.email, String);
+        check(doc.role, String);
+        check(doc.firstName, Match.Optional(String));
+        check(doc.lastName, Match.Optional(String));
+        check(doc.password, Match.Optional(String));
+        check(doc.password2, Match.Optional(String));
+
+        // security checks
         if (!Roles.userIsInRole(Meteor.userId(), 'admin')) {
             throw new Meteor.Error("not-authorized");
         }
+
+        if (!doc.password) {
+            throw new Meteor.Error("new users need a password.");
+        }
+
+        if (doc.password != doc.password2) {
+            throw new Meteor.Error("passwords don't match.");
+        }
+
+        // action
+        var userId = Accounts.createUser({
+            username: doc.email,
+            email: doc.email,
+            password: doc.password
+        });
+
+        // add minimal profile, verify email, set role
+        Meteor.users.update(userId, {
+            $set: {
+                "profile.firstName": doc.firstName,
+                "profile.lastName": doc.lastName,
+                "emails.0.verified": true,
+                "roles": [doc.role]
+            }
+        }, {
+            validate: false
+        });
+
+        // log activity
+        Waslchiraa.Collections.Activities.insert({
+            username: Meteor.user().username,
+            userId: Meteor.userId(),
+            entryId: userId,
+            role: 'admin',
+            route: 'pages_users_edit',
+            action: 'users_add'
+        });
+
+        return userId;
     },
 
     /**
