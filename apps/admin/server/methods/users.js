@@ -12,6 +12,7 @@ Meteor.methods({
         // check user input
         check(doc, Object);
         check(doc.email, String);
+        check(doc.verifiedEmail, Boolean);
         check(doc.role, String);
         check(doc.firstName, Match.Optional(String));
         check(doc.lastName, Match.Optional(String));
@@ -43,7 +44,7 @@ Meteor.methods({
             $set: {
                 "profile.firstName": doc.firstName,
                 "profile.lastName": doc.lastName,
-                "emails.0.verified": true,
+                "emails.0.verified": doc.verifiedEmail,
                 "roles": [doc.role]
             }
         }, {
@@ -76,6 +77,7 @@ Meteor.methods({
         check(doc, Object);
         check(doc.$set, Object);
         check(doc.$set.email, String);
+        check(doc.$set.verifiedEmail, Boolean);
         check(doc.$set.role, String);
         check(doc.$set.firstName, Match.Optional(String));
         check(doc.$set.lastName, Match.Optional(String));
@@ -117,6 +119,7 @@ Meteor.methods({
                 "profile.firstName": doc.$set.firstName,
                 "profile.lastName": doc.$set.lastName,
                 "emails.0.address": doc.$set.email,
+                "emails.0.verified": doc.$set.verifiedEmail,
                 "roles": [doc.$set.role]
             }
         }, {

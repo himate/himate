@@ -19,6 +19,7 @@ Template.pages_users_edit.helpers({
                 firstName: u.profile.firstName,
                 lastName: u.profile.lastName,
                 email: u.emails[0].address,
+                verifiedEmail: u.emails[0].verified,
                 role: u.roles[0]
             };
         }

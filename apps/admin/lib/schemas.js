@@ -7,6 +7,12 @@ Waslchiraa.Schemas.NewUser = new SimpleSchema({
         label: Waslchiraa.Helpers.i18nLabel('email'),
         regEx: SimpleSchema.RegEx.Email
     },
+    verifiedEmail: {
+        type: Boolean,
+        label: Waslchiraa.Helpers.i18nLabel('verified_email'),
+        defaultValue: true,
+        optional: true
+    },
     firstName: {
         type: String,
         label: Waslchiraa.Helpers.i18nLabel('first_name'),
