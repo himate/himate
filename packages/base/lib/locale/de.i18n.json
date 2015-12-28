@@ -164,5 +164,6 @@
     "access_control": "Zugriffskontrolle",
     "users_edit": "Benutzer bearbeiten",
     "users_remove": "Benutzer löschen",
-    "users_edit_info_text": "Um ein neues Passwort zu setzen, geben Sie es zweimal im Klartext ein. Sonst lassen Sie beide Felder leer. \n\nWenn Sie ein neues Passwort vergeben, wird der entsprechende Nutzer sofort ausgeloggt."
+    "users_edit_info_text": "Um ein neues Passwort zu setzen, geben Sie es zweimal im Klartext ein. Sonst lassen Sie beide Felder leer. \n\nWenn Sie ein neues Passwort vergeben, wird der entsprechende Nutzer sofort ausgeloggt.",
+    "users_toggle_disabled": "Account-Status wechseln (aktiv/gesperrt)"
 }

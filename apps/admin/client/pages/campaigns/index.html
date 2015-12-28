@@ -10,7 +10,7 @@
                     <thead class="full-width">
                         <tr>
                             <th width="10"></th>
-                            <th>
+                            <th width="100">
                                 {{_ 'image' }}
                             </th>
                             <th>
@@ -22,7 +22,7 @@
                             <th>
                                 {{_ 'category' }}
                             </th>
-                            <th>
+                            <th width="120">
                                 {{_ 'from' }}
                             </th>
                             <th>
@@ -106,14 +106,14 @@
 
         <td>
             {{# with getUser userId }}
-            <a href="{{ pathFor 'pages_users_edit' }}">
+            <a class="shortened" href="{{ pathFor 'pages_users_edit' }}">
                 {{ username }}
             </a>
             {{/ with }}
         </td>
 
         <td>
-            {{formatDate published }}
+            {{ formatDate published }}
         </td>
 
         <td>

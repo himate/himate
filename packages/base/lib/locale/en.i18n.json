@@ -164,5 +164,6 @@
     "access_control": "Access Control",
     "users_edit": "Edit User",
     "users_remove": "Remove User",
-    "users_edit_info_text": "To set a new password, enter it in plain text. Leave blank otherwise. \n\nIf you set a new password, the user will be logged off immediately."
+    "users_edit_info_text": "To set a new password, enter it in plain text. Leave blank otherwise. \n\nIf you set a new password, the user will be logged off immediately.",
+    "users_toggle_disabled": "Toggle Accout State (enabled/disabled)"
 }
