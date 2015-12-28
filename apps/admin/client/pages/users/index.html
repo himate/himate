@@ -67,9 +67,13 @@
                             </td>
 
                             <td>
+                                {{# unless userIsInRole 'admin' this }}
                                 <a title="{{_ 'users_toggle_disabled' }}" class="toggle state" href="#">
                                     <i class="{{# unless disabled }}green check mark{{ else }}red remove{{/ unless }} icon"></i>
                                 </a>
+                                {{ else }}
+                                <i class="{{# unless disabled }}grey check mark{{ else }}grey remove{{/ unless }} icon"></i>
+                                {{/ unless }}
                             </td>
 
                             <td width="10">

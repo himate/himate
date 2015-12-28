@@ -17,13 +17,23 @@ Template.pages_users.helpers({
     },
 
     /**
-     *
+     * @param {Object} user
+     * @return {Boolean}
      */
     checkVerifiedEmail: function(user) {
         if (user.emails && user.emails[0]) {
             return user.emails[0].verified;
         }
         return false;
+    },
+
+    /**
+     * @param {String} role
+     * @param {Object} user
+     * @return {Boolean}
+     */
+    userIsInRole: function(role, user) {
+        return Roles.userIsInRole(user._id, role);
     }
 });
 
