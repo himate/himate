@@ -15,7 +15,7 @@ Template.pages_users.helpers({
         }
         return Meteor.users.find(filter, {
             sort: {
-                created: 1
+                createdAt: 1
             }
         });
     },
