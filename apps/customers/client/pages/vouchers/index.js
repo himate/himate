@@ -9,14 +9,13 @@ Template.pages_vouchers.helpers({
      * @reactive
      */
     vouchers: function() {
-        Meteor.call('get_user_vouchers', function (error, data) {
-            Session.set('user_vouchers', data);
+        return Waslchiraa.Collections.Vouchers.find({}, {
+            sort: {
+                created: 1
+            }
         });
-
-        return Session.get('user_vouchers');
     }
 });
-
 
 // ----- template events -------------------------------------------------------
 /**
@@ -34,8 +33,4 @@ Template.pages_vouchers.events({
         });
         return Waslchiraa.Helpers.cancel(event);
     }
-});
-
-Template.pages_campaigns_voucher.events({
-
 });

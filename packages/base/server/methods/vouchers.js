@@ -24,7 +24,7 @@ Meteor.methods({
         }
 
         if (Waslchiraa.Collections.Vouchers.findOne({
-            "userId": this.userId,
+            "userId": Meteor.userId(),
             "campaignId": campaign._id
         })) {
             throw new Meteor.Error("allready-reserved");
@@ -48,7 +48,7 @@ Meteor.methods({
 
         var voucherId = Waslchiraa.Collections.Vouchers.insert({
             "code": code,
-            "userId": this.userId,
+            "userId": Meteor.userId(),
             "campaignId": campaign._id
         });
 
@@ -79,23 +79,6 @@ Meteor.methods({
         return code;
     },
 
-    /**
-     *
-     */
-    'get_user_vouchers': function() {
-        // :TODO: refactor to pub/sub!
-        // collect data
-        var voucherCodes = Waslchiraa.Collections.Vouchers.find({
-            userId: Meteor.userId
-        });
-
-        voucherCodes = voucherCodes.map(function(vc) {
-            vc.voucher = Waslchiraa.Collections.Campaigns.findOne(vc.campaignId);
-            return vc;
-        });
-
-        return voucherCodes;
-    },
     /**
      * @param {Object} code
      */

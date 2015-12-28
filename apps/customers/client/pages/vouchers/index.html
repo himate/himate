@@ -12,15 +12,18 @@
     </div>
 </template>
 
-
 <template name="pages_vouchers_voucher">
     <div class="ui vertical segment js-voucher">
         <span>{{_ "reserved"}}: <span class="text-primary">{{ code }}</span> </span>
         <h2>{{ translateField voucher "title" }}</h2>
-        <p> {{ translateField voucher "shortDescription" }}</p>
-        {{#if redeemed}}
-        <span>{{_ 'redeemed'}}: <br> {{ formatDate redeemed }}</span>
-        {{/if}}
+        <p>
+            {{ translateField voucher "shortDescription" }}
+        </p>
+        {{# if redeemed }}
+        <span>{{_ 'redeemed' }}:
+            <br>
+            {{ formatDate redeemed }}</span>
+        {{/ if }}
         <i class="icon-arrow-right ico-right"></i>
     </div>
 </template>

@@ -3,11 +3,6 @@
  */
 Meteor.publish('campaigns', function() {
 
-    // security checks
-    //if (!Roles.userIsInRole(this.userId, 'customer')) {
-    //    return this.ready();
-    //}
-
     // collect data
     var today = moment().endOf('day').toDate();
     var campaigns = Waslchiraa.Collections.Campaigns.find({
@@ -31,15 +26,8 @@ Meteor.publish('campaigns', function() {
                     $gte: today
                 }
             }]
-        }
-        ]
+        }]
     });
-
-    // campaigns.forEach(function (v) {
-    //     v.codes = Waslchiraa.Collections.Vouchers.find({
-    //         campaignId: v._id
-    //     }).count();
-    // });
 
     var merchantIds = campaigns.map(function(v) {
         return v.userId;
@@ -49,14 +37,20 @@ Meteor.publish('campaigns', function() {
         return v.categoryId;
     });
 
-    // :TODO: select the right fields (merchant profile, name, company etc.)
     var merchants = Meteor.users.find({
         _id: {
             $in: merchantIds
         }
     }, {
         fields: {
-            "profile.company": 1
+            "profile.company": 1,
+            "profile.firstName": 1,
+            "profile.lastName": 1,
+            "profile.street": 1,
+            "profile.number": 1,
+            "profile.zipcode": 1,
+            "profile.city": 1,
+            "profile.country": 1
         }
     });
 
@@ -68,31 +62,7 @@ Meteor.publish('campaigns', function() {
  * publish all categories
  */
 Meteor.publish('categories', function() {
-
-    // security checks
-    //if (!Roles.userIsInRole(this.userId, 'customer')) {
-    //    return this.ready();
-    //}
-
-    // send collection
     return Waslchiraa.Collections.Categories.find();
-});
-
-/**
- *
- */
-Meteor.publish('vouchers', function(campaignIds) {
-
-    check(campaignIds, Match.Optional(Array));
-
-    var filter = {};
-    if (campaignIds) {
-        filter.campaignId = {
-            $in: campaignIds
-        };
-    }
-
-    return Waslchiraa.Collections.Vouchers.find(filter);
 });
 
 /**
@@ -119,4 +89,27 @@ Meteor.publish('images', function(campaignIds) {
             $in: imageIds
         }
     });
+});
+
+/**
+ *
+ */
+Meteor.publish('vouchers', function(campaignIds) {
+
+    // security checks
+    if (!Roles.userIsInRole(this.userId, 'customer')) {
+        return this.ready();
+    }
+
+    check(campaignIds, Match.Optional(Array));
+
+    var filter = {};
+    filter.userId = this.userId;
+    if (campaignIds) {
+        filter.campaignId = {
+            $in: campaignIds
+        };
+    }
+
+    return Waslchiraa.Collections.Vouchers.find(filter);
 });

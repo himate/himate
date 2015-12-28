@@ -53,7 +53,13 @@ Router.route('/campaigns/:_id', {
  * voucher codes
  */
 Router.route('/vouchers', {
-    name: 'pages_vouchers'
+    name: 'pages_vouchers',
+    waitOn: function () {
+        return [
+            Meteor.subscribe('campaigns', l),
+            Meteor.subscribe('vouchers', l)
+        ];
+    }
 });
 
 /**
