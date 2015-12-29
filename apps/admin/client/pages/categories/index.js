@@ -16,14 +16,14 @@ Template.pages_categories.helpers({
             //filter["title"] = new RegExp(Session.get('query'), "gi");
         }
 
-        return Waslchiraa.Collections.Categories.find(filter);
+        return HiMate.Collections.Categories.find(filter);
     },
 
     /**
      *
      */
     campaignCount: function() {
-        return Waslchiraa.Collections.Campaigns.find({
+        return HiMate.Collections.Campaigns.find({
             categoryId: this._id
         }).count();
     }
@@ -41,10 +41,10 @@ Template.pages_categories.events({
     "click .remove-category": function(event) {
         Meteor.call("categories_remove", this._id, function(err, response) {
             if (err) {
-                Waslchiraa.Helpers.errorMessage(err.error);
+                HiMate.Helpers.errorMessage(err.error);
                 return;
             }
-            Waslchiraa.Helpers.infoMessage(response);
+            HiMate.Helpers.infoMessage(response);
         });
     }
 });

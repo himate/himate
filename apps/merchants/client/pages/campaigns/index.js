@@ -9,7 +9,7 @@ Template.pages_campaigns.helpers({
      * @reactive
      */
     campaigns: function() {
-        return Waslchiraa.Collections.Campaigns.find({}, {
+        return HiMate.Collections.Campaigns.find({}, {
             sort: {
                 published: -1
             }
@@ -31,7 +31,7 @@ Template.pages_campaigns.events({
         if (confirm('Delete Voucher "' + this.title[TAPi18n.getLanguage()] + '"?')) {
             Meteor.call('campaigns_remove', this._id);
         }
-        return Waslchiraa.Helpers.cancel(event);
+        return HiMate.Helpers.cancel(event);
     }
 });
 

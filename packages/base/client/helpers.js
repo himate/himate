@@ -44,7 +44,7 @@ var getPreferredLanguage = function() {
 /**
  * used to log subscription errors to the console
  */
-Waslchiraa.Helpers.subscriptionLogger = {
+HiMate.Helpers.subscriptionLogger = {
     onError: function(result) {
         console.log(result);
     }
@@ -56,7 +56,7 @@ Waslchiraa.Helpers.subscriptionLogger = {
  * @param {Object} event
  * @return {Boolean} false
  */
-Waslchiraa.Helpers.cancel = function(event) {
+HiMate.Helpers.cancel = function(event) {
     event.stopPropagation();
     event.preventDefault();
     return false;
@@ -68,18 +68,18 @@ Waslchiraa.Helpers.cancel = function(event) {
  * @param {Object} err
  * @param {String} response
  */
-Waslchiraa.Helpers.onAfterMethodCall = function(err, response) {
+HiMate.Helpers.onAfterMethodCall = function(err, response) {
     if (err) {
-        Waslchiraa.Helpers.errorMessage(err.error);
+        HiMate.Helpers.errorMessage(err.error);
         return;
     }
-    Waslchiraa.Helpers.infoMessage(response);
+    HiMate.Helpers.infoMessage(response);
 };
 
 /**
  * set localization to users default browser language. Uses "en" as fallback.
  */
-Waslchiraa.Helpers.setDefaultLanguage = function() {
+HiMate.Helpers.setDefaultLanguage = function() {
 
     var language = null;
     var languages = null;
@@ -97,14 +97,14 @@ Waslchiraa.Helpers.setDefaultLanguage = function() {
         language = storedLanguage;
     }
 
-    Waslchiraa.Helpers.setLanguage(language);
+    HiMate.Helpers.setLanguage(language);
 };
 
 /**
  * set translations to specified <language>
  * @param {String} language
  */
-Waslchiraa.Helpers.setLanguage = function(language) {
+HiMate.Helpers.setLanguage = function(language) {
     Meteor.defer(function() {
         amplify.store('language', language);
         TAPi18n.setLanguageAmplify(language).done(function() {
@@ -123,7 +123,7 @@ Waslchiraa.Helpers.setLanguage = function(language) {
  * @param {Number}
  * @return {String}
  */
-Waslchiraa.Helpers.sizify = function(value) {
+HiMate.Helpers.sizify = function(value) {
     var ext = 'b';
     value = parseInt(value);
     if (value < 512000) {
@@ -147,8 +147,8 @@ Waslchiraa.Helpers.sizify = function(value) {
  *
  * @param {String} message
  */
-Waslchiraa.Helpers.infoMessage = function(message) {
-    Waslchiraa.Collections.Messages.insert({
+HiMate.Helpers.infoMessage = function(message) {
+    HiMate.Collections.Messages.insert({
         "message": message,
         "type": "info"
     });
@@ -160,8 +160,8 @@ Waslchiraa.Helpers.infoMessage = function(message) {
  *
  * @param {String} message
  */
-Waslchiraa.Helpers.errorMessage = function(message) {
-    Waslchiraa.Collections.Messages.insert({
+HiMate.Helpers.errorMessage = function(message) {
+    HiMate.Collections.Messages.insert({
         "message": message,
         "type": "error"
     });
@@ -174,14 +174,14 @@ Waslchiraa.Helpers.errorMessage = function(message) {
  * @return {Object} (available, total, reserved, redeemed)
  * @reactive
  */
-Waslchiraa.Helpers.getVouchers = function(campaignId) {
+HiMate.Helpers.getVouchers = function(campaignId) {
     var result = {
         'available': 0,
         'total': 0,
         'reserved': 0,
         'redeemed': 0
     };
-    var campaign = Waslchiraa.Collections.Campaigns.findOne({
+    var campaign = HiMate.Collections.Campaigns.findOne({
         _id: campaignId
     });
     var now = new Date();
@@ -189,11 +189,11 @@ Waslchiraa.Helpers.getVouchers = function(campaignId) {
     if (campaign) {
         result = {
             'total': campaign.quantity,
-            'reserved': Waslchiraa.Collections.Vouchers.find({
+            'reserved': HiMate.Collections.Vouchers.find({
                 'campaignId': campaignId,
                 'redeemed': null
             }).count(),
-            'redeemed': Waslchiraa.Collections.Vouchers.find({
+            'redeemed': HiMate.Collections.Vouchers.find({
                 'campaignId': campaignId,
                 'redeemed': {
                     $lt: now
@@ -251,7 +251,7 @@ Template.registerHelper('currentUserEmail', function() {
  * @reactive
  */
 Template.registerHelper('getCategory', function(categoryId) {
-    return Waslchiraa.Collections.Categories.findOne(categoryId);
+    return HiMate.Collections.Categories.findOne(categoryId);
 });
 
 /**
@@ -264,11 +264,11 @@ Template.registerHelper('getCategory', function(categoryId) {
  */
 Template.registerHelper('countCampaigns', function(category) {
     if (category) {
-        return Waslchiraa.Collections.Campaigns.find({
+        return HiMate.Collections.Campaigns.find({
             categoryId: category._id
         }).count();
     }
-    return Waslchiraa.Collections.Campaigns.find().count();
+    return HiMate.Collections.Campaigns.find().count();
 });
 
 /**
@@ -301,38 +301,38 @@ Template.registerHelper('formatDate', function(date, format) {
  * @return {String}
  */
 Template.registerHelper("sizify", function(value) {
-    return Waslchiraa.Helpers.sizify(value);
+    return HiMate.Helpers.sizify(value);
 });
 
 /**
- * @see Waslchiraa.Helpers.getVouchers
+ * @see HiMate.Helpers.getVouchers
  * @param {String} campaignId
  * @reactive
  */
 Template.registerHelper('getVouchers', function(campaignId) {
-    return Waslchiraa.Helpers.getVouchers(campaignId);
+    return HiMate.Helpers.getVouchers(campaignId);
 });
 
 /**
  * returns the available vouchers for given <campaignId>
  *
- * @see Waslchiraa.Helpers.getVouchers
+ * @see HiMate.Helpers.getVouchers
  * @param {String} campaignId
  * @return {Number}
  * @reactive
  */
 Template.registerHelper('availableVouchersCount', function(campaignId) {
-    return Waslchiraa.Helpers.getVouchers(campaignId).available;
+    return HiMate.Helpers.getVouchers(campaignId).available;
 });
 
 /**
- * @see Waslchiraa.Helpers.getVouchers
+ * @see HiMate.Helpers.getVouchers
  * @param {String} campaignId
  * @return {Boolean}
  * @reactive
  */
 Template.registerHelper('hasAvailableVouchers', function(campaignId) {
-    return Waslchiraa.Helpers.getVouchers(campaignId).available > 0;
+    return HiMate.Helpers.getVouchers(campaignId).available > 0;
 });
 
 /**
@@ -344,7 +344,7 @@ Template.registerHelper('hasAvailableVouchers', function(campaignId) {
  * @reactive
  */
 Template.registerHelper('isReservedByUser', function(campaignId) {
-    return Waslchiraa.Collections.Vouchers.find({
+    return HiMate.Collections.Vouchers.find({
         campaignId: campaignId,
         userId: Meteor.userId()
     }).count() > 0;

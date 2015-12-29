@@ -20,7 +20,7 @@ var createThumb300x2 = function(fileObj, readStream, writeStream) {
 /**
  *
  */
-Waslchiraa.Collections.Images = new FS.Collection("waslchiraa_images", {
+HiMate.Collections.Images = new FS.Collection("waslchiraa_images", {
     stores: [new FS.Store.GridFS("waslchiraa_images"), new FS.Store.GridFS("waslchiraa_thumbnails", {
         transformWrite: createThumb300
     }), new FS.Store.GridFS("waslchiraa_thumbnails_x2", {
@@ -36,7 +36,7 @@ Waslchiraa.Collections.Images = new FS.Collection("waslchiraa_images", {
 /**
  *
  */
-Waslchiraa.Collections.Images.allow({
+HiMate.Collections.Images.allow({
     download: function(userId, file) {
         //console.log("userId: ", userId);
         //console.log("----------------------");
@@ -61,6 +61,6 @@ Waslchiraa.Collections.Images.allow({
 /**
  *
  */
-Waslchiraa.Collections.Images.files.before.insert(function(userId, doc) {
+HiMate.Collections.Images.files.before.insert(function(userId, doc) {
     doc.userId = userId;
 });

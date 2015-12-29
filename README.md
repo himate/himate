@@ -1,4 +1,4 @@
-# waslchiraa
+# HiMate
 
 The project contains three separate meteor apps, which will share one database.
 

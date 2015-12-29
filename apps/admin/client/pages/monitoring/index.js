@@ -17,7 +17,7 @@ var updateCharts = function() {
         var memoryValues = [];
         var totalMemoryValue;
 
-        var reports = Waslchiraa.Collections.Reports.find({}, {
+        var reports = HiMate.Collections.Reports.find({}, {
             sort: {
                 created: 1
             }
@@ -115,7 +115,7 @@ var updateCharts = function() {
             tooltipXPadding: 4,
             tooltipCaretSize: 4,
             tooltipCornerRadius: 4,
-            tooltipTemplate: "<%= Waslchiraa.Helpers.sizify(value) %>",
+            tooltipTemplate: "<%= HiMate.Helpers.sizify(value) %>",
             scaleBeginAtZero: true,
             scaleOverride: true,
             scaleStepWidth: totalMemoryValue / 5,
@@ -155,7 +155,7 @@ Template.pages_monitoring.helpers({
             });
         }
 
-        return Waslchiraa.Collections.Activities.find(filter, {
+        return HiMate.Collections.Activities.find(filter, {
             sort: {
                 created: -1
             }
@@ -167,7 +167,7 @@ Template.pages_monitoring.helpers({
      */
     getEntry: function(id) {
         // :TODO: we need to distinguish the collections, extend Activities model!
-        return Waslchiraa.Collections.Entries.findOne(id);
+        return HiMate.Collections.Entries.findOne(id);
     }
 });
 
@@ -183,12 +183,12 @@ Template.pages_monitoring.events({
     'click .remove': function(event) {
         Meteor.call('activities_remove', this._id, function(err, response) {
             if (err) {
-                Waslchiraa.Helpers.errorMessage(err.error);
+                HiMate.Helpers.errorMessage(err.error);
                 return;
             }
-            Waslchiraa.Helpers.infoMessage(response);
+            HiMate.Helpers.infoMessage(response);
         });
-        return Waslchiraa.Helpers.cancel(event);
+        return HiMate.Helpers.cancel(event);
     }
 });
 
@@ -199,7 +199,7 @@ Template.pages_monitoring.events({
 Template.pages_monitoring.onRendered(function() {
     updateCharts();
     Meteor.setTimeout(function() {
-        observer = Waslchiraa.Collections.Reports.find().observe({
+        observer = HiMate.Collections.Reports.find().observe({
             added: updateCharts,
             changed: updateCharts,
             removed: updateCharts

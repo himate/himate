@@ -18,7 +18,7 @@ caching-compiler@1.0.0
 caching-html-compiler@1.0.2
 callback-hook@1.0.4
 cfs:access-point@0.1.49
-cfs:autoform@2.2.1
+cfs:autoform@2.1.2
 cfs:base-package@0.0.30
 cfs:collection@0.5.5
 cfs:collection-filters@0.2.4
@@ -57,6 +57,7 @@ fastclick@1.0.7
 fortawesome:fontawesome@4.4.0_1
 geojson-utils@1.0.4
 handlebars@1.0.4
+himate:base@0.0.2
 hot-code-push@1.0.0
 html-tools@1.0.5
 htmljs@1.0.5
@@ -77,7 +78,7 @@ livedata@1.0.15
 localstorage@1.0.5
 logging@1.0.8
 markdown@1.0.5
-matb33:collection-hooks@0.8.1
+matb33:collection-hooks@0.7.15
 mdg:validation-error@0.2.0
 meteor@1.1.10
 meteor-base@1.0.1
@@ -137,7 +138,6 @@ url@1.0.5
 useraccounts:core@1.13.1
 useraccounts:iron-routing@1.13.1
 useraccounts:semantic-ui@1.13.1
-waslchiraa:base@0.0.2
 webapp@1.2.3
 webapp-hashing@1.0.5
 wylio:mandrill@1.0.1

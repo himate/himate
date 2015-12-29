@@ -31,7 +31,6 @@ aldeed:autoform
 fabienb4:autoform-semantic-ui
 check
 momentjs:moment
-waslchiraa:base
 less
 markdown
 meteorhacks:kadira
@@ -46,3 +45,4 @@ shinn:autoform-file
 mizzao:user-status
 rzymek:moment-locale-de
 rzymek:moment-locale-ar
+himate:base

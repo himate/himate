@@ -14,34 +14,34 @@ Meteor.startup = function (callback) {
 Meteor.startup(function() {
 
     // empty database?
-    if (Waslchiraa.Collections.Categories.find().count() === 0 && Waslchiraa.Collections.Campaigns.find().count() === 0) {
+    if (HiMate.Collections.Categories.find().count() === 0 && HiMate.Collections.Campaigns.find().count() === 0) {
 
         // so add some demo content
         console.log("> empty database");
         console.log("> add some demo categories...");
 
         // "Fashion" coupons
-        var c = Waslchiraa.Collections.Categories.insert({
+        var c = HiMate.Collections.Categories.insert({
             "title": "Fashion"
         });
 
         // "DIY" coupons
-        c = Waslchiraa.Collections.Categories.insert({
+        c = HiMate.Collections.Categories.insert({
             "title": "DIY"
         });
 
         // "Food" coupons
-        c = Waslchiraa.Collections.Categories.insert({
+        c = HiMate.Collections.Categories.insert({
             "title": "Food"
         });
 
         // "Furniture" coupons
-        c = Waslchiraa.Collections.Categories.insert({
+        c = HiMate.Collections.Categories.insert({
             "title": "Furniture"
         });
 
         // "Household" coupons
-        c = Waslchiraa.Collections.Categories.insert({
+        c = HiMate.Collections.Categories.insert({
             "title": "Household"
         });
 

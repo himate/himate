@@ -12,7 +12,7 @@ Template.partials_languages.events({
         //$('#partials-sidebar').sidebar('setting', 'transition', 'push').sidebar('toggle');
         $('.ui.sidebar').sidebar('toggle');
         $('#partials-languages').toggleClass('active');
-        return Waslchiraa.Helpers.cancel(event);
+        return HiMate.Helpers.cancel(event);
     },
     /**
      * open/close the sidebar for mobile users
@@ -21,14 +21,14 @@ Template.partials_languages.events({
     'touchstart .js-menu': function(event) {
         $('.ui.sidebar').sidebar('toggle');
         $('#partials-languages').toggleClass('active');
-        return Waslchiraa.Helpers.cancel(event);
+        return HiMate.Helpers.cancel(event);
     },
     /**
      *
      */
     'click .locale-change': function(event, template) {
-        Waslchiraa.Helpers.setLanguage(this.tag);
-        return Waslchiraa.Helpers.cancel(event);
+        HiMate.Helpers.setLanguage(this.tag);
+        return HiMate.Helpers.cancel(event);
     }
 });
 

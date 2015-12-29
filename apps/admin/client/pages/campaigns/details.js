@@ -9,6 +9,6 @@ Template.pages_campaigns_details.helpers({
      * @reactive
      */
     item: function() {
-        return Waslchiraa.Collections.Campaigns.findOne(Router.current().params._id);
+        return HiMate.Collections.Campaigns.findOne(Router.current().params._id);
     }
 });

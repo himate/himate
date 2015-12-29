@@ -1,7 +1,7 @@
-Waslchiraa.Schemas.Category = new SimpleSchema({
+HiMate.Schemas.Category = new SimpleSchema({
     created: {
         type: Date,
-        label: Waslchiraa.Helpers.i18nLabel("created"),
+        label: HiMate.Helpers.i18nLabel("created"),
         autoValue: function() {
             if (this.isInsert) {
                 return new Date;
@@ -17,10 +17,10 @@ Waslchiraa.Schemas.Category = new SimpleSchema({
         }
     },
     title: {
-        type: Waslchiraa.Schemas.TranslationSchema,
-        label: Waslchiraa.Helpers.i18nLabel("title")
+        type: HiMate.Schemas.TranslationSchema,
+        label: HiMate.Helpers.i18nLabel("title")
     }
 });
 
-Waslchiraa.Collections.Categories = new Mongo.Collection("waslchiraa_categories");
-Waslchiraa.Collections.Categories.attachSchema(Waslchiraa.Schemas.Category);
+HiMate.Collections.Categories = new Mongo.Collection("waslchiraa_categories");
+HiMate.Collections.Categories.attachSchema(HiMate.Schemas.Category);

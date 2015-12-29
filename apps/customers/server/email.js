@@ -21,7 +21,7 @@ Meteor.startup(function() {
                 var message = {
                     "subject": TAPi18n.__('email_voucher_reservation_subject'),
                     "from_email":  Meteor.settings.contacts.noreply,
-                    "from_name": "Waslchiraa",
+                    "from_name": "HiMate",
                     "to": [{
                         "email":mailTo,
                         "type": "to"
@@ -56,8 +56,8 @@ Meteor.startup(function() {
     });
 
 
-    Accounts.emailTemplates.siteName = 'Waslchiraa';
-    Accounts.emailTemplates.from = 'Waslchiraa <' +  Meteor.settings.contacts.noreply + '>';
+    Accounts.emailTemplates.siteName = 'HiMate';
+    Accounts.emailTemplates.from = 'HiMate <' +  Meteor.settings.contacts.noreply + '>';
     Accounts.emailTemplates.verifyEmail.subject = function (user) {
         return TAPi18n.__('email_registration_subject');
     };
@@ -102,7 +102,7 @@ Meteor.startup(function() {
     };
 
     Accounts.emailTemplates.resetPassword.subject = function (user) {
-        return 'Reset you waslchiraa password';
+        return 'Reset you himate password';
     };
 
     Accounts.emailTemplates.resetPassword.html = function (user, url) {

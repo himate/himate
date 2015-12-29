@@ -1,22 +1,22 @@
 /**
  *
  */
-Template.waslchiraa_partials_messages.helpers({
+Template.himate_partials_messages.helpers({
 
     /**
      *
      */
     messages: function() {
-        return Waslchiraa.Collections.Messages.find();
+        return HiMate.Collections.Messages.find();
     }
 });
 
 /**
  *
  */
-Template.waslchiraa_partials_messages_item.onRendered(function() {
+Template.himate_partials_messages_item.onRendered(function() {
     var msg = this.data;
     Meteor.setTimeout(function() {
-        Waslchiraa.Collections.Messages.remove(msg._id);
+        HiMate.Collections.Messages.remove(msg._id);
     }, 3000);
 });

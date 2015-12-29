@@ -1,5 +1,5 @@
 /**
- * Waslchiraa.Collections.Campaigns
+ * HiMate.Collections.Campaigns
  */
 Meteor.methods({
 
@@ -18,19 +18,19 @@ Meteor.methods({
         check(campaignId, String);
 
         // check voucher and avoid duplicates
-        var campaign = Waslchiraa.Collections.Campaigns.findOne(campaignId);
+        var campaign = HiMate.Collections.Campaigns.findOne(campaignId);
         if (!campaign) {
             throw new Meteor.Error("not-found");
         }
 
-        if (Waslchiraa.Collections.Vouchers.findOne({
+        if (HiMate.Collections.Vouchers.findOne({
             "userId": Meteor.userId(),
             "campaignId": campaign._id
         })) {
             throw new Meteor.Error("allready-reserved");
         }
 
-        if (Waslchiraa.Collections.Vouchers.find({
+        if (HiMate.Collections.Vouchers.find({
             "campaignId": campaign._id
         }).count() >= campaign.quantity) {
             throw new Meteor.Error("no_campaigns_available");
@@ -44,9 +44,9 @@ Meteor.methods({
                 code += possible.charAt(Math.floor(Math.random() * possible.length));
             }
         }
-        while (Waslchiraa.Collections.Campaigns.findOne({"code": code}));
+        while (HiMate.Collections.Campaigns.findOne({"code": code}));
 
-        var voucherId = Waslchiraa.Collections.Vouchers.insert({
+        var voucherId = HiMate.Collections.Vouchers.insert({
             "code": code,
             "userId": Meteor.userId(),
             "campaignId": campaign._id
@@ -54,7 +54,7 @@ Meteor.methods({
 
         Meteor.call('send_voucher_reservation_email', code);
 
-        Waslchiraa.Collections.Activities.insert({
+        HiMate.Collections.Activities.insert({
             username: Meteor.user().username,
             userId: Meteor.userId(),
             role: 'customer',
@@ -112,7 +112,7 @@ Meteor.methods({
         var voucher = checkVoucher(code);
         var campaign = getVoucherCampaign(voucher);
 
-        Waslchiraa.Collections.Vouchers.update({
+        HiMate.Collections.Vouchers.update({
             code: code,
             campaignId: voucher.campaignId
         }, {
@@ -121,7 +121,7 @@ Meteor.methods({
             }
         });
 
-        Waslchiraa.Collections.Activities.insert({
+        HiMate.Collections.Activities.insert({
             username: Meteor.user().username,
             userId: Meteor.userId(),
             role: 'merchant',
@@ -139,7 +139,7 @@ Meteor.methods({
  *
  */
 var checkVoucher = function(code) {
-    var voucher = Waslchiraa.Collections.Vouchers.findOne({
+    var voucher = HiMate.Collections.Vouchers.findOne({
         code: code
     });
 
@@ -158,7 +158,7 @@ var checkVoucher = function(code) {
  * @param {Object} voucher
  */
 var getVoucherCampaign = function(voucher) {
-    var campaign = Waslchiraa.Collections.Campaigns.findOne({
+    var campaign = HiMate.Collections.Campaigns.findOne({
         userId: Meteor.userId(),
         _id: voucher.campaignId
     });

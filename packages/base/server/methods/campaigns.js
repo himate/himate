@@ -1,5 +1,5 @@
 /**
- * Waslchiraa.Collections.Campaigns
+ * HiMate.Collections.Campaigns
  */
 Meteor.methods({
 
@@ -52,18 +52,18 @@ Meteor.methods({
         //})
 
         // action
-        var id = Waslchiraa.Collections.Campaigns.insert(doc);
+        var id = HiMate.Collections.Campaigns.insert(doc);
 
         // fix image ownership, if admin adds the image
         if (Roles.userIsInRole(Meteor.userId(), ['admin']) && doc.imageId) {
-            Waslchiraa.Collections.Images.update(doc.imageId, {
+            HiMate.Collections.Images.update(doc.imageId, {
                 $set: {
                     userId: doc.userId
                 }
             });
         }
 
-        Waslchiraa.Collections.Activities.insert({
+        HiMate.Collections.Activities.insert({
             username: Meteor.user().username,
             userId: Meteor.userId(),
             entryId: id,
@@ -84,7 +84,7 @@ Meteor.methods({
     "campaigns_edit": function(doc, id) {
 
         // campaign should be owned by the current user
-        var campaign = Waslchiraa.Collections.Campaigns.findOne(id);
+        var campaign = HiMate.Collections.Campaigns.findOne(id);
         if (!campaign) {
             throw new Meteor.Error("not-found");
         }
@@ -133,18 +133,18 @@ Meteor.methods({
         });
 
         // save update
-        var result = Waslchiraa.Collections.Campaigns.update(id, doc);
+        var result = HiMate.Collections.Campaigns.update(id, doc);
 
         // fix image ownership, if admin adds the image
         if (Roles.userIsInRole(Meteor.userId(), ['admin']) && doc.$set.imageId) {
-            Waslchiraa.Collections.Images.update(doc.$set.imageId, {
+            HiMate.Collections.Images.update(doc.$set.imageId, {
                 $set: {
                     userId: doc.$set.userId
                 }
             });
         }
 
-        Waslchiraa.Collections.Activities.insert({
+        HiMate.Collections.Activities.insert({
             username: Meteor.user().username,
             userId: Meteor.userId(),
             entryId: id,
@@ -164,7 +164,7 @@ Meteor.methods({
         // check user input
         check(id, String);
 
-        var campaign = Waslchiraa.Collections.Campaigns.findOne(id);
+        var campaign = HiMate.Collections.Campaigns.findOne(id);
         if (!campaign) {
             throw new Meteor.Error("not-found");
         }
@@ -183,10 +183,10 @@ Meteor.methods({
 
         // :TODO: delete corresponding reservations and send emails to reservation users
         // :TODO: perhaps we should flag as "deleted" instead?
-        Waslchiraa.Collections.Images.remove(campaign.imageId);
-        Waslchiraa.Collections.Campaigns.remove(campaign._id);
+        HiMate.Collections.Images.remove(campaign.imageId);
+        HiMate.Collections.Campaigns.remove(campaign._id);
 
-        Waslchiraa.Collections.Activities.insert({
+        HiMate.Collections.Activities.insert({
             username: Meteor.user().username,
             userId: Meteor.userId(),
             entryId: id,

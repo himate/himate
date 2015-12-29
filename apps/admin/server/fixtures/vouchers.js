@@ -4,12 +4,12 @@
 Meteor.startup(function() {
 
     // empty database?
-    if (!Waslchiraa.Collections.Campaigns.find().count()) {
+    if (!HiMate.Collections.Campaigns.find().count()) {
 
-        var c = Waslchiraa.Collections.Categories.findOne({title: "Fashion"});
+        var c = HiMate.Collections.Categories.findOne({title: "Fashion"});
         var u = Meteor.users.findOne({"username": "merchant"});
 
-        var v = Waslchiraa.Collections.Campaigns.insert({
+        var v = HiMate.Collections.Campaigns.insert({
             "title": {
                 "de":'DEUTSCH: Lorem ipsum dolor',
                 "en":'ENGLISH: Lorem ipsum dolor',

@@ -1,5 +1,5 @@
 // ----- private helper --------------------------------------------------------
-var l = Waslchiraa.Helpers.subscriptionLogger;
+var l = HiMate.Helpers.subscriptionLogger;
 
 // ----- routes ----------------------------------------------------------------
 /**
@@ -22,7 +22,7 @@ Router.route('/campaigns', {
             filter.categoryId = c._id;
         }
 
-        var campaignIds = Waslchiraa.Collections.Campaigns.find(filter).map(function (v) {
+        var campaignIds = HiMate.Collections.Campaigns.find(filter).map(function (v) {
             return v._id;
         });
 

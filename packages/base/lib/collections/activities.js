@@ -1,7 +1,7 @@
-Waslchiraa.Schemas.Activity = new SimpleSchema({
+HiMate.Schemas.Activity = new SimpleSchema({
     created: {
         type: Date,
-        label: Waslchiraa.Helpers.i18nLabel("created"),
+        label: HiMate.Helpers.i18nLabel("created"),
         autoValue: function() {
             if (this.isInsert) {
                 return new Date;
@@ -46,10 +46,10 @@ Waslchiraa.Schemas.Activity = new SimpleSchema({
     },
     action: {
         type: String,
-        label: Waslchiraa.Helpers.i18nLabel("action"),
+        label: HiMate.Helpers.i18nLabel("action"),
     }
 });
 
 // create collection and register schema
-Waslchiraa.Collections.Activities = new Mongo.Collection("waslchiraa_activities");
-Waslchiraa.Collections.Activities.attachSchema(Waslchiraa.Schemas.Activity);
+HiMate.Collections.Activities = new Mongo.Collection("waslchiraa_activities");
+HiMate.Collections.Activities.attachSchema(HiMate.Schemas.Activity);

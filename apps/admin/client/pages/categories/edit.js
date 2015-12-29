@@ -8,7 +8,7 @@ Template.pages_categories_edit.helpers({
      *
      */
     category: function() {
-        return Waslchiraa.Collections.Categories.findOne(Router.current().params._id);
+        return HiMate.Collections.Categories.findOne(Router.current().params._id);
     }
 });
 
@@ -24,7 +24,7 @@ AutoForm.addHooks(["categories_edit"], {
      * @param {Object} template
      */
     onSuccess: function(operation, result, template) {
-        Waslchiraa.Helpers.infoMessage('ok');
+        HiMate.Helpers.infoMessage('ok');
         Router.go("pages_categories");
     },
 
@@ -35,10 +35,10 @@ AutoForm.addHooks(["categories_edit"], {
      */
     onError: function(formType, error) {
         if (error.reason) {
-            Waslchiraa.Helpers.errorMessage(error.reason);
+            HiMate.Helpers.errorMessage(error.reason);
         }
         else if (error.error) {
-            Waslchiraa.Helpers.errorMessage(error.error);
+            HiMate.Helpers.errorMessage(error.error);
         }
     }
 });

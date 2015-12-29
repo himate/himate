@@ -3,7 +3,7 @@
  *
  * @todo auto generate schemas based on available languages (TAPi18n.getLanguages())
  */
-Waslchiraa.Schemas.TranslationSchemaOptional = new SimpleSchema({
+HiMate.Schemas.TranslationSchemaOptional = new SimpleSchema({
     de: {
         type: String,
         optional: true
@@ -22,7 +22,7 @@ Waslchiraa.Schemas.TranslationSchemaOptional = new SimpleSchema({
 /**
  *
  */
-Waslchiraa.Schemas.TranslationSchemaOptionalTextarea = new SimpleSchema({
+HiMate.Schemas.TranslationSchemaOptionalTextarea = new SimpleSchema({
     de: {
         type: String,
         optional: true,
@@ -49,7 +49,7 @@ Waslchiraa.Schemas.TranslationSchemaOptionalTextarea = new SimpleSchema({
 /**
  *
  */
-Waslchiraa.Schemas.TranslationSchema = new SimpleSchema({
+HiMate.Schemas.TranslationSchema = new SimpleSchema({
     de: {
         type: String
     },
@@ -64,7 +64,7 @@ Waslchiraa.Schemas.TranslationSchema = new SimpleSchema({
 /**
  *
  */
-Waslchiraa.Schemas.TranslationSchemaTextarea = new SimpleSchema({
+HiMate.Schemas.TranslationSchemaTextarea = new SimpleSchema({
     de: {
         type: String,
         autoform: {

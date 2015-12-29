@@ -9,7 +9,7 @@ Template.pages_vouchers.helpers({
      * @reactive
      */
     vouchers: function() {
-        return Waslchiraa.Collections.Vouchers.find({}, {
+        return HiMate.Collections.Vouchers.find({}, {
             sort: {
                 created: 1
             }
@@ -31,6 +31,6 @@ Template.pages_vouchers.events({
         Router.go('pages_campaigns_details', {
             _id: this.campaignId
         });
-        return Waslchiraa.Helpers.cancel(event);
+        return HiMate.Helpers.cancel(event);
     }
 });

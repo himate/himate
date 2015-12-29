@@ -18,7 +18,7 @@ AutoForm.addHooks(["pages_categories_add"], {
      * @param {Object} template
      */
     onSuccess: function(operation, result, template) {
-        Waslchiraa.Helpers.infoMessage('ok');
+        HiMate.Helpers.infoMessage('ok');
         Router.go("pages_categories");
     },
 
@@ -29,10 +29,10 @@ AutoForm.addHooks(["pages_categories_add"], {
      */
     onError: function(formType, error) {
         if (error.reason) {
-            Waslchiraa.Helpers.errorMessage(error.reason);
+            HiMate.Helpers.errorMessage(error.reason);
         }
         else if (error.error) {
-            Waslchiraa.Helpers.errorMessage(error.error);
+            HiMate.Helpers.errorMessage(error.error);
         }
     }
 });

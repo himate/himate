@@ -1,6 +1,6 @@
-# waslchiraa
+# himate
 
-## waslchiraa:base
-This package provides base functionality used by all waslchiraa apps.
+## himate:base
+This package provides base functionality used by all himate apps.
 
 This is a good place for collections, helpers, translations etc.

@@ -24,9 +24,9 @@ Meteor.methods({
         });
 
         // action
-        var id = Waslchiraa.Collections.Categories.insert(doc);
+        var id = HiMate.Collections.Categories.insert(doc);
 
-        Waslchiraa.Collections.Activities.insert({
+        HiMate.Collections.Activities.insert({
             username: Meteor.user().username,
             userId: Meteor.userId(),
             role: 'admin',
@@ -60,9 +60,9 @@ Meteor.methods({
         });
 
         // save update
-        var result = Waslchiraa.Collections.Categories.update(id, doc);
+        var result = HiMate.Collections.Categories.update(id, doc);
 
-        Waslchiraa.Collections.Activities.insert({
+        HiMate.Collections.Activities.insert({
             username: Meteor.user().username,
             userId: Meteor.userId(),
             role: 'admin',
@@ -88,15 +88,15 @@ Meteor.methods({
         }
 
         // action
-        var category = Waslchiraa.Collections.Categories.findOne(id);
+        var category = HiMate.Collections.Categories.findOne(id);
         if (category) {
             //if it already has campaigns dont allow the remove
-            if (!Waslchiraa.Collections.Campaigns.find({
+            if (!HiMate.Collections.Campaigns.find({
                 categoryId: id
             }).count() > 0) {
-                Waslchiraa.Collections.Categories.remove(category._id);
+                HiMate.Collections.Categories.remove(category._id);
 
-                Waslchiraa.Collections.Activities.insert({
+                HiMate.Collections.Activities.insert({
                     username: Meteor.user().username,
                     userId: Meteor.userId(),
                     role: 'admin',

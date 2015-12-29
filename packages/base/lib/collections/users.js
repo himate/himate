@@ -2,13 +2,13 @@
 UserProfileSchema = new SimpleSchema({
     company: {
         type: String,
-        label: Waslchiraa.Helpers.i18nLabel('company'),
+        label: HiMate.Helpers.i18nLabel('company'),
         optional: false
     },
     salutation: {
         type: String,
         optional: false,
-        label: Waslchiraa.Helpers.i18nLabel('salutation'),
+        label: HiMate.Helpers.i18nLabel('salutation'),
         autoform: {
             options: [
                 {label: "Mr", value: "mr"},
@@ -18,42 +18,42 @@ UserProfileSchema = new SimpleSchema({
     },
     firstName: {
         type: String,
-        label: Waslchiraa.Helpers.i18nLabel('first_name'),
+        label: HiMate.Helpers.i18nLabel('first_name'),
         optional: false
     },
     lastName: {
         type: String,
-        label: Waslchiraa.Helpers.i18nLabel('last_name'),
+        label: HiMate.Helpers.i18nLabel('last_name'),
         optional: false
     },
     street: {
         type: String,
-        label: Waslchiraa.Helpers.i18nLabel('street'),
+        label: HiMate.Helpers.i18nLabel('street'),
         optional: false
     },
     number: {
         type: String,
-        label: Waslchiraa.Helpers.i18nLabel('number'),
+        label: HiMate.Helpers.i18nLabel('number'),
         optional: false
     },
     zipcode: {
         type: String,
-        label: Waslchiraa.Helpers.i18nLabel('zipcode'),
+        label: HiMate.Helpers.i18nLabel('zipcode'),
         optional: false
     },
     city: {
         type: String,
-        label: Waslchiraa.Helpers.i18nLabel('city'),
+        label: HiMate.Helpers.i18nLabel('city'),
         optional: false
     },
     country: {
         type: String,
-        label: Waslchiraa.Helpers.i18nLabel('country'),
+        label: HiMate.Helpers.i18nLabel('country'),
         optional: false
     },
     tel: {
         type: String,
-        label: Waslchiraa.Helpers.i18nLabel('phone'),
+        label: HiMate.Helpers.i18nLabel('phone'),
         optional: true,
         autoform: {
             label: 'Phone'
@@ -66,11 +66,11 @@ Meteor.users.attachSchema(new SimpleSchema({
     username: {
         type: String,
         optional: true,
-        label: Waslchiraa.Helpers.i18nLabel('username')
+        label: HiMate.Helpers.i18nLabel('username')
     },
     emails: {
         type: [Object],
-        label: Waslchiraa.Helpers.i18nLabel('emails'),
+        label: HiMate.Helpers.i18nLabel('emails'),
         optional: true
     },
     "emails.$.address": {
@@ -82,7 +82,7 @@ Meteor.users.attachSchema(new SimpleSchema({
     },
     createdAt: {
         type: Date,
-        label: Waslchiraa.Helpers.i18nLabel('created'),
+        label: HiMate.Helpers.i18nLabel('created'),
         optional: true,
     },
     status: {
@@ -92,12 +92,12 @@ Meteor.users.attachSchema(new SimpleSchema({
     },
     profile: {
         type: UserProfileSchema,
-        label: Waslchiraa.Helpers.i18nLabel('profile'),
+        label: HiMate.Helpers.i18nLabel('profile'),
         optional: true
     },
     services: {
         type: Object,
-        label: Waslchiraa.Helpers.i18nLabel('services'),
+        label: HiMate.Helpers.i18nLabel('services'),
         optional: true,
         blackbox: true
     },
@@ -112,7 +112,7 @@ Meteor.users.attachSchema(new SimpleSchema({
     },
     roles: {
         type: [String],
-        label: Waslchiraa.Helpers.i18nLabel('roles'),
+        label: HiMate.Helpers.i18nLabel('roles'),
         optional: true
     }
 }));

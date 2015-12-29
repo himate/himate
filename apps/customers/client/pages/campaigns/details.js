@@ -9,7 +9,7 @@ Template.pages_campaigns_details.helpers({
      * @reactive
      */
     item: function () {
-        var result = Waslchiraa.Collections.Campaigns.findOne({
+        var result = HiMate.Collections.Campaigns.findOne({
             _id: Router.current().params._id
         });
         return result;
@@ -34,14 +34,14 @@ Template.pages_campaigns_details.events({
                     $modalConfirmation.modal('hide');
                 },
                 onApprove: function () {
-                    var campaign = Waslchiraa.Collections.Campaigns.findOne(Router.current().params._id);
+                    var campaign = HiMate.Collections.Campaigns.findOne(Router.current().params._id);
                     if (campaign) {
                         var vouchercode = Meteor.call('vouchers_reserve', campaign._id.toString(), function (err, data) {
                             if (err) {
-                                Waslchiraa.Helpers.errorMessage(err.message);
+                                HiMate.Helpers.errorMessage(err.message);
                             }
                             else {
-                                Waslchiraa.Helpers.infoMessage('voucher ' + data + ' has been reserved');
+                                HiMate.Helpers.infoMessage('voucher ' + data + ' has been reserved');
                                 Meteor.call('send_voucher_reservation_email',data);
                             }
                         });

@@ -9,7 +9,7 @@ Router.route('devtools', {
 
         // build a frameset
         var html = '<html><head>';
-        html += '<title>waslchiraa | devtools</title>';
+        html += '<title>himate | devtools</title>';
         html += '<style type="text/css">* { margin: 0; padding: 0; border: 0}</style>';
         html += '</head>';
         html += '<frameset cols="320,320,*">';

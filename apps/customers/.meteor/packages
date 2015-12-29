@@ -36,7 +36,6 @@ wylio:mandrill
 email
 
 
-waslchiraa:base
 less
 matb33:collection-hooks
 markdown
@@ -47,3 +46,4 @@ cfs:ui
 mizzao:user-status
 rzymek:moment-locale-de
 rzymek:moment-locale-ar
+himate:base

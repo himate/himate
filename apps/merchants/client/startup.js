@@ -9,7 +9,7 @@ Meteor.startup(function() {
         $('#partials-main-menu').removeClass('active');
     });
 
-    Waslchiraa.Helpers.setDefaultLanguage();
+    HiMate.Helpers.setDefaultLanguage();
 
     // set semantic-ui for forms
     AutoForm.setDefaultTemplate("semanticUI");

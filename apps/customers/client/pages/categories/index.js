@@ -9,7 +9,7 @@ Template.pages_categories.helpers({
      * @reactive
      */
     categories: function() {
-        return Waslchiraa.Collections.Categories.find();
+        return HiMate.Collections.Categories.find();
     }
 });
 
@@ -26,6 +26,6 @@ Template.pages_categories.events({
     'click .js-categories .js-category': function(event) {
         Session.set('category', $(event.currentTarget).hasClass('js-all') ? null : this);
         Router.go('pages_campaigns');
-        return Waslchiraa.Helpers.cancel(event);
+        return HiMate.Helpers.cancel(event);
     }
 });

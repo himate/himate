@@ -35,7 +35,7 @@ Template.pages_redeem.events({
         var voucherCode = $(event.target).closest('form').find('[name="voucher"]').val();
         var result = Meteor.call('vouchers_get_campaign', voucherCode, function(err, campaign) {
             if (err) {
-                Waslchiraa.Helpers.errorMessage(err.message);
+                HiMate.Helpers.errorMessage(err.message);
                 Session.set('invalid', true);
                 Session.set('campaign', null);
                 Session.set('voucherCode', null);
@@ -47,7 +47,7 @@ Template.pages_redeem.events({
             }
         });
 
-        return Waslchiraa.Helpers.cancel(event);
+        return HiMate.Helpers.cancel(event);
     },
 
     /**
@@ -60,10 +60,10 @@ Template.pages_redeem.events({
         var voucher = Session.get('voucherCode');
         var result = Meteor.call('vouchers_redeem', voucher, function(err, data) {
             if (err) {
-                Waslchiraa.Helpers.errorMessage(err.message);
+                HiMate.Helpers.errorMessage(err.message);
             }
             else {
-                Waslchiraa.Helpers.infoMessage('voucher ' + voucher + ' has been redeemed');
+                HiMate.Helpers.infoMessage('voucher ' + voucher + ' has been redeemed');
                 Session.set('voucherCode', null);
                 Session.set('invalid', false);
                 Session.set('campaign', null);
@@ -71,7 +71,7 @@ Template.pages_redeem.events({
         });
 
         event.target.voucher.value = "";
-        return Waslchiraa.Helpers.cancel(event);
+        return HiMate.Helpers.cancel(event);
     }
 });
 

@@ -10,5 +10,5 @@ Meteor.startup(function() {
         $('#partials-languages').removeClass('active');
     });
 
-    Waslchiraa.Helpers.setDefaultLanguage();
+    HiMate.Helpers.setDefaultLanguage();
 });

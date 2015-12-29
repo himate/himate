@@ -5,7 +5,7 @@ Meteor.publish('campaigns', function() {
 
     // collect data
     var today = moment().endOf('day').toDate();
-    var campaigns = Waslchiraa.Collections.Campaigns.find({
+    var campaigns = HiMate.Collections.Campaigns.find({
         $or: [{
             end: null
         }, {
@@ -62,7 +62,7 @@ Meteor.publish('campaigns', function() {
  * publish all categories
  */
 Meteor.publish('categories', function() {
-    return Waslchiraa.Collections.Categories.find();
+    return HiMate.Collections.Categories.find();
 });
 
 /**
@@ -79,12 +79,12 @@ Meteor.publish('images', function(campaignIds) {
         };
     }
 
-    var imageIds = Waslchiraa.Collections.Campaigns.find(filter).map(function(v) {
+    var imageIds = HiMate.Collections.Campaigns.find(filter).map(function(v) {
         return v.imageId;
     });
 
     //
-    return Waslchiraa.Collections.Images.find({
+    return HiMate.Collections.Images.find({
         _id: {
             $in: imageIds
         }
@@ -111,5 +111,5 @@ Meteor.publish('vouchers', function(campaignIds) {
         };
     }
 
-    return Waslchiraa.Collections.Vouchers.find(filter);
+    return HiMate.Collections.Vouchers.find(filter);
 });

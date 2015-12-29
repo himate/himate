@@ -16,6 +16,6 @@ Meteor.methods({
             throw new Meteor.Error("not-authorized");
         }
 
-        return Waslchiraa.Collections.Activities.remove(id);
+        return HiMate.Collections.Activities.remove(id);
     }
 });

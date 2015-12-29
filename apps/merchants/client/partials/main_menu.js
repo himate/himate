@@ -8,8 +8,8 @@ Template.partials_main_menu.events({
      *
      */
     'click .locale-change': function(event, template) {
-        Waslchiraa.Helpers.setLanguage(this.tag);
-        return Waslchiraa.Helpers.cancel(event);
+        HiMate.Helpers.setLanguage(this.tag);
+        return HiMate.Helpers.cancel(event);
     },
 
     /**
@@ -20,7 +20,7 @@ Template.partials_main_menu.events({
         $('.ui.sidebar').sidebar('toggle');
         var menu = event.currentTarget.id;
         $('#'+menu).parent().toggleClass('active');
-        return Waslchiraa.Helpers.cancel(event);
+        return HiMate.Helpers.cancel(event);
     },
     /**
      * open/close the sidebar for mobile users
@@ -30,7 +30,7 @@ Template.partials_main_menu.events({
         $('.ui.sidebar').sidebar('toggle');
         var menu = event.currentTarget.id;
         $('#'+menu).parent().toggleClass('active');
-        return Waslchiraa.Helpers.cancel(event);
+        return HiMate.Helpers.cancel(event);
     },
 
     /**
@@ -39,7 +39,7 @@ Template.partials_main_menu.events({
      */
     'click .logout': function(event) {
         AccountsTemplates.logout();
-        return Waslchiraa.Helpers.cancel(event);
+        return HiMate.Helpers.cancel(event);
     }
 });
 

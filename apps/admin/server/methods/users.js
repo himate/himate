@@ -52,7 +52,7 @@ Meteor.methods({
         });
 
         // log activity
-        Waslchiraa.Collections.Activities.insert({
+        HiMate.Collections.Activities.insert({
             username: Meteor.user().username,
             userId: Meteor.userId(),
             entryId: userId,
@@ -127,7 +127,7 @@ Meteor.methods({
         });
 
         // log activity
-        Waslchiraa.Collections.Activities.insert({
+        HiMate.Collections.Activities.insert({
             username: Meteor.user().username,
             userId: Meteor.userId(),
             entryId: id,
@@ -141,7 +141,7 @@ Meteor.methods({
             Accounts.setPassword(id, doc.$set.password);
 
             // log activity
-            Waslchiraa.Collections.Activities.insert({
+            HiMate.Collections.Activities.insert({
                 username: Meteor.user().username,
                 userId: Meteor.userId(),
                 entryId: id,
@@ -172,7 +172,7 @@ Meteor.methods({
         // :TODO: delete all additional data (campaigns, vouchers) of this user
         var result = Meteor.users.remove(id);
 
-        Waslchiraa.Collections.Activities.insert({
+        HiMate.Collections.Activities.insert({
             username: Meteor.user().username,
             userId: Meteor.userId(),
             entryId: id,
@@ -224,7 +224,7 @@ Meteor.methods({
                 }
             });
 
-            Waslchiraa.Collections.Activities.insert({
+            HiMate.Collections.Activities.insert({
                 username: Meteor.user().username,
                 userId: Meteor.userId(),
                 entryId: id,
@@ -243,7 +243,7 @@ Meteor.methods({
             }
         });
 
-        Waslchiraa.Collections.Activities.insert({
+        HiMate.Collections.Activities.insert({
             username: Meteor.user().username,
             userId: Meteor.userId(),
             entryId: id,

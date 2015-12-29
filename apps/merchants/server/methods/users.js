@@ -37,7 +37,7 @@ Meteor.methods({
         // save update
         var result = Meteor.users.update(Meteor.userId(), doc);
 
-        Waslchiraa.Collections.Activities.insert({
+        HiMate.Collections.Activities.insert({
             username: Meteor.user().username,
             userId: Meteor.userId(),
             entryId: Meteor.userId(),

@@ -10,7 +10,7 @@ Meteor.publish('campaigns', function() {
     }
 
     // action
-    return Waslchiraa.Collections.Campaigns.find({
+    return HiMate.Collections.Campaigns.find({
         userId: this.userId
     }, {
         fields: {
@@ -38,7 +38,7 @@ Meteor.publish('campaigns', function() {
  */
 Meteor.publish("voucher_vouchers", function(campaignId) {
     check(campaignId, String);
-    return Waslchiraa.Collections.Vouchers.find({
+    return HiMate.Collections.Vouchers.find({
         'campaignId': campaignId
     });
 });
@@ -49,7 +49,7 @@ Meteor.publish("voucher_vouchers", function(campaignId) {
 Meteor.publish('voucher_users', function(campaignId) {
     check(campaignId, String);
 
-    var campaigns = Waslchiraa.Collections.Vouchers.find({
+    var campaigns = HiMate.Collections.Vouchers.find({
         'campaignId': campaignId
     });
     var userIds = campaigns.map(function(v) {
@@ -79,7 +79,7 @@ Meteor.publish('vouchers', function() {
         return this.ready();
     }
 
-    var campaigns = Waslchiraa.Collections.Campaigns.find({
+    var campaigns = HiMate.Collections.Campaigns.find({
         userId: this.userId
     });
 
@@ -87,7 +87,7 @@ Meteor.publish('vouchers', function() {
         return v._id;
     });
 
-    return Waslchiraa.Collections.Vouchers.find({
+    return HiMate.Collections.Vouchers.find({
         campaignId: {
             $in: campaignIds
         }
@@ -106,7 +106,7 @@ Meteor.publish('categories', function() {
     }
 
     // action
-    return Waslchiraa.Collections.Categories.find();
+    return HiMate.Collections.Categories.find();
 });
 
 /**
@@ -119,7 +119,7 @@ Meteor.publish('images', function() {
         return this.ready();
     }
 
-    return Waslchiraa.Collections.Images.find({
+    return HiMate.Collections.Images.find({
         userId: this.userId
     });
 });

@@ -4,7 +4,7 @@ Router.configure({
     loadingTemplate: 'partials_loading',
     notFoundTemplate: 'errors_404',
     waitOn: function() {
-        return [Meteor.subscribe('users', Waslchiraa.Helpers.subscriptionLogger)];
+        return [Meteor.subscribe('users', HiMate.Helpers.subscriptionLogger)];
     }
 });
 

@@ -1,8 +1,8 @@
 Package.describe({
-    name: 'waslchiraa:base',
+    name: 'himate:base',
     version: '0.0.2',
     summary: '',
-    git: 'https://github.com/waslchiraa/waslchiraa',
+    git: 'https://github.com/himate/himate',
     documentation: 'README.md'
 });
 
@@ -63,6 +63,6 @@ Package.onUse(function(api) {
         'server/methods/users.js'
     ], ['server']);
 
-    // export "Waslchiraa" namespace to be used in including apps
-    api.export(['Waslchiraa']);
+    // export "HiMate" namespace to be used in including apps
+    api.export(['HiMate']);
 });

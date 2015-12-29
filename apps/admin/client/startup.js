@@ -8,7 +8,7 @@ Meteor.startup(function() {
         $('#partials-sidebar').sidebar('hide');
     });
 
-    Waslchiraa.Helpers.setDefaultLanguage();
+    HiMate.Helpers.setDefaultLanguage();
 
     // set semantic-ui for forms
     AutoForm.setDefaultTemplate("semanticUI");

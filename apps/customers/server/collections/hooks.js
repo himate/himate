@@ -12,7 +12,7 @@ Meteor.users.before.insert(function(userId, doc) {
  * @param {doc} data set after insert, _id is the new object id
  */
 Meteor.users.after.insert(function(userId, doc) {
-    Waslchiraa.Collections.Activities.insert({
+    HiMate.Collections.Activities.insert({
         username: doc.username,
         userId: doc._id,
         role: 'customer',

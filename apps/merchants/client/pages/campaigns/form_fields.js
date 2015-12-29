@@ -57,7 +57,7 @@ Template.form_fields.events({
      */
     'click button.manual-translation': function(event, template) {
         hideAutotranslation();
-        return Waslchiraa.Helpers.cancel(event);
+        return HiMate.Helpers.cancel(event);
     },
 
     /**
@@ -67,7 +67,7 @@ Template.form_fields.events({
      */
     'click button.auto-translation': function(event, template) {
         showAutotranslation();
-        return Waslchiraa.Helpers.cancel(event);
+        return HiMate.Helpers.cancel(event);
     },
 
     /**
@@ -111,7 +111,7 @@ Template.form_fields.events({
             $(event.delegateTarget).submit();
         });
 
-        return Waslchiraa.Helpers.cancel(event);
+        return HiMate.Helpers.cancel(event);
     },
 });
 

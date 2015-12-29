@@ -1,4 +1,4 @@
-var l = Waslchiraa.Helpers.subscriptionLogger;
+var l = HiMate.Helpers.subscriptionLogger;
 
 /**
  * homepage

@@ -15,7 +15,7 @@ Template.pages_campaigns.helpers({
             filter["title." + locale] = new RegExp(Session.get('query'), "gi");
         }
 
-        return Waslchiraa.Collections.Campaigns.find(filter, {
+        return HiMate.Collections.Campaigns.find(filter, {
             sort: {
                 published: -1
             }
@@ -35,8 +35,8 @@ Template.pages_campaigns.events({
     'click table .remove': function(event) {
         // :TODO: use semantic ui dialog & translate
         if (confirm('Delete Voucher "' + this.title + '"?')) {
-            Meteor.call('campaigns_remove', this._id, Waslchiraa.Helpers.onAfterMethodCall);
+            Meteor.call('campaigns_remove', this._id, HiMate.Helpers.onAfterMethodCall);
         }
-        return Waslchiraa.Helpers.cancel(event);
+        return HiMate.Helpers.cancel(event);
     }
 });

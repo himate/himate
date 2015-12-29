@@ -1,7 +1,7 @@
-Waslchiraa.Schemas.Report = new SimpleSchema({
+HiMate.Schemas.Report = new SimpleSchema({
     created: {
         type: Date,
-        label: Waslchiraa.Helpers.i18nLabel("created"),
+        label: HiMate.Helpers.i18nLabel("created"),
         autoValue: function() {
             if (this.isInsert) {
                 return new Date;
@@ -41,11 +41,11 @@ Waslchiraa.Schemas.Report = new SimpleSchema({
 });
 
 // create collection and register schema
-Waslchiraa.Collections.Reports = new Mongo.Collection("waslchiraa_reports");
-Waslchiraa.Collections.Reports.attachSchema(Waslchiraa.Schemas.Report);
+HiMate.Collections.Reports = new Mongo.Collection("waslchiraa_reports");
+HiMate.Collections.Reports.attachSchema(HiMate.Schemas.Report);
 
 // ----- public methods --------------------------------------------------------
-Waslchiraa.Collections.Reports.collectData = function() {
+HiMate.Collections.Reports.collectData = function() {
 
     // collect data
     var report = {};
@@ -63,13 +63,13 @@ Waslchiraa.Collections.Reports.collectData = function() {
     report.campaigns = {};
 
     //console.log(report);
-    Waslchiraa.Collections.Reports.insert(report);
+    HiMate.Collections.Reports.insert(report);
 
     // remove old entries
     var mins = 20;
     var now = new Date();
     var toOld = new Date(now.getTime() - mins * 60 * 1000);
-    Waslchiraa.Collections.Reports.remove({
+    HiMate.Collections.Reports.remove({
         created: {
             $lt: toOld
         }
@@ -77,6 +77,6 @@ Waslchiraa.Collections.Reports.collectData = function() {
 
     // restart in 60 seconds
     Meteor.setTimeout(function() {
-        Waslchiraa.Collections.Reports.collectData();
+        HiMate.Collections.Reports.collectData();
     }, 60 * 1000);
 };

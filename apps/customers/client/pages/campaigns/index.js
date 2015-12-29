@@ -16,7 +16,7 @@ Template.pages_campaigns.helpers({
             filter.categoryId = c._id;
         }
 
-        return Waslchiraa.Collections.Campaigns.find(filter);
+        return HiMate.Collections.Campaigns.find(filter);
     },
 
     /**
@@ -44,7 +44,7 @@ Template.pages_campaigns.events({
      */
     'click .js-categories .js-category-item': function(event) {
         Router.go('pages_categories');
-        return Waslchiraa.Helpers.cancel(event);
+        return HiMate.Helpers.cancel(event);
     },
 
     /**
@@ -55,7 +55,7 @@ Template.pages_campaigns.events({
         Router.go('pages_campaigns_details', {
             _id: this._id
         });
-        return Waslchiraa.Helpers.cancel(event);
+        return HiMate.Helpers.cancel(event);
     }
 
     /**
@@ -67,7 +67,7 @@ Template.pages_campaigns.events({
     //    $('#pages-campaigns .amount .item').removeClass('active');
     //    $(event.currentTarget).addClass('active');
     //    Session.set('single', $(event.currentTarget).hasClass('single'));
-    //    return Waslchiraa.Helpers.cancel(event);
+    //    return HiMate.Helpers.cancel(event);
     //}
 });
 

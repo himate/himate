@@ -6,7 +6,7 @@
  * @return {Function} i18n callback
  * @reactive
  */
-Waslchiraa.Helpers.i18nLabel = function(value) {
+HiMate.Helpers.i18nLabel = function(value) {
     return function() {
         return TAPi18n.__(value);
     };

@@ -43,9 +43,9 @@ Template.pages_users.events({
      */
     "click .remove-user": function(event) {
         if (confirm('Delete User "' + this.username + '"?')) {
-            Meteor.call("users_remove", this._id, Waslchiraa.Helpers.onAfterMethodCall);
+            Meteor.call("users_remove", this._id, HiMate.Helpers.onAfterMethodCall);
         }
-        return Waslchiraa.Helpers.cancel(event);
+        return HiMate.Helpers.cancel(event);
     },
 
     /**
@@ -53,8 +53,8 @@ Template.pages_users.events({
      */
     "click .toggle.state": function(event) {
         if (confirm('Toggle account state for "' + this.username + '"?')) {
-            Meteor.call("users_toggle_disabled", this._id, Waslchiraa.Helpers.onAfterMethodCall);
+            Meteor.call("users_toggle_disabled", this._id, HiMate.Helpers.onAfterMethodCall);
         }
-        return Waslchiraa.Helpers.cancel(event);
+        return HiMate.Helpers.cancel(event);
     }
 });
