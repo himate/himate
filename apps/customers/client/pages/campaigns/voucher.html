@@ -1,7 +1,7 @@
 <template name="pages_campaigns_voucher">
     <div class="voucher item js-voucher"
          style="{{# with FS.GetFile 'waslchiraa_images' imageId }}background: url({{ this.url }}){{/ with }};background-size: 100%;">
-        <div class="ui middle segment text-container">
+        <div class="ui middle segment text-container no-padding">
             <div class="ui right aligned grid vertical segment">
                 <div class="left aligned eight wide column">
                     <h3 class="voucher-title">
@@ -12,8 +12,8 @@
                         <a class="maps-link" href="{{getMapUrl item }}"> {{_ 'check_on_maps'}}</a>
                     </span>
                 </div>
-                <div class="right aligned seven wide column">
-                    <p class="description-headline">{{_ 'valid_until' }}
+                <div class="right aligned seven wide column voucher-description">
+                    <p class="description-headline">{{_ 'valid_until' }} <br>
                         <span class="description-text">{{formatDate end }}</span></p>
 
                     <p class="description-headline">{{_ 'available' }}
