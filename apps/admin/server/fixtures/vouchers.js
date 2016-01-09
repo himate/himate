@@ -6,7 +6,7 @@ Meteor.startup(function() {
     // empty database?
     if (!HiMate.Collections.Campaigns.find().count()) {
 
-        var c = HiMate.Collections.Categories.findOne({title: "Fashion"});
+        var c = HiMate.Collections.Categories.findOne({"title.en": "Fashion"});
         var u = Meteor.users.findOne({"username": "merchant"});
 
         var v = HiMate.Collections.Campaigns.insert({

@@ -22,27 +22,47 @@ Meteor.startup(function() {
 
         // "Fashion" coupons
         var c = HiMate.Collections.Categories.insert({
-            "title": "Fashion"
+            "title": {
+                en:"Fashion",
+                de: "Mode",
+                ar:" موضة "
+            }
         });
 
         // "DIY" coupons
         c = HiMate.Collections.Categories.insert({
-            "title": "DIY"
+            "title": {
+                en:"DIY",
+                de: "DIY",
+                ar:"افعلها بنفسك"
+            }
         });
 
         // "Food" coupons
         c = HiMate.Collections.Categories.insert({
-            "title": "Food"
+            "title": {
+                en:"Food",
+                de: "Lebensmittel",
+                ar:"طعام"
+            }
         });
 
         // "Furniture" coupons
         c = HiMate.Collections.Categories.insert({
-            "title": "Furniture"
+            "title":{
+                en:"Furniture",
+                de: "Möbel",
+                ar:"أثاث"
+            }
         });
 
         // "Household" coupons
         c = HiMate.Collections.Categories.insert({
-            "title": "Household"
+            "title": {
+                en:"Household",
+                de: "Möbel",
+                ar:" المنزلية "
+            }
         });
 
 

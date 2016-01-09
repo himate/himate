@@ -15,21 +15,28 @@ Meteor.startup(function() {
             username: 'customer',
             email: 'customer@example.com',
             password: 'customer',
-            profile: {
-                firstName: 'John',
-                lastName: 'Doe'
-            }
         });
         Roles.addUsersToRoles(user, ['customer']);
+       
 
         // sample merchant
         user = Accounts.createUser({
             username: 'merchant',
             email: 'merchant@example.com',
+            company: 'parts unlimed',
             password: 'merchant',
             profile: {
-                firstName: 'Merchant',
-                lastName: '1'
+                firstName: 'John',
+                lastName: 'Merchant',
+                salutation: 'mr',
+                company: 'parts Unlimited',
+                street: 'Baker street',
+                number: '221b',
+                zipcode: '232323',
+                city: 'berlin',
+                country:'Germany',
+                tel: '018723234234'
+
             }
         });
         Roles.addUsersToRoles(user, ['merchant']);
@@ -39,13 +46,15 @@ Meteor.startup(function() {
             username: 'admin',
             email: 'admin@example.com',
             password: 'admin',
-            profile: {
-                firstName: 'The',
-                lastName: 'Admin'
-            }
         });
         Roles.addUsersToRoles(user, ['admin']);
 
+        Meteor.users.find().fetch().forEach(function(user){
+            console.log(user);
+            Meteor.users.update(user._id, {
+                $set: {"emails.0.verified":true}
+            }); 
+        });
         //
         console.log("> done.");
     }
