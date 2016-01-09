@@ -52,7 +52,22 @@ Meteor.methods({
         //})
 
         // action
-        var id = HiMate.Collections.Campaigns.insert(doc);
+        var id = HiMate.Collections.Campaigns.insert(doc, function (error, _id){
+            if(!error){
+                var campaign = HiMate.Collections.Campaigns.findOne(_id);
+                Meteor.defer();
+                Email.send({
+                    from: 'noreply@himate.org',
+                    //to: 'tr@delodi.net',
+                    to: 'himate-reviewers@googlegroups.com',
+                    subject: 'New Campaign created, please review it.',
+                    text: '' +
+                    'Title (en):' + campaign.title.en + "\n" +
+                    'Title (de):' + campaign.title.de + "\n" +
+                    'Title (ar):' + campaign.title.ar + "\n"
+                });
+            }
+        });
 
         // fix image ownership, if admin adds the image
         if (Roles.userIsInRole(Meteor.userId(), ['admin']) && doc.imageId) {
