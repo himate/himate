@@ -1,7 +1,7 @@
 /**
  * publish all campaigns
  */
-Meteor.publish('campaigns', function() {
+Meteor.publish('campaigns', function () {
 
     // collect data
     var today = moment().endOf('day').toDate();
@@ -10,6 +10,8 @@ Meteor.publish('campaigns', function() {
             end: null
         }, {
             $and: [{
+                approved: true
+            },{
                 published: {
                     $lte: today
                 }
@@ -29,11 +31,11 @@ Meteor.publish('campaigns', function() {
         }]
     });
 
-    var merchantIds = campaigns.map(function(v) {
+    var merchantIds = campaigns.map(function (v) {
         return v.userId;
     });
 
-    var categoryIds = campaigns.map(function(v) {
+    var categoryIds = campaigns.map(function (v) {
         return v.categoryId;
     });
 
@@ -61,14 +63,14 @@ Meteor.publish('campaigns', function() {
 /**
  * publish all categories
  */
-Meteor.publish('categories', function() {
+Meteor.publish('categories', function () {
     return HiMate.Collections.Categories.find();
 });
 
 /**
  *
  */
-Meteor.publish('images', function(campaignIds) {
+Meteor.publish('images', function (campaignIds) {
 
     check(campaignIds, Match.Optional(Array));
 
@@ -79,7 +81,7 @@ Meteor.publish('images', function(campaignIds) {
         };
     }
 
-    var imageIds = HiMate.Collections.Campaigns.find(filter).map(function(v) {
+    var imageIds = HiMate.Collections.Campaigns.find(filter).map(function (v) {
         return v.imageId;
     });
 
@@ -94,7 +96,7 @@ Meteor.publish('images', function(campaignIds) {
 /**
  *
  */
-Meteor.publish('vouchers', function(campaignIds) {
+Meteor.publish('vouchers', function (campaignIds) {
 
     // security checks
     if (!Roles.userIsInRole(this.userId, 'customer')) {

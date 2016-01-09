@@ -48,9 +48,12 @@
                     <div class="eight wide field">
                         {{> afQuickField name='published' }}
                     </div>
-                    <div class="eight wide field">
-                        {{> afQuickField name='end' }}
-                    </div>
+					<div class="eight wide field">
+						{{> afQuickField name='end' }}
+					</div>
+                </div>
+                <div class="fields">
+					{{> afQuickField name='approved' type="boolean-radios" trueLabel="Yes" falseLabel="No"}}
                 </div>
 
                 <div class="ui bottom fixed actions menu">

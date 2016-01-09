@@ -28,9 +28,12 @@
                             <th>
                                 {{_ 'published' }}
                             </th>
-                            <th>
-                                {{_ 'end' }}
-                            </th>
+							<th>
+								{{_ 'end' }}
+							</th>
+							<th>
+								{{_ 'approved' }}
+							</th>
                             <th>
                                 {{_ 'quantity' }}
                             </th>
@@ -119,7 +122,9 @@
         <td>
             {{# if end }} {{ formatDate end }} {{ else }} - {{/ if }}
         </td>
-
+		<td>
+			{{ approved }}
+		</td>
         <td>
             {{ quantity }} {{# with getVouchers campaignId }} / {{ reserved.length }} / {{ redeemed.length }} {{/ with }}
         </td>

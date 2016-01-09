@@ -36,7 +36,6 @@ Meteor.startup(function() {
                 city: 'berlin',
                 country:'Germany',
                 tel: '018723234234'
-
             }
         });
         Roles.addUsersToRoles(user, ['merchant']);

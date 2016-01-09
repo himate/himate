@@ -92,6 +92,12 @@ HiMate.Schemas.Campaign = new SimpleSchema({
         type: HiMate.Schemas.TranslationSchemaTextarea,
         label: HiMate.Helpers.i18nLabel("short_description")
     },
+    approved: {
+        type: Boolean,
+        defaultValue: false,
+        optional: false
+
+    },
     published: {
         type: Date,
         label: HiMate.Helpers.i18nLabel("published"),

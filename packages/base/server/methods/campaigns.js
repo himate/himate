@@ -124,6 +124,7 @@ Meteor.methods({
             categoryId: String,
             published: Date,
             end: Match.Optional(Date),
+            approved: Match.Optional(Boolean),
             quantity: Number,
             street: String,
             number: String,
