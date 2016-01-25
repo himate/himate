@@ -1,10 +1,14 @@
 @import "../layouts/default.import.less";
 
 #partials-main-menu {
-    background: @main-color;
-    height: @nav-base-height;
-    margin: 0;
-    border-radius: 0;
+        background: @main-color;
+        height: @nav-base-height;
+        margin: 0;
+        border-radius: 0;
+    & .item, & .ui.button, & .logo {
+        color: @main-text-color;
+    }
+
     & .sidebar {
         font-size: 1.25em;
         padding: 0 .5em;
@@ -13,18 +17,16 @@
         }
     }
     & .logo {
-        width: 100%;
-        color: #FFFFFF;
+       font-size: 25px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
 body.pages-startpage #partials-main-menu {
-    display: none;
-}
+    background: @inverted-color;
 
-
-@media (max-width: 420px){
-    .logo {
-        display: none;
+    & .item , & .ui.button {
+        color: @inverted-text-color;
     }
 }

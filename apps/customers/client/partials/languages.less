@@ -1,19 +1,23 @@
-#partials-languages .ui.primary.buttons .button, #partials-languages .ui.primary.button {
-    background: transparent !important;
-}
-
-#partials-languages .ui.primary.buttons .button:hover, #partials-languages .ui.primary.button:hover {
-    background: transparent !important;
-}
+@import "../layouts/default.import.less";
 
 #partials-languages {
-    margin: 0;
-    border-radius: 0;
-}
-body:not(.pages-startpage) #partials-languages {
-    display: none;
-}
 
-span.text {
-    padding: 0.5em;
+  background: @inverted-color;
+  height: @nav-base-height;
+  border-radius: 0;
+  margin: 0;
+  .languages {
+    .ui.button, &:before {
+      background: transparent;
+      border: none;
+      border-radius: 0;
+    }
+  }
+
+  .language {
+    font-size: x-large;
+    &:focus {
+      outline: none;
+    }
+  }
 }

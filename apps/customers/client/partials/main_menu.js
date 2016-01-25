@@ -45,6 +45,6 @@ Template.partials_main_menu.events({
 /**
  * called each the the template is rendered
  */
-Template.partials_languages.onRendered(function() {
-    $('#partials-main-menu .dropdown').dropdown();
+Template.partials_main_menu.onRendered(function() {
+    $('.js-dropdown').dropdown();
 });

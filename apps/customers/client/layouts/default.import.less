@@ -3,15 +3,21 @@
 @font-family-headlines:    'Open Sans', sans-serif;
 @font-family-text:         'Lato', sans-serif;
 
-@main-color:               #F35938;
-@main-text-color:          #272015;
+@main-color:               #FFE585;
+@inverted-color:           #444A59;
+@light-color:              #7F7F7F;
+
+@main-text-color:          @inverted-color;
+@inverted-text-color:      @main-color;
+
+@main-bg-color:            #FFF;
+@inverted-bg-color:        #F2F2F2;
+
 @default-button-color:     #696969;
-@inverted-text-color:      #7F7F7F;
 @inactive-text-color:      #AAAAAA;
 @lighter-text-color:       #D8D8D8;
 @inactive-bg-color:        #F2F2F2;
-@active-text-color:        @main-color;
-@main-bg-color:            #FFF;
+@active-text-color:        @main-text-color;
 @active-bg-color:          @main-bg-color;
 
 @border-radius-base:       7px;

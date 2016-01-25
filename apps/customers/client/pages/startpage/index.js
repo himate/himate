@@ -20,6 +20,7 @@ Template.pages_startpage.events({
 /**
  * called each the the template is rendered
  */
-Template.partials_languages.onRendered(function() {
-    $('#pages-startpage .dropdown').dropdown();
+Template.pages_startpage.onRendered(function() {
+    $('.js-dropdown').dropdown();
 });
+
