@@ -7,6 +7,7 @@
     "active": "نشط",
     "activities": "الأنشطة",
     "administration": "إدارة الصفحات",
+    "all_categories": "كل الفئات",
     "all_offers": "العروض",
     "approve_new_vouchers": "سوف يتم التثبت والتأكيد خلال 24 ساعة",
     "approve_offers": "تأكيد العروض",
@@ -24,7 +25,7 @@
     "check": "تثبت",
     "check_on_maps": "على الخريطة",
     "city": "المدينة",
-    "code": "الرمز",
+    "code": "رمز الحجز",
     "company": "شركة",
     "conditions": "الشروط المطلوبة",
     "conditions_content": "بعض الشروط",
@@ -114,7 +115,7 @@
     "redeem": "الإستخلاص",
     "redeem_voucher": "التثبت من الوصل",
     "redeem_voucher_notice": "<p> الرجاء التثبت من البيانات الشخصية .1<p/>     \n  <p> الرجاء إدخال الرمز الموجود بحوزة المستخدم .2<p/>",
-    "redeemed": "الخلاصات",
+    "redeemed": "تم استخلاصه",
     "relations": "علاقات",
     "reservations": "الحجوزات",
     "reserve_notice": "<p>يجب صرف الحجز في خلال 24 ساعة. بامكانك ذلك؟</p>\n<p>سوف نرسل لك رسالة إلكترونية تحمل رمز الحجز الخاص بك على <br>\n__email__<br></p>\n<p><strong>الرجاء إحضار جميع البيانات والأوراق الرسمية!</strong></p>",
@@ -130,6 +131,7 @@
     "sign_up": "تسجيل",
     "special_conditions": "الشروط الإضافية",
     "state": "الحالة",
+    "status": "وضع الحجز",
     "street": "الشارع",
     "submit": "عرض",
     "system": "نظام",
@@ -165,6 +167,5 @@
     "welcome_text_step1": "<p>1. Wähle deine Sprache</p>\n<p>1. Choose your language</p>\n<p>قم بإختيار اللغة</p>",
     "welcome_text_step2": "<p>2. Danach schau dir das an:</p>\n<p>2. After that check our:</p>\n<p>بعد ذلك</p>",
     "yes": "نعم",
-    "zipcode": "الرمز البريدي",
-    "all_categories": "كل الفئات"
+    "zipcode": "الرمز البريدي"
 }

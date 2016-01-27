@@ -4,4 +4,35 @@
     padding-left: 25px;
     padding-right: 25px;
   }
+  .voucher-description {
+    //color: @inverted-text-color;
+    line-height: 1.2;
+    > .description-headline {
+      font-family: @font-family-headlines;
+      font-size: 10px;
+      font-weight: 600;
+      color: @light-color;
+      text-transform: uppercase;
+      > .description-text {
+        font-family: @font-family-text;
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: 0;
+        display: block;
+        &.voucher-code {
+          color: @main-text-color;
+        }
+        &.redeemed {
+          color: #49D5B9;
+        }
+        &.reserved {
+          color: #FFD130;
+        }
+        &.timedout {
+          color: #C64F46;
+        }
+      }
+    }
+  }
+
 }

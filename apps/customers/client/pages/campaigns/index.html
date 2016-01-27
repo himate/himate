@@ -6,12 +6,12 @@
 
         <div class="ui js-categories">
             <div class="js-category-item category item ui middle segment">
-                <h2 class="headline item-title"> {{_ 'categories' }}: </h2>
+                <h2 class="headline item-title"> {{_ 'category' }}: </h2>
                 <p class="headline category-title">
-                    {{# with category }}{{ translateField category "title" }}{{ else }}{{_ 'all' }}{{/ with }}
-                    <span>({{ countCampaigns category }})</span>
+                    {{# with category }}{{ translateField category "title" }}{{ else }}{{_ 'all_categories' }}{{/ with }}
+                    <bdi>({{ countCampaigns category }})</bdi>
                 </p>
-                <i class="icon-arrow-right ico-right"></i>
+                <i class="icon-close ico-right"></i>
             </div>
 
             {{# each campaigns }}
