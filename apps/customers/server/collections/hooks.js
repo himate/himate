@@ -3,7 +3,6 @@
  * @param {doc} new data set to insert
  */
 Meteor.users.before.insert(function(userId, doc) {
-    console.log(doc);
     doc.roles = ['customer'];
     if(doc.services && doc.services.facebook && doc.services.facebook.email){
         doc.emails = [{
@@ -12,7 +11,6 @@ Meteor.users.before.insert(function(userId, doc) {
         }];
     }
     doc.username = doc.emails[0].address;
-    console.log(doc);
 });
 
 /**
