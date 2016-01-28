@@ -52,8 +52,8 @@ Meteor.methods({
         //})
 
         // action
-        var id = HiMate.Collections.Campaigns.insert(doc, function (error, _id){
-            if(!error){
+        var id = HiMate.Collections.Campaigns.insert(doc, function(error, _id) {
+            if (!error) {
                 var campaign = HiMate.Collections.Campaigns.findOne(_id);
                 Meteor.defer();
                 Email.send({
@@ -61,10 +61,7 @@ Meteor.methods({
                     //to: 'tr@delodi.net',
                     to: 'himate-reviewers@googlegroups.com',
                     subject: 'New Campaign created, please review it.',
-                    text: '' +
-                    'Title (en):' + campaign.title.en + "\n" +
-                    'Title (de):' + campaign.title.de + "\n" +
-                    'Title (ar):' + campaign.title.ar + "\n"
+                    text: '' + 'Title (en):' + campaign.title.en + "\n" + 'Title (de):' + campaign.title.de + "\n" + 'Title (ar):' + campaign.title.ar + "\n"
                 });
             }
         });
@@ -77,6 +74,8 @@ Meteor.methods({
                 }
             });
         }
+
+        HiMate.Collections.Campaigns.countVouchers(id);
 
         HiMate.Collections.Activities.insert({
             username: Meteor.user().username,
@@ -159,6 +158,8 @@ Meteor.methods({
                 }
             });
         }
+
+        HiMate.Collections.Campaigns.countVouchers(id);
 
         HiMate.Collections.Activities.insert({
             username: Meteor.user().username,

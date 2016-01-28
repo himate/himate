@@ -394,6 +394,6 @@ Template.registerHelper('translateField', function(object, field) {
     return '';
 });
 
-Template.registerHelper('truncateEmail',function(email){
+Template.registerHelper('truncateEmail', function(email) {
     return email.substring(0, email.lastIndexOf("@"));
 });

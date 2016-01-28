@@ -1,24 +1,24 @@
 <template name="pages_campaigns_voucher">
     <div class="voucher item js-voucher"
-         style="{{# with FS.GetFile 'waslchiraa_images' imageId }}background: url({{ this.url }}){{/ with }};background-size: 100%;">
+    style="{{# with FS.GetFile 'waslchiraa_images' imageId }}background: url({{ this.url }}){{/ with }};background-size: 100%;">
         <div class="ui middle segment text-container no-padding">
             <div class="ui right aligned grid vertical segment">
                 <div class="left aligned eight wide column">
-                    <h3 class="voucher-title">
-                        {{ translateField this "title" }}
-                    </h3>
-                    <span class="headline voucher-address">
-                        {{ street }} {{ number }}, {{ zipcode }} {{ city }}
-                    </span>
+                    <h3 class="voucher-title"> {{ translateField this "title" }} </h3>
+                    <span class="headline voucher-address"> {{ street }} {{ number }}, {{ zipcode }} {{ city }} </span>
                 </div>
                 <div class="right aligned seven wide column voucher-description">
-                    <p class="description-headline">{{_ 'valid_until' }} <br>
-                        <span class="description-text">{{formatDate end }}</span></p>
+                    <p class="description-headline">
+                        {{_ 'valid_until' }}
+                        <br>
+                        <span class="description-text">{{formatDate end }}</span>
+                    </p>
 
-                    <p class="description-headline">{{_ 'available' }}
-                        <span class="description-text">
-                            <bdi>{{ availableVouchersCount _id }} {{_ 'out_of'}} {{ quantity }}</bdi>
-                        </span>
+                    <p class="description-headline">
+                        {{_ 'available' }} <span class="description-text">
+                            <bdi>
+                                {{ available }} {{_ 'out_of'}} {{ quantity }}
+                            </bdi> </span>
                     </p>
                 </div>
             </div>

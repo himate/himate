@@ -28,7 +28,10 @@ Meteor.publish('campaigns', function() {
             zipcode: 1,
             city: 1,
             country: 1,
-            end:1
+            end:1,
+            available: 1,
+            reserved: 1,
+            redeemed: 1
         }
     });
 });

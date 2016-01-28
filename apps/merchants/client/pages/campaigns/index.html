@@ -103,9 +103,8 @@
         </td>
 
         <td class="numbers-info">
-            {{#with getVouchers _id}}
             <p>
-                {{_ 'total'}}: {{ total }}
+                {{_ 'total'}}: {{ quantity }}
             </p>
             <p>
                 {{_ 'reservations'}}: {{ reserved }}
@@ -116,7 +115,6 @@
             <p>
                 {{_ 'redeemed'}}: {{ redeemed }}
             </p>
-            {{/ with}}
         </td>
 
         <td width="10">

@@ -30,6 +30,9 @@ Meteor.startup(function() {
                     content: TAPi18n.__('email_header', lang)
                 }],
             };
+
+            HiMate.Collections.Campaigns.countVouchers(voucher.campaignId);
+
             Mandrill.messages.sendTemplate({
                 template_name: 'waslchiraa_remove_vouchercode',
                 template_content: [],
@@ -37,7 +40,7 @@ Meteor.startup(function() {
             });
         },
     });
-    
+
     // delete all expired vouchers every minute
     Meteor.setInterval(function() {
         var minDate = moment().subtract(1, 'day').toDate();

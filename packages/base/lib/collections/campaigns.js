@@ -153,9 +153,58 @@ HiMate.Schemas.Campaign = new SimpleSchema({
                 label: HiMate.Helpers.i18nLabel("choose_image")
             }
         }
+    },
+    // cache values
+    available: {
+        type: Number,
+        defaultValue: 0,
+        optional: true
+    },
+    reserved: {
+        type: Number,
+        defaultValue: 0,
+        optional: true
+    },
+    redeemed: {
+        type: Number,
+        defaultValue: 0,
+        optional: true
     }
 });
 
 // create collection and register schema
 HiMate.Collections.Campaigns = new Mongo.Collection("waslchiraa_campaigns");
 HiMate.Collections.Campaigns.attachSchema(HiMate.Schemas.Campaign);
+
+// ----- public methods --------------------------------------------------------
+/**
+ * @param {Number} campaignId
+ */
+HiMate.Collections.Campaigns.countVouchers = function(campaignId) {
+    var campaign = HiMate.Collections.Campaigns.findOne({
+        _id: campaignId
+    });
+    var now = new Date();
+
+    if (campaign) {
+        var reserved = HiMate.Collections.Vouchers.find({
+            'campaignId': campaignId,
+            'redeemed': null
+        }).count();
+
+        var redeemed = HiMate.Collections.Vouchers.find({
+            'campaignId': campaignId,
+            'redeemed': {
+                $lt: now
+            }
+        }).count();
+
+        HiMate.Collections.Campaigns.update(campaignId, {
+            $set: {
+                reserved: reserved,
+                redeemed: redeemed,
+                available: campaign.quantity - (redeemed + reserved)
+            }
+        });
+    }
+};

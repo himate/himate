@@ -8,7 +8,7 @@
 
                 <table class="ui compact celled definition table">
                     <thead class="full-width">
-                        <tr>
+                        <tr class="top aligned">
                             <th width="10"></th>
                             <th width="100">
                                 {{_ 'image' }}
@@ -28,14 +28,16 @@
                             <th>
                                 {{_ 'published' }}
                             </th>
-							<th>
-								{{_ 'end' }}
-							</th>
-							<th>
-								{{_ 'approved' }}
-							</th>
+                            <th>
+                                {{_ 'end' }}
+                            </th>
+                            <th>
+                                {{_ 'approved' }}
+                            </th>
                             <th>
                                 {{_ 'quantity' }}
+                                <br />
+                                ({{_ 'available' }} / {{_ 'reserved' }} / {{_ 'redeemed' }})
                             </th>
                             <th colspan="2">
                                 &nbsp;
@@ -122,11 +124,13 @@
         <td>
             {{# if end }} {{ formatDate end }} {{ else }} - {{/ if }}
         </td>
-		<td>
-			{{ approved }}
-		</td>
         <td>
-            {{ quantity }} {{# with getVouchers campaignId }} / {{ reserved.length }} / {{ redeemed.length }} {{/ with }}
+            {{ approved }}
+        </td>
+        <td>
+            {{ quantity }}
+            <br />
+            ({{ available }} / {{ reserved }} / {{ redeemed }})
         </td>
 
         {{# unless hideEdit }}

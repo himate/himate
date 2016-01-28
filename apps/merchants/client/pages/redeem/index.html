@@ -26,10 +26,8 @@
 						</td>
 						<td><bdi>
 							{{_ 'end'}}: {{#if campaign.end }} {{ formatDate campaign.end }} {{ else }} - {{/if}}<br>
-							{{#with getVouchers campaign._id}}
-							{{_ 'reservations'}}: {{ reserved}} {{_ 'out_of'}} {{campaign.quantity }}<br>
-							{{_ 'redeemed'}}: {{ redeemed}} {{_ 'out_of'}} {{campaign.quantity }}
-							{{/ with}}
+							{{_ 'reservations'}}: {{ campaign.reserved }} {{_ 'out_of'}} {{ campaign.quantity }}<br>
+							{{_ 'redeemed'}}: {{ campaign.redeemed }} {{_ 'out_of'}} {{ campaign.quantity }}
 						</bdi>
 
 						</td>
