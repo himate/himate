@@ -1,3 +1,3 @@
 Meteor.startup(function() {
-    // put some code here....
+
 });

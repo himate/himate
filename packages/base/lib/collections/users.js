@@ -26,6 +26,10 @@ UserProfileSchema = new SimpleSchema({
         label: HiMate.Helpers.i18nLabel('last_name'),
         optional: false
     },
+    name: {
+        type: String,
+        optional: true
+    },
     street: {
         type: String,
         label: HiMate.Helpers.i18nLabel('street'),
@@ -62,7 +66,7 @@ UserProfileSchema = new SimpleSchema({
     }
 });
 
-Meteor.users.attachSchema(new SimpleSchema({
+UserSchema = new SimpleSchema({
     username: {
         type: String,
         optional: true,
@@ -115,4 +119,6 @@ Meteor.users.attachSchema(new SimpleSchema({
         label: HiMate.Helpers.i18nLabel('roles'),
         optional: true
     }
-}));
+});
+
+//Meteor.users.attachSchema(UserSchema);

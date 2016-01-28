@@ -6,7 +6,6 @@
  * @param {Object} attemptObj
  */
 Accounts.validateLoginAttempt(function(attemptObj) {
-
     if (attemptObj.user && attemptObj.allowed && attemptObj.user.disabled) {
         throw new Meteor.Error(403, "error_account_disabled");
     }
