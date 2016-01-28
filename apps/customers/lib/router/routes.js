@@ -111,7 +111,8 @@ AccountsTemplates.configureRoute('signIn', {
 AccountsTemplates.configureRoute('verifyEmail', {
     layoutTemplate: 'layouts_default',
     name: 'verifyEmail',
-    path: '/verify-email'
+    path: '/verify-email',
+    redirect: '/campaigns',
 });
 
 AccountsTemplates.configureRoute('resetPwd', {
@@ -119,3 +120,4 @@ AccountsTemplates.configureRoute('resetPwd', {
     name: 'resetPwd',
     path: '/reset-password'
 });
+
