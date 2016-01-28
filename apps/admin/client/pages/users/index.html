@@ -78,7 +78,7 @@
                             </td>
 
                             <td>
-                                {{# unless userIsInRole 'admin' this }}
+                                {{# unless isCurrentUser this._id}}
                                 <a title="{{_ 'users_toggle_disabled' }}" class="toggle state" href="#">
                                     <i class="{{# unless disabled }}green check mark{{ else }}red remove{{/ unless }} icon"></i>
                                 </a>
@@ -88,19 +88,13 @@
                             </td>
 
                             <td width="10">
-                                {{# unless userIsInRole 'admin' this }}
                                 <a href="{{ pathFor 'pages_users_edit' }}" title="{{_ 'users_edit' }}"><i class="pencil icon"></i></a>
-                                {{ else }}
-                                &nbsp;
-                                {{/ unless }}
                             </td>
 
                             <td width="10">
-                                {{# unless userIsInRole 'admin' this }}
+						{{# unless isCurrentUser this._id}}
                                 <a class="remove-user write" href="#" title="{{_ 'users_remove' }}"><i class="trash icon"></i></a>
-                                {{ else }}
-                                &nbsp;
-                                {{/ unless }}
+						{{/ unless }}
                             </td>
                         </tr>
                         {{ else }}

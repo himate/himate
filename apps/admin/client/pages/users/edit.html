@@ -1,44 +1,48 @@
 <template name="pages_users_edit">
-    {{> partials_sub_menu active='users' }}
+	{{> partials_sub_menu active='users' }}
 
-    <div id="pages-users-edit" class="ui basic segment">
-        <div class="ui mobile reversed stackable grid">
-            <div class="twelve wide column">
-                <h2>{{_ 'users_edit' }}</h2>
+	<div id="pages-users-edit" class="ui basic segment">
+		<div class="ui mobile reversed stackable grid">
+			<div class="twelve wide column">
+				<h2>{{_ 'users_edit' }}</h2>
 
-                {{# autoForm schema='HiMate.Schemas.NewUser' doc=user id='users_edit' type='method-update' meteormethod='users_edit' }}
+				{{# autoForm schema='HiMate.Schemas.NewUser' doc=user id='users_edit' type='method-update' meteormethod='users_edit' }}
 
-                <h3 class="ui dividing header">{{_ 'basics' }}</h3>
-                {{> afQuickField name='firstName' }}
-                {{> afQuickField name='lastName' }}
-                {{> afQuickField name='email' }}
-                {{> afQuickField name='verifiedEmail' }}
+					<h3 class="ui dividing header">{{_ 'basics' }}</h3>
+					{{> afQuickField name='firstName' }}
+					{{> afQuickField name='lastName' }}
+					{{> afQuickField name='email' }}
+					{{> afQuickField name='verifiedEmail' }}
 
-                <h3 class="ui dividing header">{{_ 'access_control' }}</h3>
-                {{> afQuickField name='role' options='allowed' }}
-                {{> afQuickField name='password' }}
-                {{> afQuickField name='password2' }}
+					<h3 class="ui dividing header">{{_ 'access_control' }}</h3>
+					{{# unless isCurrentUser user._id}}
+						{{> afQuickField name='role' options='allowed' }}
+					{{else}}
+						{{> afQuickField name='role' options='allowed' disabled='true'}}
+					{{/unless}}
+					{{> afQuickField name='password' }}
+					{{> afQuickField name='password2' }}
 
-                <div class="ui bottom fixed actions menu">
-                    <a class="item" href="{{ pathFor 'pages_users' }}">
-                        <i class="chevron left icon"></i>
-                        {{_ 'back' }}
-                    </a>
-                    <button type="submit" class="right item">
-                        <i class="save icon"></i>
-                        {{_ 'submit' }}
-                    </button>
-                </div>
+					<div class="ui bottom fixed actions menu">
+						<a class="item" href="{{ pathFor 'pages_users' }}">
+							<i class="chevron left icon"></i>
+							{{_ 'back' }}
+						</a>
+						<button type="submit" class="right item">
+							<i class="save icon"></i>
+							{{_ 'submit' }}
+						</button>
+					</div>
 
-                {{/autoForm}}
-            </div>
+				{{/autoForm}}
+			</div>
 
-            <div class="four wide column">
-                <h2>{{_ 'information' }}</h2>
-                <p>
-                    {{# markdown }}{{_ 'users_edit_info_text' }}{{/ markdown }}
-                </p>
-            </div>
-        </div>
-    </div>
+			<div class="four wide column">
+				<h2>{{_ 'information' }}</h2>
+				<p>
+					{{# markdown }}{{_ 'users_edit_info_text' }}{{/ markdown }}
+				</p>
+			</div>
+		</div>
+	</div>
 </template>
