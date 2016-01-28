@@ -38,7 +38,7 @@
                 <div class="voucher-address">
                     <p>
                         {{ item.street }} {{ item.number }}, {{ item.zipcode }} {{ item.city }}
-                        <a  href="{{getMapUrl item }}">
+                        <a  href="{{getMapUrl item }}" target="_blank">
                             {{_ 'check_on_maps'}}
                         </a>
                     </p>
@@ -46,17 +46,19 @@
                 <h2 class="short-description"> {{ translateField item "shortDescription" }} </h2>
             </div>
 
+            {{# if translateField item 'description' }}
             <div class="panel-details">
                 <h5>{{_ 'description' }}</h5>
                 <p>
                     {{ translateField item "description" }}
                 </p>
             </div>
+            {{/ if }}
 
             <div class="panel-details last">
                 <h5>{{_ 'conditions' }}</h5>
                 <p>
-                    {{_ 'conditions_content' }}
+                    {{{_ 'conditions_content' }}}
                 </p>
 
                 <h5>{{_ 'special conditions' }}</h5>
