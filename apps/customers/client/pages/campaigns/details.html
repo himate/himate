@@ -38,7 +38,8 @@
                 <div class="voucher-address">
                     <p>
                         {{ item.street }} {{ item.number }}, {{ item.zipcode }} {{ item.city }}
-                        <a target="_blank" href="{{ getMapUrl item }}">
+                        <br />
+                        <a target="_blank" class="maps" href="{{ getMapUrl item }}">
                             {{_ 'check_on_maps'}}
                         </a>
                     </p>
