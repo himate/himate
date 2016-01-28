@@ -10,14 +10,10 @@ Template.pages_users_edit.helpers({
     user: function() {
         var u = Meteor.users.findOne(Router.current().params._id);
         if (u) {
-            if (Roles.userIsInRole(u._id, 'admin')) {
-                Router.go('pages_users');
-            }
-
             return {
                 _id: u._id,
-                firstName: u.profile.firstName,
-                lastName: u.profile.lastName,
+                firstName: u.profile?u.profile.firstName:'',
+                lastName: u.profile? u.profile.lastName:'',
                 email: u.emails[0].address,
                 verifiedEmail: u.emails[0].verified,
                 role: u.roles[0]

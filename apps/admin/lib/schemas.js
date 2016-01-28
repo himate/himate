@@ -28,7 +28,7 @@ HiMate.Schemas.NewUser = new SimpleSchema({
     role: {
         type: String,
         label: HiMate.Helpers.i18nLabel('role'),
-        allowedValues: ['merchant', 'customer']
+        allowedValues: ['merchant', 'customer', 'admin']
     },
     password: {
         type: String,
