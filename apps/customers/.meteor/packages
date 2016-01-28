@@ -22,14 +22,15 @@ meteorhacks:fast-render
 useraccounts:semantic-ui
 accounts-password
 useraccounts:iron-routing
+service-configuration
+accounts-facebook
+accounts-ui
+
 alanning:roles
 tap:i18n
 tap:i18n-ui
 mrt:accounts-t9n
 aldeed:collection2
-accounts-google
-accounts-facebook
-accounts-twitter
 momentjs:moment
 
 wylio:mandrill

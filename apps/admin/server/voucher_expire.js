@@ -1,7 +1,11 @@
 Meteor.startup(function() {
+    var minDate = moment().subtract(1, 'day').toDate();
     // observe voucher collection on non redeemed vouchers and handle remove
     HiMate.Collections.Vouchers.find({
-        redeemed: null
+        redeemed: null,
+        reserved: {
+            $lt: minDate
+        }
     }).observe({
         removed: function(voucher) {
             var user = Meteor.users.findOne(voucher.userId);
