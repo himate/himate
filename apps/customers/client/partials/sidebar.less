@@ -47,6 +47,8 @@
        padding: 0;
        border-radius: 0;
        height:auto;
+       border: none;
+       border-right: 1px solid rgba(34, 36, 38, 0.5);
 
        .ui.segment {
            background: @inactive-bg-color;
@@ -164,7 +166,7 @@
         }
 
         .ui.button {
-            height: 46px;
+            height: @button-base-height;
             min-width: 130px;
             width: auto;
             margin-left: auto;
@@ -194,5 +196,20 @@
     .ui.stacked.segment:after{
         bottom: -10px;
         height: 1px;
+    }
+
+    .at-oauth {
+        .facebook {
+            height: @button-base-height;
+            &.fluid {
+                max-width: 90%;
+                font-size: 100%;
+                margin: 0 auto;
+            }
+            &.labeled.icon {
+                padding-left: 50px !important;
+                padding-right: 1em !important;
+            }
+        }
     }
 }

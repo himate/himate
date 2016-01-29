@@ -11,7 +11,6 @@ Template.partials_sidebar.events({
         Router.go('pages_startpage');
         $('.ui.sidebar').sidebar('toggle');
         $('#partials-main-menu').removeClass('active');
-        $('#partials-languages').removeClass('active');
     },
 
     /**
