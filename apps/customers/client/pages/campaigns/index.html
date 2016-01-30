@@ -9,9 +9,7 @@
                 <h2 class="headline item-title"> {{_ 'category' }}: </h2>
                 <p class="headline category-title">
                     {{# with category }}{{ translateField category "title" }}{{ else }}{{_ 'all_categories' }}{{/ with }}
-                    <bdi>
-                        ({{ countCampaigns category }})
-                    </bdi>
+                    <bdi>({{ countCampaigns category }})</bdi>
                 </p>
                 <i class="icon-close ico-right"></i>
             </div>
