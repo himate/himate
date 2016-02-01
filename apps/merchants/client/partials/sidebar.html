@@ -1,0 +1,71 @@
+<template name="partials_sidebar">
+    <div id="partials-sidebar" class="ui fixed left sidebar">
+        <div class="ui base segment" id="sidebar-nav">
+			{{# if currentUser }}
+            <div class="ui center aligned segment user">
+                <div class="user-container">
+                    <div class="name">
+                        {{ currentUser.username }} <a class="js-profile" href="{{ pathFor 'pages_profile' }}"><i class="pencil icon"></i></a>
+                    </div>
+                </div>
+            </div>
+            {{ else }}
+            <div class="at-form">
+                {{> atForm }}
+            </div>
+            {{/ if }}
+
+            <div class="ui segments-container">
+                <div class="ui vertical segment">
+                    <h2>
+                    <a class="js-home" href="{{ pathFor 'pages_startpage' }}">
+                        {{_ 'home' }}
+                    </a></h2>
+                </div>
+                <div class="ui divider"></div>
+
+                {{# if currentUser }}
+                <div class="ui vertical segment">
+                    <h2>
+                    <a class="js-navigation-link" href="{{ pathFor 'pages_campaigns' }}">
+                        {{_ 'offers_manage' }}
+                    </a></h2>
+                </div>
+                <div class="ui divider"></div>
+                <div class="ui vertical segment">
+                    <h2>
+                    <a class="js-navigation-link" href="{{ pathFor 'pages_redeem' }}">
+                        {{_ 'redeem_voucher' }}
+                    </a></h2>
+                </div>
+                <div class="ui divider"></div>
+                {{/ if }}
+
+                <!--<div class="ui vertical segment">-->
+                <!--<h2><a class="js-navigation-link" href="{{ pathFor 'pages_how_it_works' }}">{{_ 'how_it_works' }}</a></h2>-->
+                <!--</div>-->
+                <!--<div class="ui divider"></div>-->
+                <!--<div class="ui vertical segment">-->
+                <!--<h2><a  class="js-navigation-link" href="{{ pathFor 'pages_about_us' }}">{{_ 'about_us' }}</a></h2>-->
+                <!--</div>-->
+            </div>
+
+            {{# if currentUser }}
+            <div class="ui center aligned segment">
+                <div class="user-container">
+                    {{> atNavButton }}
+                </div>
+            </div>
+            {{/ if }}
+
+            <div class="ui breadcrumb">
+                <!--<h3 class="section"><a class="js-navigation-link" href="{{ pathFor 'pages_privacy' }}">{{_ 'privacy' }}</a></h3>-->
+                <!--<div class="divider"> | </div>-->
+                <h3 class="active section">
+                <a class="js-navigation-link" href="https://himate.org/de/impressum" target="_blank">
+                    {{_ 'imprint' }}
+                </a></h3>
+            </div>
+        </div>
+    </div>
+</template>

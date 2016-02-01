@@ -1,0 +1,88 @@
+@import "../../layouts/default.import.less";
+
+.pages-campaigns , .pages-campaigns-details{
+    .category.item {
+        border: none;
+        height: @item-base-height;
+        position: relative;
+        -webkit-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+        //margin-bottom: 5px;
+        > .ico-right{
+            color: @light-color;
+        }
+    }
+    .item-title {
+        font-family: @font-family-text;
+        font-weight: 300;
+        font-size: 14px;
+        color: @light-color;
+        margin-bottom: 0;
+
+    }
+    .category-title {
+        font-family: @font-family-headlines;
+        font-weight: bold;
+        color: @main-text-color;
+        font-size: 21px;
+        margin: 0;
+    }
+
+    .voucher.item {
+        position: relative;
+        //height: 112.5px;
+        height: 150px;
+        border-bottom: 1px solid @border-color-base;
+        &:hover {
+            background-color: @active-bg-color;
+        }
+        > .ico-right{
+            color: @light-color;
+        }
+    }
+    .text-container {
+        background-color: rgba(0,0,0,0.5);
+        color: white !important;
+        height: inherit;
+    }
+    .voucher-title {
+        font-family: @font-family-headlines;
+        max-height: 42px;
+        overflow-wrap: break-word;
+        overflow: hidden;
+        white-space: initial;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .voucher-address {
+        font-size: 11px;
+        line-height: 1.2;
+    }
+    .maps-link{
+        color: rgba(255,255,255,0.6);
+        border-bottom: 1.5px solid;
+        display: table;
+    }
+
+    .voucher-description {
+        line-height: 1.2;
+        > .description-headline {
+            font-family: @font-family-headlines;
+            font-size: 10px;
+            font-weight: 600;
+            > .description-text {
+                font-family: @font-family-text;
+                font-size: 15px;
+                font-weight: 300;
+                margin-bottom: 0;
+                display: block;
+            }
+        }
+    }
+}
+
+

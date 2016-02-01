@@ -1,0 +1,34 @@
+<template name="pages_categories_edit">
+    {{> partials_sub_menu active='categories' }}
+
+    <div id="pages-categories-edit" class="ui basic segment">
+        <div class="ui mobile reversed stackable grid">
+            <div class="twelve wide column">
+                <h2>{{_ 'categories_edit' }}</h2>
+
+                {{# autoForm collection='HiMate.Collections.Categories' doc=category id='categories_edit' type='method-update' meteormethod='categories_edit' }}
+
+                {{> afQuickField name='title' }}
+
+                <div class="ui bottom fixed actions menu">
+                    <a href="{{ pathFor 'pages_categories' }}" class="item">
+                        <i class="left chevron icon"></i> {{_ 'back' }}
+                    </a>
+                    <button type="submit" class="right item">
+                        <i class="save icon"></i>
+                        {{_ 'submit' }}
+                    </button>
+                </div>
+                {{/ autoForm }}
+            </div>
+
+            <div class="four wide column">
+                <h2>{{_ 'Info' }}</h2>
+
+                <p>
+                    {{_ 'categories_info_text' }}
+                </p>
+            </div>
+        </div><!-- .grid -->
+    </div><!-- #pages-categories-edit -->
+</template>

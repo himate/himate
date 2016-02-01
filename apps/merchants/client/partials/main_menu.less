@@ -1,0 +1,25 @@
+@import "../layouts/default.import.less";
+
+#partials-main-menu {
+    background: @main-color;
+    height: @nav-base-height;
+    margin: 0;
+    border-radius: 0;
+    .sidebar {
+        font-size: 1.25em;
+        padding: 0 .5em;
+    }
+    .logo {
+        width: 100%;
+        color: #FFFFFF;
+    }
+    .item > .button {
+      line-height: 1.9em;
+    }
+}
+
+@media (max-width: 420px){
+    .logo {
+        display: none;
+    }
+}

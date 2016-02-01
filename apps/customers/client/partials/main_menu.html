@@ -1,0 +1,24 @@
+<template name="partials_main_menu">
+    <div id="partials-main-menu" class="ui top  inverted menu">
+        <div class="sidebar toggle item icon js-menu" id="menu">
+            <i class="icon-menu"></i>
+        </div>
+        <div class="ui vertical segment">
+            <i class="icon-himate-logo logo"></i>
+        </div>
+
+        <div class="right item">
+            <div class="ui floating dropdown labeled icon button js-dropdown">
+                <i class="world icon"></i>
+                <span>{{ i18n_currentLanguage.name }}</span>
+                <div class="menu">
+                    {{# each i18n_sortedLanguages }}
+                    <div class="locale-change item">
+                        {{ name }}
+                    </div>
+                    {{/ each }}
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,47 @@
+<template name="pages_startpage">
+    <div id="pages-startpage" class="ui center aligned container">
+        <div class="ui middle aligned center aligned grid">
+            <div class="column">
+                <div class="ui teal image img-container">
+                    <i class="icon-himate-logo"></i>
+                </div>
+                <div class="content">
+                    {{{_ 'welcome_text'}}}
+                </div>
+                <div>
+                    <div class="text-indication">
+                        {{{_ 'welcome_text_step1'}}}
+                    </div>
+                    <div class="ui floating dropdown labeled icon button default js-dropdown">
+                        <i class="world icon"></i>
+                        <span>{{ i18n_currentLanguage.name }}</span>
+                        <div class="menu">
+                            {{# each i18n_sortedLanguages }}
+                            <div class="locale-change item">
+                                {{ name }}
+                            </div>
+                            {{/ each }}
+                        </div>
+                    </div>
+                    <div class="text-indication">
+                        {{{_ 'welcome_text_step2'}}}
+                    </div>
+                    <a href="{{ pathFor 'pages_campaigns' }}" class="ui button default">
+                        {{_ 'offers_current' }}
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <div class="fixed bottom button-container">
+            <div class="ui divider"></div>
+
+            <!--<a href="#" target="_blank"><i class="facebook square icon"></i></a>-->
+            <!--<a href="#" target="_blank"><i class="google plus square icon"></i></a>-->
+            <!--<a href="#" target="_blank"><i class="twitter square icon"></i></a>-->
+            <!--<a href="#" target="_blank"><i class="pinterest square icon"></i></a>-->
+            <!--<a href="#" target="_blank"><i class="reddit square icon"></i></a>-->
+        </div>
+
+    </div>
+</template>

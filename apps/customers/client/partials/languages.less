@@ -1,0 +1,24 @@
+@import "../layouts/default.import.less";
+
+#partials-languages {
+
+  background: @inverted-color;
+  height: @nav-base-height;
+  border-radius: 0;
+  margin: 0;
+  .languages {
+    .ui.button, &:before {
+      background: transparent;
+      border: none;
+      border-radius: 0;
+    }
+  }
+
+  .language {
+    font-size: x-large;
+    background: transparent;
+    &:focus {
+      outline: none;
+    }
+  }
+}

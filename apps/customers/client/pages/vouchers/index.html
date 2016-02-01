@@ -1,0 +1,36 @@
+<template name="pages_vouchers">
+    <div id="pages-voucher-codes" class="ui container">
+        <div class="header-navigation">
+            <h1>{{_ 'vouchers' }}</h1>
+        </div>
+
+        <div class="ui segments-container">
+            {{# each vouchers }}
+            {{> pages_vouchers_voucher}}
+            {{/ each}}
+        </div>
+    </div>
+</template>
+
+<template name="pages_vouchers_voucher">
+    <div class="ui middle segment text-container no-padding js-voucher">
+        <div class="ui right aligned grid vertical segment">
+            <div class="left aligned eight wide column voucher-description">
+                <p class="description-headline">
+                    {{_ 'code' }} <br>
+                    <span class="description-text voucher-code">
+                       {{ code }}
+                    </span>
+                </p>
+
+            </div>
+            <div class="right aligned seven wide column voucher-description">
+                <p class="description-headline">{{_ 'status' }} <br>
+                    {{# if redeemed }}<span class="description-text redeemed">{{_ 'redeemed' }}</span>
+                    {{ else }}<span class="description-text reserved">{{_ 'reserved' }}</span>{{/ if }}
+                </p>
+            </div>
+        </div>
+        <i class="icon-arrow-right ico-right"></i>
+    </div>
+</template>

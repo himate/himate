@@ -1,0 +1,79 @@
+<template name="pages_campaigns_vouchers">
+    {{> partials_sub_menu active='campaigns' }}
+
+    <div id="pages-campaigns-vouchers" class="ui basic segment">
+        <div class="ui mobile reversed stackable grid">
+            <div class="twelve wide column">
+                <h2>{{ translateField campaign 'title' }}: {{_ 'vouchers' }}</h2>
+
+                <table class="ui compact celled definition table">
+                    <thead class="full-width">
+                        <tr>
+                            <th>
+                                &nbsp;
+                            </th>
+                            <th>
+                                {{_ 'id' }}
+                            </th>
+                            <th>
+                                {{_ 'user' }}
+                            </th>
+                            <th>
+                                {{_ 'code' }}
+                            </th>
+                            <th>
+                                {{_ 'redeemed' }}
+                            </th>
+                            <th>
+                                {{_ 'reserved' }}
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {{# each codes }}
+                        <tr>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                                {{ campaignId }}
+                            </td>
+
+                            <td>
+                                {{# with getUser userId }}{{ username }}{{/ with }}
+                            </td>
+
+                            <td>
+                                {{ code }}
+                            </td>
+
+                            <td>
+                                {{ formatDate redeemed }}
+                            </td>
+
+                            <td>
+                                {{ formatDate reserved }}
+                            </td>
+                        </tr>
+                        {{ else }}
+                        <tr>
+                            <td colspan="4">
+                                {{_ 'no_vouchers_found' }}
+                            </td>
+                        </tr>
+                        {{/ each }}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="four wide column">
+
+            </div>
+        </div>
+
+        <div class="ui bottom fixed menu">
+            <a class="item" href="{{ pathFor 'pages_campaigns_details' _id=campaign._id }}"><i class="left chevron icon"></i>{{_ 'back' }}</a>
+        </div>
+    </div>
+</template>

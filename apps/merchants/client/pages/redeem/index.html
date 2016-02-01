@@ -1,0 +1,50 @@
+<template name="pages_redeem">
+	<div id="pages-redeem" class="ui basic">
+		<h1>{{_ 'redeem_voucher' }}</h1>
+		<div class="ui basic segment">
+			{{{_ 'redeem_voucher_notice'}}}
+			<form class="ui form{{#if isInvalid}} error{{/if}}">
+				<div class="field">
+					<label>{{_ 'code'}}</label>
+					{{#if campaign}}
+					<input type="text" name="voucher" value="{{voucherCode}}" disabled/>
+					{{else}}
+					<input type="text" name="voucher" placeholder="{{_ 'code'}}"/>
+					{{/if}}
+				</div>
+				<div class="ui error message ">
+					<p>{{_ 'invalid_code'}}</p>
+				</div>
+				{{#if campaign}}
+				<table class="ui compact celled definition table">
+					<tbody>
+					<tr>
+						<td>
+							<a href="{{ pathFor 'pages_campaigns_details' _id=campaign._id }}" target="_blank">
+								{{ translateField campaign "title" }}
+							</a>
+						</td>
+						<td><bdi>
+							{{_ 'end'}}: {{#if campaign.end }} {{ formatDate campaign.end }} {{ else }} - {{/if}}<br>
+							{{_ 'reservations'}}: {{ campaign.reserved }} {{_ 'out_of'}} {{ campaign.quantity }}<br>
+							{{_ 'redeemed'}}: {{ campaign.redeemed }} {{_ 'out_of'}} {{ campaign.quantity }}
+						</bdi>
+
+						</td>
+
+						<td>
+
+						</td>
+					</tr>
+					</tbody>
+				</table>
+				<button class="ui button redeem-voucher" type="submit">{{_ 'redeem' }}</button>
+				<button class="ui button cancel-voucher" type="submit">{{_ 'cancel' }}</button>
+				{{else}}
+				<button class="ui button check-voucher" type="submit">{{_ 'check'}}</button>
+				{{/if}}
+			</form>
+		</div>
+	</div>
+</template>
+

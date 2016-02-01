@@ -1,0 +1,146 @@
+<template name="pages_campaigns">
+    {{> partials_sub_menu active='campaigns' search='title' }}
+
+    <div id="pages-campaigns" class="ui basic segment">
+        <div class="ui mobile reversed stackable grid">
+            <div class="twelve wide column">
+                <h2>{{_ 'offers' }}</h2>
+
+                <table class="ui compact celled definition table">
+                    <thead class="full-width">
+                        <tr class="top aligned">
+                            <th width="10"></th>
+                            <th width="100">
+                                {{_ 'image' }}
+                            </th>
+                            <th>
+                                {{_ 'title' }}
+                            </th>
+                            <th>
+                                {{_ 'description' }}
+                            </th>
+                            <th>
+                                {{_ 'category' }}
+                            </th>
+                            <th width="120">
+                                {{_ 'from' }}
+                            </th>
+                            <th>
+                                {{_ 'published' }}
+                            </th>
+                            <th>
+                                {{_ 'end' }}
+                            </th>
+                            <th>
+                                {{_ 'approved' }}
+                            </th>
+                            <th>
+                                {{_ 'quantity' }}
+                                <br />
+                                ({{_ 'available' }} / {{_ 'reserved' }} / {{_ 'redeemed' }})
+                            </th>
+                            <th colspan="2">
+                                &nbsp;
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{# each campaigns }}
+                        {{> pages_campaigns_voucher }}
+                        {{ else }}
+                        <tr>
+                            <td colspan="10">
+                                {{_ 'no_offers_found' }}
+                            </td>
+                        </tr>
+                        {{/ each }}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="four wide column">
+                <h2>{{_ 'information' }}</h2>
+
+                <p>
+                    {{_ 'offers_info_text' }}
+                </p>
+            </div>
+        </div><!-- .grid -->
+    </div><!-- #pages-campaigns -->
+
+    <div class="ui bottom fixed actions menu">
+        <a href="#" class="disabled item">
+            <i class="trash icon"></i> {{_ 'delete_selected' }}
+        </a>
+        <a href="{{ pathFor 'pages_campaigns_add' }}" title="{{_ 'campaigns_add' }}" class="right item"><i class="add icon"></i>{{_ 'offers_add' }} </a>
+    </div>
+</template>
+
+<template name="pages_campaigns_voucher">
+    <tr>
+        <td class="collapsing">
+            <div class="ui fitted checkbox">
+                <input type="checkbox">
+                <label></label>
+            </div>
+        </td>
+
+        <td>
+            <a class="image" href="{{ pathFor 'pages_campaigns_details' }}">
+                {{# with FS.GetFile 'waslchiraa_images' imageId }}
+                <img src="{{ this.url store='waslchiraa_thumbnails' }}" alt="" />
+                {{ else }}
+                &nbsp;
+                {{/ with }}
+            </a>
+        </td>
+
+        <td>
+            <a href="{{ pathFor 'pages_campaigns_details' }}">
+                {{ translateField this "title" }}
+            </a>
+        </td>
+
+        <td>
+            {{ translateField this "shortDescription" }}
+        </td>
+
+        <td>
+            {{# with getCategory categoryId }}{{ translateField this "title" }}{{/ with }}
+        </td>
+
+        <td>
+            {{# with getUser userId }}
+            <a class="shortened" href="{{ pathFor 'pages_users_edit' }}">
+                {{ username }}
+            </a>
+            {{/ with }}
+        </td>
+
+        <td>
+            {{ formatDate published }}
+        </td>
+
+        <td>
+            {{# if end }} {{ formatDate end }} {{ else }} - {{/ if }}
+        </td>
+        <td>
+            {{ approved }}
+        </td>
+        <td>
+            {{ quantity }}
+            <br />
+            ({{ available }} / {{ reserved }} / {{ redeemed }})
+        </td>
+
+        {{# unless hideEdit }}
+        <td width="10">
+            <a class="edit write" href="{{ pathFor 'pages_campaigns_edit' }}" title="{{_ 'campaigns_edit' }}"><i class="pencil icon"></i></a>
+        </td>
+
+        <td width="10">
+            <a class="remove write" href="#" title="{{_ 'campaigns_remove' }}"><i class="trash icon"></i></a>
+        </td>
+        {{/ unless }}
+    </tr>
+</template>

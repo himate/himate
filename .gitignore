@@ -1,0 +1,21 @@
+# misc
+.idea
+.DS_Store
+.project
+.settings
+.DS_STORE
+.pydevproject
+*.pyc
+id_rsa
+id_rsa.pub
+access.log
+error.log
+logs/*
+logs/*.*
+!logs/.empty
+public/dummies/*
+packages/tests-proxy/*
+docs/*
+.tern-project
+tools/locales/node_modules/
+settings.json

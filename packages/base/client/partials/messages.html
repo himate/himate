@@ -1,0 +1,13 @@
+<template name="himate_partials_messages">
+    <div id="himate-partials-messages">
+        {{# each messages }}
+        {{> himate_partials_messages_item }}
+        {{/ each }}
+    </div>
+</template>
+
+<template name="himate_partials_messages_item">
+    <div class="{{ type }}">
+        {{_ message }}
+    </div>
+</template>

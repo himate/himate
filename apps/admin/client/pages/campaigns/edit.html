@@ -1,0 +1,79 @@
+<template name="pages_campaigns_edit">
+    {{> partials_sub_menu active='campaigns' }}
+
+    <div id="pages-campaigns-edit" class="ui basic segment">
+        <div class="ui mobile reversed stackable grid">
+            <div class="twelve wide column">
+                <h2>{{_ 'offers_edit' }}</h2>
+
+                {{# autoForm collection='HiMate.Collections.Campaigns' doc=voucher id='pages_campaigns_edit' type='method-update' meteormethod='campaigns_edit' }}
+                {{> afQuickField name='title' }}
+                {{> afQuickField name='shortDescription' }}
+                {{> afQuickField name='description' }}
+                {{> afQuickField name='conditions' }}
+
+                <h3 class="ui dividing header"> {{_ 'contact_data' }} </h3>
+
+                <div class="fields">
+                    <div class="twelve wide field">
+                        {{> afQuickField name='street' }}
+                    </div>
+                    <div class="four wide field">
+                        {{> afQuickField name='number' }}
+                    </div>
+                </div>
+
+                <div class="fields">
+                    <div class="five wide field">
+                        {{> afQuickField name='zipcode' }}
+                    </div>
+                    <div class="eleven wide field">
+                        {{> afQuickField name='city' }}
+                    </div>
+                </div>
+
+                {{> afQuickField name='country' }}
+
+                <h3 class="ui dividing header"> {{_ 'image' }} </h3>
+                {{> afQuickField name='imageId' }}
+
+                <h3 class="ui dividing header">{{_ 'relations' }}</h3>
+                {{> afQuickField name='userId' }}
+                {{> afQuickField name='categoryId' }}
+
+                <h3 class="ui dividing header">{{_ 'state' }}</h3>
+                {{> afQuickField name='quantity' }}
+
+                <div class="fields">
+                    <div class="eight wide field">
+                        {{> afQuickField name='published' }}
+                    </div>
+					<div class="eight wide field">
+						{{> afQuickField name='end' }}
+					</div>
+                </div>
+                <div class="fields">
+					{{> afQuickField name='approved' type="boolean-radios" trueLabel="Yes" falseLabel="No"}}
+                </div>
+
+                <div class="ui bottom fixed actions menu">
+                    <a href="{{ pathFor 'pages_campaigns' }}" class="disabled item">
+                        <i class="left chevron icon"></i> {{_ 'back' }}
+                    </a>
+                    <button type="submit" class="right item">
+                        <i class="save icon"></i>
+                        {{_ 'submit' }}
+                    </button>
+                </div>
+                {{/autoForm}}
+            </div>
+
+            <div class="four wide column">
+                <h2>{{_ 'information' }}</h2>
+                <p>
+                    {{_ 'update_offer' }}
+                </p>
+            </div>
+        </div><!-- .grid -->
+    </div><!-- #pages-campaigns -->
+</template>

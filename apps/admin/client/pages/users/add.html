@@ -1,0 +1,42 @@
+<template name="pages_users_add">
+    <div id="pages-users-add" class="ui basic segment">
+        <div class="ui mobile reversed stackable grid">
+            <div class="twelve wide column">
+                <h2>{{_ 'users_add' }}</h2>
+
+                {{# autoForm schema='HiMate.Schemas.NewUser' id='users_add' type='method' meteormethod='users_add' }}
+
+                <h3 class="ui dividing header">{{_ 'basics' }}</h3>
+                {{> afQuickField name='firstName' }}
+                {{> afQuickField name='lastName' }}
+                {{> afQuickField name='email' }}
+                {{> afQuickField name='verifiedEmail' }}
+
+                <h3 class="ui dividing header">{{_ 'access_control' }}</h3>
+                {{> afQuickField name='role' options='allowed' }}
+                {{> afQuickField name='password' }}
+                {{> afQuickField name='password2' }}
+
+                <div class="ui bottom fixed actions menu">
+                    <a class="item" href="{{ pathFor 'pages_users' }}">
+                        <i class="chevron left icon"></i>
+                        {{_ 'back' }}
+                    </a>
+                    <button type="submit" class="right item">
+                        <i class="save icon"></i>
+                        {{_ 'submit' }}
+                    </button>
+                </div>
+
+                {{/autoForm}}
+            </div>
+
+            <div class="four wide column">
+                <h2>{{_ 'Info' }}</h2>
+                <p>
+                    {{_ 'users_add_info' }}
+                </p>
+            </div>
+        </div>
+    </div>
+</template>
