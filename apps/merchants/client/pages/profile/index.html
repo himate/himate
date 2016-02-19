@@ -4,7 +4,7 @@
             <div class="twelve wide column">
                 <h2>{{_ 'profile_edit' }}</h2>
 
-                {{# autoForm collection='Meteor.users' doc=currentUser id='pages_profile' type='method-update' meteormethod='users_edit' }}
+                {{# autoForm collection='Meteor.users' schema='UserSchema' doc=currentUser id='pages_profile' type='method-update' meteormethod='users_edit' }}
 
                 {{> afQuickField name='profile.company' }}
                 {{> afQuickField name='profile.salutation' }}
