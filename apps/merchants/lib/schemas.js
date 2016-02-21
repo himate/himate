@@ -66,59 +66,11 @@ UserProfileSchema = new SimpleSchema({
     }
 });
 
+// simplified schema for merchant profile updates
 UserSchema = new SimpleSchema({
-    username: {
-        type: String,
-        optional: true,
-        label: HiMate.Helpers.i18nLabel('username')
-    },
-    emails: {
-        type: [Object],
-        label: HiMate.Helpers.i18nLabel('emails'),
-        optional: true
-    },
-    "emails.$.address": {
-        type: String,
-        regEx: SimpleSchema.RegEx.Email
-    },
-    "emails.$.verified": {
-        type: Boolean
-    },
-    createdAt: {
-        type: Date,
-        label: HiMate.Helpers.i18nLabel('created'),
-        optional: true,
-    },
-    status: {
-        type: Object,
-        blackbox: true,
-        optional: true
-    },
     profile: {
         type: UserProfileSchema,
         label: HiMate.Helpers.i18nLabel('profile'),
         optional: true
-    },
-    services: {
-        type: Object,
-        label: HiMate.Helpers.i18nLabel('services'),
-        optional: true,
-        blackbox: true
-    },
-    lastLanguage: {
-        type: String,
-        defaultValue: "en",
-        optional: true
-    },
-    disabled: {
-        type: Boolean,
-        defaultValue: false
-    },
-    roles: {
-        type: [String],
-        label: HiMate.Helpers.i18nLabel('roles'),
-        optional: true
     }
 });
-
-//Meteor.users.attachSchema(UserSchema);
