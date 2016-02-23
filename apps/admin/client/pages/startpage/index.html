@@ -1,0 +1,23 @@
+<template name="pages_startpage">
+    {{# if currentUser }}
+    {{> partials_sub_menu }}
+    {{/ if }}
+
+    <div id="pages-startpage" class="ui center aligned container">
+        <h1>{{_ 'himate' }}</h1>
+
+        <p>
+            {{_ 'welcome' }}
+        </p>
+
+        <div class="ui divider"></div>
+
+        <a href="#" target="_blank"><i class="facebook square icon"></i></a>
+        <a href="#" target="_blank"><i class="google plus square icon"></i></a>
+        <a href="#" target="_blank"><i class="twitter square icon"></i></a>
+        <a href="#" target="_blank"><i class="pinterest square icon"></i></a>
+        <a href="#" target="_blank"><i class="reddit square icon"></i></a>
+    </div>
+
+    {{> partials_footer }}
+</template>

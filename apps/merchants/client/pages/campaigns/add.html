@@ -1,0 +1,28 @@
+<template name="pages_campaigns_add">
+    <div id="pages-campaigns-add" class="ui basic">
+        <h1>{{_ 'offers_add' }}</h1>
+        <div class="ui basic segment">
+            <div class="ui mobile reversed stackable grid">
+                <div class="twelve wide column">
+                    {{# autoForm collection='HiMate.Collections.Campaigns' id='pages_campaigns_add' class="translate-form" type='method' meteormethod='campaigns_add' }}
+                    {{> form_fields imageUpload=true }}
+                    {{/ autoForm }}
+                </div>
+
+                <div class="four wide column">
+                    <h2>{{_ 'information' }}</h2>
+
+                    <p>
+                        {{_ 'create_new_offers' }}
+                    </p>
+
+                    <p>
+                        {{_ 'approve_offers' }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- .grid -->
+    </div>
+    <!-- #pages-campaigns-add -->
+</template>

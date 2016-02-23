@@ -1,0 +1,83 @@
+<template name="pages_vouchers">
+    {{> partials_sub_menu active='vouchers' search='code' }}
+
+    <div id="pages-vouchers" class="ui basic segment">
+        <div class="ui mobile reversed stackable grid">
+            <div class="twelve wide column">
+                <h2>{{_ 'vouchers' }}</h2>
+
+                <table class="ui compact celled definition table">
+                    <thead class="full-width">
+                        <tr>
+                            <th>
+                                &nbsp;
+                            </th>
+                            <th>
+                                {{_ 'id' }}
+                            </th>
+                            <th>
+                                {{_ 'user' }}
+                            </th>
+                            <th>
+                                {{_ 'code' }}
+                            </th>
+                            <th>
+                                {{_ 'reserved' }}
+                            </th>
+                            <th>
+                                {{_ 'redeemed' }}
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {{# each codes }}
+                        <tr>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                                {{ campaignId }}
+                            </td>
+
+                            <td>
+                                {{# with getUser userId }}
+                                <a href="{{ pathFor 'pages_users_edit' }}">
+                                    {{ username }}
+                                </a>
+                                {{/ with }}
+                            </td>
+
+                            <td>
+                                {{ code }}
+                            </td>
+
+                            <td>
+                                {{ formatDate reserved }}
+                            </td>
+
+                            <td>
+                                {{ formatDate redeemed }}
+                            </td>
+                        </tr>
+                        {{ else }}
+                        <tr>
+                            <td colspan="6">
+                                {{_ 'no_vouchers_found' }}
+                            </td>
+                        </tr>
+                        {{/ each }}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="four wide column">
+                <h2>{{_ 'information' }}</h2>
+
+                <p>
+                    {{_ 'vouchers_info_text' }}
+                </p>
+            </div>
+        </div>
+    </div>
+</template>

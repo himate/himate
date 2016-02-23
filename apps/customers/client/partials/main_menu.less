@@ -1,0 +1,32 @@
+@import "../layouts/default.import.less";
+
+#partials-main-menu {
+        background: @main-color;
+        height: @nav-base-height;
+        margin: 0;
+        border-radius: 0;
+    & .item, & .ui.button, & .logo {
+        color: @main-text-color;
+    }
+
+    & .sidebar {
+        font-size: 1.25em;
+        padding: 0 .5em;
+        &.item:before {
+            display: none;
+        }
+    }
+    & .logo {
+       font-size: 25px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+body.pages-startpage #partials-main-menu {
+    background: @inverted-color;
+
+    & .item , & .ui.button {
+        color: @inverted-text-color;
+    }
+}

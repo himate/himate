@@ -1,4 +1,6 @@
 # misc
+.idea
+.DS_Store
 .project
 .settings
 .DS_STORE
@@ -14,3 +16,6 @@ logs/*.*
 public/dummies/*
 packages/tests-proxy/*
 docs/*
+.tern-project
+tools/locales/node_modules/
+settings.json

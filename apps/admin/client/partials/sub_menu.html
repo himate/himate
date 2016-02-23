@@ -1,0 +1,44 @@
+<template name="partials_sub_menu">
+    <div id="partials-sub-menu" class="ui top fixed sub menu">
+        <div class="{{# if eq active 'users' }}active{{/ if }} item">
+            <a href="{{ pathFor 'pages_users' }}">
+                {{_ 'users' }}
+            </a>
+        </div>
+
+        <div class="{{# if eq active 'categories' }}active{{/ if }} item">
+            <a href="{{ pathFor 'pages_categories' }}">
+                {{_ 'categories' }}
+            </a>
+        </div>
+
+        <div class="{{# if eq active 'campaigns' }}active{{/ if }} item">
+            <a href="{{ pathFor 'pages_campaigns' }}">
+                {{_ 'offers' }}
+            </a>
+        </div>
+
+        <div class="{{# if eq active 'vouchers' }}active{{/ if }} item">
+            <a href="{{ pathFor 'pages_vouchers' }}">
+                {{_ 'vouchers' }}
+            </a>
+        </div>
+
+        <div class="{{# if eq active 'monitoring' }}active{{/ if }} item">
+            <a href="{{ pathFor 'pages_monitoring' }}">
+                {{_ 'monitoring' }}
+            </a>
+        </div>
+
+        {{# if search }}
+        <div class="right menu">
+            <div class="ui right aligned search item">
+                <div class="ui transparent icon input">
+                    <input type="text" size="20" placeholder="{{_ search }}..." />
+                    <i class="search icon"></i>
+                </div>
+            </div>
+        </div>
+        {{/ if }}
+    </div>
+</template>

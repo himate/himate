@@ -1,0 +1,215 @@
+@import "../layouts/default.import.less";
+// new code for sidebar // to be refactored
+#partials-sidebar{
+    width: 85%;
+    height: 100%;
+    background: @inactive-bg-color;
+    z-index: 10000;
+    &:not(.visible) {
+        margin-left: 85% !important;
+        left: -85%;
+        position: fixed;
+        transition: all 500ms ease 0s  !important;
+        -webkit-transition: all 500ms ease 0s  !important;
+        -moz-transition: all 500ms ease 0s  !important;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+        -ms-transform: translate3d(-100%, 0, 0);
+        z-index: 10;
+    }
+
+    #sidebar-nav {
+        display: block;
+        float: left;
+        width: 100%;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+}
+#pages-startpage {
+    padding-left: 0;
+    margin-left: 0;
+    width: 100%;
+    height: auto;
+}
+#partials-main-menu.active {
+    padding-left: 85%;
+    transition: all 500ms ease 0s !important;
+    -webkit-transition: all 500ms ease 0s  !important;
+    -moz-transition: all 500ms ease 0s !important;
+}
+// end new code for sidebar
+#partials-sidebar {
+    text-align: center;
+   .ui.base.segment {
+       background: @inactive-bg-color;
+       padding: 0;
+       border-radius: 0;
+       height:auto;
+       border: none;
+       border-right: 1px solid rgba(34, 36, 38, 0.5);
+
+       .ui.segment {
+           background: @inactive-bg-color;
+           border: none;
+           box-shadow: none;
+           padding: 0.5em 0.5em;
+           &:not(.stacked){
+               height: 40px;
+           }
+           & h2 {
+               width: 100%;
+               .center-x-y();
+               a {
+                   font-weight: 500;
+                   text-transform: uppercase;
+                   font-size: 16px;
+                   color: @light-color;
+               }
+           }
+           &.user {
+               background: #EEE;
+               border-bottom: 1px solid @border-color-base;
+               border-radius: 0;
+               height: @nav-base-height;
+           }
+
+           .user-container {
+               .name {
+                   margin: 1em;
+                   font-size: 17px;
+                   text-transform: uppercase;
+                   color: #000;
+                   font-weight: 900;
+               }
+               .ui.button {
+                   color: @default-button-color;
+                   border: 1.5px solid @default-button-color;
+                   font-weight: 400;
+                   background: transparent;
+               }
+           }
+       }
+       .segments-container {
+           & a, a:focus{
+               color:@main-text-color;
+           }
+
+           .ui.divider {
+               margin: 0.5em 0em;
+           }
+       }
+       .ui.breadcrumb {
+           width: 100%;
+           position: relative;
+           background-color: @lighter-text-color;
+           padding: 1em 1em;
+           margin-top: 35px;
+           & a {
+               color:@main-text-color;
+           }
+       }
+   }
+}
+
+.at-form, #pages-sign-in {
+    .at-title {
+        height: 60px;
+        padding: 1em;
+        margin-bottom: 0;
+
+        .ui.header {
+            text-transform: uppercase;
+            font-size: 100%;
+            padding: 1em;
+        }
+    }
+    .at-pwd-form {
+        .ui.form .field > label {
+            display: none;
+        }
+
+        .at-input .ui.input > input {
+            height: 46px;
+            width: 100% !important;
+            border-radius: 2px;
+            font-family: @font-family-headlines;
+            font-weight: 600;
+
+            &:focus {
+                border-color: @lighter-text-color;
+            }
+
+            &::-webkit-input-placeholder {
+                text-transform: uppercase;
+            }
+
+            &:-moz-placeholder { /* Firefox 18- */
+                text-transform: uppercase;
+            }
+
+            &::-moz-placeholder {  /* Firefox 19+ */
+                text-transform: uppercase;
+            }
+
+            &:-ms-input-placeholder {
+                text-transform: uppercase;
+            }
+        }
+
+        .at-link.at-pwd {
+            font-size: @label-base-size;
+            font-weight: 900;
+            font-family: @font-family-headlines;
+            text-transform: uppercase;
+        }
+
+        .ui.button {
+            height: @button-base-height;
+            min-width: 130px;
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    .ui.large.message {
+        border: none;
+        box-shadow: none;
+        background-color: transparent;
+        padding: 0;
+        margin-bottom: 25px;
+
+        p {
+            font-size: 15px;
+            font-family: @font-family-headlines;
+            font-weight: 500;
+        }
+    }
+
+    .ui.icon.message.error> .icon,.ui.icon.message.error> .content p{
+        font-size: 100%;;
+        margin: 0;
+    }
+
+    .ui.stacked.segment:after{
+        bottom: -10px;
+        height: 1px;
+    }
+
+    .at-oauth {
+        .facebook {
+            height: @button-base-height;
+            &.fluid {
+                max-width: 90%;
+                font-size: 100%;
+                margin: 0 auto;
+            }
+            &.labeled.icon {
+                padding-left: 50px !important;
+                padding-right: 1em !important;
+            }
+        }
+    }
+}

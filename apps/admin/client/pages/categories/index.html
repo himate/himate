@@ -1,0 +1,76 @@
+<template name="pages_categories">
+    {{> partials_sub_menu active='categories' search='title' }}
+
+    <div id="pages-categories" class="ui basic segment">
+        <div class="ui mobile reversed stackable grid">
+            <div class="twelve wide column">
+                <h2>{{_ 'categories' }}</h2>
+                <table class="ui compact celled definition table">
+                    <thead class="full-width">
+                        <tr>
+                            <th width="10"></th>
+                            <th>
+                                {{_ 'title' }}
+                            </th>
+                            <th>
+                                {{_ 'offer_count' }}
+                            </th>
+                            <th colspan="2">
+                                &nbsp;
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {{# each categories }}
+                        <tr>
+                            <td class="collapsing">
+                                <div class="ui fitted checkbox">
+                                    <input type="checkbox">
+                                    <label></label>
+                                </div>
+                            </td>
+
+                            <td>
+                                {{ translateField this "title" }}
+                            </td>
+
+                            <td>
+                                {{ campaignCount }}
+                            </td>
+
+                            <td width="10">
+                                <a class="write" href="{{ pathFor 'pages_categories_edit' }}" title="{{_ 'categories_edit' }}"><i class="pencil icon"></i></a>
+                            </td>
+
+                            <td width="10">
+                                <a class="remove write remove-category" href="#" title="{{_ 'categories_remove' }}"><i class="trash icon"></i></a>
+                            </td>
+                        </tr>
+                        {{ else }}
+                        <tr>
+                            <td colspan="4">
+                                {{_ 'no_cadegories_found' }}
+                            </td>
+                        </tr>
+                        {{/ each }}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="four wide column">
+                <h2>{{_ 'information' }}</h2>
+                <p>
+                    {{_ 'categories_info_text' }}
+                </p>
+            </div>
+        </div><!-- .grid -->
+    </div><!-- #pages-categories -->
+
+    <div class="ui bottom fixed actions menu">
+        <a href="#" class="disabled item">
+            <i class="trash icon"></i> {{_ 'delete_selected' }}
+        </a>
+        <a href="{{ pathFor 'pages_categories_add' }}" title="{{_ 'categories_add' }}" class="right item"><i class="add icon"></i>{{_ 'categories_add' }}</a>
+    </div>
+</template>

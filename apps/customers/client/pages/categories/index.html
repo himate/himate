@@ -1,0 +1,34 @@
+<template name="pages_categories">
+    <div id="pages-categories" class="ui container">
+        <div class="header-navigation">
+            <h1>{{_ 'categories' }}</h1>
+        </div>
+
+        <div class="ui categories js-categories">
+            <div class="categories-back js-all ui middle segment">
+                <p class="ui vertical segment text-primary">
+                    <a class="back-link" href="{{ pathFor 'pages_campaigns' }}"> {{_ 'categories' }}
+                        <i class="icon-close ico-right"></i>
+                    </a>
+                </p>
+
+            </div>
+            <div class="category item js-category js-all ui middle segment">
+                <p class="headline category-title">
+                    {{_ 'all_categories' }}
+                    <bdi>({{ countCampaigns }})</bdi>
+                </p>
+                <i class="icon-arrow-right ico-right"></i>
+            </div>
+            {{# each categories }}
+            <div class="category item js-category ui middle segment">
+                <p class="headline category-title">
+                    {{ translateField this "title" }}
+                    <bdi>({{ countCampaigns this }})</bdi>
+                </p>
+                <i class="icon-arrow-right ico-right"></i>
+            </div>
+            {{/ each }}
+        </div>
+    </div>
+</template>
