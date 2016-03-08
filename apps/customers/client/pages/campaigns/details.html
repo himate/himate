@@ -21,7 +21,7 @@
                         <h5>{{ translateField this "title" }}</h5>
                         {{/ with }}
 
-                        <h2> {{ translateField item "title" }} </h2>
+                        <h2> <bdi>{{ translateField item "title" }}</bdi></h2>
 
                         {{# with getUser item.userId }}
                         <h3 class="headline voucher-shop"> {{ profile.company }} </h3>
@@ -30,40 +30,50 @@
                     <div class="right floated aligned six wide column">
                         <div class="headline voucher-description">
                             <p class="description-headline">
+                                <bdi>
                                 {{_ 'valid_until'}} <span class="description-text">{{formatDate item.end }}</span>
+                                </bdi>
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="voucher-address">
                     <p>
+                        <bdi>
                         {{ item.street }} {{ item.number }}, {{ item.zipcode }} {{ item.city }}
                         <br />
                         <a target="_blank" class="maps" href="{{ getMapUrl item }}">
                             {{_ 'check_on_maps'}}
                         </a>
+                        </bdi>
                     </p>
                 </div>
-                <h2 class="short-description"> {{ translateField item "shortDescription" }} </h2>
+                <h2 class="short-description"> <bdi>{{ translateField item "shortDescription" }}</bdi></h2>
 
             </div>
             <div class="panel-details">
                 <h5>{{_ 'description' }}</h5>
 
                 <p>
+                    <bdi>
                     {{ translateField item "description" }}
+                    </bdi>
                 </p>
 
             </div>
             <div class="panel-details last">
                 <h5>{{_ 'conditions' }}</h5>
                 <p>
+                    <bdi>
                     {{{_ 'conditions_content' }}}
+                    </bdi>
                 </p>
 
                 <h5>{{_ 'special conditions' }}</h5>
                 <p>
+                    <bdi>
                     {{ translateField item "conditions" }}
+                    </bdi>
                 </p>
 
             </div>
