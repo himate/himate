@@ -118,7 +118,7 @@
     "redeemed": "Redeemed",
     "relations": "Relations",
     "reservations": "reservations",
-    "reserve_notice": "<p>You need to redeem this voucher within 24h. Can you do this?</p>\n<p>You will receive a email with the voucher code at the specified address<br>\n__email__<br></p>\n<p><strong>Please make sure to bring your documents, that proove you are a refugee!</strong></p>",
+    "reserve_notice": "<p>You need to redeem this voucher within 24h. Can you do this?</p>\n<p>The vouchercode can be found via the manu of this app. You will receive a email with the voucher code at the specified address<br>\n__email__<br></p>\n<p><strong>Please make sure to bring your documents, that proove you are a refugee!</strong></p>",
     "reserve_unregistered_notice": "<p>You need an account to reserve a voucher!</p>\n<p><strong>Please login or create a new account!</strong></p>",
     "reserve_unregistered_title": "Sign up or login",
     "reserve_voucher": "Reserve Voucher",
