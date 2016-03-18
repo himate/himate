@@ -118,7 +118,7 @@
     "redeemed": "Eingelöst",
     "relations": "Beziehungen",
     "reservations": "Reservierungen",
-    "reserve_notice": "<p>Du musst diesen Gutschein innerhalb von 24h einlösen. Schaffst Du das?</p>\n<p>Du wirst eine E-Mail mit dem Gutscheincode and die hinterlgete E-Mail-Adresse erhalten: <br>\n__email__</p>\n<p><strong>Bring bitte Deine Dokumente mit, die beweisen, dass du ein Flüchtling bist!</strong></p>",
+    "reserve_notice": "<p>Du musst diesen Gutschein innerhalb von 24h einlösen. Schaffst Du das?</p>\n<p>Den Gutscheincode findest du über das Menü in dieser App. Du wirst eine E-Mail mit dem Gutscheincode and die hinterlegte E-Mail-Adresse erhalten: <br>\n__email__</p>\n<p><strong>Bring bitte Deine Dokumente mit, die beweisen, dass du ein Flüchtling bist!</strong></p>",
     "reserve_unregistered_notice": "Um einen Gutschein zu reservieren, musst Du angemeldet sein.\nMelde Dich an, oder registriere Dich.",
     "reserve_unregistered_title": "Login oder Registrieren",
     "reserve_voucher": "Sichere Dir den Gutschein",
