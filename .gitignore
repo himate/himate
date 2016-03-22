@@ -19,3 +19,5 @@ docs/*
 .tern-project
 tools/locales/node_modules/
 settings.json
+build/customers/*
+!build/customers/.empty
