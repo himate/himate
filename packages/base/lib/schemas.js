@@ -28,21 +28,24 @@ HiMate.Schemas.TranslationSchemaOptionalTextarea = new SimpleSchema({
         optional: true,
         autoform: {
             rows: 5
-        }
+        },
+        max: 400
     },
     en: {
         type: String,
         optional: true,
         autoform: {
             rows: 5
-        }
+        },
+        max: 400
     },
     ar: {
         type: String,
         optional: true,
         autoform: {
             rows: 5
-        }
+        },
+        max: 400
     }
 });
 
@@ -69,18 +72,21 @@ HiMate.Schemas.TranslationSchemaTextarea = new SimpleSchema({
         type: String,
         autoform: {
             rows: 5
-        }
+        },
+        max: 100
     },
     en: {
         type: String,
         autoform: {
             rows: 5
-        }
+        },
+        max: 100
     },
     ar: {
         type: String,
         autoform: {
             rows: 5
-        }
+        },
+        max: 100
     }
 });
