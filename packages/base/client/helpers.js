@@ -273,10 +273,16 @@ Template.registerHelper('getCategory', function(categoryId) {
 Template.registerHelper('countCampaigns', function(category) {
     if (category) {
         return HiMate.Collections.Campaigns.find({
-            categoryId: category._id
+            categoryId: category._id,
+            available: {
+                $gt: 0
+            }
         }).count();
     }
-    return HiMate.Collections.Campaigns.find().count();
+    return HiMate.Collections.Campaigns.find({
+        available: {
+        $gt: 0
+    }}).count();
 });
 
 /**
