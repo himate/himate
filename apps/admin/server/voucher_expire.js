@@ -14,34 +14,48 @@ Meteor.startup(function() {
             if (user.lastLanguage && user.lastLanguage.length) {
                 lang = user.lastLanguage;
             }
-            var message = {
 
-                "subject": TAPi18n.__('email_voucher_remove_subject'),
-                "from_email": Meteor.settings.contacts.noreply,
-                "from_name": "HiMate",
-                "to": [{
-                    "email": user.emails[0].address,
-                    "type": "to"
-                }],
-                "global_merge_vars": [{
-                    name: 'vouchercode',
-                    content: voucher.code
-                }, {
-                    name: 'email_voucher_remove_text',
-                    content: TAPi18n.__('email_voucher_remove_text', lang) + '(' + campaign.title[lang] + ')'
-                }, {
-                    name: 'email_header',
-                    content: TAPi18n.__('email_header', lang)
-                }],
-            };
+            // var message = {
+            //
+            //     "subject": TAPi18n.__('email_voucher_remove_subject'),
+            //     "from_email": Meteor.settings.contacts.noreply,
+            //     "from_name": "HiMate",
+            //     "to": [{
+            //         "email": user.emails[0].address,
+            //         "type": "to"
+            //     }],
+            //     "global_merge_vars": [{
+            //         name: 'vouchercode',
+            //         content: voucher.code
+            //     }, {
+            //         name: 'email_voucher_remove_text',
+            //         content: TAPi18n.__('email_voucher_remove_text', lang) + '(' + campaign.title[lang] + ')'
+            //     }, {
+            //         name: 'email_header',
+            //         content: TAPi18n.__('email_header', lang)
+            //     }],
+            // };
+            var message = Handlebars.templates['remove_vouchercode']({
+                'vouchercode': voucher.code,
+                'email_voucher_remove_text': TAPi18n.__('email_voucher_remove_text', lang) + '(' + campaign.title[lang] + ')',
+                'email_header':TAPi18n.__('email_header', lang)
+            });
 
             HiMate.Collections.Campaigns.countVouchers(voucher.campaignId);
 
-            Mandrill.messages.sendTemplate({
-                template_name: 'waslchiraa_remove_vouchercode',
-                template_content: [],
-                'message': message
+            Email.send({
+                to: user.emails[0].address,
+                from: Meteor.settings.contacts.noreply,
+                subject: TAPi18n.__('email_voucher_remove_subject'),
+                html: message
             });
+
+
+            // Mandrill.messages.sendTemplate({
+            //     template_name: 'waslchiraa_remove_vouchercode',
+            //     template_content: [],
+            //     'message': message
+            // });
         },
     });
 
