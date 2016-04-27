@@ -33,7 +33,8 @@ check
 momentjs:moment
 fabienb4:autoform-semantic-ui
 
-wylio:mandrill
+cmather:handlebars-server
+raix:handlebar-helpers
 email
 
 less

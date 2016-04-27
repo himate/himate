@@ -37,3 +37,16 @@ AutoForm.addHooks(["pages_campaigns_add"], {
     },
 });
 
+Template.pages_campaigns_add.events({
+
+    /**
+     *
+     */
+    'keyup textarea': function(event, template) {
+        var max_length = $(event.currentTarget).attr('maxlength');
+        if ((parseInt(max_length) - $(event.currentTarget).val().length) == 0) {
+            console.log('characters limit reached');
+            HiMate.Helpers.errorMessage('0 characters left.');
+        }
+    }
+});

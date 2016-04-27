@@ -33,7 +33,8 @@ mrt:accounts-t9n
 aldeed:collection2
 momentjs:moment
 
-wylio:mandrill
+cmather:handlebars-server
+raix:handlebar-helpers
 email
 
 

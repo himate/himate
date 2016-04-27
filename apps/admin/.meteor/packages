@@ -36,7 +36,9 @@ markdown
 meteorhacks:kadira
 meteorhacks:zones
 email
-wylio:mandrill
+cmather:handlebars-server
+raix:handlebar-helpers
+
 
 cfs:standard-packages
 cfs:ui
