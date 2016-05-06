@@ -34,7 +34,7 @@ p {
   font-weight: 300;
 }
 
-a {
+a:not(.button) {
   color: @inverted-text-color;
 }
 
@@ -94,7 +94,7 @@ a {
   &.bottom.fixed.actions.menu button {
     border: none !important;
   }
-  &.container a, .ui.basic.segment a {
+  &.container a:not(.button), .ui.basic.segment a:not(.button) {
     color: @main-color !important;
   }
   &.primary.buttons, &.primary.dropdown {

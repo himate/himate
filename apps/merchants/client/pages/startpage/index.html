@@ -2,7 +2,7 @@
     <div id="pages-startpage" class="ui center aligned container">
         <div class="ui top attached label">
             <!--<div class="ui equal width center aligned padded grid">-->
-            <h2 class="ui headline"> {{_ 'merchant' }} </h2>
+            <h2 class="ui headline"> {{_ 'welcome' }} </h2>
         </div>
         <div class="ui middle aligned center aligned grid">
 
@@ -25,8 +25,8 @@
             {{# if currentUser }}
             <button class="fluid ui default button js-logout">{{_ 'logout' }}</button>
             {{else}}
-            <button class="fluid ui primary button">{{_ 'login' }}</button>
-            <button class="fluid ui default button">{{_ 'register' }}</button>
+            <a class="fluid ui primary button" href="{{pathFor 'pages_sign_in'}}">{{_ 'sign_in' }}</a>
+            <a class="fluid ui default button" href="{{pathFor 'pages_register'}}">{{_ 'sign_up' }}</a>
             {{/ if }}
         </div>
 

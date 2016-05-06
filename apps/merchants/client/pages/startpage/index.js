@@ -7,7 +7,6 @@ Template.pages_startpage.onCreated(function() {
 });
 
 Template.pages_startpage.events({
-
     /**
      * logout current user
      * @param {Object} event
