@@ -107,13 +107,14 @@ a {
   }
 
   &.button {
-    color: #FFF;
+    color: @main-bg-color;
     text-transform: uppercase;
     font-family: @font-family-headlines;
     font-weight: 600;
     font-size: @button-text-size;
     height: 45px;
-    border-radius: 7px;
+    border-radius: 0px;
+
 
     &:focus, &:hover {
       background-color: transparent;
@@ -122,22 +123,23 @@ a {
 
     &.primary {
       background-color: @button-primary-bg-color;
-      &:focus {
-        background-color: @button-primary-bg-color;
+      &:focus, &:hover {
+        background-color: @main-color;
       }
     }
     &.success {
-      background-color:@button-success-bg-color;
+      background-color: @button-success-bg-color;
 
     }
     &.default {
-      border: 1.5px solid @default-button-color;
-      border-radius: 7px;
-      color: @default-button-color;
+      border: 1.5px solid @default-color;
+      border-radius: 0px;
+      color: @main-bg-color;
       font-size: @button-text-size;
       font-weight: 400;
-      background: transparent;
+      background: @default-color;
       font-family: @font-family-headlines;
+
     }
   }
   &.divider{
@@ -170,8 +172,8 @@ a {
           border: 1.5px solid @main-color;
         }
         &.cancel{
-          border: 1.5px solid @default-button-color;
-          color: @default-button-color;
+          border: 1.5px solid @default-color;
+          color: @default-color;
           background-color: transparent;
         }
       }

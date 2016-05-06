@@ -1,24 +1,33 @@
 <template name="pages_startpage">
     <div id="pages-startpage" class="ui center aligned container">
+        <div class="ui top attached label">
+            <!--<div class="ui equal width center aligned padded grid">-->
+            <h2 class="ui headline"> {{_ 'merchant' }} </h2>
+        </div>
         <div class="ui middle aligned center aligned grid">
+
             <div class="column">
-                <div class="ui teal image img-container">
-                    <img src="/images/himate-logo-white.png" class="image">
+
+                <div class="ui center aligned padded grid img-container">
+                    <img src="/images/himate-logo.png" class="ui centered image">
                 </div>
+
                 <div class="content">
-                    {{_ 'welcome' }}
+                    <p>
+                        {{_ 'about_us_text' }}
+                    </p>
+
                 </div>
             </div>
 
         </div>
         <div class="ui aligned center bottom fixed">
-            <div class="ui divider"></div>
-
-            <!--<a href="#" target="_blank"><i class="facebook square icon"></i></a>-->
-            <!--<a href="#" target="_blank"><i class="google plus square icon"></i></a>-->
-            <!--<a href="#" target="_blank"><i class="twitter square icon"></i></a>-->
-            <!--<a href="#" target="_blank"><i class="pinterest square icon"></i></a>-->
-            <!--<a href="#" target="_blank"><i class="reddit square icon"></i></a>-->
+            {{# if currentUser }}
+            <button class="fluid ui default button js-logout">{{_ 'logout' }}</button>
+            {{else}}
+            <button class="fluid ui primary button">{{_ 'login' }}</button>
+            <button class="fluid ui default button">{{_ 'register' }}</button>
+            {{/ if }}
         </div>
 
     </div>
