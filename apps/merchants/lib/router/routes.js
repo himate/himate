@@ -102,6 +102,18 @@ AccountsTemplates.configureRoute('signIn', {
     layoutTemplate: 'layouts_default',
     redirect: '/campaigns',
 });
+
+/**
+ * sign-in (handled by AccountTemplates)
+ */
+AccountsTemplates.configureRoute('signUp', {
+    name: 'pages_register',
+    template: 'pages_sign_in',
+    layoutTemplate: 'layouts_default',
+    redirect: '/sign-in',
+});
+
+
 AccountsTemplates.configureRoute('verifyEmail', {
     layoutTemplate: 'layouts_default',
     name: 'verifyEmail',

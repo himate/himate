@@ -1,14 +1,40 @@
 @import "../../layouts/default.import.less";
 
-#pages-startpage * {
-  color: #FFF;
-}
 .pages-startpage.pushable > .pusher {
-  background-color: rgba(243, 89, 56, 0.1);
+  background-color: rgba(255, 255, 255, 0.9);
   > .ui.container {
     padding: 4.5em 0 5em;
+    .content {
+      > p {
+        margin-bottom: 4em;
+        color: @inactive-text-color;
+      }
+    }
   }
   & .img-container {
-    padding: 150px 0;
+    padding: 25px 0 50px 0;
   }
+
+  .ui.attached.label {
+    height: @nav-base-height;
+    color: @main-bg-color;
+    font-size: @label-base-size;
+    font-weight: 400;
+    background: @default-color;
+    font-family: @font-family-headlines;
+    border-radius: 0;
+  }
+
+  h2.ui.headline {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-weight: 500;
+  }
+
+  .ui.button {
+    margin-bottom: 10px;
+  }
+
 }
