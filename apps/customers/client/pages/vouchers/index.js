@@ -17,6 +17,17 @@ Template.pages_vouchers.helpers({
     }
 });
 
+Template.pages_vouchers_voucher.helpers({
+    /**
+     *
+     */
+    campaign: function() {
+        return HiMate.Collections.Campaigns.findOne({
+            _id: this.campaignId
+        }, {});
+    }
+});
+
 // ----- template events -------------------------------------------------------
 /**
  *
