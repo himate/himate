@@ -18,5 +18,11 @@ Template.pages_vouchers.helpers({
                 redeemed: -1
             }
         });
+    },
+
+    campaign: function() {
+        return HiMate.Collections.Campaigns.findOne({
+            _id: this.campaignId
+        }, {});
     }
 });
