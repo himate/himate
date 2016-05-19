@@ -17,36 +17,6 @@ Meteor.startup(function() {
 
     Accounts.emailTemplates.verifyEmail.html = function (user, url) {
 
-        // try {
-        //     result = Mandrill.templates.render({
-        //         template_name: 'waslchiraa-registration',
-        //         template_content: [],
-        //         merge_vars: [
-        //             {
-        //                 name: 'URL',
-        //                 content: url
-        //             },
-        //             {
-        //                 name: 'email_registration_welcometext',
-        //                 content: TAPi18n.__('email_registration_welcometext')
-        //             },
-        //             {
-        //                 name: 'email_registration_complete_button',
-        //                 content: TAPi18n.__('email_registration_complete_button')
-        //             },
-        //             {
-        //                 name: 'email_header',
-        //                 content: TAPi18n.__('email_header')
-        //             },
-        //             {
-        //                 name: 'email_link',
-        //                 content: TAPi18n.__('email_link')
-        //             },
-        //         ],
-        //     });
-        // } catch (error) {
-        //     console.error('Error while rendering Mandrill template', error);
-        // }
         var lang = 'en';
         if(user.lastLanguage && user.lastLanguage.length){
             lang = user.lastLanguage;
@@ -67,39 +37,7 @@ Meteor.startup(function() {
     };
 
     Accounts.emailTemplates.resetPassword.html = function (user, url) {
-        // var result;
-        // try {
-        //     result = Mandrill.templates.render({
-        //         template_name: 'waslchiraa-forgot-password',
-        //         template_content: [
-        //
-        //         ],
-        //         merge_vars: [
-        //             {
-        //                 name: 'URL',
-        //                 content: url
-        //             },
-        //             {
-        //                 name: 'email_forgot_password_text',
-        //                 content: TAPi18n.__('email_forgot_password_text')
-        //             },
-        //             {
-        //                 name: 'email_forgot_password_reset_button',
-        //                 content: TAPi18n.__('email_forgot_password_reset_button')
-        //             },
-        //             {
-        //                 name: 'email_header',
-        //                 content: TAPi18n.__('email_header')
-        //             },
-        //             {
-        //                 name: 'email_link',
-        //                 content: TAPi18n.__('email_link')
-        //             },
-        //         ],
-        //     });
-        // } catch (error) {
-        //     console.error('Error while rendering Mandrill template', error);
-        // }
+        
         var lang = 'en';
         if(user.lastLanguage && user.lastLanguage.length){
             lang = user.lastLanguage;

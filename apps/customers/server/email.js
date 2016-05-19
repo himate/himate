@@ -13,39 +13,6 @@ Meteor.startup(function() {
                 if(Meteor.user().lastLanguage && Meteor.user().lastLanguage.length){
                     lang = Meteor.user().lastLanguage;
                 }
-
-                // var message = {
-                //     "subject": TAPi18n.__('email_voucher_reservation_subject'),
-                //     "from_email":  Meteor.settings.contacts.noreply,
-                //     "from_name": "HiMate",
-                //     "to": [{
-                //         "email":mailTo,
-                //         "type": "to"
-                //     }],
-                //     "global_merge_vars": [
-                //         {
-                //             name: 'vouchercode',
-                //             content: voucherCode
-                //         },
-                //         {
-                //             name: 'email_voucher_reservation_text_intro',
-                //             content: TAPi18n.__('email_voucher_reservation_text_intro', lang)
-                //         },
-                //         {
-                //             name: 'email_voucher_reservation_text_conditions',
-                //             content: TAPi18n.__('email_voucher_reservation_text_conditions', lang)
-                //         },
-                //         {
-                //             name: 'email_header',
-                //             content: TAPi18n.__('email_header', lang)
-                //         }
-                //     ],
-                // };
-                // Mandrill.messages.sendTemplate({
-                //     template_name: 'waslchiraa_send_vouchercode',
-                //     template_content: [],
-                //     'message': message
-                // });
                 var message = Handlebars.templates['send_vouchercode']({
                     'vouchercode': voucherCode,
                     'email_voucher_reservation_text_intro': TAPi18n.__('email_voucher_reservation_text_intro', lang),
