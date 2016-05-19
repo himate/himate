@@ -39,10 +39,8 @@ Template.pages_campaigns_details.events({
                         var vouchercode = Meteor.call('vouchers_reserve', campaign._id.toString(), function (err, data) {
                             if (err) {
                                 HiMate.Helpers.errorMessage(err.message);
-                            }
-                            else {
+                            }else {
                                 HiMate.Helpers.infoMessage('voucher ' + data + ' has been reserved');
-                                Meteor.call('send_voucher_reservation_email',data);
                             }
                         });
                     }
