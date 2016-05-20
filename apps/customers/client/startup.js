@@ -12,3 +12,8 @@ Meteor.startup(function() {
 
     HiMate.Helpers.setDefaultLanguage();
 });
+
+
+Meteor._reload.onMigrate(function() {
+    return [false];
+});

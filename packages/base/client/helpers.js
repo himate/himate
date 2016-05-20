@@ -414,3 +414,14 @@ Template.registerHelper('truncateEmail', function(email) {
 Template.registerHelper('absoluteUrl', function(path) {
     return Meteor.absoluteUrl() + (path ? path.toString() : "");
 });
+
+
+/**
+ * @param {String} (optional) path
+ * @return absolute url for this resource
+ */
+Template.registerHelper('absoluteUrlNoSlash', function(path) {
+    var url = Meteor.absoluteUrl();
+    
+    return url.substring(0, url.length - 1);
+});
