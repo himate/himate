@@ -10,7 +10,7 @@
         <div class="ui voucher-details">
             {{# with FS.GetFile 'waslchiraa_images' item.imageId }}
             <div class="panel-details panel-image">
-                <img class="ui centered image" src="{{ this.url store='waslchiraa_thumbnails_x2' }}" alt="" />
+                <img class="ui centered image" src="{{ absoluteUrl }}{{ this.url store='waslchiraa_thumbnails_x2' }}" alt="" />
             </div>
             {{/ with }}
 
