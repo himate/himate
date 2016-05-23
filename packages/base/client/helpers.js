@@ -417,10 +417,9 @@ Template.registerHelper('absoluteUrl', function(path) {
 
 
 /**
- * @param {String} (optional) path
- * @return absolute url for this resource
+ * @return absolute url for the app without slash in the end
  */
-Template.registerHelper('absoluteUrlNoSlash', function(path) {
+Template.registerHelper('absoluteUrlNoSlash', function() {
     var url = Meteor.absoluteUrl();
     
     return url.substring(0, url.length - 1);
