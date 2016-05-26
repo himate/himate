@@ -5,3 +5,4 @@ App.info({
 });
 
 App.accessRule('*://maps.google.com/*');
+App.accessRule('*://himate.org/*');
