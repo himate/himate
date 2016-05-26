@@ -42,9 +42,15 @@
                         <bdi>
                         {{ item.street }} {{ item.number }}, {{ item.zipcode }} {{ item.city }}
                         <br />
-                        <a target="_blank" class="maps" href="{{ getMapUrl item }}">
-                            {{_ 'check_on_maps'}}
-                        </a>
+                        {{# if isCordova }}
+                            <a target="_blank" class="maps js-open-map" href="">
+                                {{_ 'check_on_maps'}}
+                            </a>
+                        {{ else }}
+                            <a target="_blank" class="maps" href="{{ getMapUrl item }}">
+                                {{_ 'check_on_maps'}}
+                            </a>
+                        {{/ if}}
                         </bdi>
                     </p>
                 </div>

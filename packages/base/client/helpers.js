@@ -424,3 +424,7 @@ Template.registerHelper('absoluteUrlNoSlash', function() {
     
     return url.substring(0, url.length - 1);
 });
+
+Template.registerHelper('isCordova', function() {
+    return Meteor.isCordova;
+});
