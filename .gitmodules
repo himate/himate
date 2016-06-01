@@ -1,3 +1,3 @@
-[submodule "ansible"]
-	path = ansible
-	url = git@github.com:himate/himate-ansible.git
+[submodule "himate-config"]
+	path = config
+	url = git@github.com:himate/himate-config.git

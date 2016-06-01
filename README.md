@@ -46,6 +46,11 @@ The Apps need config values from a `settings.json`, which is not part of the rep
         }
     }
 
+The `himate-config` repository contains `settings.json` files for different stages. 
+`himate-config` is a submodule of this repository. 
+Use `git submodule init` and `git submodule update` to pull the latest `master` branch 
+into the `config` directory. 
+
 ## Start / stop servers
 
 The database is controlled by the admin app. To ensure that all instances are running on the same database, you should use the two scripts inside of the `./tools` directory.
