@@ -23,10 +23,6 @@ Meteor.publish('campaigns', function () {
                 published: {
                     $ne: null
                 }
-            }, {
-                end: {
-                    $gte: today
-                }
             }]
         }]
     });

@@ -1,5 +1,5 @@
 <template name="pages_campaigns_voucher">
-    <div class="voucher item js-voucher"
+    <div class="voucher item {{#unless isExpiredCampaign this._id}} js-voucher{{/unless}} {{#if isExpiredCampaign this._id}} grayed-out {{/if}}"
     style="{{# with FS.GetFile 'waslchiraa_images' imageId }}background: url('{{ absoluteUrlNoSlash }}{{ this.url }}'){{/ with }};background-size: 100%;">
         <div class="ui middle segment text-container no-padding">
             <div class="ui right aligned grid vertical segment">
@@ -15,14 +15,20 @@
                     </p>
 
                     <p class="description-headline">
+                        {{#if isExpiredCampaign this._id}}
+                        {{_ 'expired' }}
+                        {{else}}
                         {{_ 'available' }} <span class="description-text">
-                            <bdi>
-                                {{ available }}
-                            </bdi> </span>
+                                <bdi>
+                                    {{ available }}
+                                </bdi> </span>
+                        {{/if}}
                     </p>
                 </div>
             </div>
+            {{#unless isExpiredCampaign this._id}}
             <i class="icon-arrow-right ico-right"></i>
+            {{/unless}}
         </div>
     </div>
 </template>

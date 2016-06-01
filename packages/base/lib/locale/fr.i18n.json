@@ -167,5 +167,6 @@
     "welcome_text_step1": "Veuillez choisir une langue",
     "welcome_text_step2": "Ensuite jetez un coup d'oeil là-dessus:",
     "yes": "Oui",
-    "zipcode": "Code postal"
+    "zipcode": "Code postal",
+    "expired": ""
 }

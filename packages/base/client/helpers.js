@@ -364,6 +364,22 @@ Template.registerHelper('isReservedByUser', function(campaignId) {
     }).count() > 0;
 });
 
+Template.registerHelper('isExpiredCampaign', function(campaignId) {
+    console.log(campaignId);
+    var today = moment().endOf('day').toDate();
+    var campainExpired = HiMate.Collections.Campaigns.findOne({
+            $and: [{
+                end: {$lt: today}
+            }, {
+                _id: campaignId
+            }]
+        });
+
+    console.log(!!campainExpired);
+    return !!campainExpired;
+
+});
+
 /**
  * returns a url to google maps for the given <campaign>
  *
