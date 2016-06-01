@@ -13,7 +13,7 @@ Meteor.startup(function() {
     HiMate.Helpers.setDefaultLanguage();
 });
 
-
-Meteor._reload.onMigrate(function() {
-    return [false];
-});
+// uncomment for disabling hot code push
+// Meteor._reload.onMigrate(function() {
+//     return [false];
+// });
