@@ -73,7 +73,7 @@
         <td>
             <a class="image" href="{{ pathFor 'pages_campaigns_details' }}">
                 {{# with FS.GetFile 'waslchiraa_images' imageId }}
-                <img src="{{ this.url store='waslchiraa_thumbnails' }}" alt="" />
+                <img src="{{absoluteUrlNoSlash}}{{ this.url store='waslchiraa_thumbnails' }}" alt="" />
                 {{ else }}
                 &nbsp;
                 {{/ with }}

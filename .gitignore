@@ -20,3 +20,6 @@ docs/*
 tools/locales/node_modules/
 settings.json
 vault_pass
+build/customers/*
+!build/customers/.empty
+!build/customers/resources

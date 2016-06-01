@@ -167,5 +167,6 @@
     "welcome_text_step1": "<p>1. Wähle deine Sprache</p>\n<p>1. Choose your language</p>\n<p>قم بإختيار اللغة</p>",
     "welcome_text_step2": "\n<p>بعد ذلك</p>",
     "yes": "نعم",
-    "zipcode": "الرمز البريدي"
+    "zipcode": "الرمز البريدي",
+    "expired": "غير متوفر"
 }

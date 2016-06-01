@@ -364,6 +364,22 @@ Template.registerHelper('isReservedByUser', function(campaignId) {
     }).count() > 0;
 });
 
+Template.registerHelper('isExpiredCampaign', function(campaignId) {
+    console.log(campaignId);
+    var today = moment().endOf('day').toDate();
+    var campainExpired = HiMate.Collections.Campaigns.findOne({
+            $and: [{
+                end: {$lt: today}
+            }, {
+                _id: campaignId
+            }]
+        });
+
+    console.log(!!campainExpired);
+    return !!campainExpired;
+
+});
+
 /**
  * returns a url to google maps for the given <campaign>
  *
@@ -400,6 +416,31 @@ Template.registerHelper('translateField', function(object, field) {
     return '';
 });
 
+/**
+ *
+ */
 Template.registerHelper('truncateEmail', function(email) {
     return email.substring(0, email.lastIndexOf("@"));
+});
+
+/**
+ * @param {String} (optional) path
+ * @return absolute url for this resource
+ */
+Template.registerHelper('absoluteUrl', function(path) {
+    return Meteor.absoluteUrl() + (path ? path.toString() : "");
+});
+
+
+/**
+ * @return absolute url for the app without slash in the end
+ */
+Template.registerHelper('absoluteUrlNoSlash', function() {
+    var url = Meteor.absoluteUrl();
+    
+    return url.substring(0, url.length - 1);
+});
+
+Template.registerHelper('isCordova', function() {
+    return Meteor.isCordova;
 });

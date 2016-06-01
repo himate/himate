@@ -40,6 +40,11 @@
         > .ico-right{
             color: @light-color;
         }
+        &.grayed-out {
+            -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+            -moz-filter: grayscale(100%);
+        }
     }
     .text-container {
         background-color: rgba(0,0,0,0.5);

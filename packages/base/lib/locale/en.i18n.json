@@ -167,5 +167,6 @@
     "welcome_text_step1": "<p>1. Wähle deine Sprache</p>\n<p>1. Choose your language</p>\n<p>قم بإختيار اللغة</p>",
     "welcome_text_step2": "<p>2. After that check out our vouchers:</p>",
     "yes": "Yes",
-    "zipcode": "Zipcode"
+    "zipcode": "Zipcode",
+    "expired": "expired"
 }
