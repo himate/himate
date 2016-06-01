@@ -50,3 +50,6 @@ App.launchScreens({
     // 'android_xxhdpi_landscape': '../../build/customers/resources/android/splash/drawable-land-xxhdpi-screen.png',
     // 'android_xxxhdpi_landscape': '../../build/customers/resources/android/splash/drawable-land-xxxhdpi-screen.png'
 });
+
+App.accessRule('*://maps.google.com/*');
+App.accessRule('*://himate.org/*');
