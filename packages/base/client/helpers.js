@@ -365,7 +365,6 @@ Template.registerHelper('isReservedByUser', function(campaignId) {
 });
 
 Template.registerHelper('isExpiredCampaign', function(campaignId) {
-    console.log(campaignId);
     var today = moment().endOf('day').toDate();
     var campainExpired = HiMate.Collections.Campaigns.findOne({
             $and: [{
@@ -374,8 +373,6 @@ Template.registerHelper('isExpiredCampaign', function(campaignId) {
                 _id: campaignId
             }]
         });
-
-    console.log(!!campainExpired);
     return !!campainExpired;
 
 });

@@ -15,9 +15,17 @@
             </div>
 
             {{# each campaigns }}
-            {{# if this.available }}
-                {{> pages_campaigns_voucher }}
-            {{/ if }}
+                {{#unless isExpiredCampaign this._id}}
+                    {{# if this.available }}
+                        {{> pages_campaigns_voucher }}
+                    {{/ if }}
+                {{/unless}}
+            {{/ each }}
+
+            {{# each campaigns }}
+                {{#if isExpiredCampaign this._id}}
+                    {{> pages_campaigns_voucher }}
+                {{/if }}
             {{/ each }}
         </div>
     </div>
