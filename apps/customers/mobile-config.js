@@ -7,11 +7,11 @@ App.info({
 
 App.icons({
     // // iOS
-    // 'iphone': '../../build/customers/resources/icon/icon-60x60.png',
-    // 'iphone_2x': '../../build/customers/resources/icon/icon-60x60@2x.png',
-    // 'iphone_3x': '../../build/customers/resources/icon/icon-60x60@3x.png',
-    // 'ipad': '../../build/customers/resources/icon/icon-76x76.png',
-    // 'ipad_2x': '../../build/customers/resources/icon/icon-76x76@2x.png',
+    'iphone': '../../build/customers/resources/ios/icon/icon-60.png',
+    'iphone_2x': '../../build/customers/resources/ios/icon/icon-60@2x.png',
+    'iphone_3x': '../../build/customers/resources/ios/icon/icon-60@3x.png',
+    'ipad': '../../build/customers/resources/ios/icon/icon-76.png',
+    'ipad_2x': '../../build/customers/resources/ios/icon/icon-76@2x.png',
 
     // Android
     'android_ldpi': '../../build/customers/resources/android/icon/drawable-mdpi-icon.png',
@@ -24,17 +24,17 @@ App.icons({
 
 App.launchScreens({
     // iOS
-    // 'iphone': '../../build/customers/resources/splash/splash-320x480.png',
-    // 'iphone_2x': '../../build/customers/resources/splash/splash-320x480@2x.png',
-    // 'iphone5': '../../build/customers/resources/splash/splash-320x568@2x.png',
-    // 'iphone6': '../../build/customers/resources/splash/splash-375x667@2x.png',
-    // 'iphone6p_portrait': '../../build/customers/resources/splash/splash-414x736@3x.png',
-    // 'iphone6p_landscape': '../../build/customers/resources/splash/splash-736x414@3x.png',
-    //
-    // 'ipad_portrait': '../../build/customers/resources/splash/splash-768x1024.png',
-    // 'ipad_portrait_2x': '../../build/customers/resources/splash/splash-768x1024@2x.png',
-    // 'ipad_landscape': '../../build/customers/resources/splash/splash-1024x768.png',
-    // 'ipad_landscape_2x': '../../build/customers/resources/splash/splash-1024x768@2x.png',
+    'iphone': '../../build/customers/resources/ios/splash/Default~iphone.png',
+    'iphone_2x': '../../build/customers/resources/ios/splash/Default@2x~iphone.png',
+    'iphone5': '../../build/customers/resources/ios/splash/Default-568h@2x~iphone.png',
+    'iphone6': '../../build/customers/resources/ios/splash/Default-667h.png',
+    'iphone6p_portrait': '../../build/customers/resources/ios/splash/Default-736h.png',
+    'iphone6p_landscape': '../../build/customers/resources/ios/splash/Default-Landscape-736h.png',
+
+    'ipad_portrait': '../../build/customers/resources/ios/splash/Default-Portrait~ipad.png',
+    'ipad_portrait_2x': '../../build/customers/resources/ios/splash/Default-Portrait@2x~ipad.png',
+    'ipad_landscape': '../../build/customers/resources/ios/splash/Default-Landscape~ipad.png',
+    'ipad_landscape_2x': '../../build/customers/resources/ios/splash/Default-Landscape@2x~ipad.png',
 
     // Android
     'android_ldpi_portrait': '../../build/customers/resources/android/splash/drawable-port-ldpi-screen.png',
