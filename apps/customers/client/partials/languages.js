@@ -17,5 +17,5 @@ Template.partials_languages.events({
  * called each the the template is rendered
  */
 Template.partials_languages.onRendered(function() {
-    $('.js-dropdown').dropdown();
+    $('#partials-languages .js-dropdown').dropdown();
 });
