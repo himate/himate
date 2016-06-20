@@ -1,3 +1,0 @@
-[submodule "himate-config"]
-	path = config
-	url = git@github.com:himate/himate-config.git
