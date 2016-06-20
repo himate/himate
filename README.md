@@ -46,10 +46,7 @@ The Apps need config values from a `settings.json`, which is not part of the rep
         }
     }
 
-The `himate-config` repository contains `settings.json` files for different stages. 
-`himate-config` is a submodule of this repository. 
-Use `git submodule init` and `git submodule update` to pull the latest `master` branch 
-into the `config` directory. 
+The [himate-config](https://github.com/himate/himate-config) repository contains encrypted `settings.json` files for different stages. 
 
 ## Start / stop servers
 
