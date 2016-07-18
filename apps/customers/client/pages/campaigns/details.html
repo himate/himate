@@ -102,7 +102,7 @@
     </div>
     <div class="ui modal confirmation">
         <div class="header">
-            {{_ 'reserve voucher' }}
+            {{_ 'reserve_voucher' }}
         </div>
         <div class="content">
             {{#if currentUser}}
@@ -115,6 +115,25 @@
             </div>
             <div class="ui cancel button">
                 {{_ 'cancel' }}
+            </div>
+        </div>
+    </div>
+    <div class="ui modal voucher-confirmed">
+        <div class="header">
+            {{_ 'voucher_confirmed_header' }}
+        </div>
+        <div class="content">
+            {{{_ 'voucher_confirmed_text' code=voucherCode }}}
+            <!--{{#if currentUser}}-->
+                <!--{{{_ 'reserve_notice' email=currentUserEmail }}}-->
+            <!--{{/if}}-->
+        </div>
+        <div class="actions">
+            <div class="ui approve button">
+                {{_ 'my_vouchers' }}
+            </div>
+            <div class="ui cancel button">
+                {{_ 'Close' }}
             </div>
         </div>
     </div>

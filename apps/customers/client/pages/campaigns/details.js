@@ -13,6 +13,9 @@ Template.pages_campaigns_details.helpers({
             _id: Router.current().params._id
         });
         return result;
+    },
+    voucherCode:function () {
+        return Session.get("voucherCode");
     }
 });
 
@@ -27,6 +30,18 @@ Template.pages_campaigns_details.events({
      * @param {Object} template
      */
     'click .js-reserve-voucher': function (event, template) {
+        var $modalVoucherConfirmed = $('.modal.voucher-confirmed')
+            .modal({
+                closable: true,
+                onDeny: function () {
+                    $modalVoucherConfirmed.modal('hide');
+                },
+                onApprove: function () {
+                    Router.go('pages_vouchers');
+                    $modalVoucherConfirmed.modal('hide');
+                }
+            });
+
         var $modalConfirmation = $('.modal.confirmation')
             .modal({
                 closable: true,
@@ -35,16 +50,22 @@ Template.pages_campaigns_details.events({
                 },
                 onApprove: function () {
                     var campaign = HiMate.Collections.Campaigns.findOne(Router.current().params._id);
+                    var closed =false;
                     if (campaign) {
                         var vouchercode = Meteor.call('vouchers_reserve', campaign._id.toString(), function (err, data) {
                             if (err) {
                                 HiMate.Helpers.errorMessage(err.message);
                             }else {
-                                HiMate.Helpers.infoMessage('voucher ' + data + ' has been reserved');
+                                $modalConfirmation.modal('hide');
+                                Session.set("voucherCode",data);
+                                $modalVoucherConfirmed.modal('show');
+                               // HiMate.Helpers.infoMessage('voucher ' + data + ' has been reserved');
                             }
                         });
                     }
-                    $modalConfirmation.modal('hide');
+                    if(!closed) {
+                        $modalConfirmation.modal('hide');
+                    }
                 }
             });
         var $modalLogin = $('.modal.login')

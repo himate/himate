@@ -123,6 +123,8 @@
     "reserve_unregistered_title": "دخول أو تسجيل",
     "reserve_voucher": "حجز وصل الشراء",
     "reserved": "محجوز",
+    "voucher_confirmed_header": "شفرة القسيمة",
+    "voucher_confirmed_text": "you voucher __code__ is reserved",
     "role": "دور",
     "roles": "الصفات",
     "salutation": "الصفة",

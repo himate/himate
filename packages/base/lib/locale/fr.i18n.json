@@ -123,6 +123,8 @@
     "reserve_unregistered_title": "Connexion ou inscription",
     "reserve_voucher": "Réserver le bon d'achat",
     "reserved": "Réservé",
+    "voucher_confirmed_header": "",
+    "voucher_confirmed_text": "",
     "role": "Rôle",
     "roles": "Rôles",
     "salutation": "Titre de salutation",

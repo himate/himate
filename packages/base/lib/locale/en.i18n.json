@@ -123,6 +123,8 @@
     "reserve_unregistered_title": "Sign up or login",
     "reserve_voucher": "Reserve Voucher",
     "reserved": "Reserved",
+    "voucher_confirmed_header": "Your voucher code",
+    "voucher_confirmed_text": "you voucher __code__ is reserved",
     "role": "Role",
     "roles": "Roles",
     "salutation": "Salutation",
@@ -168,5 +170,5 @@
     "welcome_text_step2": "<p>2. After that check out our vouchers:</p>",
     "yes": "Yes",
     "zipcode": "Zipcode",
-    "expired": "expired"
+    "expired": "currently not available"
 }
