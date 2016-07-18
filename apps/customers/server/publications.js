@@ -35,6 +35,13 @@ Meteor.publish('campaigns', function () {
         return v.categoryId;
     });
 
+    var categories = HiMate.Collections.Categories.find({
+        _id: {
+            $in: categoryIds
+        }
+
+    });
+
     var merchants = Meteor.users.find({
         _id: {
             $in: merchantIds
@@ -53,15 +60,9 @@ Meteor.publish('campaigns', function () {
     });
 
     // send collections
-    return [campaigns, merchants];
+    return [campaigns, merchants,categories];
 });
 
-/**
- * publish all categories
- */
-Meteor.publish('categories', function () {
-    return HiMate.Collections.Categories.find();
-});
 
 /**
  *

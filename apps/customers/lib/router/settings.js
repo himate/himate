@@ -3,8 +3,8 @@ Router.configure({
     layoutTemplate: 'layouts_default',
     loadingTemplate: 'partials_loading',
     notFoundTemplate: 'errors_404',
-    waitOn: function() {
-        return [Meteor.subscribe('campaigns'), Meteor.subscribe('categories')];
+    waitOn: function () {
+        return Meteor.subscribe('campaigns');
     }
 });
 
