@@ -123,6 +123,8 @@
     "reserve_unregistered_title": "Login oder Registrieren",
     "reserve_voucher": "Sichere Dir den Gutschein",
     "reserved": "Reserviert",
+    "voucher_confirmed_header": "Dein Gutscheincode",
+    "voucher_confirmed_text": "you voucher __code__ is reserved",
     "role": "Rolle",
     "roles": "Rollen",
     "salutation": "Anrede",
@@ -168,5 +170,5 @@
     "welcome_text_step2": "<p>2. Danach schau' dir unsere Gutscheine an:</p>",
     "yes": "Ja",
     "zipcode": "PLZ",
-    "expired": "abgelaufen"
+    "expired": "derzeit nicht verfügbar"
 }
