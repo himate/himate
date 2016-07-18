@@ -154,6 +154,7 @@ HiMate.Helpers.infoMessage = function(message) {
     });
 };
 
+
 /**
  * creates an error message on top of the main menu.
  * Should be used instead of "alert()" messages.
