@@ -37,7 +37,7 @@ Template.pages_campaigns_details.events({
                     $modalVoucherConfirmed.modal('hide');
                 },
                 onApprove: function () {
-                    $(location).attr('href','/vouchers')
+                    Router.go('pages_vouchers');
                     $modalVoucherConfirmed.modal('hide');
                 }
             });

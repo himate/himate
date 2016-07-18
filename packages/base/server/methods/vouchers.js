@@ -53,8 +53,10 @@ Meteor.methods({
         });
 
         HiMate.Collections.Campaigns.countVouchers(campaign._id);
-        Meteor.call('send_voucher_reservation_email', code);
 
+        Meteor.defer(function () {
+            Meteor.call('send_voucher_reservation_email', code);
+        });
         HiMate.Collections.Activities.insert({
             username: Meteor.user().username,
             userId: Meteor.userId(),
