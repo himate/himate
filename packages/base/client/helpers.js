@@ -445,13 +445,5 @@ Template.registerHelper('isCordova', function() {
     return Meteor.isCordova;
 });
 
-Template.registerHelper('companyIsSet', function(company) {
-    if(company.length > 0)
-    {
-        return true;
-    }
-    else{
-        return false;
-    }
-});
+
 
