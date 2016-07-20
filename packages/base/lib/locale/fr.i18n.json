@@ -172,5 +172,8 @@
     "welcome_text_step2": "Ensuite jetez un coup d'oeil là-dessus:",
     "yes": "Oui",
     "zipcode": "Code postal",
-    "expired": ""
+    "expired": "",
+    "error_no_customer": "",
+    "not_authorized": "",
+    "not-authorized": ""
 }

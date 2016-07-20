@@ -54,7 +54,7 @@ Template.pages_campaigns_details.events({
                     if (campaign) {
                         var vouchercode = Meteor.call('vouchers_reserve', campaign._id.toString(), function (err, data) {
                             if (err) {
-                                HiMate.Helpers.errorMessage(err.message);
+                                HiMate.Helpers.errorMessage(err.error);
                             }else {
                                 $modalConfirmation.modal('hide');
                                 Session.set("voucherCode",data);

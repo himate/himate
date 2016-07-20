@@ -172,5 +172,8 @@
     "welcome_text_step2": "<p>2. After that check out our vouchers:</p>",
     "yes": "Yes",
     "zipcode": "Zipcode",
-    "expired": "currently not available"
+    "expired": "currently not available",
+    "error_no_customer": "This is not a refugee account",
+    "not_authorized": "You are not authorized for this action.",
+    "not-authorized": "You are not authorized for this action."
 }

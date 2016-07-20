@@ -9,7 +9,7 @@ Template.partials_main_menu.events({
      * @param {Object} event
      */
     'click .js-menu': function (event) {
-        console.log(event);
+        //console.log(event);
         //$('#partials-sidebar').sidebar('setting', 'transition', 'push').sidebar('toggle');
         $('.ui.sidebar').sidebar('toggle');
         $('#partials-main-menu').toggleClass('active');

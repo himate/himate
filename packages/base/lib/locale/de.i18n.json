@@ -126,7 +126,7 @@
     "reserve_voucher": "Sichere Dir den Gutschein",
     "reserved": "Reserviert",
     "voucher_confirmed_header": "Dein Gutscheincode",
-    "voucher_confirmed_text": "you voucher __code__ is reserved",
+    "voucher_confirmed_text": "Dein Gutschein __code__ ist reserviert",
     "role": "Rolle",
     "roles": "Rollen",
     "salutation": "Anrede",
@@ -172,5 +172,8 @@
     "welcome_text_step2": "<p>2. Danach schau' dir unsere Gutscheine an:</p>",
     "yes": "Ja",
     "zipcode": "PLZ",
-    "expired": "derzeit nicht verfügbar"
+    "expired": "derzeit nicht verfügbar",
+    "error_no_customer": "Dies ist kein Refugee accout",
+    "not_authorized": "Sie haben keine Berechtigung dafür.",
+    "not-authorized": "Sie haben keine Berechtigung dafür."
 }
