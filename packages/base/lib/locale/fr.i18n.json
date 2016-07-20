@@ -27,6 +27,8 @@
     "city": "Ville",
     "code": "Code du bon d'achat",
     "company": "Société",
+    "company_name": "",
+    "web_address": "",
     "conditions": "Nos conditions",
     "conditions_content": "<p>1) Vous ne pouvez réserver un bon d'achat que pour une durée de 72 heures</p>\n<p>2) Vous devez être un réfugié enregistré et disposer des documents officiels prouvant votre statut</p>\n<p>3) Vous bénéficiez uniquement de ce qui est prévu dans la description du bon d'achat. Ni plus, ni moins. Le donateur n'est pas tenu de fournir le contenu de son offre.\n<br />N'oubliez pas de remercier les donateurs</p>",
     "contact_data": "Coordonnées",

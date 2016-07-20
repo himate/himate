@@ -31,7 +31,9 @@ Meteor.publish('campaigns', function() {
             end:1,
             available: 1,
             reserved: 1,
-            redeemed: 1
+            redeemed: 1,
+            webAddress:1,
+            companyName:1
         }
     });
 });
@@ -66,7 +68,8 @@ Meteor.publish('voucher_users', function(campaignId) {
         fields: {
             username: 1,
             'profile.firstName': 1,
-            'profile.lastName': 1
+            'profile.lastName': 1,
+            'profile.company' : 1
         }
     });
     return result;

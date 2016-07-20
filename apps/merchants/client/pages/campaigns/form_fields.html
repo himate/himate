@@ -59,6 +59,11 @@
 
         <h3 class="ui dividing header"> {{_ 'contact_data' }} </h3>
         <div class="fields">
+            <div class="five wide field">
+                {{> afQuickField name='companyName' }}
+            </div>
+        </div>
+        <div class="fields">
             <div class="twelve wide field">
                 {{> afQuickField name='street' }}
             </div>
@@ -77,6 +82,8 @@
         </div>
 
         {{> afQuickField name='country' }}
+
+        {{> afQuickField name='webAddress' }}
 
         <h3 class="ui dividing header"> {{_ 'image' }} </h3>
         {{> afQuickField name='imageId' }}
