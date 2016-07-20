@@ -9,29 +9,38 @@
 
         <div class="ui voucher-details">
             {{# with FS.GetFile 'waslchiraa_images' item.imageId }}
-            <div class="panel-details panel-image">
-                <img class="ui centered image" src="{{ absoluteUrlNoSlash }}{{ this.url store='waslchiraa_thumbnails_x2' }}" alt="" />
-            </div>
+                <div class="panel-details panel-image">
+                    <img class="ui centered image"
+                         src="{{ absoluteUrlNoSlash }}{{ this.url store='waslchiraa_thumbnails_x2' }}" alt=""/>
+                </div>
             {{/ with }}
 
             <div class="panel-details">
                 <div class="ui right aligned grid">
                     <div class="left aligned six wide column ">
                         {{# with getCategory item.categoryId }}
-                        <h5>{{ translateField this "title" }}</h5>
+                            <h5>{{ translateField this "title" }}</h5>
                         {{/ with }}
 
-                        <h2> <bdi>{{ translateField item "title" }}</bdi></h2>
+                        <h2>
+                            <bdi>{{ translateField item "title" }}</bdi>
+                        </h2>
 
-                        {{# with getUser item.userId }}
-                        <h3 class="headline voucher-shop"> {{ profile.company }} </h3>
-                        {{/ with }}
+                            <br>
+                    {{# with getUser item.userId }}
+                        {{#if item.companyName}}
+                            <h3 class="headline voucher-shop"> {{ item.companyName }} </h3>
+                        {{else}}
+                            <h3 class="headline voucher-shop"> {{ profile.company }} </h3>
+                        {{/ if}}
+                    {{/ with }}
+                        <a href="{{item.webAddress}}" target="_blank">{{item.webAddress}}</a>
                     </div>
                     <div class="right floated aligned six wide column">
                         <div class="headline voucher-description">
                             <p class="description-headline">
                                 <bdi>
-                                {{_ 'valid_until'}} <span class="description-text">{{formatDate item.end }}</span>
+                                    {{_ 'valid_until'}} <span class="description-text">{{formatDate item.end }}</span>
                                 </bdi>
                             </p>
                         </div>
@@ -40,21 +49,23 @@
                 <div class="voucher-address">
                     <p>
                         <bdi>
-                        {{ item.street }} {{ item.number }}, {{ item.zipcode }} {{ item.city }}
-                        <br />
-                        {{# if isCordova }}
-                            <a target="_blank" class="maps js-open-map" href="">
-                                {{_ 'check_on_maps'}}
-                            </a>
-                        {{ else }}
-                            <a target="_blank" class="maps" href="{{ getMapUrl item }}">
-                                {{_ 'check_on_maps'}}
-                            </a>
-                        {{/ if}}
+                            {{ item.street }} {{ item.number }}, {{ item.zipcode }} {{ item.city }}
+                            <br/>
+                            {{# if isCordova }}
+                                <a target="_blank" class="maps js-open-map" href="">
+                                    {{_ 'check_on_maps'}}
+                                </a>
+                            {{ else }}
+                                <a target="_blank" class="maps" href="{{ getMapUrl item }}">
+                                    {{_ 'check_on_maps'}}
+                                </a>
+                            {{/ if}}
                         </bdi>
                     </p>
                 </div>
-                <h2 class="short-description"> <bdi>{{ translateField item "shortDescription" }}</bdi></h2>
+                <h2 class="short-description">
+                    <bdi>{{ translateField item "shortDescription" }}</bdi>
+                </h2>
 
             </div>
             <div class="panel-details">
@@ -62,7 +73,7 @@
 
                 <p>
                     <bdi>
-                    {{ translateField item "description" }}
+                        {{ translateField item "description" }}
                     </bdi>
                 </p>
 
@@ -71,14 +82,14 @@
                 <h5>{{_ 'conditions' }}</h5>
                 <p>
                     <bdi>
-                    {{{_ 'conditions_content' }}}
+                        {{{_ 'conditions_content' }}}
                     </bdi>
                 </p>
 
                 <h5>{{_ 'special_conditions' }}</h5>
                 <p>
                     <bdi>
-                    {{ translateField item "conditions" }}
+                        {{ translateField item "conditions" }}
                     </bdi>
                 </p>
 
@@ -86,15 +97,15 @@
             <div class="fixed bottom shadow-top">
                 <div class=" ui segment vertical  button-container">
                     {{#if isReservedByUser item._id  }}
-                    <button class="ui button success">
-                        {{_ 'reserved' }}
-                    </button>
+                        <button class="ui button success">
+                            {{_ 'reserved' }}
+                        </button>
                     {{ else }}
-                    {{#if hasAvailableVouchers item._id }}
-                    <button class="ui button primary js-reserve-voucher">
-                        {{_ 'reserve_voucher' }}
-                    </button>
-                    {{/if }}
+                        {{#if hasAvailableVouchers item._id }}
+                            <button class="ui button primary js-reserve-voucher">
+                                {{_ 'reserve_voucher' }}
+                            </button>
+                        {{/if }}
                     {{/if }}
                 </div>
             </div>
@@ -106,7 +117,7 @@
         </div>
         <div class="content">
             {{#if currentUser}}
-            {{{_ 'reserve_notice' email=currentUserEmail }}}
+                {{{_ 'reserve_notice' email=currentUserEmail }}}
             {{/if}}
         </div>
         <div class="actions">
@@ -124,9 +135,9 @@
         </div>
         <div class="content">
             {{{_ 'voucher_confirmed_text' code=voucherCode }}}
-            <!--{{#if currentUser}}-->
-                <!--{{{_ 'reserve_notice' email=currentUserEmail }}}-->
-            <!--{{/if}}-->
+                <!--{{#if currentUser}}-->
+            <!--{{{_ 'reserve_notice' email=currentUserEmail }}}-->
+                <!--{{/if}}-->
         </div>
         <div class="actions">
             <div class="ui approve button">

@@ -235,6 +235,8 @@ Template.registerHelper('pageTitle', function() {
  * @reactive
  */
 Template.registerHelper('getUser', function(userId) {
+    console.log(userId,Meteor.users.findOne(userId));
+
     return Meteor.users.findOne(userId);
 });
 
@@ -442,3 +444,14 @@ Template.registerHelper('absoluteUrlNoSlash', function() {
 Template.registerHelper('isCordova', function() {
     return Meteor.isCordova;
 });
+
+Template.registerHelper('companyIsSet', function(company) {
+    if(company.length > 0)
+    {
+        return true;
+    }
+    else{
+        return false;
+    }
+});
+

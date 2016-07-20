@@ -65,8 +65,7 @@ Meteor.publish('users', function() {
             username: 1,
             roles: 1,
             createdAt: 1,
-            "profile.firstName": 1,
-            "profile.lastName": 1,
+            profile: 1,
             emails: 1,
             disabled: 1,
             status: 1

@@ -118,6 +118,16 @@ HiMate.Schemas.Campaign = new SimpleSchema({
             defaultValue: 1
         }
     },
+    companyName: {
+        type: String,
+        optional: true,
+        label: HiMate.Helpers.i18nLabel("company_name")
+    },
+    webAddress: {
+        type: String,
+        optional: true,
+        label: HiMate.Helpers.i18nLabel("web_address")
+    },
     street: {
         type: String,
         label: HiMate.Helpers.i18nLabel("street")

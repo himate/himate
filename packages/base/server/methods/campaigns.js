@@ -40,6 +40,8 @@ Meteor.methods({
         check(doc.published, Match.Optional(Date));
         check(doc.end, Match.Optional(Date));
         check(doc.quantity, Match.Optional(Number));
+        check(doc.companyName, Match.Optional(String));
+        check(doc.webAddress, Match.Optional(String));
         check(doc.street, String);
         check(doc.number, String);
         check(doc.zipcode, String);
@@ -140,6 +142,8 @@ Meteor.methods({
             end: Match.Optional(Date),
             approved: Match.Optional(Boolean),
             quantity: Number,
+            companyName: Match.Optional(String),
+            webAddress: Match.Optional(String),
             street: String,
             number: String,
             zipcode: String,

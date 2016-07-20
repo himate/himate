@@ -27,6 +27,8 @@
     "city": "Stadt",
     "code": "Gutscheincode",
     "company": "Firma",
+    "company_name": "Firma",
+    "web_address": "Web Adress",
     "conditions": "Unsere Konditionen",
     "conditions_content": "<p>1) Du kannst maximal einen Gutschein für 72 Stunden reservieren</p>\n<p>2) Du musst ein registrierter Flüchtling sein und benötigst Dokumente, die das beweisen!</p>\n<p>3) Du bekommst nur, was in den Angeboten beschrieben ist. Nicht mehr und nicht weniger. Der Spender ist nicht zur Abgabe der beschriebenen Angebote verpflichtet.</p>\n<p>4) Wir freuen uns, wenn Du ein Foto von Deinem Erlebnis auf Facebook oder Twitter mit #HiMate teilst!",
     "contact_data": "Kontaktdaten",
