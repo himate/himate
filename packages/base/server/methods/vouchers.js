@@ -75,13 +75,12 @@ Meteor.methods({
             throw new Meteor.Error("not-authorized");
         }
 
-        var campaign = HiMate.Collections.Vouchers.findOne({
+        var voucher = HiMate.Collections.Vouchers.findOne({
             _id: voucherId
         });
 
         HiMate.Collections.Vouchers.remove(voucherId);
-
-        HiMate.Collections.Campaigns.updateCampaignCount(campaign.campaignId);
+        HiMate.Collections.Campaigns.updateCampaignCount(voucher.campaignId);
 
 
     },

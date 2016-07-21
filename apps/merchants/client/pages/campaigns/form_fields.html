@@ -14,6 +14,9 @@
             <div class="item" data-tab="tab-ar">
                 AR
             </div>
+            <div class="item" data-tab="tab-fr">
+                FR
+            </div>
         </div>
         <button class="auto-translation  show-manual">
             {{_ "translate_auto"}}
@@ -51,6 +54,19 @@
                 {{> afQuickField name='shortDescription.ar'  label="Short Description" }}
                 {{> afQuickField name='description.ar' type='textarea' label="Description" }}
                 {{> afQuickField name='conditions.ar' type='textarea'  label="Conditions" }}
+                <button class=" manual-translation hide-manual">
+                    {{_ "translate_manual"}}
+                </button>
+            </div>
+        </div>
+
+        <div class="ui tab" data-tab="tab-fr">
+            <div class="show-manual">
+
+                {{> afQuickField name='title.fr'  label=" Titel"}}
+                {{> afQuickField name='shortDescription.fr'  label="Short Description" }}
+                {{> afQuickField name='description.fr' type='textarea' label="Description" }}
+                {{> afQuickField name='conditions.fr' type='textarea'  label="Conditions" }}
                 <button class=" manual-translation hide-manual">
                     {{_ "translate_manual"}}
                 </button>

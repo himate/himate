@@ -39,7 +39,8 @@ Package.onUse(function(api) {
         'lib/collections/vouchers.js',
         'lib/locale/ar.i18n.json',
         'lib/locale/de.i18n.json',
-        'lib/locale/en.i18n.json'
+        'lib/locale/en.i18n.json',
+        'lib/locale/fr.i18n.json'
     ], [
         'client',
         'server'
