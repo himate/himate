@@ -95,19 +95,26 @@
 
             </div>
             <div class="fixed bottom shadow-top">
-                <div class=" ui segment vertical  button-container">
-                    {{#if isReservedByUser item._id  }}
+                {{#if isReservedByUser item._id  }}
+                    <div class=" ui segment vertical  button-container">
                         <button class="ui button success">
                             {{_ 'reserved' }}
                         </button>
-                    {{ else }}
+                    </div>
+                    <div class=" ui segment vertical  button-container">
+                        <button class="ui button primary js-remove-voucher">
+                            {{_ 'unreserve'}}
+                        </button>
+                    </div>
+                {{ else }}
+                    <div class=" ui segment vertical  button-container">
                         {{#if hasAvailableVouchers item._id }}
                             <button class="ui button primary js-reserve-voucher">
                                 {{_ 'reserve_voucher' }}
                             </button>
                         {{/if }}
-                    {{/if }}
-                </div>
+                    </div>
+                {{/if }}
             </div>
         </div>
     </div>

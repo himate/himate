@@ -70,6 +70,21 @@ Meteor.methods({
         return code;
     },
 
+    "vouchers_remove": function(campaign) {
+        if (!Roles.userIsInRole(Meteor.userId(), ['customer'])) {
+            throw new Meteor.Error("not-authorized");
+        }
+        var voucher = HiMate.Collections.Vouchers.findOne({
+            campaignId: campaign._id.toString() ,
+            userId: Meteor.userId()
+        });
+
+        HiMate.Collections.Vouchers.remove(voucher._id);
+        HiMate.Collections.Campaigns.updateCampaignCount(campaign._id);
+
+
+    },
+
     /**
      * @param {Object} code
      */

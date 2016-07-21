@@ -126,7 +126,7 @@
     "reserve_voucher": "حجز وصل الشراء",
     "reserved": "محجوز",
     "voucher_confirmed_header": "شفرة القسيمة",
-    "voucher_confirmed_text": "you voucher __code__ is reserved",
+    "voucher_confirmed_text": "your voucher __code__ is reserved",
     "role": "دور",
     "roles": "الصفات",
     "salutation": "الصفة",
@@ -175,5 +175,6 @@
     "expired": "غير متوفر",
     "error_no_customer": "This is not a refugee account",
     "not_authorized": "You are not authorized for this action.",
-    "not-authorized": "You are not authorized for this action."
+    "not-authorized": "You are not authorized for this action.",
+    "unreserve": "Remove Reservation"
 }

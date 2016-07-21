@@ -175,5 +175,6 @@
     "expired": "derzeit nicht verfügbar",
     "error_no_customer": "Dies ist kein Refugee accout",
     "not_authorized": "Sie haben keine Berechtigung dafür.",
-    "not-authorized": "Sie haben keine Berechtigung dafür."
+    "not-authorized": "Sie haben keine Berechtigung dafür.",
+    "unreserve": "Reservierung löschen"
 }
