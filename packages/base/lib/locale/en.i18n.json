@@ -126,7 +126,7 @@
     "reserve_voucher": "Reserve Voucher",
     "reserved": "Reserved",
     "voucher_confirmed_header": "Your voucher code",
-    "voucher_confirmed_text": "you voucher __code__ is reserved",
+    "voucher_confirmed_text": "your voucher __code__ is reserved",
     "role": "Role",
     "roles": "Roles",
     "salutation": "Salutation",
@@ -175,5 +175,6 @@
     "expired": "currently not available",
     "error_no_customer": "This is not a refugee account",
     "not_authorized": "You are not authorized for this action.",
-    "not-authorized": "You are not authorized for this action."
+    "not-authorized": "You are not authorized for this action.",
+    "unreserve": "Remove Reservation"
 }

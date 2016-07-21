@@ -22,11 +22,11 @@ Template.pages_categories.helpers({
     /**
      *
      */
-    campaignCount: function() {
+/*    campaignCount: function() {
         return HiMate.Collections.Campaigns.find({
             categoryId: this._id
         }).count();
-    }
+    }*/
 });
 
 // ----- template events -------------------------------------------------------
