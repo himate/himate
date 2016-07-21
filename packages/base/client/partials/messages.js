@@ -13,7 +13,6 @@ Template.himate_partials_messages.helpers({
                 message: TAPi18n.__(item.message),
             };
         });
-        console.log(result);
         return result;
     }
 

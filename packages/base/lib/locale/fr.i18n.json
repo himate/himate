@@ -175,5 +175,6 @@
     "expired": "",
     "error_no_customer": "",
     "not_authorized": "",
-    "not-authorized": ""
+    "not-authorized": "",
+    "unreserve": ""
 }

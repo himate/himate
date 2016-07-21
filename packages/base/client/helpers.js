@@ -235,7 +235,7 @@ Template.registerHelper('pageTitle', function() {
  * @reactive
  */
 Template.registerHelper('getUser', function(userId) {
-    console.log(userId,Meteor.users.findOne(userId));
+   // console.log(userId,Meteor.users.findOne(userId));
 
     return Meteor.users.findOne(userId);
 });
@@ -366,6 +366,7 @@ Template.registerHelper('isReservedByUser', function(campaignId) {
         userId: Meteor.userId()
     }).count() > 0;
 });
+
 
 Template.registerHelper('isExpiredCampaign', function(campaignId) {
     var today = moment().endOf('day').toDate();
