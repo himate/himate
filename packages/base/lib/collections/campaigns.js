@@ -118,6 +118,16 @@ HiMate.Schemas.Campaign = new SimpleSchema({
             defaultValue: 1
         }
     },
+    companyName: {
+        type: String,
+        optional: true,
+        label: HiMate.Helpers.i18nLabel("company_name")
+    },
+    webAddress: {
+        type: String,
+        optional: true,
+        label: HiMate.Helpers.i18nLabel("web_address")
+    },
     street: {
         type: String,
         label: HiMate.Helpers.i18nLabel("street")
@@ -180,6 +190,7 @@ HiMate.Collections.Campaigns.attachSchema(HiMate.Schemas.Campaign);
 /**
  * @param {Number} campaignId
  */
+// also Updates the Campaign Collection
 HiMate.Collections.Campaigns.countVouchers = function(campaignId) {
     var campaign = HiMate.Collections.Campaigns.findOne({
         _id: campaignId
@@ -204,6 +215,23 @@ HiMate.Collections.Campaigns.countVouchers = function(campaignId) {
                 reserved: reserved,
                 redeemed: redeemed,
                 available: campaign.quantity - (redeemed + reserved)
+            }
+        });
+    }
+};
+
+//sets back the campaign reserved and available count after user cancels a reervation
+HiMate.Collections.Campaigns.updateCampaignCount = function(campaignId) {
+    var campaign = HiMate.Collections.Campaigns.findOne({
+        _id: campaignId
+    });
+    var now = new Date();
+
+    if (campaign) {
+        HiMate.Collections.Campaigns.update(campaignId, {
+            $set: {
+                reserved: campaign.reserved - 1,
+                available: campaign.available + 1
             }
         });
     }

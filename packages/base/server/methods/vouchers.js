@@ -53,8 +53,10 @@ Meteor.methods({
         });
 
         HiMate.Collections.Campaigns.countVouchers(campaign._id);
-        Meteor.call('send_voucher_reservation_email', code);
 
+        Meteor.defer(function () {
+            Meteor.call('send_voucher_reservation_email', code);
+        });
         HiMate.Collections.Activities.insert({
             username: Meteor.user().username,
             userId: Meteor.userId(),
@@ -66,6 +68,21 @@ Meteor.methods({
         });
 
         return code;
+    },
+
+    "vouchers_remove": function(voucherId) {
+        if (!Roles.userIsInRole(Meteor.userId(), ['customer'])) {
+            throw new Meteor.Error("not-authorized");
+        }
+
+        var voucher = HiMate.Collections.Vouchers.findOne({
+            _id: voucherId
+        });
+
+        HiMate.Collections.Vouchers.remove(voucherId);
+        HiMate.Collections.Campaigns.updateCampaignCount(voucher.campaignId);
+
+
     },
 
     /**

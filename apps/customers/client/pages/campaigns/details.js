@@ -13,6 +13,15 @@ Template.pages_campaigns_details.helpers({
             _id: Router.current().params._id
         });
         return result;
+    },
+    voucherCode: function () {
+        return Session.get("voucherCode");
+    },
+    voucher:function(){
+        return HiMate.Collections.Vouchers.findOne({
+            campaignId: this._id,
+            userId: Meteor.userId()
+        })
     }
 });
 
@@ -27,6 +36,17 @@ Template.pages_campaigns_details.events({
      * @param {Object} template
      */
     'click .js-reserve-voucher': function (event, template) {
+        var $modalVoucherConfirmed = $('.modal.voucher-confirmed')
+            .modal({
+                closable: true,
+                onDeny: function () {
+                   Session.set("isApproved", "");
+                },
+                onApprove: function () {
+                   Session.set("isApproved", "");
+                   Router.go('pages_vouchers');
+                }
+            });
         var $modalConfirmation = $('.modal.confirmation')
             .modal({
                 closable: true,
@@ -34,17 +54,23 @@ Template.pages_campaigns_details.events({
                     $modalConfirmation.modal('hide');
                 },
                 onApprove: function () {
+
                     var campaign = HiMate.Collections.Campaigns.findOne(Router.current().params._id);
                     if (campaign) {
                         var vouchercode = Meteor.call('vouchers_reserve', campaign._id.toString(), function (err, data) {
                             if (err) {
-                                HiMate.Helpers.errorMessage(err.message);
-                            }else {
-                                HiMate.Helpers.infoMessage('voucher ' + data + ' has been reserved');
+                                HiMate.Helpers.errorMessage(err.error);
+                            } else {
+                                Session.set("voucherCode", data);
+                                Session.set("isApproved", "1");
                             }
                         });
                     }
-                    $modalConfirmation.modal('hide');
+                },
+                onHidden: function () {
+                    if(Session.get("isApproved")){
+                        $modalVoucherConfirmed.modal('show');
+                    }
                 }
             });
         var $modalLogin = $('.modal.login')
@@ -69,11 +95,25 @@ Template.pages_campaigns_details.events({
         }
     },
 
+    'click .js-remove-voucher': function (event, template) {
+        //var campaign = HiMate.Collections.Campaigns.findOne(Router.current().params._id);
+       // console.log(Router.current().params.voucherId);
+
+        Meteor.call('vouchers_remove', Router.current().params.voucherId, function (err, data) {
+            if (err) {
+                HiMate.Helpers.errorMessage(err.error);
+            } else {
+                Router.go('pages_campaigns');
+            }
+        });
+    },
+
+
     /**
      * @param {Object} event
      * @param {Object} template
      */
-    'click .js-open-map': function(event, template) {
+    'click .js-open-map': function (event, template) {
         event.preventDefault();
         var campaign = HiMate.Collections.Campaigns.findOne(Router.current().params._id);
         if (campaign) {
@@ -82,7 +122,7 @@ Template.pages_campaigns_details.events({
                 'GET',
                 'http://maps.google.com/maps/api/geocode/json?address=' + encodeURIComponent(address),
                 {},
-                function(error, result) {
+                function (error, result) {
                     if (error) {
                         return;
                     }

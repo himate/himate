@@ -27,6 +27,8 @@
     "city": "المدينة",
     "code": "رمز قسيمة",
     "company": "شركة",
+    "company_name": "شركةsss",
+    "web_address": "Web Address",
     "conditions": "شروطنا",
     "conditions_content": "تستطيع حجز قسيمة واحدة فقط خلال 72 ساعه.  \n\nيجب ان تكون لاجئ مسجل رسميا وتحتاج الى الوثائق التي تثبت ذلك \n\nسوف تحصل على ما هو موضح في العرض فقط. ليس اكثر ولا اقل. الجهة المانحة غير ملزمة بتقديم السلع التي وصفتها . \n\nلا تنسى الشكر في المقابل",
     "contact_data": "معلومات عن المتجر",
@@ -123,6 +125,8 @@
     "reserve_unregistered_title": "دخول أو تسجيل",
     "reserve_voucher": "حجز وصل الشراء",
     "reserved": "محجوز",
+    "voucher_confirmed_header": "شفرة القسيمة",
+    "voucher_confirmed_text": "your voucher __code__ is reserved",
     "role": "دور",
     "roles": "الصفات",
     "salutation": "الصفة",
@@ -168,5 +172,9 @@
     "welcome_text_step2": "\n<p>بعد ذلك</p>",
     "yes": "نعم",
     "zipcode": "الرمز البريدي",
-    "expired": "غير متوفر"
+    "expired": "غير متوفر",
+    "error_no_customer": "This is not a refugee account",
+    "not_authorized": "You are not authorized for this action.",
+    "not-authorized": "You are not authorized for this action.",
+    "unreserve": "Remove Reservation"
 }

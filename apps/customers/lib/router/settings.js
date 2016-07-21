@@ -3,8 +3,11 @@ Router.configure({
     layoutTemplate: 'layouts_default',
     loadingTemplate: 'partials_loading',
     notFoundTemplate: 'errors_404',
-    waitOn: function() {
-        return [Meteor.subscribe('campaigns'), Meteor.subscribe('categories')];
+    waitOn: function () {
+        var categoryIds=HiMate.Collections.Campaigns.find({}).map(function (v) {
+            return v.categoryId;
+        });
+        return [Meteor.subscribe('campaigns'),Meteor.subscribe('categories',categoryIds)];
     }
 });
 

@@ -40,8 +40,7 @@ Template.pages_vouchers.events({
      */
     'click .js-voucher': function(event) {
         Router.go('pages_campaigns_details', {
-            _id: this.campaignId
-        });
+            _id: this.campaignId,voucherId: this._id} );
         return HiMate.Helpers.cancel(event);
     }
 });

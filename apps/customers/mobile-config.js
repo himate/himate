@@ -2,7 +2,7 @@ App.info({
     id: 'org.himate.customer',
     name: 'HiMate',
     description: 'The HiMate Android App',
-    version: '0.0.1'
+    version: '0.0.3'
 });
 
 App.icons({

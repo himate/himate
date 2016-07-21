@@ -24,3 +24,10 @@ Template.pages_startpage.onRendered(function() {
     $('#pages-startpage .js-dropdown').dropdown();
 });
 
+//Temperory Helper to prevent French language from showing up
+Template.pages_startpage.helpers({
+    languageIs: function (language) {
+        return language === "fr";
+
+    }
+});

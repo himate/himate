@@ -25,21 +25,27 @@ Meteor.methods({
         check("title.de", String);
         check("title.en", String);
         check("title.ar", String);
+        check("title.fr", String);
         check("shortDescription.de", String);
         check("shortDescription.en", String);
         check("shortDescription.ar", String);
+        check("shortDescription.fr", String);
         check("description.de", Match.Optional(String));
         check("description.en", Match.Optional(String));
         check("description.ar", Match.Optional(String));
+        check("description.fr", Match.Optional(String));
         check("conditions.de", Match.Optional(String));
         check("conditions.en", Match.Optional(String));
         check("conditions.ar", Match.Optional(String));
+        check("conditions.fr", Match.Optional(String));
         check(doc.imageId, Match.Optional(String));
         check(doc.userId, Match.Optional(String));
         check(doc.categoryId, String);
         check(doc.published, Match.Optional(Date));
         check(doc.end, Match.Optional(Date));
         check(doc.quantity, Match.Optional(Number));
+        check(doc.companyName, Match.Optional(String));
+        check(doc.webAddress, Match.Optional(String));
         check(doc.street, String);
         check(doc.number, String);
         check(doc.zipcode, String);
@@ -61,7 +67,7 @@ Meteor.methods({
                     //to: 'tr@delodi.net',
                     to: 'himate-reviewers@googlegroups.com',
                     subject: 'New Campaign created, please review it.',
-                    text: '' + 'Title (en):' + campaign.title.en + "\n" + 'Title (de):' + campaign.title.de + "\n" + 'Title (ar):' + campaign.title.ar + "\n"
+                    text: '' + 'Title (en):' + campaign.title.en + "\n" + 'Title (de):' + campaign.title.de + "\n" + 'Title (ar):' + campaign.title.ar + "\n" + 'Title (fr):' + campaign.title.fr + "\n"
                 });
             }
         });
@@ -123,15 +129,19 @@ Meteor.methods({
             "title.de": String,
             "title.en": String,
             "title.ar": String,
+            "title.fr": String,
             "shortDescription.de": String,
             "shortDescription.en": String,
             "shortDescription.ar": String,
+            "shortDescription.fr": String,
             "description.de": Match.Optional(String),
             "description.en": Match.Optional(String),
             "description.ar": Match.Optional(String),
+            "description.fr": Match.Optional(String),
             "conditions.de": Match.Optional(String),
             "conditions.en": Match.Optional(String),
             "conditions.ar": Match.Optional(String),
+            "conditions.fr": Match.Optional(String),
             conditions: Match.Optional(Object),
             imageId: Match.Optional(String),
             userId: Match.Optional(String),
@@ -140,6 +150,8 @@ Meteor.methods({
             end: Match.Optional(Date),
             approved: Match.Optional(Boolean),
             quantity: Number,
+            companyName: Match.Optional(String),
+            webAddress: Match.Optional(String),
             street: String,
             number: String,
             zipcode: String,

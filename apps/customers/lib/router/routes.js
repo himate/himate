@@ -12,32 +12,35 @@ Router.route('/', {
 /**
  * campaigns
  */
-Router.route('/campaigns', {
-    name: 'pages_campaigns',
-    waitOn: function () {
-        var filter = {};
-        var c = Session.get('category');
+Router.map(function () {
+    this.route('/campaigns', {
+        name: 'pages_campaigns',
+        waitOn: function () {
+            var filter = {};
+            var c = Session.get('category');
 
-        if (c) {
-            filter.categoryId = c._id;
-        }
+            if (c) {
+                filter.categoryId = c._id;
+            }
 
-        var campaignIds = HiMate.Collections.Campaigns.find(filter).map(function (v) {
-            return v._id;
-        });
+            var campaignIds = HiMate.Collections.Campaigns.find(filter).map(function (v) {
+                return v._id;
+            });
 
-        return [
-            Meteor.subscribe('vouchers', campaignIds, l),
-            Meteor.subscribe('images', campaignIds, l),
-            Meteor.subscribe('campaigns', l),
-        ];
-    }
+            return [
+                Meteor.subscribe('vouchers', campaignIds, l),
+                Meteor.subscribe('images', campaignIds, l),
+                Meteor.subscribe('campaigns', l),
+            ];
+        },
+
+    })
 });
 
 /**
  * campaigns
  */
-Router.route('/campaigns/:_id', {
+Router.route('/campaigns/:_id/:voucherId?', {
     name: 'pages_campaigns_details',
     waitOn: function () {
         return [
@@ -47,6 +50,7 @@ Router.route('/campaigns/:_id', {
         ];
     }
 });
+
 
 
 /**
@@ -121,4 +125,5 @@ AccountsTemplates.configureRoute('resetPwd', {
     path: '/reset-password',
     redirect: '/campaigns',
 });
+
 

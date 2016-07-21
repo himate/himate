@@ -9,25 +9,21 @@ Template.partials_main_menu.events({
      * @param {Object} event
      */
     'click .js-menu': function (event) {
+        //console.log(event);
         //$('#partials-sidebar').sidebar('setting', 'transition', 'push').sidebar('toggle');
-        if (!Meteor.isCordova) {
-            $('.ui.sidebar').sidebar('toggle');
-            var menu = event.currentTarget.id;
-            $('#' + menu).parent().toggleClass('active');
-            return HiMate.Helpers.cancel(event);
-        }
+        $('.ui.sidebar').sidebar('toggle');
+        $('#partials-main-menu').toggleClass('active');
+        return HiMate.Helpers.cancel(event);
     },
     /**
      * open/close the sidebar for mobile users
      * @param {Object} event
      */
     'touchstart .js-menu': function (event) {
-        if (Meteor.isCordova) {
-            $('.ui.sidebar').sidebar('toggle');
-            var menu = event.currentTarget.id;
-            $('#' + menu).parent().toggleClass('active');
-            return HiMate.Helpers.cancel(event);
-        }
+        console.log(event);
+        $('.ui.sidebar').sidebar('toggle');
+        $('#partials-main-menu').toggleClass('active');
+        return HiMate.Helpers.cancel(event);
     },
 
     /**
@@ -53,4 +49,13 @@ Template.partials_main_menu.events({
  */
 Template.partials_main_menu.onRendered(function () {
     $('#partials-main-menu .js-dropdown').dropdown();
+});
+
+
+//temp Helper to prevent French lang for customers
+Template.partials_main_menu.helpers({
+    languageIs: function (language) {
+        return language === "fr";
+
+    }
 });

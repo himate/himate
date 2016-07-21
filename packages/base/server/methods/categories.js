@@ -56,7 +56,8 @@ Meteor.methods({
         check(doc.$set, {
             "title.de": String,
             "title.en": String,
-            "title.ar": String
+            "title.ar": String,
+            "title.fr": String,
         });
 
         // save update

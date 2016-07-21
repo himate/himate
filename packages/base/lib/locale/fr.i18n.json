@@ -27,6 +27,8 @@
     "city": "Ville",
     "code": "Code du bon d'achat",
     "company": "Société",
+    "company_name": "",
+    "web_address": "",
     "conditions": "Nos conditions",
     "conditions_content": "<p>1) Vous ne pouvez réserver un bon d'achat que pour une durée de 72 heures</p>\n<p>2) Vous devez être un réfugié enregistré et disposer des documents officiels prouvant votre statut</p>\n<p>3) Vous bénéficiez uniquement de ce qui est prévu dans la description du bon d'achat. Ni plus, ni moins. Le donateur n'est pas tenu de fournir le contenu de son offre.\n<br />N'oubliez pas de remercier les donateurs</p>",
     "contact_data": "Coordonnées",
@@ -123,6 +125,8 @@
     "reserve_unregistered_title": "Connexion ou inscription",
     "reserve_voucher": "Réserver le bon d'achat",
     "reserved": "Réservé",
+    "voucher_confirmed_header": "",
+    "voucher_confirmed_text": "",
     "role": "Rôle",
     "roles": "Rôles",
     "salutation": "Titre de salutation",
@@ -168,5 +172,9 @@
     "welcome_text_step2": "Ensuite jetez un coup d'oeil là-dessus:",
     "yes": "Oui",
     "zipcode": "Code postal",
-    "expired": ""
+    "expired": "",
+    "error_no_customer": "",
+    "not_authorized": "",
+    "not-authorized": "",
+    "unreserve": ""
 }

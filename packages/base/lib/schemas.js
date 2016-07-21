@@ -15,6 +15,10 @@ HiMate.Schemas.TranslationSchemaOptional = new SimpleSchema({
     ar: {
         type: String,
         optional: true
+    },
+    fr: {
+        type: String,
+        optional: true
     }
 
 });
@@ -46,6 +50,14 @@ HiMate.Schemas.TranslationSchemaOptionalTextarea = new SimpleSchema({
             rows: 5
         },
         max: 400
+    },
+    fr: {
+        type: String,
+        optional: true,
+        autoform: {
+            rows: 5
+        },
+        max: 400
     }
 });
 
@@ -60,6 +72,9 @@ HiMate.Schemas.TranslationSchema = new SimpleSchema({
         type: String
     },
     ar: {
+        type: String
+    },
+    fr: {
         type: String
     }
 });
@@ -83,6 +98,13 @@ HiMate.Schemas.TranslationSchemaTextarea = new SimpleSchema({
         max: 100
     },
     ar: {
+        type: String,
+        autoform: {
+            rows: 5
+        },
+        max: 100
+    },
+    fr: {
         type: String,
         autoform: {
             rows: 5

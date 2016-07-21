@@ -23,3 +23,7 @@ vault_pass
 build/customers/*
 !build/customers/.empty
 !build/customers/resources
+.meteor/dev_bundle
+apps/admin/.meteor/dev_bundle
+apps/customers/.meteor/dev_bundle
+apps/merchants/.meteor/dev_bundle

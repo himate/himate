@@ -24,6 +24,12 @@
                         {{/ with }}
                         <h2> {{ translateField item "title" }} </h2>
                         {{# with getUser item.userId }}
+                            {{#if item.companyName}}
+                                <h3 class="headline voucher-shop"> {{ item.companyName }} </h3>
+                            {{else}}
+                                <h3 class="headline voucher-shop"> {{ profile.company }} </h3>
+                            {{/ if}}
+                            <a href="{{item.webAddress}}" target="_blank">{{item.webAddress}}</a>
                         <h3 class="headline voucher-shop"> {{ username }} </h3>
                         {{/ with }}
                     </div>

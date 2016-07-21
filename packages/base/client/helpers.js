@@ -154,6 +154,7 @@ HiMate.Helpers.infoMessage = function(message) {
     });
 };
 
+
 /**
  * creates an error message on top of the main menu.
  * Should be used instead of "alert()" messages.
@@ -234,6 +235,8 @@ Template.registerHelper('pageTitle', function() {
  * @reactive
  */
 Template.registerHelper('getUser', function(userId) {
+   // console.log(userId,Meteor.users.findOne(userId));
+
     return Meteor.users.findOne(userId);
 });
 
@@ -364,6 +367,7 @@ Template.registerHelper('isReservedByUser', function(campaignId) {
     }).count() > 0;
 });
 
+
 Template.registerHelper('isExpiredCampaign', function(campaignId) {
     var today = moment().endOf('day').toDate();
     var campainExpired = HiMate.Collections.Campaigns.findOne({
@@ -441,3 +445,6 @@ Template.registerHelper('absoluteUrlNoSlash', function() {
 Template.registerHelper('isCordova', function() {
     return Meteor.isCordova;
 });
+
+
+

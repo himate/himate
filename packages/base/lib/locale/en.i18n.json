@@ -27,6 +27,8 @@
     "city": "City",
     "code": "Voucher Code",
     "company": "Company",
+    "company_name": "Company Name",
+    "web_address": "Web Address",
     "conditions": "Our Conditions",
     "conditions_content": "<p>1) You can only reserve one voucher at a time for 72h maximum.</p>\n<p>2) You need to be a registered refugee with documents that prove this. </p>\n<p>3) You get only what is described in the voucher, nothing more, nothing less. The donor is not obliged to provide the goods he offered.<br /> \n<p>4) We would happy if you shared a photo of your experience on Facebook or Twitter using #HiMate.</p>",
     "contact_data": "Contact Data",
@@ -123,6 +125,8 @@
     "reserve_unregistered_title": "Sign up or login",
     "reserve_voucher": "Reserve Voucher",
     "reserved": "Reserved",
+    "voucher_confirmed_header": "Your voucher code",
+    "voucher_confirmed_text": "your voucher __code__ is reserved",
     "role": "Role",
     "roles": "Roles",
     "salutation": "Salutation",
@@ -168,5 +172,9 @@
     "welcome_text_step2": "<p>2. After that check out our vouchers:</p>",
     "yes": "Yes",
     "zipcode": "Zipcode",
-    "expired": "expired"
+    "expired": "currently not available",
+    "error_no_customer": "This is not a refugee account",
+    "not_authorized": "You are not authorized for this action.",
+    "not-authorized": "You are not authorized for this action.",
+    "unreserve": "Remove Reservation"
 }
