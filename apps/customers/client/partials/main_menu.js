@@ -50,3 +50,12 @@ Template.partials_main_menu.events({
 Template.partials_main_menu.onRendered(function () {
     $('#partials-main-menu .js-dropdown').dropdown();
 });
+
+
+//temp Helper to prevent French lang for customers
+Template.partials_main_menu.helpers({
+    languageIs: function (language) {
+        return language === "fr";
+
+    }
+});

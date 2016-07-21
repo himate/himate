@@ -1,7 +1,7 @@
 // ----- private helpers -------------------------------------------------------
 var translateFields = ['title', 'description', 'shortDescription', 'conditions'];
 var mandatoryFields = ['title', 'shortDescription'];
-var languages = ['de', 'en', 'ar'];
+var languages = ['de', 'en', 'ar', 'fr'];
 
 /**
  *
