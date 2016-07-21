@@ -16,6 +16,12 @@ Template.pages_campaigns_details.helpers({
     },
     voucherCode: function () {
         return Session.get("voucherCode");
+    },
+    voucher:function(){
+        return HiMate.Collections.Vouchers.findOne({
+            campaignId: this._id,
+            userId: Meteor.userId()
+        })
     }
 });
 
@@ -90,9 +96,10 @@ Template.pages_campaigns_details.events({
     },
 
     'click .js-remove-voucher': function (event, template) {
-        var campaign = HiMate.Collections.Campaigns.findOne(Router.current().params._id);
+        //var campaign = HiMate.Collections.Campaigns.findOne(Router.current().params._id);
+       // console.log(Router.current().params.voucherId);
 
-        Meteor.call('vouchers_remove', campaign, function (err, data) {
+        Meteor.call('vouchers_remove', Router.current().params.voucherId, function (err, data) {
             if (err) {
                 HiMate.Helpers.errorMessage(err.error);
             } else {
