@@ -40,7 +40,7 @@ Router.map(function () {
 /**
  * campaigns
  */
-Router.route('/campaigns/:_id', {
+Router.route('/campaigns/:_id/:voucherId?', {
     name: 'pages_campaigns_details',
     waitOn: function () {
         return [
@@ -50,6 +50,7 @@ Router.route('/campaigns/:_id', {
         ];
     }
 });
+
 
 
 /**

@@ -19,3 +19,11 @@ Template.partials_languages.events({
 Template.partials_languages.onRendered(function() {
     $('#partials-languages .js-dropdown').dropdown();
 });
+
+//Temperory Helper to prevent French language from showing up
+Template.partials_languages.helpers({
+    languageIs: function (language) {
+        return language === "fr";
+
+    } 
+});

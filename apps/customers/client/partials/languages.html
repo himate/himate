@@ -1,17 +1,19 @@
 <template name="partials_languages">
-    <div id="partials-languages" class="ui two column centered grid inverted menu">
-        <div class="ui item languages">
-            <div class="ui floating dropdown labeled icon button js-dropdown">
-                <i class="dropdown icon language"></i>
-                <span class="text">{{ i18n_currentLanguage.name }}</span>
-                <div class="menu">
-                    {{# each i18n_sortedLanguages }}
-                    <div class="locale-change item">
-                        {{ name }}
-                    </div>
-                    {{/ each }}
-                </div>
+<div id="partials-languages" class="ui two column centered grid inverted menu">
+<div class="ui item languages">
+<div class="ui floating dropdown labeled icon button js-dropdown">
+    <i class="dropdown icon language"></i>
+    <span class="text">{{ i18n_currentLanguage.name }}</span>
+<div class="menu">
+    {{# each i18n_sortedLanguages }}
+        {{# unless languageIs tag}}
+            <div class="locale-change item">
+                {{ name }}
             </div>
-        </div>
+        {{/ unless}}
+        {{/ each }}
     </div>
-</template>
+    </div>
+    </div>
+    </div>
+    </template>
