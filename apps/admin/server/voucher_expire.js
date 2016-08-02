@@ -2,7 +2,7 @@ Meteor.startup(function() {
 
     // delete all expired vouchers every minute
     Meteor.setInterval(function() {
-        var minDate = moment().subtract(3, 'days').toDate();
+        var minDate = moment().subtract(14, 'days').toDate();
         HiMate.Collections.Vouchers.find({
             redeemed: null,
             reserved: {
