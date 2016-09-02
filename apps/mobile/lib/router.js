@@ -19,11 +19,10 @@ Router.map(function() {
       var campaignIds = HiMate.Collections.Campaigns.find(filter).map(function (v) {
         return v._id;
       });
-
       return [
         Meteor.subscribe('vouchers', campaignIds, l),
         Meteor.subscribe('images', campaignIds, l),
-        Meteor.subscribe('campaigns', l),
+        Meteor.subscribe('campaigns', l)
       ];
     },
   });
@@ -33,7 +32,13 @@ Router.map(function() {
   });
 
   this.route('vouchers', {
-    path: '/vouchers'
+    path: '/vouchers',
+    waitOn: function () {
+      return [
+        Meteor.subscribe('campaigns', l),
+        Meteor.subscribe('vouchers', l)
+      ];
+    }
   });
 
   this.route('settings', {

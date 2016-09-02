@@ -10,10 +10,9 @@ Meteor.publish('categories', function (categoryIds) {
 
 Meteor.publish('images', function (campaignIds) {
 
-    return HiMate.Publications.customers.images.call(this.campaignIds);
+    return HiMate.Publications.customers.images.call(this,campaignIds);
 });
 
 Meteor.publish('vouchers', function (campaignIds) {
     return HiMate.Publications.customers.vouchers.call(this,campaignIds);
-
 });
