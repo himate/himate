@@ -1,0 +1,4 @@
+Template.campaignVoucher.helpers({
+
+
+});
