@@ -1,0 +1,21 @@
+<template name="homepage">
+    {{#contentFor "headerTitle"}}
+    <h1 class="title">Homepage</h1>
+    {{/contentFor}}
+
+    {{#contentFor "headerButtonRight"}}
+    <button class="button button-clear">{{> ionIcon icon="chevron-right"}}</button>
+    {{/contentFor}}
+
+    {{#ionView}}
+        {{#ionContent}}
+
+            {{#ionTabs class="tabs-positive tabs-icon-top"}}
+                {{> ionTab title="Compaigns" path="compaigns" iconOff="navicon-round" iconOn="navicon-round"}}
+                {{> ionTab title="Vouchers" path="vouchers" iconOff="asterisk" iconOn="asterisk"}}
+                {{> ionTab title="Settings" path="settings" iconOff="settings" iconOn="settings"}}
+            {{/ionTabs}}
+
+        {{/ionContent}}
+    {{/ionView}}
+</template>

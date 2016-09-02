@@ -21,6 +21,7 @@ meteoric:ionic-sass
 meteoric:ionicons-sass
 meteoric:ionic
 iron:router
+iron:layout
 meteorhacks:fast-render
 
 accounts-password
