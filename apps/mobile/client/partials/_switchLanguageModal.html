@@ -1,15 +1,15 @@
 <template name="_switchLanguage">
-    {{#ionModal title="Switch Language"}}
-    {{#ionContent}}
-    {{#ionList}}
-    {{# each i18n_sortedLanguages }}
-    {{# unless languageIs tag}}
-    {{#ionItem class="js-lang-change" }}
-    {{ name }}
-    {{/ionItem}}
-    {{/ unless}}
-    {{/ each }}
-    {{/ionList}}
-    {{/ionContent}}
-    {{/ionModal}}
+	{{#ionModal title="Switch Language"}}
+		{{#ionContent}}
+			{{#ionList}}
+				{{# each i18n_sortedLanguages }}
+					{{# unless languageIs tag}}
+						{{#ionItem class="js-lang-change" id=tag}}
+							{{ name }}
+						{{/ionItem}}
+					{{/ unless}}
+				{{/ each }}
+			{{/ionList}}
+		{{/ionContent}}
+	{{/ionModal}}
 </template>
