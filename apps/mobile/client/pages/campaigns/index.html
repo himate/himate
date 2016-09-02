@@ -9,6 +9,21 @@
 
     {{#ionView}}
         {{#ionContent}}
+			{{# each campaigns }}
+				{{#unless isExpiredCampaign this._id}}
+					{{# if this.available }}
+						{{ translateField this "title" }}
+						<!--{{> pages_campaigns_voucher }}-->
+					{{/ if }}
+				{{/unless}}
+			{{/ each }}
+
+			{{# each campaigns }}
+				{{#if isExpiredCampaign this._id}}
+					{{ translateField this "title" }}
+					<!--{{> pages_campaigns_voucher }}-->
+				{{/if }}
+			{{/ each }}
         {{/ionContent}}
     {{/ionView}}
 </template>
