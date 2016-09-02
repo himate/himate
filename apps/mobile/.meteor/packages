@@ -20,3 +20,4 @@ meteoric:ionic
 meteoric:ionic-sass
 meteoric:ionicons-sass
 iron:router
+iron:layout
