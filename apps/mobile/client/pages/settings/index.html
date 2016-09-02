@@ -1,14 +1,19 @@
 <template name="settings">
-    {{#contentFor "headerTitle"}}
-    	<h1 class="title">Settings</h1>
-    {{/contentFor}}
+	{{#contentFor "headerTitle"}}
+		<h1 class="title">Settings</h1>
+	{{/contentFor}}
 	{{#contentFor "headerButtonRight"}}
 		<button class="button button-clear" data-ion-modal="_switchLanguage">{{> ionIcon icon="earth"}}</button>
 	{{/contentFor}}
 
-    {{#ionView}}
-        {{#ionContent}}
-			{{> atForm }}
-        {{/ionContent}}
-    {{/ionView}}
+	{{#ionContent}}
+		{{#ionView}}
+			{{# if currentUser }}
+				{{ truncateEmail currentUser.username }}<br>
+				<a  class="at-btn button button-positive button-block submit active" href="{{pathFor route="signOut"}}">Logout</a>
+			{{ else }}
+				{{> atForm }}
+			{{/ if }}
+		{{/ionView}}
+	{{/ionContent}}
 </template>

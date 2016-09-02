@@ -45,3 +45,11 @@ Router.map(function() {
     path: '/settings'
   });
 });
+
+Router.route('/sign-out', {
+  name: 'signOut',
+  onBeforeAction: function () {
+    AccountsTemplates.logout();
+    this.redirect('/');
+  }
+});
