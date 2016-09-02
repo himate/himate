@@ -1,13 +1,16 @@
 <template name="voucherDetails">
+	{{#contentFor "headerTitle"}}
+		<h1 class="title">
+			<bdi>{{ translateField item "title" }}</bdi>
+		</h1>
+	{{/contentFor}}
     {{#contentFor "headerButtonLeft"}}
     {{>ionNavBackButton path="campaigns" text="Voucher"}}
     {{/contentFor}}
+	{{#contentFor "headerButtonRight"}}
+		<button class="button button-clear" data-ion-modal="_switchLanguage">{{> ionIcon icon="earth"}}</button>
+	{{/contentFor}}
 
-    {{#contentFor "headerTitle"}}
-    <h1 class="title">
-        <bdi>{{ translateField item "title" }}</bdi>
-    </h1>
-    {{/contentFor}}
 
     {{#ionView}}
     {{#ionContent class="padding voucher-details"}}
