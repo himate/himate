@@ -1,0 +1,13 @@
+<template name="layout">
+    {{#ionBody}}
+        {{> ionNavBar class="bar-positive"}}
+        {{#ionNavView}}
+            {{> yield}}
+			{{#ionTabs class="tabs-positive tabs-icon-top"}}
+				{{> ionTab title="Campaigns" path="campaigns" iconOff="navicon-round" iconOn="navicon-round"}}
+				{{> ionTab title="Vouchers" path="vouchers" iconOff="asterisk" iconOn="asterisk"}}
+				{{> ionTab title="Settings" path="settings" iconOff="settings" iconOn="settings"}}
+			{{/ionTabs}}
+		{{/ionNavView}}
+    {{/ionBody}}
+</template>

@@ -3,12 +3,9 @@ Router.configure({
 });
 
 Router.map(function() {
-  this.route('homepage', {
-    path: '/'
-  });
 
-  this.route('compaigns', {
-    path: '/compaigns'
+  this.route('campaigns', {
+    path: '/'
   });
 
   this.route('vouchers', {
