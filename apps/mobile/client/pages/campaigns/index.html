@@ -14,21 +14,14 @@
         {{# each campaigns }}
             {{#unless isExpiredCampaign this._id}}
             {{# if this.available }}
-            {{#ionItem path="campaign.details" buttonRight=true class="item-icon-right"}}
-            {{ translateField this "title" }}
-            {{> ionIcon icon="ios-arrow-forward" class="positive"}}
-            {{/ionItem}}
+                {{> campaignVoucher }}
             {{/ if }}
             {{/unless}}
         {{/ each }}
 
         {{# each campaigns }}
             {{#if isExpiredCampaign this._id}}
-            {{#ionItem path="campaign.details" buttonRight=true class="item-icon-right"}}
-
-            {{ translateField this "title" }}
-            {{> ionIcon icon="ios-arrow-forward" class="positive"}}
-            {{/ionItem}}
+                {{> campaignVoucher }}
             {{/if }}
         {{/ each }}
     {{/ionList}}

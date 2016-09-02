@@ -28,7 +28,7 @@ Router.map(function() {
     },
   });
 
-  this.route('campaign.details', {
+  this.route('voucher.details', {
     path: '/campaign/:_id'
   });
 

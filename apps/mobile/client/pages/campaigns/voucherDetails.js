@@ -1,4 +1,4 @@
-Template.campaignDetails.helpers({
+Template.voucherDetails.helpers({
 
     /**
      * return data for current voucher
