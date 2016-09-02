@@ -8,26 +8,15 @@ Template.pages_campaigns.helpers({
      * return all campaigns
      * @reactive
      */
-    campaigns: function() {
-        var filter = {};
-        var c = Session.get('category');
-
-        if (c) {
-            filter.categoryId = c._id;
-        }
-
-        return HiMate.Collections.Campaigns.find(filter);
+    campaigns: function () {
+        return HiMate.Helpers.customers.campaigns.campaigns();
     },
 
     /**
      *
      */
-    category: function() {
-        var c = Session.get('category');
-        if (c) {
-            return c;
-        }
-        return null;
+    category: function () {
+        return HiMate.Helpers.customers.campaigns.category();
     }
 });
 
@@ -42,7 +31,7 @@ Template.pages_campaigns.events({
      * jump to categories page
      * @param {Object} event
      */
-    'click .js-categories .js-category-item': function(event) {
+    'click .js-categories .js-category-item': function (event) {
         Router.go('pages_categories');
         return HiMate.Helpers.cancel(event);
     },
@@ -51,7 +40,7 @@ Template.pages_campaigns.events({
      * jump to details page, if user clicks on a list item
      * @param {Object} event
      */
-    'click .js-categories .js-voucher': function(event) {
+    'click .js-categories .js-voucher': function (event) {
         Router.go('pages_campaigns_details', {
             _id: this._id
         });
@@ -71,6 +60,4 @@ Template.pages_campaigns.events({
     //}
 });
 
-Template.pages_campaigns_voucher.events({
-
-});
+Template.pages_campaigns_voucher.events({});

@@ -27,3 +27,4 @@ build/customers/*
 apps/admin/.meteor/dev_bundle
 apps/customers/.meteor/dev_bundle
 apps/merchants/.meteor/dev_bundle
+apps/mobile/.meteor/local

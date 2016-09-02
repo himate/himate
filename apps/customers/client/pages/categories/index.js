@@ -9,7 +9,7 @@ Template.pages_categories.helpers({
      * @reactive
      */
     categories: function() {
-        return HiMate.Collections.Categories.find();
+        return HiMate.Helpers.customers.categories.categories();
     }
 });
 

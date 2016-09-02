@@ -9,11 +9,7 @@ Template.pages_vouchers.helpers({
      * @reactive
      */
     vouchers: function() {
-        return HiMate.Collections.Vouchers.find({}, {
-            sort: {
-                created: 1
-            }
-        });
+        return HiMate.Helpers.customers.vouchers.vouchers();
     }
 });
 
@@ -22,9 +18,7 @@ Template.pages_vouchers_voucher.helpers({
      *
      */
     campaign: function() {
-        return HiMate.Collections.Campaigns.findOne({
-            _id: this.campaignId
-        }, {});
+        return  HiMate.Helpers.customers.vouchers.campaign();
     }
 });
 

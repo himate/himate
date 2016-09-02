@@ -53,7 +53,11 @@ Package.onUse(function(api) {
         'client/partials/messages.html',
         'client/partials/messages.js',
         'client/partials/messages.less',
-        'client/helpers.js'
+        'client/helpers.js',
+        'client/customers/base.js',
+        'client/customers/helpers/vouchers.js',
+        'client/customers/helpers/campaigns.js',
+        'client/customers/helpers/categories.js'
     ], ['client']);
 
     api.addFiles([
