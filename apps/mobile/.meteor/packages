@@ -22,13 +22,15 @@ meteoric:ionicons-sass
 meteoric:ionic
 iron:router
 iron:layout
-meteorhacks:fast-render
+#meteorhacks:fast-render
 
 accounts-password
 useraccounts:iron-routing
 service-configuration
 accounts-facebook
-accounts-ui
+#accounts-ui
+#accounts-ui-unstyled
+useraccounts:ionic
 
 alanning:roles
 tap:i18n
