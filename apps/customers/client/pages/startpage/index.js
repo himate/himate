@@ -1,6 +1,10 @@
+/**
+ * THIS TEMPLATE IS NOT IN USE ANYMORE AND CAN BE DELETED
+ *
+ */
+
+
 Template.pages_startpage.events({
-
-
     /**
      *
      */
