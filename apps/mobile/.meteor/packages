@@ -16,7 +16,41 @@ standard-minifiers      # JS/CSS minifiers run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 
-meteoric:ionic
+fourseven:scss
 meteoric:ionic-sass
 meteoric:ionicons-sass
+meteoric:ionic
 iron:router
+meteorhacks:fast-render
+
+accounts-password
+useraccounts:iron-routing
+service-configuration
+accounts-facebook
+accounts-ui
+
+alanning:roles
+tap:i18n
+tap:i18n-ui
+mrt:accounts-t9n
+aldeed:collection2
+momentjs:moment
+
+cmather:handlebars-server
+raix:handlebar-helpers
+email
+
+matb33:collection-hooks
+markdown
+meteorhacks:kadira
+meteorhacks:zones
+check
+cfs:gridfs@0.0.33
+cfs:ui@0.1.3
+mizzao:user-status
+rzymek:moment-locale-de
+rzymek:moment-locale-ar
+himate:base
+http
+crosswalk
+silvervue:wkwebview
