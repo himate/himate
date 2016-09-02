@@ -61,6 +61,7 @@ Package.onUse(function(api) {
     ], ['client']);
 
     api.addFiles([
+        'server/customers/publications.js',
         'server/methods/campaigns.js',
         'server/methods/campaign_translate.js',
         'server/methods/categories.js',
