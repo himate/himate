@@ -9,7 +9,7 @@
 	{{#ionContent}}
 		{{#ionView}}
 			{{# if currentUser }}
-				{{ truncateEmail currentUser.username }}<br>
+				<h3>You are Logged in: {{ truncateEmail currentUser.username }}</h3>
 				<a  class="at-btn button button-positive button-block submit active" href="{{pathFor route="signOut"}}">Logout</a>
 			{{ else }}
 				{{> atForm }}
