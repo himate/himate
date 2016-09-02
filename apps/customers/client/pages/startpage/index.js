@@ -21,12 +21,6 @@ Template.pages_startpage.events({
  * called each the the template is rendered
  */
 Template.pages_startpage.onRendered(function () {
-    /** This page is not doing anything anymore except being redirected to campaigns with the next line of code
-     *
-     *
-     *
-     * */
-    Router.go("/campaigns");
     $('#pages-startpage .js-dropdown').dropdown();
 });
 

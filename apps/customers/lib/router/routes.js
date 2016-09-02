@@ -7,6 +7,9 @@ var l = HiMate.Helpers.subscriptionLogger;
  */
 Router.route('/', {
     name: 'pages_startpage',
+    onBeforeAction: function(){
+        Router.go("/campaigns");
+    }
 });
 
 /**
