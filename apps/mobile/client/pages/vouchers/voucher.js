@@ -1,4 +1,4 @@
-Template.vouchers_vouchers.helpers({
+Template.voucher.helpers({
 
     /**
      * return all voucher codes

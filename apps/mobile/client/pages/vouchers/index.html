@@ -1,16 +1,18 @@
 <template name="vouchers">
     {{#contentFor "headerTitle"}}
-    	<h1 class="title">Vouchers</h1>
+        <h1 class="title">Vouchers</h1>
     {{/contentFor}}
-	{{#contentFor "headerButtonRight"}}
-		<button class="button button-clear" data-ion-modal="_switchLanguage">{{> ionIcon icon="earth"}}</button>
-	{{/contentFor}}
+    {{#contentFor "headerButtonRight"}}
+        <button class="button button-clear" data-ion-modal="_switchLanguage">{{> ionIcon icon="earth"}}</button>
+    {{/contentFor}}
 
     {{#ionView}}
         {{#ionContent}}
-            {{# each vouchers }}
-                {{> vouchers_vouchers}}
-            {{/ each}}
+            {{#ionList}}
+                {{# each vouchers }}
+                    {{> voucher}}
+                {{/ each}}
+            {{/ionList}}
         {{/ionContent}}
     {{/ionView}}
 </template>
