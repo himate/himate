@@ -1,22 +1,31 @@
 <template name="campaignVoucher">
-    {{#ionItem   path="voucher.details"  buttonRight=true class="item-icon-right"}}
-    <h2>{{ translateField this "title" }}</h2>
-    <p>{{ street }} {{ number }}, {{ zipcode }} {{ city }}</p>
-    <p class="description-headline">
-        {{_ 'valid_until' }}
-        <br>
-        <span class="description-text">{{formatDate end }}</span>
-    </p>
-    <p class="description-headline">
-        {{#if isExpiredCampaign this._id}}
-        {{_ 'expired' }}
-        {{else}}
-        {{_ 'available' }} <span class="description-text">
-                                <bdi>
-                                    {{ available }}
-                                </bdi> </span>
-        {{/if}}
-    </p>
+
+    {{#ionItem path="voucher.details" buttonRight=true class="item-icon-right"}}
+
+    <div class="row">
+        <div class="col col-50 full-width">
+            <h2>{{ translateField this "title" }}</h2>
+            <p class="link">{{ street }} {{ number }}, {{ zipcode }} {{ city }}</p>
+        </div>
+        <div class="col col-50 text-right full-width">
+            <p> <span class="headline">{{_ 'valid_until' }}</span><br>
+                <span>{{formatDate end }}</span>
+            </p>
+            <p>
+                {{#if isExpiredCampaign this._id}}
+                <span class="headline">{{_ 'expired' }}</span>
+                {{else}}
+                <span class="headline">{{_ 'available' }}</span>
+
+                <br>
+
+                <span>
+                    <bdi>{{ available }}</bdi>
+                </span>
+                {{/if}}
+            </p>
+        </div>
+    </div>
     {{#unless isExpiredCampaign this._id}}
     {{> ionIcon icon="ios-arrow-forward" class="positive"}}
     {{/unless}}
