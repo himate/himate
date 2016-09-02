@@ -1,6 +1,6 @@
-<template name="vouchers">
+<template name="info">
     {{#contentFor "headerTitle"}}
-    	<h1 class="title">Vouchers</h1>
+    	<h1 class="title">Information</h1>
     {{/contentFor}}
 	{{#contentFor "headerButtonRight"}}
 		<button class="button button-clear" data-ion-modal="_switchLanguage">{{> ionIcon icon="earth"}}</button>
@@ -8,12 +8,6 @@
 
     {{#ionView}}
         {{#ionContent}}
-            {{# each vouchers }}
-                {{> vouchers_vouchers}}
-            {{/ each}}
         {{/ionContent}}
     {{/ionView}}
 </template>
-
-
-

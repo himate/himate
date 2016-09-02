@@ -1,0 +1,22 @@
+<template name="vouchers_vouchers">
+    {{#ionItem path="voucher.details" buttonRight=true class="item-icon-right"}}
+        <div class="row">
+            <div class="col col-50 full-width">
+                <h2>{{ translateField campaign "title" }}</h2>
+            </div>
+            <div class="col col-50 text-right full-width">
+                <p class="description-headline">
+                    {{_ 'code' }} <br>
+                    <span class="description-text voucher-code">
+                        {{ code }}
+                    </span>
+                </p>
+                <p class="description-headline">{{_ 'status' }} <br>
+                    {{# if redeemed }}<span class="description-text redeemed">{{_ 'redeemed' }}</span>
+                    {{ else }}<span class="description-text reserved">{{_ 'reserved' }}</span>{{/ if }}
+                </p>
+            </div>
+        </div>
+
+    {{/ionItem}}
+</template>

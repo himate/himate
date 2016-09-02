@@ -15,4 +15,15 @@
     font-size: 11px;
     line-height: 1.2;
   }
+
+  &.item-background-image {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 150px;
+    border: none;
+    border-bottom: 1px solid #979797;
+
+    h1, h2, h3, h4, h5, p, span {
+      color: white !important;
+    }
+  }
 }
