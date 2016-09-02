@@ -1,13 +1,18 @@
 <template name="info">
     {{#contentFor "headerTitle"}}
-    	<h1 class="title">Information</h1>
+        <h1 class="title">Information</h1>
     {{/contentFor}}
-	{{#contentFor "headerButtonRight"}}
-		<button class="button button-clear" data-ion-modal="_switchLanguage">{{> ionIcon icon="earth"}}</button>
-	{{/contentFor}}
+    {{#contentFor "headerButtonRight"}}
+        <button class="button button-clear" data-ion-modal="_switchLanguage">{{> ionIcon icon="earth"}}</button>
+    {{/contentFor}}
 
     {{#ionView}}
         {{#ionContent}}
+            {{#ionList}}
+                {{#ionItem}}
+                    {{_ 'imprint' }}
+                {{/ionItem}}
+            {{/ionList}}
         {{/ionContent}}
     {{/ionView}}
 </template>
