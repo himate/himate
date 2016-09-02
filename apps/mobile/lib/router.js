@@ -41,7 +41,12 @@ Router.map(function() {
     }
   });
 
-  this.route('settings', {
-    path: '/settings'
+  this.route('profile', {
+    path: '/profile'
   });
+  
+  this.route('info', {
+    path: '/info'
+  });
+
 });
