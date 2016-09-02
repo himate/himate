@@ -1,5 +1,18 @@
-.item .full-width * {
-  overflow: visible;
-  text-overflow: initial;
-  white-space: initial;
+.item {
+  .full-width * {
+    overflow: visible;
+    text-overflow: initial;
+    white-space: initial;
+  }
+
+  .headline {
+    font-family: $font-family-headlines;
+    font-size: 10px;
+    font-weight: 600;
+  }
+
+  .link {
+    font-size: 11px;
+    line-height: 1.2;
+  }
 }

@@ -1,3 +1,9 @@
+h1, h2, h3, h4, h5 {
+  font-family: $font-family-headlines !important;
+  text-transform: uppercase;
+  font-weight: bold !important;
+}
+
 .bar.bar-positive, .tabs-positive {
   * , .title {
     color: $inverted-color;
