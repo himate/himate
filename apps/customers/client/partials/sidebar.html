@@ -1,7 +1,6 @@
 <template name="partials_sidebar">
     <div id="partials-sidebar" class="ui fixed left sidebar">
         <div class="ui base segment" id="sidebar-nav">
-            {{> partials_languages }}
 
             {{# if currentUser }}
             <div class="ui center aligned segment user">
@@ -34,13 +33,12 @@
                 </div>
                 <div class="ui divider"></div>
                 {{/ if }}
-                <div class="ui vertical segment">
+                <!--<div class="ui vertical segment">
                     <h2>
                     <a class="js-navigation-link" href="{{ pathFor 'pages_campaigns' }}">
                         {{_ 'offers_current' }}
                     </a></h2>
-                </div>
-                <div class="ui divider"></div>
+                </div>-->
                 <!--<div class="ui vertical segment">-->
                 <!--<h2><a class="js-navigation-link" href="{{ pathFor 'pages_how_it_works' }}">{{_ 'how_it_works' }}</a></h2>-->
                 <!--</div>-->

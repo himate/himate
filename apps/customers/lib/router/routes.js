@@ -6,7 +6,10 @@ var l = HiMate.Helpers.subscriptionLogger;
  * homepage
  */
 Router.route('/', {
-    name: 'pages_startpage'
+    name: 'pages_startpage',
+    onBeforeAction: function(){
+        Router.go("/campaigns");
+    }
 });
 
 /**
@@ -30,11 +33,11 @@ Router.map(function () {
             return [
                 Meteor.subscribe('vouchers', campaignIds, l),
                 Meteor.subscribe('images', campaignIds, l),
-                Meteor.subscribe('campaigns', l),
+                Meteor.subscribe('campaigns', l)
             ];
-        },
+        }
+    });
 
-    })
 });
 
 /**
