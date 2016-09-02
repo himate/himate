@@ -1,29 +1,38 @@
 <template name="campaigns">
     {{#contentFor "headerTitle"}}
-    	<h1 class="title">Campaigns</h1>
+    <h1 class="title">{{_ 'offers_current' }}</h1>
     {{/contentFor}}
 
-    <!--{{#contentFor "headerButtonRight"}}-->
-    	<!--<button class="button button-clear">{{> ionIcon icon="chevron-right"}}</button>-->
-    <!--{{/contentFor}}-->
+    {{#contentFor "headerButtonRight"}}
+    <button class="button button-clear" data-ion-modal="_switchLanguage">{{> ionIcon icon="earth"}}</button>
+    {{/contentFor}}
 
     {{#ionView}}
-        {{#ionContent}}
-			{{# each campaigns }}
-				{{#unless isExpiredCampaign this._id}}
-					{{# if this.available }}
-						{{ translateField this "title" }}
-						<!--{{> pages_campaigns_voucher }}-->
-					{{/ if }}
-				{{/unless}}
-			{{/ each }}
+    {{#ionContent}}
 
-			{{# each campaigns }}
-				{{#if isExpiredCampaign this._id}}
-					{{ translateField this "title" }}
-					<!--{{> pages_campaigns_voucher }}-->
-				{{/if }}
-			{{/ each }}
-        {{/ionContent}}
+    {{#ionList}}
+        {{# each campaigns }}
+            {{#unless isExpiredCampaign this._id}}
+            {{# if this.available }}
+            {{#ionItem path="campaign.details" buttonRight=true class="item-icon-right"}}
+            {{ translateField this "title" }}
+            {{> ionIcon icon="ios-arrow-forward" class="positive"}}
+            {{/ionItem}}
+            {{/ if }}
+            {{/unless}}
+        {{/ each }}
+
+        {{# each campaigns }}
+            {{#if isExpiredCampaign this._id}}
+            {{#ionItem path="campaign.details" buttonRight=true class="item-icon-right"}}
+
+            {{ translateField this "title" }}
+            {{> ionIcon icon="ios-arrow-forward" class="positive"}}
+            {{/ionItem}}
+            {{/if }}
+        {{/ each }}
+    {{/ionList}}
+
+    {{/ionContent}}
     {{/ionView}}
 </template>
