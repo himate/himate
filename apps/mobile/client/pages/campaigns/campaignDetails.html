@@ -4,47 +4,13 @@
     {{/contentFor}}
 
     {{#contentFor "headerTitle"}}
-    <h1 class="title">Details</h1>
+    <h1 class="title">
+        <bdi>{{ translateField item "title" }}</bdi>
+    </h1>
     {{/contentFor}}
-
-    <!--{{#contentFor "headerButtonRight"}}-->
-    <!--<button class="button button-clear" data-ion-modal="_contactsEdit" data-id="{{campaign._id}}">Edit</button>-->
-    <!--{{/contentFor}}-->
 
     {{#ionView}}
     {{#ionContent class="padding campaign-detail"}}
-    {{#with campaign}}
-    <div class="list card">
-
-        <div class="item item-avatar">
-            <h2></h2>
-        </div>
-
-        <div class="item item-body">
-
-            <h4>Notes</h4>
-            <p>
-                Details
-            </p>
-        </div>
-
-        <div class="item tabs tabs-secondary tabs-icon-left">
-            <a class="tab-item" href="#" data-action="fake">
-                <i class="icon ion-email"></i>
-                Send Email
-            </a>
-            <a class="tab-item" href="#" data-action="fake">
-                <i class="icon ion-iphone"></i>
-                Call
-            </a>
-            <a class="tab-item" href="#" data-action="fake">
-                <i class="icon ion-share"></i>
-                Share
-            </a>
-        </div>
-
-    </div>
-    {{/with}}
     {{/ionContent}}
     {{/ionView}}
 </template>

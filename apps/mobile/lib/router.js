@@ -28,6 +28,10 @@ Router.map(function() {
     },
   });
 
+  this.route('campaign.details', {
+    path: '/campaign/:_id'
+  });
+
   this.route('vouchers', {
     path: '/vouchers'
   });
