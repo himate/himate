@@ -5,11 +5,11 @@
 # keytool -genkey -v -keystore himate.keystore -alias himate-app -keyalg RSA -keysize 2048 -validity 10000
 
 # himateTEST
-if [ -d apps/customers ]; then
+if [ -d apps/mobile ]; then
     export PACKAGE_DIRS=`pwd`/packages
 
     echo "Building meteor apps..."
-    (cd apps/customers && meteor build ../../build/customers/ --server=https://app.himate.org)
+    (cd apps/mobile && meteor build ../../build/customers/ --server=https://app.himate.org)
 
     echo "Signing..."
     (cd build/customers/android/ && jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore himate.keystore  release-unsigned.apk himate-app)

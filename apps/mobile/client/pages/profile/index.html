@@ -1,0 +1,19 @@
+<template name="profile">
+    {{#contentFor "headerTitle"}}
+    	<h1 class="title">Profile</h1>
+    {{/contentFor}}
+	{{#contentFor "headerButtonRight"}}
+		<button class="button button-clear" data-ion-modal="_switchLanguage">{{> ionIcon icon="earth"}}</button>
+	{{/contentFor}}
+
+	{{#ionContent}}
+		{{#ionView}}
+			{{# if currentUser }}
+				<h3>You are Logged in: {{ truncateEmail currentUser.username }}</h3>
+				<a  class="at-btn button button-positive button-block submit active" href="{{pathFor route="signOut"}}">Logout</a>
+			{{ else }}
+				{{> atForm }}
+			{{/ if }}
+		{{/ionView}}
+	{{/ionContent}}
+</template>

@@ -1,0 +1,31 @@
+<template name="campaigns">
+    {{#contentFor "headerTitle"}}
+    <h1 class="title">{{_ 'offers_current' }}</h1>
+    {{/contentFor}}
+
+	{{#contentFor "headerButtonRight"}}
+		<button class="button button-clear" data-ion-modal="_switchLanguage">{{> ionIcon icon="earth"}}</button>
+	{{/contentFor}}
+
+    {{#ionView}}
+    {{#ionContent}}
+
+    {{#ionList}}
+        {{# each campaigns }}
+            {{#unless isExpiredCampaign this._id}}
+            {{# if this.available }}
+                {{> campaignItem }}
+            {{/ if }}
+            {{/unless}}
+        {{/ each }}
+
+        {{# each campaigns }}
+            {{#if isExpiredCampaign this._id}}
+                {{> campaignItem }}
+            {{/if }}
+        {{/ each }}
+    {{/ionList}}
+
+    {{/ionContent}}
+    {{/ionView}}
+</template>

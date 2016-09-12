@@ -1,0 +1,30 @@
+.item {
+  .full-width * {
+    overflow: visible;
+    text-overflow: initial;
+    white-space: initial;
+  }
+
+  .headline {
+    font-family: $font-family-headlines;
+    font-size: 10px;
+    font-weight: 600;
+    color: $default-text-color;
+  }
+
+  .link {
+    font-size: 11px;
+    line-height: 1.2;
+  }
+
+  &.item-background-image {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 150px;
+    border: none;
+    border-bottom: 1px solid #979797;
+
+    h1, h2, h3, h4, h5, p, span {
+      color: white !important;
+    }
+  }
+}

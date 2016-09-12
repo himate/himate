@@ -1,0 +1,8 @@
+$loading-font-size: 22px;
+
+@import 'mobile_app/_variables-overriden';
+
+@import 'meteoric_ionic-sass/_ionic';
+@import 'meteoric_ionicons-sass/_ionicons';
+
+@import 'mobile_app/_mobile-app.scss';
