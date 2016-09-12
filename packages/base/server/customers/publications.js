@@ -63,7 +63,6 @@ HiMate.Publications.customers = {
         return HiMate.Collections.Categories.find({_id: {$in: categoryIds}});
     },
     'images': function (campaignIds) {
-
         check(campaignIds, Match.Optional(Array));
 
         var filter = {};

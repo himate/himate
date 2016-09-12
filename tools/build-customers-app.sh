@@ -5,7 +5,7 @@
 # keytool -genkey -v -keystore himate.keystore -alias himate-app -keyalg RSA -keysize 2048 -validity 10000
 
 # himateTEST
-if [ -d apps/customers ]; then
+if [ -d apps/mobile ]; then
     export PACKAGE_DIRS=`pwd`/packages
 
     echo "Building meteor apps..."

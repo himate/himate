@@ -5,13 +5,13 @@ Template.campaigns.helpers({
      * @reactive
      */
     campaigns: function () {
-        return HiMate.Helpers.customers.campaigns.campaigns();
+        return HiMate.Helpers.customers.campaigns.campaigns.call(this);
     },
 
     /**
      *
      */
     category: function () {
-        return HiMate.Helpers.customers.campaigns.category();
+        return HiMate.Helpers.customers.campaigns.category.call(this);
     }
 });

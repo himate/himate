@@ -9,7 +9,7 @@ Template.pages_vouchers.helpers({
      * @reactive
      */
     vouchers: function() {
-        return HiMate.Helpers.customers.vouchers.vouchers();
+        return HiMate.Helpers.customers.vouchers.vouchers.call(this);
     }
 });
 
@@ -18,7 +18,7 @@ Template.pages_vouchers_voucher.helpers({
      *
      */
     campaign: function() {
-        return  HiMate.Helpers.customers.vouchers.campaign();
+        return  HiMate.Helpers.customers.vouchers.campaign.call(this);
     }
 });
 

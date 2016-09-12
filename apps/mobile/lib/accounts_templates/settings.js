@@ -15,12 +15,12 @@ AccountsTemplates.configure({
     confirmPassword: true,
     enablePasswordChange: false,
     forbidClientAccountCreation: false,
-    homeRoutePath: '/about-us',
+    homeRoutePath: '/',
     redirectTimeout: 200,
 
     // Hooks
     onLogoutHook: function() {
         // redirect to start page after logout
-        Router.go('pages_startpage');
+        Router.go('campaigns');
     }
 });

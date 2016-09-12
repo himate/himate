@@ -5,8 +5,13 @@ Template.voucher.helpers({
      * @reactive
      */
     campaign: function() {
-        return HiMate.Helpers.customers.vouchers.campaign();
+        return HiMate.Helpers.customers.vouchers.campaign.call(this);
     }
 });
 
 
+Template.voucher.events({
+    "click .item-voucher":function (event,template) {
+        Router.go('campaign.details',{_id:template.data.campaignId,voucherId:template.data._id})
+    },
+});

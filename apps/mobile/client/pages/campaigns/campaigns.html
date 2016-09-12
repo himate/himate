@@ -14,14 +14,14 @@
         {{# each campaigns }}
             {{#unless isExpiredCampaign this._id}}
             {{# if this.available }}
-                {{> campaignVoucher }}
+                {{> campaignItem }}
             {{/ if }}
             {{/unless}}
         {{/ each }}
 
         {{# each campaigns }}
             {{#if isExpiredCampaign this._id}}
-                {{> campaignVoucher }}
+                {{> campaignItem }}
             {{/if }}
         {{/ each }}
     {{/ionList}}

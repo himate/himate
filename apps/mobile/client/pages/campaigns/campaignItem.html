@@ -1,6 +1,7 @@
-<template name="campaignVoucher">
-<div class="background-image {{#unless isExpiredCampaign this._id}} js-voucher{{/unless}} {{#if isExpiredCampaign this._id}} grayed-out {{/if}}" style="{{# with FS.GetFile 'waslchiraa_images' imageId }} background: url('{{ absoluteUrlNoSlash }}{{ this.url store='waslchiraa_thumbnails_x2'}}'){{/ with }};background-size: 100%;background-position: center;">
-    {{#ionItem path="voucher.details" buttonRight=true class="item-icon-right item-background-image"}}
+<template name="campaignItem">
+<div class="background-image {{#unless isExpiredCampaign this._id}} js-voucher{{/unless}} {{#if isExpiredCampaign this._id}} grayed-out {{/if}}"
+	 style="{{# with FS.GetFile 'waslchiraa_images' imageId }} background: url('{{ absoluteUrlNoSlash }}{{ this.url store='waslchiraa_thumbnails_x2'}}'){{/ with }};background-size: 100%;background-position: center;">
+    {{#ionItem path="campaign.details" buttonRight=true class="item-icon-right item-background-image"}}
 
     <div class="row">
         <div class="col col-50 full-width">

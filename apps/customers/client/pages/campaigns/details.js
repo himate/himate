@@ -9,13 +9,13 @@ Template.pages_campaigns_details.helpers({
      * @reactive
      */
     item: function () {
-        return HiMate.Helpers.customers.campaigns.item();
+        return HiMate.Helpers.customers.campaigns.item.call(this);
     },
     voucherCode: function () {
-        return HiMate.Helpers.customers.campaigns.voucherCode();
+        return HiMate.Helpers.customers.campaigns.voucherCode.call(this);
     },
     voucher:function(){
-        return HiMate.Helpers.customers.campaigns.voucher();
+        return HiMate.Helpers.customers.campaigns.voucher.call(this);
     }
 });
 

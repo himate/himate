@@ -5,11 +5,11 @@ Template.vouchers.helpers({
      * @reactive
      */
     vouchers: function() {
-        return HiMate.Helpers.customers.vouchers.vouchers();
+        return HiMate.Helpers.customers.vouchers.vouchers.call(this);
     },
 
     campaign: function() {
-        return HiMate.Helpers.customers.vouchers.campaign();
+        return HiMate.Helpers.customers.vouchers.campaign.call(this);
     }
 });
    
