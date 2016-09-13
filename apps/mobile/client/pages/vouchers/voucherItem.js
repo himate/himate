@@ -1,4 +1,4 @@
-Template.voucher.helpers({
+Template.voucherItem.helpers({
 
     /**
      * return all voucher codes
@@ -10,7 +10,7 @@ Template.voucher.helpers({
 });
 
 
-Template.voucher.events({
+Template.voucherItem.events({
     "click .item-voucher":function (event,template) {
         Router.go('campaign.details',{_id:template.data.campaignId,voucherId:template.data._id})
     },

@@ -1,196 +1,149 @@
 <template name="campaignDetails">
-	{{#contentFor "headerTitle"}}
-		<h1 class="title">
-			<bdi>{{ translateField item "title" }}</bdi>
-		</h1>
-	{{/contentFor}}
-	{{#contentFor "headerButtonLeft"}}
-		{{>ionNavBackButton text="" }}
-	{{/contentFor}}
-	{{#contentFor "headerButtonRight"}}
-		<button class="button button-clear" data-ion-modal="_switchLanguage">{{> ionIcon icon="earth"}}</button>
-	{{/contentFor}}
+    {{#contentFor "headerTitle"}}
+    <h1 class="title">
+        <bdi>{{_ 'voucher' }}</bdi>
+    </h1>
+    {{/contentFor}}
+    {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton text="" }}
+    {{/contentFor}}
+    {{#contentFor "headerButtonRight"}}
+    <button class="button button-clear" data-ion-modal="_switchLanguage">{{> ionIcon icon="earth"}}</button>
+    {{/contentFor}}
 
 
-	{{#ionView}}
-		{{#ionContent class="padding voucher-details"}}
-			<div id="pages-campaigns-details" class="ui container">
-				<div class="header-navigation">
-					<h1>{{_ 'voucher' }} </h1>
-					<a class="back-chevron" href="{{ pathFor 'campaigns' }}">
-						<i class="icon-arrow-left ico-left"></i>
-					</a>
-				</div>
-				<div class="ui voucher-details">
-					{{# with FS.GetFile 'waslchiraa_images' item.imageId }}
-						{{showme this}}
-						<div class="panel-details panel-image">
-							<img class="ui centered image"
-								 src="{{ absoluteUrlNoSlash }}{{ this.url store='waslchiraa_thumbnails_x2' }}" alt=""/>
-						</div>
-					{{/ with }}
+    {{#ionView}}
+    {{#ionContent class="voucher-details"}}
+    <div class="image-container">
+        {{# with FS.GetFile 'waslchiraa_images' item.imageId }}
+        <img class="full-image"
+             src="{{ absoluteUrlNoSlash }}{{ this.url store='waslchiraa_thumbnails_x2' }}" alt=""/>
+        {{/ with }}
+    </div>
+    <div class="padding">
+        <div class="row">
+            <div class="col col-50">
+                {{# with getCategory item.categoryId }}
+                <h5>{{ translateField this "title" }}</h5>
+                {{/ with }}
+                <h2>
+                    <bdi>{{ translateField item "title" }}</bdi>
+                </h2>
+                <br>
+                {{# with getUser item.userId }}
+                {{#if item.companyName}}
+                <h3 class="headline text-negative"> {{ item.companyName }} </h3>
+                {{else}}
+                <h3 class="headline text-negative"> {{ profile.company }} </h3>
+                {{/ if}}
+                {{/ with }}
+                <a href="{{item.webAddress}}" target="_blank">{{item.webAddress}}</a>
+            </div>
+            <div class="col col-50">
+                <div class="headline voucher-description text-right">
+                    <p class="description-headline">
+                        {{#if isExpiredCampaign item._id}}
+                        <bdi>
+                            {{_ 'expired' }}
+                        </bdi>
+                        {{else}}
+                        <bdi>
+                            {{_ 'valid_until'}}
+                            <span class="description-text">{{formatDate item.end }}</span>
+                        </bdi>
+                        {{/if}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row panel-details">
+            <div class="col">
+                <div class="voucher-address">
+                    <p>
+                        <bdi>
+                            {{ item.street }} {{ item.number }}, {{ item.zipcode }} {{ item.city }}
+                            <br/>
+                            {{# if isCordova }}
+                            <a target="_blank" class="maps js-open-map" href="">
+                                {{_ 'check_on_maps'}}
+                            </a>
+                            {{ else }}
+                            <a target="_blank" class="maps" href="{{ getMapUrl item }}">
+                                {{_ 'check_on_maps'}}
+                            </a>
+                            {{/ if}}
+                        </bdi>
+                    </p>
+                </div>
+                <p class="text-description voucher-short-description">
+                    <bdi>{{ translateField item "shortDescription" }}</bdi>
+                </p>
+            </div>
+        </div>
 
-					<div class="panel-details">
-						<div class="ui right aligned grid">
-							<div class="left aligned six wide column ">
-								{{# with getCategory item.categoryId }}
-									<h5>{{ translateField this "title" }}</h5>
-								{{/ with }}
+        <div class="row panel-details {{#if isExpiredCampaign item._id}}last{{/if}}">
+            <div class="col">
+                <h5>
+                    <bdi>{{_ 'description' }}</bdi>
+                </h5>
+                <p>
+                    <bdi>{{ translateField item "description" }}</bdi>
+                </p>
+            </div>
+        </div>
 
-								<h2>
-									<bdi>{{ translateField item "title" }}</bdi>
-								</h2>
+        {{#unless isExpiredCampaign item._id}}
+        <div class="row panel-details last">
+            <div class="col">
+                <h5>
+                    <bdi>{{_ 'conditions' }}</bdi>
+                </h5>
+                <p>
+                    <bdi>{{{_ 'conditions_content' }}}</bdi>
+                </p>
 
-								<br>
-								{{# with getUser item.userId }}
-									{{#if item.companyName}}
-										<h3 class="headline voucher-shop"> {{ item.companyName }} </h3>
-									{{else}}
-										<h3 class="headline voucher-shop"> {{ profile.company }} </h3>
-									{{/ if}}
-								{{/ with }}
-								<a href="{{item.webAddress}}" target="_blank">{{item.webAddress}}</a>
-							</div>
-							<div class="right floated aligned six wide column">
-								<div class="headline voucher-description">
-									<p class="description-headline">
-										<bdi>
-											{{_ 'valid_until'}}
-											<span class="description-text">{{formatDate item.end }}</span>
-										</bdi>
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="voucher-address">
-							<p>
-								<bdi>
-									{{ item.street }} {{ item.number }}, {{ item.zipcode }} {{ item.city }}
-									<br/>
-									{{# if isCordova }}
-										<a target="_blank" class="maps js-open-map" href="">
-											{{_ 'check_on_maps'}}
-										</a>
-									{{ else }}
-										<a target="_blank" class="maps" href="{{ getMapUrl item }}">
-											{{_ 'check_on_maps'}}
-										</a>
-									{{/ if}}
-								</bdi>
-							</p>
-						</div>
-						<h2 class="short-description">
-							<bdi>{{ translateField item "shortDescription" }}</bdi>
-						</h2>
-
-					</div>
-					<div class="panel-details">
-						<h5>{{_ 'description' }}</h5>
-
-						<p>
-							<bdi>
-								{{ translateField item "description" }}
-							</bdi>
-						</p>
-
-					</div>
-					<div class="panel-details last">
-						<h5>{{_ 'conditions' }}</h5>
-						<p>
-							<bdi>
-								{{{_ 'conditions_content' }}}
-							</bdi>
-						</p>
-
-						<h5>{{_ 'special_conditions' }}</h5>
-						<p>
-							<bdi>
-								{{ translateField item "conditions" }}
-							</bdi>
-						</p>
-						{{#if isReservedByUser item._id  }}
-							<h3>{{_ 'reserved' }}</h3>
-							<button class="button button-positive button-block js-remove-voucher">
-								{{_ 'unreserve'}}
-							</button>
-						{{ else }}
-							{{#if hasAvailableVouchers item._id }}
-								{{#if currentUser}}
-									<button class="button button-negative button-block js-reserve-voucher" data-ion-modal="campaignDetailsModalConfirm">
-										{{_ 'reserve_voucher' }}
-									</button>
-								{{else}}
-									<button class="button button-negative button-block js-reserve-voucher" data-ion-modal="campaignDetailsModalLogin">
-										{{_ 'reserve_voucher' }}
-									</button>
-								{{/if}}
-							{{/if }}
-						{{/if }}
-					</div>
-				</div>
-			</div>
-		{{/ionContent}}
-	{{/ionView}}
-</template>
-<template name="campaignDetailsModalConfirm">
-	{{#ionModal title=""}}
-		<div class="header">
-			{{_ 'reserve_voucher' }}
-		</div>
-		<div class="content">
-			{{#if currentUser}}
-				{{{_ 'reserve_notice' email=currentUserEmail }}}
-			{{/if}}
-		</div>
-		<div class="actions">
-			<button class="button button-positive button-block  approve ">
-				{{_ 'yes' }}
-			</button>
-			<button class="button button-positive button-block" data-dismiss=modal>
-				{{_ 'cancel' }}
-			</button>
-		</div>
-	{{/ionModal}}
-</template>
-<template name="campaignDetailsModalConfirmed">
-
-	{{#ionModal title=""}}
-		<div class="header">
-			{{_ 'voucher_confirmed_header' }}
-		</div>
-		<div class="content">
-			{{{_ 'voucher_confirmed_text' code=voucherCode }}}
-				<!--{{#if currentUser}}-->
-			<!--{{{_ 'reserve_notice' email=currentUserEmail }}}-->
-				<!--{{/if}}-->
-		</div>
-		<div class="actions">
-			<div class="ui approve button">
-				{{_ 'my_vouchers' }}
-			</div>
-			<div class="ui cancel button">
-				{{_ 'Close' }}
-			</div>
-		</div>
-	{{/ionModal}}
-</template>
-<template name="campaignDetailsModalLogin">
-
-	{{#ionModal title=""}}
-		<div class="header">
-			{{_ 'reserve_unregistered_title' }}
-		</div>
-		<div class="content">
-			{{{_ 'reserve_unregistered_notice' }}}
-		</div>
-		<div class="actions">
-			<a href="{{pathFor 'profile'}}" class="button button-positive button-block "  data-dismiss=modal>
-				{{_ 'sign_in' }}
-			</a>
-			<a href="{{pathFor 'signup'}}" class="button button-positive button-block " data-dismiss=modal>
-				{{_ 'sign_up' }}
-			</a>
-		</div>
-	{{/ionModal}}
-
+                <h5>
+                    <bdi>{{_ 'special_conditions' }}</bdi>
+                </h5>
+                <p>
+                    <bdi>{{ translateField item "conditions" }}</bdi>
+                </p>
+            </div>
+        </div>
+        {{/unless}}
+    </div>
+    {{#unless isExpiredCampaign item._id}}
+    <div class="panel-buttons shadow-top">
+        {{#if isReservedByUser item._id }}
+            <div class="button-container">
+                <button class="button button-block success">
+                    {{_ 'reserved' }}
+                </button>
+            </div>
+            <div class="button-container">
+                <button class="button button-block primary js-remove-voucher">
+                    {{_ 'unreserve'}}
+                </button>
+            </div>
+        {{ else }}
+            {{#if hasAvailableVouchers item._id }}
+                {{#if currentUser}}
+                <div class="button-container">
+                    <button class="button button-block primary js-reserve-voucher" data-ion-modal="campaignDetailsModalConfirm">
+                        {{_ 'reserve_voucher' }}
+                    </button>
+                </div>
+                {{else}}
+                <div class="button-container">
+                    <button class="button button-block primary js-reserve-voucher" data-ion-modal="campaignDetailsModalLogin">
+                        {{_ 'reserve_voucher' }}
+                    </button>
+                </div>
+                {{/if}}
+            {{/if }}
+        {{/if }}
+    </div>
+    {{/unless}}
+    {{/ionContent}}
+    {{/ionView}}
 </template>

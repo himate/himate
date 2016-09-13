@@ -1,0 +1,64 @@
+h1, .h1 {
+  font-size: $headline-1-size;
+  font-weight: 700;
+}
+
+h2, .h2 {
+  font-size: $headline-2-size;
+  margin: 0;
+}
+
+h3, .h3 {
+  font-size: $headline-3-size;
+  margin: 0;
+}
+
+h4, .h4 {
+  font-size: $headline-4-size;
+}
+
+h5, .h5 {
+  font-size: $headline-5-size;
+}
+
+h6, .h6 {
+  font-size: ceil($font-size-base * 0.85);
+}
+
+h1, h2, h3, h4, h5,
+.h1, .h2, .h3, .h4, .h5 {
+  color: inherit;
+  font-family: $font-family-headlines !important;
+  text-transform: uppercase;
+  font-weight: bold !important;
+}
+
+
+p {
+  font-size: $font-size-base;
+  font-family: $font-family-text;
+  font-weight: 300;
+}
+
+a, a.positive {
+  color: $default-text-color;
+}
+
+
+.text-positive {
+  color: $positive;
+}
+
+.text-negative {
+  color: $negative;
+}
+
+.text-description {
+  font-family: $font-family-text;
+  font-weight: 300;
+  color: $inverted-color;
+}
+
+.text-center {
+  text-align: center;
+}

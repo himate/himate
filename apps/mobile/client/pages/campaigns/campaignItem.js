@@ -1,5 +1,0 @@
-Template.campaignItem.helpers({
-
-
-});
-

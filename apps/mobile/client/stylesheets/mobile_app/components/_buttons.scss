@@ -1,0 +1,49 @@
+$button-primary-bg-color:  $main-color;
+$button-success-bg-color:  $success;
+$button-text-size:         15px;
+
+.button-container {
+  height: 80px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  padding: 1em 1em;
+}
+
+
+.button {
+  color:  $base-background-color;
+  text-transform: uppercase;
+  font-family: $font-family-headlines;
+  font-weight: 600;
+  font-size: $button-text-size;
+  border-radius: $border-radius-base;
+  border: none;
+  background: transparent;
+
+  &:focus, &:hover, &.active:active, &.active:hover {
+    background: transparent;
+    color: $button-color;
+  }
+
+  &.primary, &.button-positive {
+    color: $default-text-color;
+    background-color: $button-primary-bg-color;
+    border: 1.5px solid $inverted-color;
+    border-radius: $border-radius-base;
+    &:focus, &:hover {
+      background-color: $button-primary-bg-color;
+    }
+  }
+  &.success {
+    color: $base-background-color;
+    background-color:$button-success-bg-color;
+
+  }
+  &.default, &.button-default {
+    color:  $button-color;
+    border: 1.5px solid $button-color;
+    font-weight: 400;
+    background: transparent;
+  }
+}

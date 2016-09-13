@@ -12,9 +12,6 @@ Template.campaignDetails.helpers({
     },
     voucher:function(){
         return HiMate.Helpers.customers.campaigns.voucher.call(this);
-    },
-    showme:function (item) {
-        console.log(item);
     }
 });
 
@@ -24,7 +21,7 @@ Template.campaignDetails.events({
      * @param {Object} event
      * @param {Object} template
      */
-    'click .js-reserve-voucher-ol': function (event, template) {
+    'click .js-reserve-voucher': function (event, template) {
         var $modalVoucherConfirmed = $('.modal.voucher-confirmed')
             .modal({
                 closable: true,
@@ -132,7 +129,7 @@ Template.campaignDetails.events({
 
 
 Template.campaignDetailsModalConfirm.events({
-    "click .approve":function () {
+    "click .js-approve":function () {
         var campaign = HiMate.Collections.Campaigns.findOne(Router.current().params._id);
         if (campaign) {
             var vouchercode = Meteor.call('vouchers_reserve', campaign._id.toString(), function (err, data) {
@@ -148,10 +145,10 @@ Template.campaignDetailsModalConfirm.events({
             });
         }
     }
-})
+});
 
 Template.campaignDetailsModalLogin.events({
-    "click .approve":function () {
+    "click .js-approve":function () {
         var campaign = HiMate.Collections.Campaigns.findOne(Router.current().params._id);
         if (campaign) {
             var vouchercode = Meteor.call('vouchers_reserve', campaign._id.toString(), function (err, data) {
@@ -167,4 +164,4 @@ Template.campaignDetailsModalLogin.events({
             });
         }
     }
-})
+});

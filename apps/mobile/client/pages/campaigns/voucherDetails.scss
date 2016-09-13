@@ -1,0 +1,30 @@
+.voucher-description {
+  margin-left: 10%;
+
+  .description-headline {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+}
+
+.voucher-address {
+  margin: 20px 0;
+}
+
+.voucher-short-description {
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+.panel-details {
+  min-height: 180px;
+  border-bottom: 1px solid #979797;
+  &.last {
+    border: none;
+  }
+}
+
+.panel-buttons {
+  margin-bottom: 60px;
+}

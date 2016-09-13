@@ -1,0 +1,62 @@
+<template name="campaignDetailsModalConfirm">
+    {{#ionModal title=""}}
+    <div class="header item item-reverted text-center">
+        {{_ 'reserve_voucher' }}
+    </div>
+    <div class="content padding text-center">
+        {{#if currentUser}}
+        {{{_ 'reserve_notice' email=currentUserEmail }}}
+        {{/if}}
+    </div>
+    <div class="actions button-container row">
+        <button class="button button-positive col col-50 js-approve">
+            {{_ 'yes' }}
+        </button>
+        <button class="button button-default col col-50" data-dismiss=modal>
+            {{_ 'cancel' }}
+        </button>
+    </div>
+    {{/ionModal}}
+</template>
+<template name="campaignDetailsModalConfirmed">
+
+    {{#ionModal title=""}}
+    <div class="header item item-reverted text-center">
+        {{_ 'voucher_confirmed_header' }}
+    </div>
+    <div class="content padding text-center">
+        {{{_ 'voucher_confirmed_text' code=voucherCode }}}
+        <!--{{#if currentUser}}-->
+        <!--{{{_ 'reserve_notice' email=currentUserEmail }}}-->
+        <!--{{/if}}-->
+    </div>
+    <div class="actions button-container row">
+        <div class="button button-positive col col-50 js-approve">
+            {{_ 'my_vouchers' }}
+        </div>
+        <div class="button button-default col col-50" data-dismiss=modal>
+            {{_ 'Close' }}
+        </div>
+    </div>
+    {{/ionModal}}
+</template>
+<template name="campaignDetailsModalLogin">
+
+    {{#ionModal title=""}}
+    <div class="header item item-reverted text-center">
+        {{_ 'reserve_unregistered_title' }}
+    </div>
+    <div class="content padding text-center">
+        {{{_ 'reserve_unregistered_notice' }}}
+    </div>
+    <div class="actions button-container">
+        <a href="{{pathFor 'profile'}}" class="button button-positive button-block "  data-dismiss=modal>
+            {{_ 'sign_in' }}
+        </a>
+        <a href="{{pathFor 'signup'}}" class="button button-positive button-block " data-dismiss=modal>
+            {{_ 'sign_up' }}
+        </a>
+    </div>
+    {{/ionModal}}
+
+</template>

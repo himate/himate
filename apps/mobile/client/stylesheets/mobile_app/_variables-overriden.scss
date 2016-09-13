@@ -10,14 +10,19 @@ $balanced:                        #33cd5f !default;
 $energized:                       #ffc900 !default;
 $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
-$dark:                            #444 !default;
-
+$dark:                            #444444 !default;
+$success:                         #49D5B9 !default;
 $negative:                        #444A59 !default;
 $default-base:                    #7F7F7F !default;
 
 $main-color: $positive;
 $inverted-color : $negative;
 $default-text-color: $default-base;
+
+$inverted-bg-color:        #F2F2F2;
+$inactive-text-color:      #AAAAAA;
+$lighter-text-color:       #D8D8D8;
+$inactive-bg-color:        #F2F2F2;
 
 // Base
 // -------------------------------
@@ -32,7 +37,7 @@ $font-family-text:                "Lato", sans-serif;
 
 
 $font-family-base:                $font-family-light-sans-serif !default;
-$font-size-base:                  14px !default;
+$font-size-base:                  15px !default;
 $font-size-large:                 18px !default;
 $font-size-small:                 11px !default;
 
@@ -62,11 +67,12 @@ $padding-large-horizontal:        16px !default;
 $padding-small-vertical:          5px !default;
 $padding-small-horizontal:        10px !default;
 
-$border-radius-base:              4px !default;
-$border-radius-large:             6px !default;
-$border-radius-small:             3px !default;
+$border-radius-base:              7px !default;
+$border-radius-large:             10px !default;
+$border-radius-small:             4px !default;
 
-
+$border-color-base:                #979797;
+$border-base:                     none;
 // Content
 // -------------------------------
 
@@ -76,7 +82,7 @@ $scroll-refresh-icon-color:       #666666 !default;
 // Buttons
 // -------------------------------
 
-$button-color:                    #222 !default;
+$button-color:                    #696969 !default;
 $button-block-margin:             10px !default;
 $button-clear-padding:            6px !default;
 $button-border-radius:            2px !default;
@@ -768,3 +774,15 @@ $z-index-click-block:             99999 !default;
 // -------------------------------
 
 $ios-statusbar-height:           20px !default;
+
+// Types
+// -------------------------------
+$headline-1-size:          18px;
+$headline-2-size:          16px;
+$headline-3-size:          14px;
+$headline-4-size:          12px;
+$headline-5-size:          11px;
+
+$text-base-size:           15px;
+$link-base-size:           11px;
+$label-base-size:          10px;
