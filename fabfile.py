@@ -1,6 +1,8 @@
 from fabric.api import (sudo, put, local, run)
 from fabric.context_managers import (lcd, shell_env)
 
+import re
+
 
 BUILD_DIR = 'cur_build'
 
@@ -21,6 +23,9 @@ def build_branch(branch_name, app_type, release='1.3.3'):
 
 
 def build_image(branch_name, app_type, hub, repo, hub_user, hub_pass):
+    branch_name = re.sub('origin/', '', branch_name)
+    branch_name = re.sub(r'\W', '-', branch_name)
+
     put('.docker/Dockerfile', 'Dockerfile')
     put('%s/%s.tar.gz' % (BUILD_DIR, app_type), '%s.tar.gz' % (app_type))
     run('mkdir -p %s' % (app_type))
