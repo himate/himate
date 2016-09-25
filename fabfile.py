@@ -1,4 +1,5 @@
 from fabric.api import (sudo, local)
+from fabric.context_managers import lcd
 
 
 def _docker_login(user, password, domain):
@@ -11,5 +12,6 @@ def _docker_logout(domain):
     sudo('docker logout %s' % (domain))
 
 
-def build_meteor_branch(branch_name, release='1.3.3'):
-    local('meteor --release %s build build' % (release))
+def build_meteor_branch(branch_name, app_type, release='1.3.3'):
+    with lcd('apps/%s' % (app_type)):
+        local('meteor --release %s build build' % (release))
