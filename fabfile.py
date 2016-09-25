@@ -21,7 +21,7 @@ def build_branch(branch_name, app_type, release='1.3.3'):
 
 
 def build_image(branch_name, app_type, hub, repo, hub_user, hub_pass):
-    put('Dockerfile', 'Dockerfile')
+    put('.docker/Dockerfile', 'Dockerfile')
     put('%s/%s.tar.gz' % (BUILD_DIR, app_type), '%s.tar.gz' % (app_type))
     run('tar -xf %s.tar.gz -C %s' % (app_type, app_type))
     sudo('docker build -t %s/%s:%s-SNAPSHOT .' % (hub, repo, branch_name))
