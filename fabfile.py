@@ -13,6 +13,5 @@ def _docker_logout(domain):
 
 
 def build_meteor_branch(branch_name, app_type, release='1.3.3'):
-    with shell_env(PACKAGE_DIRS='packages'):
-        with lcd('apps/%s' % (app_type)):
-            local('meteor --release %s build ../../cur_build' % (release))
+    with lcd('apps/%s' % (app_type)), shell_env(PACKAGE_DIRS='../../packages'):
+        local('meteor --release %s build ../../cur_build' % (release))
