@@ -14,6 +14,7 @@ Meteor.startup(function() {
                 "de":'DEUTSCH: Lorem ipsum dolor',
                 "en":'ENGLISH: Lorem ipsum dolor',
                 "ar":'ARABIC: Lorem ipsum dolor',
+                "fr":'FRANCAIS: Lorem ipsom dolor'
             },
             "categoryId": c._id,
             "userId": u._id,
@@ -24,16 +25,19 @@ Meteor.startup(function() {
                 "de":"DEUTSCH: Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
                 "en":"ENGLISH: Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
                 "ar":"ARABIC: Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+                "fr":"FRANCAIS: Lorem ipsum dolor sit amet, consectetur adipisicing elit."
             },
             description: {
                 "de":"DEUTSCH: Lorem ipsum dolor sit amet, consectetur adipisicing elit, ",
                 "en":"ENGLISH: Lorem ipsum dolor sit amet, consectetur adipisicing elit, ",
                 "ar":"ARABIC: Lorem ipsum dolor sit amet, consectetur adipisicing elit, ",
+                "fr":"FRANCAIS: Lorem ipsum dolor sit amet, consectetur adipisicing elit."
             },
             conditions:{
                 "de":"DEUTSCH: Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
                 "en":"ENGLISH: Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
                 "ar":"ARABIC: Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+                "fr":"FRANCAIS: Lorem ipsum dolor sit amet, consectetur adipisicing elit."
             },
             quantity: 10,
             street: 'Street',
