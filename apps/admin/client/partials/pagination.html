@@ -1,0 +1,20 @@
+<template name="pagination">
+    <div class="ui grid">
+        <div class="two column row">
+            <div class="left floated column">
+                <div class="ui celled horizontal list">
+                    {{# each page in pages}}
+                        {{{ page }}}
+                    {{/each}}
+                </div>
+            </div>
+            <div class="right aligned column">
+                <select class="ui dropdown" id="pageSize">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</template>

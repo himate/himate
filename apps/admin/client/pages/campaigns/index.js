@@ -10,16 +10,30 @@ Template.pages_campaigns.helpers({
      */
     campaigns: function() {
         var filter = {};
+        var options = {
+            sort: {
+                published: -1
+            }
+        };
+
+        var pageNumber = Session.get('pagination_page');
+        var pageSize = Session.get('pagination_page_size');
+
+        if (typeof pageNumber !== 'undefined') {
+            options.limit = pageSize;
+            options.skip = pageNumber * pageSize;
+        }
+
         var locale = TAPi18n.getLanguage();
         if (Session.get('query')) {
             filter["title." + locale] = new RegExp(Session.get('query'), "gi");
         }
 
-        return HiMate.Collections.Campaigns.find(filter, {
-            sort: {
-                published: -1
-            }
-        });
+        return HiMate.Collections.Campaigns.find(filter, options);
+    },
+
+    dataCursor: function() {
+        return HiMate.Collections.Campaigns.find();
     }
 });
 

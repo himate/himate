@@ -10,14 +10,29 @@ Template.pages_users.helpers({
      */
     users: function() {
         var filter = {};
-        if (Session.get('query')) {
-            filter.username = new RegExp(Session.get('query'), "gi");
-        }
-        return Meteor.users.find(filter, {
+        var options = {
             sort: {
                 createdAt: 1
             }
-        });
+        };
+
+        var pageNumber = Session.get('pagination_page');
+        var pageSize = Session.get('pagination_page_size');
+
+        if (typeof pageNumber !== 'undefined') {
+            options.limit = pageSize;
+            options.skip = pageNumber * pageSize;
+        }
+
+
+        if (Session.get('query')) {
+            filter.username = new RegExp(Session.get('query'), "gi");
+        }
+        return Meteor.users.find(filter, options);
+    },
+
+    dataCursor: function() {
+        return Meteor.users.find();
     },
 
     /**
