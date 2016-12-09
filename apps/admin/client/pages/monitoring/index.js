@@ -139,6 +139,20 @@ Template.pages_monitoring.helpers({
      */
     activities: function() {
         var filter = {};
+        var options = {
+            sort: {
+                created: -1
+            }
+        };
+
+        var pageNumber = Session.get('pagination_page');
+        var pageSize = Session.get('pagination_page_size');
+
+        if (typeof pageNumber !== 'undefined') {
+            options.limit = pageSize;
+            options.skip = pageNumber * pageSize;
+        }
+
         if (Session.get('query')) {
             filter["$or"] = [];
             filter["$or"].push({
@@ -155,11 +169,11 @@ Template.pages_monitoring.helpers({
             });
         }
 
-        return HiMate.Collections.Activities.find(filter, {
-            sort: {
-                created: -1
-            }
-        });
+        return HiMate.Collections.Activities.find(filter, options);
+    },
+
+    dataCursor: function() {
+        return HiMate.Collections.Activities.find();
     },
 
     /**

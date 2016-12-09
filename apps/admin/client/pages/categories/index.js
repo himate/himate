@@ -10,14 +10,28 @@ Template.pages_categories.helpers({
      */
     categories: function() {
         var filter = {};
+        var options = {};
+
+        var pageNumber = Session.get('pagination_page');
+        var pageSize = Session.get('pagination_page_size');
+
+        if (typeof pageNumber !== 'undefined') {
+            options.limit = pageSize;
+            options.skip = pageNumber * pageSize;
+        }
+
         var locale = TAPi18n.getLanguage();
         if (Session.get('query')) {
             filter["title." + locale] = new RegExp(Session.get('query'), "gi");
             //filter["title"] = new RegExp(Session.get('query'), "gi");
         }
 
-        return HiMate.Collections.Categories.find(filter);
+        return HiMate.Collections.Categories.find(filter, options);
     },
+
+    dataCursor: function() {
+        return HiMate.Collections.Categories.find();
+    }
 
     /**
      *
