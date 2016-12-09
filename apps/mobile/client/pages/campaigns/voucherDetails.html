@@ -1,0 +1,149 @@
+<template name="campaignDetails">
+    {{#contentFor "headerTitle"}}
+    <h1 class="title">
+        <bdi>{{_ 'voucher' }}</bdi>
+    </h1>
+    {{/contentFor}}
+    {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton text="" }}
+    {{/contentFor}}
+    {{#contentFor "headerButtonRight"}}
+    <button class="button button-clear" data-ion-modal="_switchLanguage">{{> ionIcon icon="earth"}}</button>
+    {{/contentFor}}
+
+
+    {{#ionView}}
+    {{#ionContent class="voucher-details"}}
+    <div class="image-container">
+        {{# with FS.GetFile 'waslchiraa_images' item.imageId }}
+        <img class="full-image"
+             src="{{ absoluteUrlNoSlash }}{{ this.url store='waslchiraa_thumbnails_x2' }}" alt=""/>
+        {{/ with }}
+    </div>
+    <div class="padding">
+        <div class="row">
+            <div class="col col-50">
+                {{# with getCategory item.categoryId }}
+                <h5>{{ translateField this "title" }}</h5>
+                {{/ with }}
+                <h2>
+                    <bdi>{{ translateField item "title" }}</bdi>
+                </h2>
+                <br>
+                {{# with getUser item.userId }}
+                {{#if item.companyName}}
+                <h3 class="headline text-negative"> {{ item.companyName }} </h3>
+                {{else}}
+                <h3 class="headline text-negative"> {{ profile.company }} </h3>
+                {{/ if}}
+                {{/ with }}
+                <a href="{{item.webAddress}}" target="_blank">{{item.webAddress}}</a>
+            </div>
+            <div class="col col-50">
+                <div class="headline voucher-description text-right">
+                    <p class="description-headline">
+                        {{#if isExpiredCampaign item._id}}
+                        <bdi>
+                            {{_ 'expired' }}
+                        </bdi>
+                        {{else}}
+                        <bdi>
+                            {{_ 'valid_until'}}
+                            <span class="description-text">{{formatDate item.end }}</span>
+                        </bdi>
+                        {{/if}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row panel-details">
+            <div class="col">
+                <div class="voucher-address">
+                    <p>
+                        <bdi>
+                            {{ item.street }} {{ item.number }}, {{ item.zipcode }} {{ item.city }}
+                            <br/>
+                            {{# if isCordova }}
+                            <a target="_blank" class="maps js-open-map" href="">
+                                {{_ 'check_on_maps'}}
+                            </a>
+                            {{ else }}
+                            <a target="_blank" class="maps" href="{{ getMapUrl item }}">
+                                {{_ 'check_on_maps'}}
+                            </a>
+                            {{/ if}}
+                        </bdi>
+                    </p>
+                </div>
+                <p class="text-description voucher-short-description">
+                    <bdi>{{ translateField item "shortDescription" }}</bdi>
+                </p>
+            </div>
+        </div>
+
+        <div class="row panel-details {{#if isExpiredCampaign item._id}}last{{/if}}">
+            <div class="col">
+                <h5>
+                    <bdi>{{_ 'description' }}</bdi>
+                </h5>
+                <p>
+                    <bdi>{{ translateField item "description" }}</bdi>
+                </p>
+            </div>
+        </div>
+
+        {{#unless isExpiredCampaign item._id}}
+        <div class="row panel-details last">
+            <div class="col">
+                <h5>
+                    <bdi>{{_ 'conditions' }}</bdi>
+                </h5>
+                <p>
+                    <bdi>{{{_ 'conditions_content' }}}</bdi>
+                </p>
+
+                <h5>
+                    <bdi>{{_ 'special_conditions' }}</bdi>
+                </h5>
+                <p>
+                    <bdi>{{ translateField item "conditions" }}</bdi>
+                </p>
+            </div>
+        </div>
+        {{/unless}}
+    </div>
+    {{#unless isExpiredCampaign item._id}}
+    <div class="panel-buttons shadow-top">
+        {{#if isReservedByUser item._id }}
+            <div class="button-container">
+                <button class="button button-block success">
+                    {{_ 'reserved' }}
+                </button>
+            </div>
+            <div class="button-container">
+                <button class="button button-block primary js-remove-voucher">
+                    {{_ 'unreserve'}}
+                </button>
+            </div>
+        {{ else }}
+            {{#if hasAvailableVouchers item._id }}
+                {{#if currentUser}}
+                <div class="button-container">
+                    <button class="button button-block primary js-reserve-voucher" data-ion-modal="campaignDetailsModalConfirm">
+                        {{_ 'reserve_voucher' }}
+                    </button>
+                </div>
+                {{else}}
+                <div class="button-container">
+                    <button class="button button-block primary js-reserve-voucher" data-ion-modal="campaignDetailsModalLogin">
+                        {{_ 'reserve_voucher' }}
+                    </button>
+                </div>
+                {{/if}}
+            {{/if }}
+        {{/if }}
+    </div>
+    {{/unless}}
+    {{/ionContent}}
+    {{/ionView}}
+</template>

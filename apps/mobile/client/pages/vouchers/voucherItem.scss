@@ -1,0 +1,18 @@
+.item-voucher {
+  .item-small-text {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 0;
+    display: block;
+
+    &.redeemed {
+      color: #49D5B9;
+    }
+    &.reserved {
+      color: #FFD130;
+    }
+    &.timedout {
+      color: #C64F46;
+    }
+  }
+}

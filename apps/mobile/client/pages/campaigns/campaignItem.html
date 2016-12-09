@@ -1,0 +1,35 @@
+<template name="campaignItem">
+<div class="background-image {{#unless isExpiredCampaign this._id}} js-voucher{{/unless}} {{#if isExpiredCampaign this._id}} grayed-out {{/if}}"
+	 style="{{# with FS.GetFile 'waslchiraa_images' imageId }} background: url('{{ absoluteUrlNoSlash }}{{ this.url store='waslchiraa_thumbnails_x2'}}'){{/ with }};background-size: 100%;background-position: center;">
+    {{#ionItem path="campaign.details" buttonRight=true class="item-icon-right item-background-image"}}
+
+    <div class="row">
+        <div class="col col-50 full-width">
+            <h2>{{ translateField this "title" }}</h2>
+            <p class="link">{{ street }} {{ number }}, {{ zipcode }} {{ city }}</p>
+        </div>
+        <div class="col col-50 text-right full-width">
+            <p> <span class="headline">{{_ 'valid_until' }}</span><br>
+                <span>{{formatDate end }}</span>
+            </p>
+            <p>
+                {{#if isExpiredCampaign this._id}}
+                <span class="headline">{{_ 'expired' }}</span>
+                {{else}}
+                <span class="headline">{{_ 'available' }}</span>
+
+                <br>
+
+                <span>
+                    <bdi>{{ available }}</bdi>
+                </span>
+                {{/if}}
+            </p>
+        </div>
+    </div>
+    {{#unless isExpiredCampaign this._id}}
+    {{> ionIcon icon="ios-arrow-forward" class="positive"}}
+    {{/unless}}
+    {{/ionItem}}
+</div>
+</template>

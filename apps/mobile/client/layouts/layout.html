@@ -1,0 +1,18 @@
+<template name="layout">
+    {{#ionBody}}
+        {{> ionNavBar class="bar-positive"}}
+        {{#ionNavView}}
+			{{> yield}}
+			{{#ionTabs class="tabs-positive tabs-stable tabs-bottom tabs-icon-top js-tabs-bar" }}
+				{{> ionTab title="Campaigns" path="campaigns" iconOff="navicon-round" iconOn="navicon-round"}}
+            {{# if currentUser }}
+                {{> ionTab title="Vouchers" path="vouchers" iconOff="asterisk" iconOn="asterisk"}}
+            {{ else }}
+                {{> ionTab title="Profile" path="profile" iconOff="person" iconOn="person"}}
+            {{/if}}
+                {{> ionTab title="Information" path="info" iconOff="information-circled" iconOn="information-circled"}}
+
+            {{/ionTabs}}
+		{{/ionNavView}}
+    {{/ionBody}}
+</template>

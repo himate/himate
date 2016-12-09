@@ -1,0 +1,39 @@
+<template name="vouchers">
+    {{#contentFor "headerTitle"}}
+    <h1 class="title">{{_ 'my_vouchers' }}</h1>
+    {{/contentFor}}
+    {{#contentFor "headerButtonRight"}}
+    <button class="button button-clear" data-ion-modal="_switchLanguage">{{> ionIcon icon="earth"}}</button>
+    {{/contentFor}}
+
+    {{#ionView}}
+    {{#ionContent}}
+
+    {{#ionList}}
+        {{# if currentUser }}
+        {{#ionItem id="user" class="item-reverted text-center" }}
+        <h3><bdi>{{_ 'logged_as' }}: {{ truncateEmail currentUser.username }}</bdi></h3>
+        {{/ionItem}}
+        {{/if}}
+
+
+        {{# each vouchers }}
+            {{> voucherItem}}
+        {{/ each}}
+
+    {{/ionList}}
+
+        {{# if currentUser }}
+        <div class="panel-buttons shadow-top fixed-bottom">
+            <div class="button-container">
+                <a class="at-btn button primary button-block submit active" href="{{pathFor 'signOut' }}">{{_ 'logout' }}</a>
+            </div>
+        </div>
+        {{/ if }}
+
+    {{/ionContent}}
+    {{/ionView}}
+</template>
+
+
+

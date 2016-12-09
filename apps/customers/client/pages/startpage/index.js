@@ -1,17 +1,21 @@
+/**
+ * THIS TEMPLATE IS NOT IN USE ANYMORE AND CAN BE DELETED
+ *
+ */
+
+
 Template.pages_startpage.events({
-
-
     /**
      *
      */
-    'click .locale-change': function(event, template) {
+    'click .locale-change': function (event, template) {
         HiMate.Helpers.setLanguage(this.tag);
         return HiMate.Helpers.cancel(event);
     },
     /**
      *
      */
-    'touchstart .locale-change': function(event, template) {
+    'touchstart .locale-change': function (event, template) {
         HiMate.Helpers.setLanguage(this.tag);
         return HiMate.Helpers.cancel(event);
     }
@@ -20,7 +24,7 @@ Template.pages_startpage.events({
 /**
  * called each the the template is rendered
  */
-Template.pages_startpage.onRendered(function() {
+Template.pages_startpage.onRendered(function () {
     $('#pages-startpage .js-dropdown').dropdown();
 });
 

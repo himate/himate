@@ -1,0 +1,26 @@
+.bar.bar-positive, .tabs-positive {
+  * , .title {
+    color: $inverted-color;
+  }
+}
+
+.fixed-bottom {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
+
+/**** resetting android stuff ****/
+
+//centring title
+.bar .title.title-left {
+  text-align: center !important;
+}
+
+//removing extra space in content
+.has-tabs-top {
+  top: $bar-height !important;
+}
+
+/*******************************/

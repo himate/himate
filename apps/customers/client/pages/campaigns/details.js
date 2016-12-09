@@ -9,19 +9,13 @@ Template.pages_campaigns_details.helpers({
      * @reactive
      */
     item: function () {
-        var result = HiMate.Collections.Campaigns.findOne({
-            _id: Router.current().params._id
-        });
-        return result;
+        return HiMate.Helpers.customers.campaigns.item.call(this);
     },
     voucherCode: function () {
-        return Session.get("voucherCode");
+        return HiMate.Helpers.customers.campaigns.voucherCode.call(this);
     },
     voucher:function(){
-        return HiMate.Collections.Vouchers.findOne({
-            campaignId: this._id,
-            userId: Meteor.userId()
-        })
+        return HiMate.Helpers.customers.campaigns.voucher.call(this);
     }
 });
 

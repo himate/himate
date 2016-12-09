@@ -10,7 +10,7 @@ AccountsTemplates.configure({
     showPlaceholders: true,
 
     sendVerificationEmail: true,
-    enforceEmailVerification:true,
+    enforceEmailVerification:false,
     // Behaviours
     confirmPassword: true,
     enablePasswordChange: false,
