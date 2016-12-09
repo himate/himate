@@ -25,7 +25,8 @@ Meteor.startup(function() {
             "title": {
                 en:"Fashion",
                 de: "Mode",
-                ar:" موضة "
+                ar:" موضة ",
+                fr: "Mode"
             }
         });
 
@@ -34,7 +35,8 @@ Meteor.startup(function() {
             "title": {
                 en:"DIY",
                 de: "DIY",
-                ar:"افعلها بنفسك"
+                ar:"افعلها بنفسك",
+                fr: "Bricolage"
             }
         });
 
@@ -43,7 +45,8 @@ Meteor.startup(function() {
             "title": {
                 en:"Food",
                 de: "Lebensmittel",
-                ar:"طعام"
+                ar:"طعام",
+                fr: "Aliments"
             }
         });
 
@@ -52,7 +55,8 @@ Meteor.startup(function() {
             "title":{
                 en:"Furniture",
                 de: "Möbel",
-                ar:"أثاث"
+                ar:"أثاث",
+                fr: "Meubles"
             }
         });
 
@@ -61,7 +65,8 @@ Meteor.startup(function() {
             "title": {
                 en:"Household",
                 de: "Möbel",
-                ar:" المنزلية "
+                ar:" المنزلية ",
+                fr: "Ménage"
             }
         });
 
