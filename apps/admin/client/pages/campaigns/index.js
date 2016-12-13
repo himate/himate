@@ -8,21 +8,15 @@ Template.pages_campaigns.helpers({
      * return all campaigns
      * @reactive
      */
-    campaigns: function() {
+    campaigns: function(paginationOptions) {
         var filter = {};
-        var options = {
+        var campaignsOptions = {
             sort: {
                 published: -1
             }
         };
 
-        var pageNumber = Session.get('pagination_page');
-        var pageSize = Session.get('pagination_page_size');
-
-        if (typeof pageNumber !== 'undefined') {
-            options.limit = pageSize;
-            options.skip = pageNumber * pageSize;
-        }
+        var options = Object.assign({}, campaignsOptions, paginationOptions);
 
         var locale = TAPi18n.getLanguage();
         if (Session.get('query')) {

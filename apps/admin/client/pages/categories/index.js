@@ -8,17 +8,11 @@ Template.pages_categories.helpers({
      * return all categories
      * @reactive
      */
-    categories: function() {
+    categories: function(paginationOptions) {
         var filter = {};
-        var options = {};
+        var categoriesOptions = {};
 
-        var pageNumber = Session.get('pagination_page');
-        var pageSize = Session.get('pagination_page_size');
-
-        if (typeof pageNumber !== 'undefined') {
-            options.limit = pageSize;
-            options.skip = pageNumber * pageSize;
-        }
+        var options = Object.assign({}, categoriesOptions, paginationOptions);
 
         var locale = TAPi18n.getLanguage();
         if (Session.get('query')) {

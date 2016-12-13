@@ -8,22 +8,15 @@ Template.pages_users.helpers({
      * return all users
      * @reactive
      */
-    users: function() {
+    users: function(paginationOptions) {
         var filter = {};
-        var options = {
+        var usersOptions = {
             sort: {
                 createdAt: 1
             }
         };
 
-        var pageNumber = Session.get('pagination_page');
-        var pageSize = Session.get('pagination_page_size');
-
-        if (typeof pageNumber !== 'undefined') {
-            options.limit = pageSize;
-            options.skip = pageNumber * pageSize;
-        }
-
+        var options = Object.assign({}, usersOptions, paginationOptions);
 
         if (Session.get('query')) {
             filter.username = new RegExp(Session.get('query'), "gi");
