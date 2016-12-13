@@ -66,3 +66,18 @@ Template.pagination.helpers({
         return pages;
    }
 });
+
+// provides a global helper function to load the paginationOptions
+Template.registerHelper('paginationOptions', function() {
+    var options = {};
+
+    var pageNumber = Session.get('pagination_page');
+    var pageSize = Session.get('pagination_page_size');
+
+    if (typeof pageNumber !== 'undefined' && typeof pageSize != 'undefined') {
+        options.limit = pageSize;
+        options.skip = pageNumber * pageSize;
+    }
+
+    return options;
+});

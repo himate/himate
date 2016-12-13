@@ -8,21 +8,15 @@ Template.pages_vouchers.helpers({
      * return data for current voucher
      * @reactive
      */
-    codes: function() {
+    codes: function(paginationOptions) {
         var filter = {};
-        var options = {
+        var codesOptions = {
             sort: {
                 redeemed: -1
             }
         };
 
-        var pageNumber = Session.get('pagination_page');
-        var pageSize = Session.get('pagination_page_size');
-
-        if (typeof pageNumber !== 'undefined') {
-            options.limit = pageSize;
-            options.skip = pageNumber * pageSize;
-        }
+        var options = Object.assign({}, codesOptions, paginationOptions);
 
         if (Session.get('query')) {
             filter['code'] = new RegExp(Session.get('query'), "gi");

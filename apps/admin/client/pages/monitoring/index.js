@@ -137,21 +137,15 @@ Template.pages_monitoring.helpers({
     /**
      *
      */
-    activities: function() {
+    activities: function(paginationOptions) {
         var filter = {};
-        var options = {
+        var activitiesOptions = {
             sort: {
                 created: -1
             }
         };
 
-        var pageNumber = Session.get('pagination_page');
-        var pageSize = Session.get('pagination_page_size');
-
-        if (typeof pageNumber !== 'undefined') {
-            options.limit = pageSize;
-            options.skip = pageNumber * pageSize;
-        }
+        var options = Object.assign({}, activitiesOptions, paginationOptions);
 
         if (Session.get('query')) {
             filter["$or"] = [];
